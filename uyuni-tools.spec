@@ -58,10 +58,15 @@ tar -zxf %{SOURCE1}
 export GOFLAGS=-mod=vendor
 %goprep %{provider_prefix}
 go build -o ./bin ./uyuniadm/ 
+go build -o ./bin ./uyunictl/ 
 
 %install
 install -m 0755 -vd                     %{buildroot}%{_bindir}
 install -m 0755 -vp ./bin/* %{buildroot}%{_bindir}/
+mkdir -p %{buildroot}%{_sysconfdir}/%{project}/
+install -m 0755 -vp ./uyuniadm/options.json  %{buildroot}%{_sysconfdir}/%{project}/options.json
+mkdir -p %{buildroot}%{_sharedstatedir}/%{project}/
+install -m 0755 -vp ./uyuniadm/setup-migration-container.sh %{buildroot}%{_sharedstatedir}/%{project}/setup-migration-container.sh
 
 %gofilelist
 
@@ -70,10 +75,14 @@ install -m 0755 -vp ./bin/* %{buildroot}%{_bindir}/
 %files
 
 %defattr(-,root,root)
+%dir %{_sysconfdir}/%{project}/
+%dir %{_sharedstatedir}/%{project}/
 %doc README.md
 %license LICENSE
-%{_bindir}/uyuni-tools
 
-%config(noreplace) %{_sysconfdir}/uyuni-tools/options.json
+/usr/bin/uyuniadm
+/usr/bin/uyunictl
+%config(noreplace) %{_sysconfdir}/%{project}/options.json
+%config(noreplace) %{_sharedstatedir}/%{project}/setup-migration-container.sh
 
 %changelog
