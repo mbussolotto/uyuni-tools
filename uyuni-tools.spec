@@ -32,6 +32,7 @@ URL:            https://%{provider_prefix}
 Source0:        %{name}-%{version}.tar.gz
 Source1:        vendor.tar.gz
 BuildRequires:  golang-packaging
+BuildRequires:  coreutils
 %if 0%{?rhel}
 BuildRequires:  golang >= 1.18
 %else
