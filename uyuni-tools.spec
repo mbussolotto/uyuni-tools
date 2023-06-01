@@ -40,10 +40,10 @@ BuildRequires:  golang(API) = 1.18
 %endif
 BuildRequires:  rsyslog
 
-Requires:       gpgme
-Requires:       libbtrfs-devel
-Requires:       libassuan
-Requires:       libgpgme-devel
+BuildRequires:       gpgme
+BuildRequires:       device-mapper-devel
+BuildRequires:       libbtrfs-devel
+BuildRequires:       libgpgme-devel
 
 
 %description
@@ -57,7 +57,7 @@ tar -zxf %{SOURCE1}
 %build
 export GOFLAGS=-mod=vendor
 %goprep %{provider_prefix}
-%gobuild -o ./bin/$(basename $cmd) %{goipath}/$cmd
+go build -o ./bin ./uyuniadm/ 
 
 %install
 install -m 0755 -vd                     %{buildroot}%{_bindir}
