@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rs/zerolog/log"
+	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 	"github.com/uyuni-project/uyuni-tools/uyuniadm/shared/ssl"
 	cmd_utils "github.com/uyuni-project/uyuni-tools/uyuniadm/shared/utils"
@@ -11,7 +12,7 @@ import (
 
 const HELM_APP_NAME = "uyuni"
 
-func Deploy(cnx *utils.Connection, imageFlags *cmd_utils.ImageFlags,
+func Deploy(cnx *utils.Connection, imageFlags *types.ImageFlags,
 	helmFlags *cmd_utils.HelmFlags, sslFlags *cmd_utils.SslCertFlags, clusterInfos *ClusterInfos,
 	fqdn string, debug bool, helmArgs ...string) {
 
@@ -61,7 +62,7 @@ func DeployExistingCertificate(helmFlags *cmd_utils.HelmFlags, sslFlags *cmd_uti
 	extractCaCertToConfig()
 }
 
-func UyuniUpgrade(imageFlags *cmd_utils.ImageFlags, helmFlags *cmd_utils.HelmFlags, kubeconfig string,
+func UyuniUpgrade(imageFlags *types.ImageFlags, helmFlags *cmd_utils.HelmFlags, kubeconfig string,
 	fqdn string, ingress string, helmArgs ...string) {
 
 	log.Info().Msg("Installing Uyuni")

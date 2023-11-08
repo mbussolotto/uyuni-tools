@@ -67,3 +67,7 @@ func ReadFile(file string) []byte {
 	}
 	return out
 }
+
+func GetFileBoolean(file string) bool {
+	return string(ReadFile(file)) != "0"
+}

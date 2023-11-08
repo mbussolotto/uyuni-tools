@@ -8,6 +8,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	podman_utils "github.com/uyuni-project/uyuni-tools/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 	"github.com/uyuni-project/uyuni-tools/uyuniadm/cmd/migrate/shared"
@@ -36,7 +37,7 @@ func migrateToPodman(globalFlags *types.GlobalFlags, flags *podmanMigrateFlags, 
 		extraArgs = append(extraArgs, "-v", sshKnownhostsPath+":/etc/ssh/ssh_known_hosts")
 	}
 
-	podman.PrepareImage(&flags.Image)
+	podman_utils.PrepareImage(&flags.Image)
 
 	log.Info().Msg("Migrating server")
 	runContainer("uyuni-migration", flags.Image.Name, flags.Image.Tag, extraArgs,
@@ -56,7 +57,7 @@ func migrateToPodman(globalFlags *types.GlobalFlags, flags *podmanMigrateFlags, 
 
 	log.Info().Msg("Server migrated")
 
-	podman.EnablePodmanSocket()
+	podman_utils.EnablePodmanSocket()
 }
 
 func runContainer(name string, image string, tag string, extraArgs []string, cmd []string) {

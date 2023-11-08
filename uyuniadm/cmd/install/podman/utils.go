@@ -7,6 +7,7 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
+	podman_utils "github.com/uyuni-project/uyuni-tools/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 	"github.com/uyuni-project/uyuni-tools/uyuniadm/cmd/install/shared"
@@ -38,7 +39,7 @@ func installForPodman(globalFlags *types.GlobalFlags, flags *podmanInstallFlags,
 	fqdn := getFqdn(args)
 	log.Info().Msgf("setting up server with the FQDN '%s'", fqdn)
 
-	podman.PrepareImage(&flags.Image)
+	podman_utils.PrepareImage(&flags.Image)
 
 	cnx := utils.NewConnection("podman")
 	waitForSystemStart(cnx, flags)
@@ -68,7 +69,7 @@ func installForPodman(globalFlags *types.GlobalFlags, flags *podmanInstallFlags,
 		podman.UpdateSslCertificate(cnx, &flags.Ssl.Ca, &flags.Ssl.Server)
 	}
 
-	podman.EnablePodmanSocket()
+	podman_utils.EnablePodmanSocket()
 }
 
 func getFqdn(args []string) string {

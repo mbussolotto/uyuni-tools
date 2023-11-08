@@ -32,44 +32,18 @@ var VOLUMES = map[string]string{
 	"ca-cert":               "/etc/pki/trust/anchors",
 }
 
-type PortMap struct {
-	Name     string
-	Exposed  int
-	Port     int
-	Protocol string
+var PROXY_HTTPD_VOLUMES = map[string]string{
+	"etc-uyuni-proxy":       "/etc/uyuni:ro",
+	"uyuni-proxy-rhn-cache": "/var/cache/rhn",
+	"uyuni-proxy-tftpboot":  "/srv/tftpboot",
 }
 
-func NewPortMap(name string, exposed int, port int) PortMap {
-	return PortMap{
-		Name:    name,
-		Exposed: exposed,
-		Port:    port,
-	}
+var PROXY_SQUID_VOLUMES = map[string]string{
+	"etc-uyuni-proxy":         "/etc/uyuni:ro",
+	"uyuni-proxy-squid-cache": "/var/cache/squid",
 }
 
-// The port names should be less than 15 characters long and lowercased for traefik to eat them
-var TCP_PORTS = []PortMap{
-	NewPortMap("postgres", 5432, 5432),
-	NewPortMap("salt-publish", 4505, 4505),
-	NewPortMap("salt-request", 4506, 4506),
-	NewPortMap("cobbler", 25151, 25151),
-	NewPortMap("psql-mtrx", 9187, 9187),
-	NewPortMap("tasko-jmx-mtrx", 5556, 5556),
-	NewPortMap("tomcat-jmx-mtrx", 5557, 5557),
-}
-
-var DEBUG_PORTS = []PortMap{
-	// We can't expose on port 8000 since traefik already uses it
-	NewPortMap("tomcat-debug", 8003, 8003),
-	NewPortMap("tasko-debug", 8001, 8001),
-	NewPortMap("search-debug", 8002, 8002),
-}
-
-var UDP_PORTS = []PortMap{
-	{
-		Name:     "tftp",
-		Exposed:  69,
-		Port:     69,
-		Protocol: "udp",
-	},
+var PROXY_TFTPD_VOLUMES = map[string]string{
+	"etc-uyuni-proxy":      "/etc/uyuni:ro",
+	"uyuni-proxy-tftpboot": "/srv/tftpboot:ro",
 }
