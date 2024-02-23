@@ -14,6 +14,7 @@ import (
 	"path"
 
 	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	migration_shared "github.com/uyuni-project/uyuni-tools/mgradm/cmd/migrate/shared"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/kubernetes"
@@ -38,6 +39,11 @@ func migrateToKubernetes(
 	}
 	cnx := shared.NewConnection("kubectl", "", shared_kubernetes.ServerFilter)
 	fqdn := args[0]
+
+	serverImage, err := utils.ComputeImage(flags.Image.Name, flags.Image.Tag)
+	if err != nil {
+		return fmt.Errorf("failed to compute image URL")
+	}
 
 	// Find the SSH Socket and paths for the migration
 	sshAuthSocket := migration_shared.GetSshAuthSocket()
@@ -83,47 +89,30 @@ func migrateToKubernetes(
 		"--set", "timezone=" + tz,
 	}
 
+	//this is needed because folder with script needs to be mounted
+	//check the node before scaling down
+	nodeName, err := shared_kubernetes.GetNode("uyuni")
+	if err != nil {
+		return fmt.Errorf("cannot find node for app uyuni %s", err)
+	}
+
+	if err := kubernetes.RunPostUpgradeScript(serverImage, flags.Image.PullPolicy, nodeName); err != nil {
+		return fmt.Errorf("cannot run post upgrade script: %s", err)
+	}
+
 	if oldPgVersion != newPgVersion {
-		var migrationImage types.ImageFlags
-		migrationImage.Name = flags.MigrationImage.Name
-		if migrationImage.Name == "" {
-			migrationImage.Name = fmt.Sprintf("%s-migration-%s-%s", flags.Image.Name, oldPgVersion, newPgVersion)
-		}
-		migrationImage.Tag = flags.MigrationImage.Tag
-
-		scriptName, err := adm_utils.GeneratePgsqlVersionUpgradeScript(scriptDir, oldPgVersion, newPgVersion, false)
-		if err != nil {
-			return fmt.Errorf("cannot generate postgresql database version upgrade script: %s", err)
-		}
-
-		migrationImageUrl, err := utils.ComputeImage(migrationImage.Name, migrationImage.Tag)
-		if err != nil {
-			return fmt.Errorf("failed to compute image URL")
-		}
-
-		if err := kubernetes.UyuniUpgrade(migrationImageUrl, migrationImage.PullPolicy, &flags.Helm, kubeconfig, fqdn, clusterInfos.Ingress, helmArgs...); err != nil {
-			return fmt.Errorf("cannot upgrade uyuni: %s", err)
-		}
-		if err := adm_utils.RunMigration(cnx, scriptDir, scriptName); err != nil {
-			return fmt.Errorf("cannot run migration: %s", err)
+		log.Info().Msgf("Previous postgresql is %s, instead new one is %s. Performing a DB version upgrade...", oldPgVersion, newPgVersion)
+		if err := kubernetes.RunPgsqlVersionUpgrade(flags.Image, flags.MigrationImage, nodeName, oldPgVersion, newPgVersion); err != nil {
+			return fmt.Errorf("cannot run PostgreSQL version upgrade script: %s", err)
 		}
 	}
-
-	scriptName, err := adm_utils.GenerateFinalizePostgresScript(scriptDir, true, oldPgVersion != newPgVersion, true, true, false)
-	if err != nil {
-		return fmt.Errorf("cannot generate postgresql finalization script: %s", err)
+	schemaUpdateRequired := oldPgVersion != newPgVersion
+	if err := kubernetes.RunPgsqlFinalizeScript(serverImage, flags.Image.PullPolicy, nodeName, schemaUpdateRequired); err != nil {
+		return fmt.Errorf("cannot run PostgreSQL version upgrade script: %s", err)
 	}
 
-	serverImage, err := utils.ComputeImage(flags.Image.Name, flags.Image.Tag)
-	if err != nil {
-		return fmt.Errorf("failed to compute image URL")
-	}
-
-	if err := kubernetes.UyuniUpgrade(serverImage, flags.Image.PullPolicy, &flags.Helm, kubeconfig, fqdn, clusterInfos.Ingress, helmArgs...); err != nil {
-		return fmt.Errorf("cannot run uyuni upgrade: %s", err)
-	}
-	if err := adm_utils.RunMigration(cnx, scriptDir, scriptName); err != nil {
-		return fmt.Errorf("cannot run migration: %s", err)
+	if err := kubernetes.RunPostUpgradeScript(serverImage, flags.Image.PullPolicy, nodeName); err != nil {
+		return fmt.Errorf("cannot run post upgrade script: %s", err)
 	}
 
 	setupSslArray, err := setupSsl(&flags.Helm, kubeconfig, scriptDir, flags.Ssl.Password, flags.Image.PullPolicy)
