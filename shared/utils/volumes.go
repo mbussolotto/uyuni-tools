@@ -29,6 +29,35 @@ var PgsqlRequiredVolumes = []types.Volume{
 	},
 }
 
+// EtcServerVolumeMounts represents volumes mounted in /etc folder.
+var EtcServerVolumeMounts = []types.VolumeMount{
+	{MountPath: "/etc/apache2", Name: "etc-apache2"},
+	{MountPath: "/etc/systemd/system/multi-user.target.wants", Name: "etc-systemd-multi"},
+	{MountPath: "/etc/systemd/system/sockets.target.wants", Name: "etc-systemd-sockets"},
+	{MountPath: "/etc/salt", Name: "etc-salt"},
+	{MountPath: "/etc/rhn", Name: "etc-rhn"},
+	{MountPath: "/etc/tomcat", Name: "etc-tomcat"},
+	{MountPath: "/etc/cobbler", Name: "etc-cobbler"},
+	{MountPath: "/etc/sysconfig", Name: "etc-sysconfig"},
+	{MountPath: "/etc/postfix", Name: "etc-postfix"},
+}
+
+// EtcServerVolumeMounts represents volumes used for configuration.
+var EtcServerVolumes = []types.Volume{
+	{Name: "etc-apache2", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-apache2"}},
+	{Name: "etc-systemd-multi", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-systemd-multi"}},
+	{Name: "etc-systemd-sockets", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-systemd-sockets"}},
+	{Name: "etc-salt", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-salt"}},
+	{Name: "etc-tomcat", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-tomcat"}},
+	{Name: "etc-cobbler", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-cobbler"}},
+	{Name: "etc-sysconfig", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-sysconfig"}},
+	{Name: "etc-postfix", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-postfix"}},
+	{Name: "etc-rhn", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-rhn"}},
+}
+
+var etcAndPgsqlVolumeMounts = append(PgsqlRequiredVolumeMounts, EtcServerVolumeMounts[:]...)
+var etcAndPgsqlVolumes = append(PgsqlRequiredVolumes, EtcServerVolumes[:]...)
+
 // ServerVolumeMounts should match the volumes mapping from the container definition in both
 // the helm chart and the systemctl services definitions.
 var ServerVolumeMounts = append([]types.VolumeMount{
@@ -45,16 +74,8 @@ var ServerVolumeMounts = append([]types.VolumeMount{
 	{MountPath: "/srv/susemanager", Name: "srv-susemanager"},
 	{MountPath: "/srv/spacewalk", Name: "srv-spacewalk"},
 	{MountPath: "/root", Name: "root"},
-	{MountPath: "/etc/apache2", Name: "etc-apache2"},
-	{MountPath: "/etc/systemd/system/multi-user.target.wants", Name: "etc-systemd-multi"},
-	{MountPath: "/etc/systemd/system/sockets.target.wants", Name: "etc-systemd-sockets"},
-	{MountPath: "/etc/salt", Name: "etc-salt"},
-	{MountPath: "/etc/tomcat", Name: "etc-tomcat"},
-	{MountPath: "/etc/cobbler", Name: "etc-cobbler"},
-	{MountPath: "/etc/sysconfig", Name: "etc-sysconfig"},
-	{MountPath: "/etc/postfix", Name: "etc-postfix"},
 	{MountPath: "/etc/pki/trust/anchors", Name: "ca-cert"},
-}, PgsqlRequiredVolumeMounts[:]...)
+}, etcAndPgsqlVolumeMounts[:]...)
 
 // ServerVolumes match the volume with Persistent Volume Claim.
 var ServerVolumes = append([]types.Volume{
@@ -71,16 +92,8 @@ var ServerVolumes = append([]types.Volume{
 	{Name: "srv-susemanager", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "srv-susemanager"}},
 	{Name: "srv-spacewalk", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "srv-spacewalk"}},
 	{Name: "root", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "root"}},
-	{Name: "etc-apache2", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-apache2"}},
-	{Name: "etc-systemd-multi", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-systemd-multi"}},
-	{Name: "etc-systemd-sockets", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-systemd-sockets"}},
-	{Name: "etc-salt", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-salt"}},
-	{Name: "etc-tomcat", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-tomcat"}},
-	{Name: "etc-cobbler", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-cobbler"}},
-	{Name: "etc-sysconfig", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-sysconfig"}},
-	{Name: "etc-postfix", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "etc-postfix"}},
 	{Name: "ca-cert", PersistentVolumeClaim: &types.PersistentVolumeClaim{ClaimName: "ca-cert"}},
-}, PgsqlRequiredVolumes[:]...)
+}, etcAndPgsqlVolumes[:]...)
 
 // PROXY_HTTPD_VOLUMES volumes used by HTTPD in proxy.
 var PROXY_HTTPD_VOLUMES = map[string]string{

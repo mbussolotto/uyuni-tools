@@ -119,11 +119,11 @@ func RunPgsqlFinalizeScript(serverImage string, pullPolicy string, nodeName stri
 			Containers: []types.Container{
 				{
 					Name: pgsqlFinalizeContainer,
-					VolumeMounts: append(utils.ServerVolumeMounts,
+					VolumeMounts: append(utils.PgsqlRequiredVolumeMounts,
 						types.VolumeMount{MountPath: "/var/lib/uyuni-tools", Name: "var-lib-uyuni-tools"}),
 				},
 			},
-			Volumes: append(utils.ServerVolumes,
+			Volumes: append(utils.PgsqlRequiredVolumes,
 				types.Volume{Name: "var-lib-uyuni-tools", HostPath: &types.HostPath{Path: scriptDir, Type: "Directory"}}),
 		},
 	}
@@ -165,11 +165,11 @@ func RunPostUpgradeScript(serverImage string, pullPolicy string, nodeName string
 			Containers: []types.Container{
 				{
 					Name: postUpgradeContainer,
-					VolumeMounts: append(utils.PgsqlRequiredVolumeMounts,
+					VolumeMounts: append(utils.EtcServerVolumeMounts,
 						types.VolumeMount{MountPath: "/var/lib/uyuni-tools", Name: "var-lib-uyuni-tools"}),
 				},
 			},
-			Volumes: append(utils.PgsqlRequiredVolumes,
+			Volumes: append(utils.EtcServerVolumes,
 				types.Volume{Name: "var-lib-uyuni-tools", HostPath: &types.HostPath{Path: scriptDir, Type: "Directory"}}),
 		},
 	}
