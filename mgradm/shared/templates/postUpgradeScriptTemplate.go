@@ -13,7 +13,6 @@ const postUpgradeScriptTemplate = `#!/bin/bash
 set -e
 {{ if .CobblerHost }}
 sed 's/cobbler\.host.*/cobbler\.host = {{ .CobblerHost }}/' -i /etc/rhn/rhn.conf;
-sed 's/redhat_management_server.*/redhat_management_server = {{ .CobblerHost }}/' -i /etc/cobbler/settings.yaml;
 {{ end }}
 `
 
