@@ -499,3 +499,5 @@ mkdir -p %{buildroot}%{_datarootdir}/fish/vendor_completions.d/
 # 0%{?is_opensuse} || 0%{?fedora} || 0%{?debian} || 0%{?ubuntu}
 
 %changelog
+
+
