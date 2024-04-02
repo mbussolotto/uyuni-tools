@@ -389,3 +389,5 @@ mkdir -p %{buildroot}%{_datarootdir}/fish/vendor_completions.d/
 %endif
 
 %changelog
+
+
