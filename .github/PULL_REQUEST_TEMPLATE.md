@@ -8,6 +8,11 @@ SPDX-License-Identifier: Apache-2.0
 
 **add description**
 
+## Codespace
+<!-- Button to create CodeSpace -->
+
+[![Create CodeSpace](https://img.shields.io/badge/Create-CodeSpace-blue.svg)](https://codespaces.new/uyuni-project/uyuni-tools)
+
 ## Test coverage
 - No tests: **add explanation**
 - No tests: already covered
