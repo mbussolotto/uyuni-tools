@@ -11,7 +11,8 @@ SPDX-License-Identifier: Apache-2.0
 ## Codespace
 <!-- Button to create CodeSpace -->
 
-[![Create CodeSpace](https://img.shields.io/badge/Create-CodeSpace-blue.svg)](https://codespaces.new/uyuni-project/uyuni-tools)
+[![Create CodeSpace](https://img.shields.io/badge/Create-CodeSpace-blue.svg)](https://codespaces.new/uyuni-project/uyuni-tools) 
+[About billing for Github Codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
 
 ## Test coverage
 - No tests: **add explanation**
