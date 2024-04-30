@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-17 10:16+0200\n"
+"POT-Creation-Date: 2024-04-26 10:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,6 +137,10 @@ msgstr ""
 msgid "Running: %s %s"
 msgstr ""
 
+#: mgrctl/cmd/org/org.go:18
+msgid "Organization-related commands"
+msgstr ""
+
 #: mgrctl/cmd/org/createFirst.go:28
 msgid "Create the first user and organization"
 msgstr ""
@@ -168,10 +172,6 @@ msgstr ""
 #: mgrctl/cmd/org/createFirst.go:51
 #, javascript-format
 msgid "Organization %s created with id %d"
-msgstr ""
-
-#: mgrctl/cmd/org/org.go:18
-msgid "Organization-related commands"
 msgstr ""
 
 #: mgrctl/cmd/term/term.go:21

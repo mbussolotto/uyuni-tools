@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-17 10:16+0200\n"
+"POT-Creation-Date: 2024-04-26 10:11+0200\n"
 "PO-Revision-Date: 2024-04-08 14:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -140,6 +140,10 @@ msgstr "impossible d'écrire: %s"
 msgid "Running: %s %s"
 msgstr "Exécution: %s %s"
 
+#: mgrctl/cmd/org/org.go:18
+msgid "Organization-related commands"
+msgstr "Commandes liées à l'organisation"
+
 #: mgrctl/cmd/org/createFirst.go:28
 msgid "Create the first user and organization"
 msgstr "Créer les premiers utilisateurs et organisations"
@@ -172,10 +176,6 @@ msgstr "Le nom de la première organisation"
 #, javascript-format
 msgid "Organization %s created with id %d"
 msgstr "Organisation %s créée avec l'id %d"
-
-#: mgrctl/cmd/org/org.go:18
-msgid "Organization-related commands"
-msgstr "Commandes liées à l'organisation"
 
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
