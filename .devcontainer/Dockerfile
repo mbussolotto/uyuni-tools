@@ -3,9 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 FROM mcr.microsoft.com/devcontainers/base:debian
 
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends golangci-lint 
-
 # [Optional] Uncomment if you want to install an additional version
 #  of node using nvm
 # ARG EXTRA_NODE_VERSION=18
@@ -13,4 +10,4 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #    && nvm install ${EXTRA_NODE_VERSION}"
 
 COPY ./set_container.sh /tmp/scripts/set_container.sh
-RUN apt-get update && bash /tmp/scripts/set_container.sh
+RUN bash /tmp/scripts/set_container.sh
