@@ -4,6 +4,8 @@
 
 FROM mcr.microsoft.com/devcontainers/base:alpine
 RUN apk add go
-COPY ./set_container.sh /tmp/scripts/set_container.sh
-RUN chmod +x /tmp/scripts/set_container.sh
-RUN bash /tmp/scripts/set_container.sh
+RUN wget https://raw.githubusercontent.com/uyuni-project/uyuni-tools/main/go.mod
+RUN wget https://raw.githubusercontent.com/uyuni-project/uyuni-tools/main/go.sum
+RUN go mod download
+RUN rm go.mod
+RUN rm go.sum
