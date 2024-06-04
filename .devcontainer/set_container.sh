@@ -4,6 +4,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-wget https://github.com/uyuni-project/uyuni-tools/blob/main/go.mod
-wget https://github.com/uyuni-project/uyuni-tools/blob/main/go.sum
+go mod init temp-module
+go get github.com/uyuni-project/uyuni-tools
 go mod download
