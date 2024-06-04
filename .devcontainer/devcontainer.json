@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0
 {
 	"name": "Go",
-    "build": { "dockerfile": "Dockerfile" },
+	"build": { "dockerfile": "Dockerfile" },
 
-    // Features to add to the dev container. More info: https://containers.dev/features.
+	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/guiyomh/features/golangci-lint:0": {}
 	}
@@ -16,5 +16,5 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }
