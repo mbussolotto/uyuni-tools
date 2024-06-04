@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 FROM mcr.microsoft.com/devcontainers/go:1.20
+WORKDIR /build
 #FROM mcr.microsoft.com/devcontainers/base:alpine
 #RUN apk add go
 ENV GOMODCACHE=/opt/golang/
