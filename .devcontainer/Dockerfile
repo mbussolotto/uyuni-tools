@@ -1,7 +1,8 @@
 # SPDX-FileCopyrightText: 2024 SUSE LLC
 #
 # SPDX-License-Identifier: Apache-2.0
-FROM mcr.microsoft.com/devcontainers/go
+ARG GO_VERSION=1.20
+FROM mcr.microsoft.com/devcontainers/go:${GO_VERSION}
 
 # [Optional] Uncomment if you want to install an additional version
 #  of node using nvm
