@@ -44,7 +44,7 @@
 # 0%{?debian} || 0%{?ubuntu}
 
 Name:           %{project}
-Version:        0.1.9
+Version:        0.1.10
 Release:        0
 Summary:        Tools for managing %{productname} container
 License:        Apache-2.0
@@ -99,9 +99,11 @@ Tools for managing uyuni container.
 Summary:        Command line tool to install and update %{productname}
 %if 0%{?suse_version}
 Requires:       (aardvark-dns if netavark)
-Requires:       (podman >= 4.5.0 if podman)
 %endif
 # 0%{?suse_version}
+%if "%{_vendor}" != "debbuild"
+Requires: (podman >= 4.5.0 if podman)
+%endif
 
 %description -n %{name_adm}
 %{name_adm} is a convenient tool to install and update %{productname} components as containers running
