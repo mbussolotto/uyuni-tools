@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 {
 	"name": "Prebuilt",
-    "image": "docker.io/mbussolotto/uyuni-tools-dev:latest",
+	"image": "docker.io/mbussolotto/uyuni-tools-dev:latest",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
