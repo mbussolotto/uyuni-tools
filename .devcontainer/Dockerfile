@@ -4,8 +4,6 @@
 
 FROM mcr.microsoft.com/devcontainers/go:1.20
 WORKDIR /build
-#FROM mcr.microsoft.com/devcontainers/base:alpine
-#RUN apk add go
 ENV GOMODCACHE=/opt/golang/
 RUN wget https://raw.githubusercontent.com/uyuni-project/uyuni-tools/main/go.mod
 RUN wget https://raw.githubusercontent.com/uyuni-project/uyuni-tools/main/go.sum
