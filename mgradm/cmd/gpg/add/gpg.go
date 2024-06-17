@@ -42,7 +42,7 @@ func NewCommand(globalFlags *types.GlobalFlags) *cobra.Command {
 		},
 	}
 
-	gpgAddKeyCmd.Flags().BoolP("force", "f", false, L("Import without asking confirmation"))
+	gpgAddKeyCmd.Flags().BoolP("force", "f", false, ("Import without asking confirmation"))
 	utils.AddBackendFlag(gpgAddKeyCmd)
 	return gpgAddKeyCmd
 }
