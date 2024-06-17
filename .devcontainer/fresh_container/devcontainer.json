@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 {
-	"name": "Go",
+	"name": "Fresh",
 	"build": { "dockerfile": "Dockerfile" },
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
