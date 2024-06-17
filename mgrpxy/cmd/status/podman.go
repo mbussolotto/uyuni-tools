@@ -27,7 +27,7 @@ func podmanStatus(
 	for _, service := range services {
 		serviceName := fmt.Sprintf("uyuni-proxy-%s", service)
 		if err := utils.RunCmdStdMapping(zerolog.DebugLevel, "systemctl", "status", "--no-pager", serviceName); err != nil {
-			log.Error().Err(err).Msgf(L("Failed to get status of the %s service"), serviceName)
+			log.Error().Err(err).Msgf("Failed to get status of the %s service", serviceName)
 			returnErr = errors.New(L("failed to get the status of at least one service"))
 		}
 	}
