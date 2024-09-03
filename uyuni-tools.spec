@@ -44,7 +44,7 @@
 # 0%{?debian} || 0%{?ubuntu}
 
 Name:           %{project}
-Version:        0.1.9
+Version:        5.1.0
 Release:        0
 Summary:        Tools for managing %{productname} container
 License:        Apache-2.0
@@ -72,7 +72,7 @@ BuildRequires:  golang(API) >= 1.20
 # 0%{?suse_version}
 
 %if 0%{?ubuntu}
-%define go_version      1.20
+%define go_version      1.21
 BuildRequires:  golang-%{go_version}
 %endif
 # 0%{?ubuntu}
@@ -82,26 +82,25 @@ BuildRequires:  golang >= 1.20
 %endif
 # 0%{?debian}
 
-
 %if 0%{?fedora} || 0%{?rhel}
 BuildRequires:  golang >= 1.19
 %endif
 # 0%{?fedora} || 0%{?rhel}
 
-
 %description
-Tools for managing uyuni container.
-
+Tools for managing %{productname} container.
 
 %if %{adm_build}
-
 %package -n %{name_adm}
 Summary:        Command line tool to install and update %{productname}
 %if 0%{?suse_version}
-Requires:       (aardvark-dns if netavark)
-Requires:       (podman >= 4.5.0 if podman)
+Requires:       (aardvark-dns if podman)
+Requires:       (netavark if podman)
 %endif
 # 0%{?suse_version}
+%if "%{_vendor}" != "debbuild"
+Requires:       (podman >= 4.5.0 if podman)
+%endif
 
 %description -n %{name_adm}
 %{name_adm} is a convenient tool to install and update %{productname} components as containers running
@@ -111,7 +110,8 @@ either on Podman or a Kubernetes cluster.
 Summary:        Command line tool to install and update %{productname} proxy
 Obsoletes:      uyuni-proxy-systemd-services
 %if 0%{?suse_version}
-Requires:       (aardvark-dns if netavark)
+Requires:       (aardvark-dns if podman)
+Requires:       (netavark if podman)
 %endif
 # 0%{?suse_version}
 
@@ -122,8 +122,8 @@ running either on Podman or a Kubernetes cluster.
 %package -n %{name_adm}-bash-completion
 Summary:        Bash Completion for %{name_adm}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_adm} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_adm} and bash-completion)
 %else
@@ -137,8 +137,8 @@ Bash command line completion support for %{name_adm}.
 %package -n %{name_adm}-zsh-completion
 Summary:        Zsh Completion for %{name_adm}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_adm} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_adm} and zsh)
 %else
@@ -152,8 +152,8 @@ Zsh command line completion support for %{name_adm}.
 %package -n %{name_pxy}-bash-completion
 Summary:        Bash Completion for %{name_pxy}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_pxy} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_pxy} and bash-completion)
 %else
@@ -167,8 +167,8 @@ Bash command line completion support for %{name_pxy}.
 %package -n %{name_pxy}-zsh-completion
 Summary:        Zsh Completion for %{name_pxy}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_pxy} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_pxy} and zsh)
 %else
@@ -179,13 +179,12 @@ Supplements:    zsh
 %description -n %{name_pxy}-zsh-completion
 Zsh command line completion support for %{name_pxy}.
 
-
 %if 0%{?is_opensuse} || 0%{?fedora} || 0%{?debian} || 0%{?ubuntu}
 %package -n %{name_adm}-fish-completion
 Summary:        Fish Completion for %{name_adm}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_adm} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_adm} and fish)
 %else
@@ -197,17 +196,17 @@ Supplements:    fish
 Fish command line completion support for %{name_adm}.
 
 %package -n %{name_pxy}-fish-completion
+
 Summary:        Fish Completion for %{name_pxy}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_pxy} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_pxy} and fish)
 %else
 Supplements:    fish
 %endif
 # 0%{?suse_version} >= 150000
-
 
 %description -n %{name_pxy}-fish-completion
 Fish command line completion support for %{name_pxy}.
@@ -228,8 +227,8 @@ either on Podman or a Kubernetes cluster.
 %package -n %{name_ctl}-bash-completion
 Summary:        Bash Completion for %{name_ctl}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_ctl} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_ctl} and bash-completion)
 %else
@@ -243,8 +242,8 @@ Bash command line completion support for %{name_ctl}.
 %package -n %{name_ctl}-zsh-completion
 Summary:        Zsh Completion for %{name_ctl}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_ctl} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_ctl} and zsh)
 %else
@@ -255,13 +254,12 @@ Supplements:    zsh
 %description -n %{name_ctl}-zsh-completion
 Zsh command line completion support for %{name_ctl}.
 
-
 %if 0%{?is_opensuse} || 0%{?fedora} || 0%{?debian} || 0%{?ubuntu}
 %package -n %{name_ctl}-fish-completion
 Summary:        Fish Completion for %{name_ctl}
 Group:          System/Shells
-BuildArch:      noarch
 Requires:       %{name_ctl} = %{version}
+BuildArch:      noarch
 %if 0%{?suse_version} >= 150000
 Supplements:    (%{name_ctl} and fish)
 %else
@@ -309,11 +307,20 @@ pull_policy=%{!?_default_pull_policy:Always}
 %endif
 # "%{?_default_pull_policy}" != ""
 
-image=%{namespace}
+namespace=%{namespace}
+helm_registry=%{namespace}
 %if "%{?_default_namespace}" != ""
+  # Set both container and helm chart namespaces as this can be the same value
   namespace='%{_default_namespace}'
+  helm_registry='%{_default_namespace}'
 %endif
 # "%{?_default_namespace}" != ""
+
+# We may have additional config for helm registry as the path is different in OBS devel projects
+%if "%{?_default_helm_registry}" != ""
+  helm_registry='%{_default_helm_registry}'
+%endif
+# "%{?_default_helm_registry}" != ""
 
 go_tags=""
 %if "%{?_uyuni_tools_tags}" != ""
@@ -335,7 +342,11 @@ go_path=""
 
 GOLD_FLAGS="-X '${UTILS_PATH}.Version=%{version} (%{version_details})' -X ${UTILS_PATH}.LocaleRoot=%{_datadir}/locale"
 if test -n "${namespace}"; then
-    GOLD_FLAGS="${GOLD_FLAGS} -X ${UTILS_PATH}.DefaultNamespace=${namespace} -X ${UTILS_PATH}.DefaultTag=${tag}"
+    GOLD_FLAGS="${GOLD_FLAGS} -X ${UTILS_PATH}.DefaultRegistry=${namespace}"
+fi
+
+if test -n "${helm_registry}"; then
+    GOLD_FLAGS="${GOLD_FLAGS} -X ${UTILS_PATH}.DefaultHelmRegistry=${helm_registry}"
 fi
 
 if test -n "${tag}"; then

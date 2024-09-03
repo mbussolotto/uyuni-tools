@@ -10,7 +10,9 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
+	"github.com/uyuni-project/uyuni-tools/mgrpxy/cmd/cache"
 	"github.com/uyuni-project/uyuni-tools/mgrpxy/cmd/install"
+	"github.com/uyuni-project/uyuni-tools/mgrpxy/cmd/logs"
 	"github.com/uyuni-project/uyuni-tools/mgrpxy/cmd/restart"
 	"github.com/uyuni-project/uyuni-tools/mgrpxy/cmd/start"
 	"github.com/uyuni-project/uyuni-tools/mgrpxy/cmd/status"
@@ -36,6 +38,19 @@ func NewUyuniproxyCommand() (*cobra.Command, error) {
 		SilenceUsage: true, // Don't show usage help on errors
 	}
 
+	rootCmd.AddGroup(&cobra.Group{
+		ID:    "deploy",
+		Title: L("Server Deployment:"),
+	})
+	rootCmd.AddGroup(&cobra.Group{
+		ID:    "management",
+		Title: L("Server Management:"),
+	})
+	rootCmd.AddGroup(&cobra.Group{
+		ID:    "tool",
+		Title: L("Administrator tools:"),
+	})
+
 	rootCmd.SetUsageTemplate(utils.GetLocalizedUsageTemplate())
 
 	rootCmd.PersistentPreRun = func(cmd *cobra.Command, args []string) {
@@ -43,7 +58,7 @@ func NewUyuniproxyCommand() (*cobra.Command, error) {
 		utils.SetLogLevel(globalFlags.LogLevel)
 
 		// do not log if running the completion cmd as the output is redirected to create a file to source
-		if cmd.Name() != "completion" {
+		if cmd.Name() != "completion" && cmd.Name() != "__complete" {
 			log.Info().Msgf(L("Welcome to %s"), name)
 			log.Info().Msgf(L("Executing command: %s"), cmd.Name())
 		}
@@ -60,20 +75,19 @@ func NewUyuniproxyCommand() (*cobra.Command, error) {
 	}
 	rootCmd.AddCommand(uninstallCmd)
 	rootCmd.AddCommand(completion.NewCommand(globalFlags))
+	rootCmd.AddCommand(cache.NewCommand(globalFlags))
 	rootCmd.AddCommand(status.NewCommand(globalFlags))
 	rootCmd.AddCommand(start.NewCommand(globalFlags))
 	rootCmd.AddCommand(stop.NewCommand(globalFlags))
 	rootCmd.AddCommand(restart.NewCommand(globalFlags))
 	rootCmd.AddCommand(upgrade.NewCommand(globalFlags))
+	rootCmd.AddCommand(logs.NewCommand(globalFlags))
 
 	if supportCommand := support.NewCommand(globalFlags); supportCommand != nil {
 		rootCmd.AddCommand(supportCommand)
 	}
 
 	rootCmd.AddCommand(utils.GetConfigHelpCommand())
-	if cmd := support.NewCommand(globalFlags); cmd != nil {
-		rootCmd.AddCommand(cmd)
-	}
 
 	return rootCmd, nil
 }
