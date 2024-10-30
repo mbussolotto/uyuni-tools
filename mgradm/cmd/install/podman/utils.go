@@ -14,6 +14,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/coco"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/hub"
+	"github.com/uyuni-project/uyuni-tools/mgradm/shared/pgsql"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/saline"
 	adm_utils "github.com/uyuni-project/uyuni-tools/mgradm/shared/utils"
@@ -101,6 +102,17 @@ func installForPodman(
 		return err
 	}
 
+	// TODO Generate SSL Certificates in a separate container
+
+	// Run the DB container setup
+	// TODO Adjust with the new setup mechanism
+	if err := pgsql.SetupPgsql(systemd, authFile, flags.ServerFlags.Pgsql,
+		flags.Installation.DB.Admin.User,
+		flags.Installation.DB.Admin.Password,
+	); err != nil {
+		return err
+	}
+
 	log.Info().Msg(L("Run setup command in the container"))
 
 	if err := runSetup(preparedImage, &flags.ServerFlags, fqdn, sslArgs); err != nil {
@@ -111,9 +123,13 @@ func installForPodman(
 	if err := waitForSystemStart(systemd, cnx, preparedImage, flags); err != nil {
 		return utils.Error(err, L("cannot wait for system start"))
 	}
-
 	if err := cnx.CopyCaCertificate(fqdn); err != nil {
 		return utils.Error(err, L("failed to add SSL CA certificate to host trusted certificates"))
+	}
+
+	log.Info().Msg(L("Enabling SSL in the postgres container"))
+	if err := pgsql.EnableSSL(systemd); err != nil {
+		return err
 	}
 
 	if path, err := exec.LookPath("uyuni-payg-extract-data"); err == nil {
