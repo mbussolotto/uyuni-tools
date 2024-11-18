@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2023 SUSE LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
+- name: Pre-build dev container image
+  uses: devcontainers/ci@v0.3
+  with:
+    imageName: ghcr.io/uyuni/uyuni-tools-devcontainer
+    cacheFrom: ghcr.io/uyuni/uyuni-tools-devcontainer
+    push: always
