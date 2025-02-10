@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -18,7 +18,7 @@ func AddUpgradeFlags(cmd *cobra.Command) {
 	utils.AddUpgradeCocoFlag(cmd)
 	utils.AddUpgradeHubXmlrpcFlags(cmd)
 	utils.AddUpgradeSalineFlag(cmd)
-	utils.AddUpgradePgsqlFlags(cmd)
+	utils.AddPgsqlFlags(cmd)
 }
 
 // AddUpgradeListFlags add upgrade list flags to a command.

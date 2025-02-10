@@ -102,15 +102,39 @@ func installForPodman(
 		return err
 	}
 
-	// TODO Generate SSL Certificates in a separate container
-
-	// Run the DB container setup
-	// TODO Adjust with the new setup mechanism
-	if err := pgsql.SetupPgsql(systemd, authFile, flags.ServerFlags.Pgsql,
-		flags.Installation.DB.Admin.User,
-		flags.Installation.DB.Admin.Password,
+	// Create all the database credentials secrets
+	if err := shared_podman.CreateCredentialsSecrets(
+		shared_podman.DBUserSecret, flags.Installation.DB.User,
+		shared_podman.DBPassSecret, flags.Installation.DB.Password,
 	); err != nil {
 		return err
+	}
+
+	if err := shared_podman.CreateCredentialsSecrets(
+		shared_podman.ReportDBUserSecret, flags.Installation.ReportDB.User,
+		shared_podman.ReportDBPassSecret, flags.Installation.ReportDB.Password,
+	); err != nil {
+		return err
+	}
+
+	if flags.ServerFlags.Installation.DB.Host == "db" {
+		// The admin password is not needed for external databases
+		if err := shared_podman.CreateCredentialsSecrets(
+			shared_podman.DBAdminUserSecret, flags.Installation.DB.Admin.User,
+			shared_podman.DBAdminPassSecret, flags.Installation.DB.Admin.Password,
+		); err != nil {
+			return err
+		}
+
+		// Run the DB container setup if the user doesn't set a custom host name for it.
+		if err := pgsql.SetupPgsql(systemd, authFile, &flags.ServerFlags.Pgsql, &flags.Image); err != nil {
+			return err
+		}
+	} else {
+		log.Info().Msgf(
+			L("Skipped database container setup to use external database %s"),
+			flags.ServerFlags.Installation.DB.Host,
+		)
 	}
 
 	log.Info().Msg(L("Run setup command in the container"))
@@ -127,11 +151,6 @@ func installForPodman(
 		return utils.Error(err, L("failed to add SSL CA certificate to host trusted certificates"))
 	}
 
-	log.Info().Msg(L("Enabling SSL in the postgres container"))
-	if err := pgsql.EnableSSL(systemd); err != nil {
-		return err
-	}
-
 	if path, err := exec.LookPath("uyuni-payg-extract-data"); err == nil {
 		// the binary is installed
 		err = utils.RunCmdStdMapping(zerolog.DebugLevel, path)
@@ -141,10 +160,6 @@ func installForPodman(
 	}
 
 	if flags.Coco.Replicas > 0 {
-		// This may need to be moved up later once more containers require DB access
-		if err := shared_podman.CreateDBSecrets(flags.Installation.DB.User, flags.Installation.DB.Password); err != nil {
-			return err
-		}
 		if err := coco.SetupCocoContainer(
 			systemd, authFile, flags.Image.Registry, flags.Coco, flags.Image,
 			flags.Installation.DB.Name, flags.Installation.DB.Port,
@@ -194,6 +209,10 @@ func runSetup(image string, flags *adm_utils.ServerFlags, fqdn string, sslArgs [
 		"--name", "uyuni-setup",
 		"--network", shared_podman.UyuniNetwork,
 		"-e", "TZ=" + flags.Installation.TZ,
+		"--secret", shared_podman.DBUserSecret + ",type=env,target=MANAGER_USER",
+		"--secret", shared_podman.DBPassSecret + ",type=env,target=MANAGER_PASSWORD",
+		"--secret", shared_podman.ReportDBUserSecret + ",type=env,target=REPORTDB_USER",
+		"--secret", shared_podman.ReportDBPassSecret + ",type=env,target=REPORTDB_PASSWORD",
 	}
 	command = append(command, sslArgs...)
 	for _, volume := range utils.ServerVolumeMounts {
@@ -206,7 +225,7 @@ func runSetup(image string, flags *adm_utils.ServerFlags, fqdn string, sslArgs [
 	if err != nil {
 		return err
 	}
-	command = append(command, "/usr/bin/sh", "-c", script)
+	command = append(command, "/usr/bin/sh", "-e", "-c", script)
 
 	if _, err := newRunner("podman", command...).Env(envValues).StdMapping().Exec(); err != nil {
 		return utils.Error(err, L("server setup failed"))

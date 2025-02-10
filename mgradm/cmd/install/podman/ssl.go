@@ -6,6 +6,7 @@ package podman
 
 import (
 	"fmt"
+	"path"
 	"strings"
 
 	"github.com/rs/zerolog/log"
@@ -92,6 +93,15 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 
 	log.Info().Msg(L("SSL certificates generated"))
 
+	// Create secret for the database key and certificate
+	if err := shared_podman.CreateDBTLSSecrets(
+		path.Join(tempDir, "ca.crt"),
+		path.Join(tempDir, "reportdb.crt"),
+		path.Join(tempDir, "reportdb.key"),
+	); err != nil {
+		return []string{}, cleaner, err
+	}
+
 	return []string{"-v", tempDir + ":/ssl"}, cleaner, nil
 }
 
@@ -147,7 +157,7 @@ const sslSetupScript = `
 		--set-country "$CERT_COUNTRY" --set-state "$CERT_STATE" --set-city "$CERT_CITY" \
 	    --set-org "$CERT_O" --set-org-unit "$CERT_OU" \
 	    --set-hostname reportdb.mgr.internal --cert-expiration 3650 --set-email "$CERT_EMAIL" \
-		$cert_args
+		--set-cname reportdb --set-cname db $cert_args
 
 	cp /root/ssl-build/reportdb/server.crt /ssl/reportdb.crt
 	cp /root/ssl-build/reportdb/server.key /ssl/reportdb.key

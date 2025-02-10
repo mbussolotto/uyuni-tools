@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -210,20 +210,8 @@ Leave it unset if you want to keep the previous number of replicas.
 	_ = utils.AddFlagToHelpGroupID(cmd, "saline-port", "saline-container")
 }
 
-// AddPgsqlFlags adds hub XML-RPC related parameters to cmd.
+// AddPgsqlFlags adds PostgreSQL related parameters to cmd.
 func AddPgsqlFlags(cmd *cobra.Command) {
-	_ = utils.AddFlagHelpGroup(cmd, &utils.Group{ID: "pgsql-container", Title: L("Postgresql Database Container Flags")})
-	AddContainerImageFlags(cmd, "pgsql", L("Postgresql Database"), "pgsql-container", "server-postgres")
-	cmd.Flags().Int("pgsql-replicas", 1, L("How many replicas of the Postgresql service container should be started."))
-	_ = utils.AddFlagToHelpGroupID(cmd, "pgsql-replicas", "pgsql-container")
-}
-
-// AddUpgradePgsqlFlags adds hub XML-RPC related parameters to cmd upgrade.
-func AddUpgradePgsqlFlags(cmd *cobra.Command) {
-	_ = utils.AddFlagHelpGroup(cmd, &utils.Group{ID: "pgsql-container", Title: L("Postgresql Database Container Flags")})
-	AddContainerImageFlags(cmd, "pgsql", L("Postgresql Database"), "pgsql-container", "server-postgres")
-	cmd.Flags().Int("pgsql-replicas", 1,
-		L(`How many replicas of the Postgresql service container should be started.
-Leave it unset if you want to keep the previous number of replicas.`))
-	_ = utils.AddFlagToHelpGroupID(cmd, "pgsql-replicas", "pgsql-container")
+	_ = utils.AddFlagHelpGroup(cmd, &utils.Group{ID: "pgsql-container", Title: L("PostgreSQL Database Container Flags")})
+	AddContainerImageFlags(cmd, "pgsql", L("PostgreSQL Database"), "pgsql-container", "server-postgresql")
 }

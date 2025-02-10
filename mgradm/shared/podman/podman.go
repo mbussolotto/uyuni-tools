@@ -415,21 +415,18 @@ func Upgrade(
 	if inspectedValues.CurrentPgVersionNotMigrated != "" ||
 		inspectedValues.DBHost == "localhost" ||
 		inspectedValues.ReportDBHost == "localhost" {
-		log.Info().Msgf(L("Configuring external postgresql. Current version: %[1]s, not migrated version: %[2]s"),
+		log.Info().Msgf(L("Configuring split PostgreSQL container. Current version: %[1]s, not migrated version: %[2]s"),
 			inspectedValues.CurrentPgVersion, inspectedValues.CurrentPgVersionNotMigrated)
 
-		if err := RunPgsqlContainerMigration(
-			preparedImage, "uyuni-pgsql-server.mgr.internal", "uyuni-pgsql-server.mgr.internal",
-		); err != nil {
+		if err := RunPgsqlContainerMigration(preparedImage, "db", "reportdb"); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))
 		}
 		inspectedValues.CurrentPgVersion = inspectedValues.CurrentPgVersionNotMigrated
-		pgsqlFlags.Replicas = 1 // migrating pgsql to separate container
 	}
 
 	if inspectedValues.ImagePgVersion > inspectedValues.CurrentPgVersion {
 		log.Info().Msgf(
-			L("Previous postgresql is %[1]s, instead new one is %[2]s. Performing a DB version upgrade…"),
+			L("Previous PostgreSQL is %[1]s, instead new one is %[2]s. Performing a DB version upgrade…"),
 			inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
 		)
 		if err := RunPgsqlVersionUpgrade(

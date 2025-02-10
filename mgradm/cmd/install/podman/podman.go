@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -37,7 +37,6 @@ NOTE: installing on a remote podman is not supported yet!
 				flags.ServerFlags.Coco.IsChanged = v.IsSet("coco.replicas")
 				flags.ServerFlags.HubXmlrpc.IsChanged = v.IsSet("hubxmlrpc.replicas")
 				flags.ServerFlags.Saline.IsChanged = v.IsSet("saline.replicas") || v.IsSet("saline.port")
-				flags.ServerFlags.Pgsql.IsChanged = v.IsSet("pgsql.replicas")
 			}
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, flagsUpdater, run)
 		},

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -7,12 +7,12 @@ package pgsql
 import (
 	"fmt"
 
-	"github.com/rs/zerolog/log"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/templates"
 	cmd_utils "github.com/uyuni-project/uyuni-tools/mgradm/shared/utils"
 	"github.com/uyuni-project/uyuni-tools/shared"
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
 	"github.com/uyuni-project/uyuni-tools/shared/podman"
+	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
@@ -20,83 +20,41 @@ import (
 func SetupPgsql(
 	systemd podman.Systemd,
 	authFile string,
-	pgsqlFlags cmd_utils.PgsqlFlags,
-	admin string,
-	password string,
+	pgsqlFlags *cmd_utils.PgsqlFlags,
+	globalImageFlags *types.ImageFlags,
 ) error {
 	image := pgsqlFlags.Image
-	currentReplicas := systemd.CurrentReplicaCount(podman.PgsqlService)
-	log.Debug().Msgf("Current HUB replicas running are %d.", currentReplicas)
-
-	if pgsqlFlags.Replicas == 0 {
-		log.Debug().Msg("No pgsql requested.")
-	}
-	if !pgsqlFlags.IsChanged {
-		log.Info().Msgf(L("No changes requested for hub. Keep %d replicas."), currentReplicas)
-	}
-
-	pullEnabled := (pgsqlFlags.Replicas > 0 && pgsqlFlags.IsChanged) || (currentReplicas > 0 && !pgsqlFlags.IsChanged)
-
-	pgsqlImage, err := utils.ComputeImage(pgsqlFlags.Image.Registry, pgsqlFlags.Image.Tag, image)
+	pgsqlImage, err := utils.ComputeImage(globalImageFlags.Registry, globalImageFlags.Tag, image)
 
 	if err != nil {
-		return utils.Errorf(err, L("failed to compute image URL"))
+		return utils.Error(err, L("failed to compute image URL"))
 	}
 
-	preparedImage, err := podman.PrepareImage(authFile, pgsqlImage, pgsqlFlags.Image.PullPolicy, pullEnabled)
+	preparedImage, err := podman.PrepareImage(authFile, pgsqlImage, globalImageFlags.PullPolicy, true)
 	if err != nil {
 		return err
 	}
 
-	if err := generatePgsqlSystemdService(systemd, preparedImage, admin, password); err != nil {
-		return utils.Errorf(err, L("cannot generate systemd service"))
+	if err := generatePgsqlSystemdService(systemd, preparedImage); err != nil {
+		return utils.Error(err, L("cannot generate systemd service"))
 	}
 
-	if err := EnablePgsql(systemd, 0); err != nil {
+	if err := EnablePgsql(systemd); err != nil {
 		return err
 	}
-	if err := EnablePgsql(systemd, pgsqlFlags.Replicas); err != nil {
-		return err
-	}
-	cnx := shared.NewConnection("podman", podman.PgsqlContainerName, "")
+	cnx := shared.NewConnection("podman", podman.DBContainerName, "")
 	if err := cnx.WaitForHealthcheck(); err != nil {
 		return err
-	}
-	// Now the servisce is up and ready, the admin credentials are no longer needed
-	if err := generatePgsqlSystemdService(systemd, preparedImage, "", ""); err != nil {
-		return utils.Errorf(err, L("cannot generate systemd service"))
 	}
 
 	return nil
 }
 
-// EnableSSL enables ssl in postgres container, as long as the certs are mounted.
-func EnableSSL(systemd podman.Systemd) error {
-	cnx := shared.NewConnection("podman", podman.PgsqlContainerName, "")
-	if _, err := cnx.Exec("/docker-entrypoint-initdb.d/uyuni-postgres-config.sh"); err != nil {
-		return err
-	}
-
-	if err := systemd.RestartInstantiated(podman.PgsqlService); err != nil {
-		return utils.Errorf(err, L("cannot restart service"))
-	}
-
-	if err := cnx.WaitForHealthcheck(); err != nil {
-		return err
-	}
-	return nil
-}
-
-// EnablePgsql enables the hub xmlrpc service if the number of replicas is 1.
-// This function is meant for installation or migration, to enable or disable the service after, use ScaleService.
-func EnablePgsql(systemd podman.Systemd, replicas int) error {
-	if replicas > 1 {
-		log.Warn().Msg(L("Multiple Hub XML-RPC container replicas are not currently supported, setting up only one."))
-		replicas = 1
-	}
-
-	if err := systemd.ScaleService(replicas, podman.PgsqlService); err != nil {
-		return utils.Errorf(err, L("cannot enable service"))
+// EnablePgsql enables the database service.
+// This function is meant for installation or migration, to enable and start the service.
+func EnablePgsql(systemd podman.Systemd) error {
+	if err := systemd.EnableService(podman.DBService); err != nil {
+		return utils.Errorf(err, L("cannot enable %s service"), podman.DBService)
 	}
 	return nil
 }
@@ -108,83 +66,64 @@ func Upgrade(
 	pgsqlFlags cmd_utils.PgsqlFlags,
 ) error {
 	image := pgsqlFlags.Image
-	currentReplicas := systemd.CurrentReplicaCount(podman.PgsqlService)
-	log.Debug().Msgf("Current HUB replicas running are %d.", currentReplicas)
-
-	if pgsqlFlags.Replicas == 0 {
-		log.Debug().Msg("No pgsql requested.")
-	}
-	if !pgsqlFlags.IsChanged {
-		log.Info().Msgf(L("No changes requested for hub. Keep %d replicas."), currentReplicas)
-	}
-
-	pullEnabled := (pgsqlFlags.Replicas > 0 && pgsqlFlags.IsChanged) || (currentReplicas > 0 && !pgsqlFlags.IsChanged)
-
 	pgsqlImage, err := utils.ComputeImage(pgsqlFlags.Image.Registry, pgsqlFlags.Image.Tag, image)
 
 	if err != nil {
-		return utils.Errorf(err, L("failed to compute image URL"))
+		return utils.Error(err, L("failed to compute image URL"))
 	}
 
-	preparedImage, err := podman.PrepareImage(authFile, pgsqlImage, pgsqlFlags.Image.PullPolicy, pullEnabled)
-	if err != nil {
-		return err
-	}
-	err = podman.RunContainer("uyuni-db-migrate", pgsqlImage, utils.PgsqlRequiredVolumeMounts, []string{},
-		[]string{"chown", "postgres", "/etc/pki/tls/private/pg-spacewalk.key"})
+	preparedImage, err := podman.PrepareImage(authFile, pgsqlImage, pgsqlFlags.Image.PullPolicy, true)
 	if err != nil {
 		return err
 	}
 
-	if err := generatePgsqlSystemdService(systemd, preparedImage, "", ""); err != nil {
-		return utils.Errorf(err, L("cannot generate systemd service"))
+	if err := generatePgsqlSystemdService(systemd, preparedImage); err != nil {
+		return utils.Error(err, L("cannot generate systemd service"))
 	}
 
 	if err := systemd.ReloadDaemon(false); err != nil {
 		return err
 	}
 
-	if err := EnablePgsql(systemd, 0); err != nil {
-		return err
-	}
-	if err := EnablePgsql(systemd, pgsqlFlags.Replicas); err != nil {
+	if err := EnablePgsql(systemd); err != nil {
 		return err
 	}
 
-	cnx := shared.NewConnection("podman", podman.PgsqlContainerName, "")
+	cnx := shared.NewConnection("podman", podman.DBContainerName, "")
 	return cnx.WaitForHealthcheck()
 }
 
-// generatePgsqlSystemdService creates the Hub XMLRPC systemd files.
+// generatePgsqlSystemdService creates the DB container systemd files.
 func generatePgsqlSystemdService(
 	systemd podman.Systemd,
 	image string,
-	admin string,
-	password string,
 ) error {
 	pgsqlData := templates.PgsqlServiceTemplateData{
-		Volumes:    utils.PgsqlRequiredVolumeMounts,
-		Ports:      utils.DBPorts,
-		NamePrefix: "uyuni",
-		Network:    podman.UyuniNetwork,
-		Image:      image,
+		Volumes:         utils.PgsqlRequiredVolumeMounts,
+		Ports:           utils.DBPorts,
+		NamePrefix:      "uyuni",
+		Network:         podman.UyuniNetwork,
+		Image:           image,
+		CaSecret:        podman.CASecret,
+		CertSecret:      podman.DBSSLCertSecret,
+		KeySecret:       podman.DBSSLKeySecret,
+		AdminUser:       podman.DBAdminUserSecret,
+		AdminPassword:   podman.DBAdminPassSecret,
+		ManagerUser:     podman.DBUserSecret,
+		ManagerPassword: podman.DBPassSecret,
+		ReportUser:      podman.ReportDBUserSecret,
+		ReportPassword:  podman.ReportDBPassSecret,
 	}
 	if err := utils.WriteTemplateToFile(
-		pgsqlData, podman.GetServicePath(podman.PgsqlService+"@"), 0555, true,
+		pgsqlData, podman.GetServicePath(podman.DBService), 0555, true,
 	); err != nil {
-		return utils.Errorf(err, L("failed to generate systemd service unit file"))
+		return utils.Error(err, L("failed to generate systemd service unit file"))
 	}
 
 	environment := fmt.Sprintf("Environment=UYUNI_IMAGE=%s\n", image)
-	if admin != "" {
-		environment += fmt.Sprintf("Environment=POSTGRES_USER=\"%s\"\n", admin)
-	}
-	if password != "" {
-		environment += fmt.Sprintf("Environment=POSTGRES_PASSWORD=\"%s\"\n", password)
-	}
 
-	if err := podman.GenerateSystemdConfFile(podman.PgsqlService+"@", "generated.conf", environment, true); err != nil {
-		return utils.Errorf(err, L("cannot generate systemd conf file"))
+	if err := podman.GenerateSystemdConfFile(podman.DBService, "generated.conf", environment, true); err != nil {
+		return utils.Error(err, L("cannot generate systemd configuration file"))
 	}
 
 	return systemd.ReloadDaemon(false)

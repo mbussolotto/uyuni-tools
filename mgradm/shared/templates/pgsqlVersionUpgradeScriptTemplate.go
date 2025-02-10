@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -17,7 +17,6 @@ echo "PostgreSQL version upgrade"
 ls -la /var/lib/pgsql/data/
 OLD_VERSION={{ .OldVersion }}
 NEW_VERSION={{ .NewVersion }}
-FAST_UPGRADE= #--link
 
 echo "Testing presence of postgresql$NEW_VERSION..."
 test -d /usr/lib/postgresql$NEW_VERSION/bin
@@ -57,7 +56,7 @@ echo "Temporarily disable SSL in the old posgresql configuration"
 cp /var/lib/pgsql/data-backup/postgresql.conf /var/lib/pgsql/data-backup/postgresql.conf.bak
 sed 's/^ssl/#ssl/' -i /var/lib/pgsql/data-backup/postgresql.conf
 
-su -s /bin/bash - postgres -c "pg_upgrade --old-bindir=/usr/lib/postgresql$OLD_VERSION/bin --new-bindir=/usr/lib/postgresql$NEW_VERSION/bin --old-datadir=/var/lib/pgsql/data-backup --new-datadir=/var/lib/pgsql/data $FAST_UPGRADE"
+su -s /bin/bash - postgres -c "pg_upgrade --old-bindir=/usr/lib/postgresql$OLD_VERSION/bin --new-bindir=/usr/lib/postgresql$NEW_VERSION/bin --old-datadir=/var/lib/pgsql/data-backup --new-datadir=/var/lib/pgsql/data"
 
 echo "Enable SSL again"
 cp /var/lib/pgsql/data-backup/postgresql.conf.bak /var/lib/pgsql/data-backup/postgresql.conf

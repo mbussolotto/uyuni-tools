@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -21,11 +21,10 @@ if [ -d /var/lib/pgsql/data/data ] ; then
     echo "Adding database access for other containers..."
     db_user=$(sed -n '/^db_user/{s/^.*=[ \t]\+\(.*\)$/\1/ ; p}' /etc/rhn/rhn.conf)
     db_name=$(sed -n '/^db_name/{s/^.*=[ \t]\+\(.*\)$/\1/ ; p}' /etc/rhn/rhn.conf)
-    ip=$(ip -o -4 addr show up scope global | head -1 | awk '{print $4}' || true)
     echo "host $db_name $db_user all scram-sha-256" >> /var/lib/pgsql/data/pg_hba.conf
 
     ls -la /var/lib/pgsql/data
-    
+
 fi
 
 {{ if .ReportDBHost }}

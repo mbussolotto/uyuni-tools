@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -153,13 +153,10 @@ func AssertSalineFlag(t *testing.T, flags *utils.SalineFlags) {
 var PgsqlFlagsTestArgs = []string{
 	"--pgsql-image", "pgsqlimg",
 	"--pgsql-tag", "pgsqltag",
-	"--pgsql-replicas", "0",
 }
 
 // AssertPgsqlFlag asserts that all pgsql flags are parsed correctly.
 func AssertPgsqlFlag(t *testing.T, flags *utils.PgsqlFlags) {
 	testutils.AssertEquals(t, "Error parsing --pgsql-image", "pgsqlimg", flags.Image.Name)
 	testutils.AssertEquals(t, "Error parsing --pgsql-tag", "pgsqltag", flags.Image.Tag)
-	testutils.AssertEquals(t, "Error parsing --pgsql-replicas", 0, flags.Replicas)
-	testutils.AssertTrue(t, "Pgsql should be changed", flags.IsChanged)
 }

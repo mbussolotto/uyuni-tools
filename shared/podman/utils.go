@@ -32,8 +32,8 @@ const ServerContainerName = "uyuni-server"
 // HubXmlrpcContainerName is the container name for the Hub XML-RPC API.
 const HubXmlrpcContainerName = "uyuni-hub-xmlrpc"
 
-// PgsqlContainerName represents the postgres container name.
-const PgsqlContainerName = "uyuni-pgsql-server"
+// DBContainerName represents the database container name.
+const DBContainerName = "uyuni-db"
 
 // ProxyContainerNames represents all the proxy container names.
 var ProxyContainerNames = []string{
