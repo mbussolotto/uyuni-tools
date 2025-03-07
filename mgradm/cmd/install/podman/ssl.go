@@ -6,6 +6,7 @@ package podman
 
 import (
 	"fmt"
+	"os"
 	"path"
 	"strings"
 
@@ -14,44 +15,87 @@ import (
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
 	shared_podman "github.com/uyuni-project/uyuni-tools/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/shared/ssl"
+	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
-var noopCleaner = func() {
-	// Nothing to clean
+func prepareThirdPartyCertificate(caChain *types.CaChain, pair *types.SSLPair, outDir string) error {
+	// OrderCas checks the chain of certificates to report problems early
+	// We also sort the certificates of the chain in a single blob for Apache and PostgreSQL
+	var orderedCert, rootCA []byte
+	var err error
+	if orderedCert, rootCA, err = ssl.OrderCas(caChain, pair); err != nil {
+		return err
+	}
+
+	// Check that the private key is not encrypted
+	if err := ssl.CheckKey(pair.Key); err != nil {
+		return err
+	}
+
+	if err := os.Mkdir(outDir, 0600); err != nil {
+		return err
+	}
+
+	// Write the ordered cert and Root CA to temp files
+	caPath := path.Join(outDir, "ca.crt")
+	if err = os.WriteFile(caPath, rootCA, 0600); err != nil {
+		return err
+	}
+
+	serverCertPath := path.Join(outDir, "server.crt")
+	if err = os.WriteFile(serverCertPath, orderedCert, 0600); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // generateSSLCertificates creates the self-signed certificates if needed.
-// It returns the podman arguments to mount them in the setup container, a cleaner function and possibly an error.
-func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn string) ([]string, func(), error) {
-	if flags.Installation.SSL.UseExisting() {
-		// OrderCas checks the chain of certificates to report problems early
-		if _, _, err := ssl.OrderCas(&flags.Installation.SSL.Ca, &flags.Installation.SSL.Server); err != nil {
-			return []string{}, noopCleaner, err
-		}
-
-		// Check that the private key is not encrypted
-		if err := ssl.CheckKey(flags.Installation.SSL.Server.Key); err != nil {
-			return []string{}, noopCleaner, err
-		}
-
-		// Add mount options for the existing files into the ssl directory
-		// The mgr-setup script expects the certificates in the /ssl folder with fixed names.
-		opts := []string{
-			"-v", flags.Installation.SSL.Ca.Root + ":/ssl/ca.crt",
-			"-v", flags.Installation.SSL.Server.Cert + ":/ssl/server.crt",
-			"-v", flags.Installation.SSL.Server.Key + ":/ssl/server.key",
-		}
-		for i, intermediate := range flags.Installation.SSL.Ca.Intermediate {
-			opts = append(opts, "-v", fmt.Sprintf("%s:/ssl/intermediate-%d.crt", intermediate, i))
-		}
-
-		return opts, noopCleaner, nil
+func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn string) error {
+	// Write the ordered cert and Root CA to temp files
+	tempDir, cleaner, err := utils.TempDir()
+	defer cleaner()
+	if err != nil {
+		return err
 	}
 
-	tempDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return []string{}, cleaner, err
+	if flags.Installation.SSL.UseExisting() {
+		serverDir := path.Join(tempDir, "server")
+		if err := prepareThirdPartyCertificate(
+			&flags.Installation.SSL.Ca, &flags.Installation.SSL.Server, serverDir,
+		); err != nil {
+			return err
+		}
+
+		// Create secrets for the server key and certificate
+		if err := shared_podman.CreateTLSSecrets(
+			shared_podman.CASecret, path.Join(serverDir, "ca.crt"),
+			shared_podman.SSLCertSecret, path.Join(serverDir, "server.crt"),
+			shared_podman.SSLKeySecret, flags.Installation.SSL.Server.Key,
+		); err != nil {
+			return err
+		}
+
+		dbDir := path.Join(tempDir, "db")
+		if err := prepareThirdPartyCertificate(
+			&flags.Installation.SSL.DB.CA,
+			&flags.Installation.SSL.DB.SSLPair,
+			dbDir,
+		); err != nil {
+			return err
+		}
+
+		// Create secrets for the database key and certificate
+		if err := shared_podman.CreateTLSSecrets(
+			shared_podman.DBCASecret, path.Join(dbDir, "ca.crt"),
+			shared_podman.DBSSLCertSecret, path.Join(dbDir, "server.crt"),
+			shared_podman.DBSSLKeySecret, flags.Installation.SSL.DB.Key,
+		); err != nil {
+			return err
+		}
+
+		return nil
 	}
 
 	env := map[string]string{
@@ -88,21 +132,30 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 	command = append(command, "/usr/bin/sh", "-e", "-c", sslSetupScript)
 
 	if _, err := newRunner("podman", command...).Env(envValues).StdMapping().Exec(); err != nil {
-		return []string{}, cleaner, utils.Error(err, L("SSL certificates generation failed"))
+		return utils.Error(err, L("SSL certificates generation failed"))
 	}
 
 	log.Info().Msg(L("SSL certificates generated"))
 
 	// Create secret for the database key and certificate
-	if err := shared_podman.CreateDBTLSSecrets(
-		path.Join(tempDir, "ca.crt"),
-		path.Join(tempDir, "reportdb.crt"),
-		path.Join(tempDir, "reportdb.key"),
+	if err := shared_podman.CreateTLSSecrets(
+		shared_podman.CASecret, path.Join(tempDir, "ca.crt"),
+		shared_podman.SSLCertSecret, path.Join(tempDir, "server.crt"),
+		shared_podman.SSLKeySecret, path.Join(tempDir, "server.key"),
 	); err != nil {
-		return []string{}, cleaner, err
+		return err
 	}
 
-	return []string{"-v", tempDir + ":/ssl"}, cleaner, nil
+	// Create secret for the database key and certificate
+	if err := shared_podman.CreateTLSSecrets(
+		shared_podman.DBCASecret, path.Join(tempDir, "ca.crt"),
+		shared_podman.DBSSLCertSecret, path.Join(tempDir, "reportdb.crt"),
+		shared_podman.DBSSLKeySecret, path.Join(tempDir, "reportdb.key"),
+	); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 const sslSetupScript = `

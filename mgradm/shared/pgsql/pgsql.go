@@ -104,7 +104,7 @@ func generatePgsqlSystemdService(
 		NamePrefix:      "uyuni",
 		Network:         podman.UyuniNetwork,
 		Image:           image,
-		CaSecret:        podman.CASecret,
+		CaSecret:        podman.DBCASecret,
 		CertSecret:      podman.DBSSLCertSecret,
 		KeySecret:       podman.DBSSLKeySecret,
 		AdminUser:       podman.DBAdminUserSecret,

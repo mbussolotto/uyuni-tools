@@ -43,6 +43,8 @@ func GenerateServerSystemdService(mirrorPath string, debug bool) error {
 	ipv6Enabled := podman.HasIpv6Enabled(podman.UyuniNetwork)
 
 	args := podman.GetCommonParams()
+	// TODO Add the SSL certs and key secrets here to avoid their volumes
+	args = append(args, "--secret", podman.DBCASecret+",type=mount,target="+ssl.DBCAContainerPath)
 
 	if mirrorPath != "" {
 		args = append(args, "-v", mirrorPath+":/mirror")

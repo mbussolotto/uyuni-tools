@@ -11,8 +11,19 @@ import (
 // InstallSSLFlags holds all the flags values related to SSL for installation.
 type InstallSSLFlags struct {
 	types.SSLCertGenerationFlags `mapstructure:",squash"`
-	Ca                           types.CaChain
-	Server                       types.SSLPair
+	// Ca is the certification authority chain used for the server certificate.
+	Ca types.CaChain
+	// Server is the SSL certificate and key pair for the apache server.
+	Server types.SSLPair
+	// DB is the SSL key pair and the corresponding CA chain for local database.
+	// If the CA chain is not provided, the main one will be assumed.
+	DB SSLFlags
+}
+
+// SSLFlags reprensents an SSL certificate and key with the CA chain
+type SSLFlags struct {
+	types.SSLPair `mapstructure:",squash"`
+	CA            types.CaChain
 }
 
 // KubernetesFlags stores Uyuni and Cert Manager kubernetes specific parameters.

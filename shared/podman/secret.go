@@ -29,6 +29,12 @@ const (
 	DBAdminPassSecret = "uyuni-db-admin-pass"
 	// CASecret is the name of the podman secret containing the CA certificate.
 	CASecret = "uyuni-ca"
+	// SSLCertSecret is the name of the podman secret containing the Apache certificate.
+	SSLCertSecret = "uyuni-cert"
+	// SSLKeySecret is the name of the podman secret containing the Apache SSL certificate key.
+	SSLKeySecret = "uyuni-key"
+	// DBCASecret is the name of the podman secret containing the Root CA certificate for the database.
+	DBCASecret = "uyuni-db-ca"
 	// DBSSLCertSecret is the name of the podman secret containing the report database certificate.
 	DBSSLCertSecret = "uyuni-db-cert"
 	// DBSSLKeySecret is the name of the podman secret containing the report database SSL certificate key.
@@ -43,17 +49,21 @@ func CreateCredentialsSecrets(userSecret string, user string, passwordSecret str
 	return createSecret(passwordSecret, password)
 }
 
-// CreateDBTLSSecrets creates the SSL CA, Certificate and key secrets.
-func CreateDBTLSSecrets(caPath string, certPath string, keyPath string) error {
-	if err := createSecretFromFile(CASecret, caPath); err != nil {
+// CreateTLSSecrets creates SSL CA, Certificate and key secrets.
+func CreateTLSSecrets(
+	caSecret string, caPath string,
+	certSecret string, certPath string,
+	keySecret string, keyPath string,
+) error {
+	if err := createSecretFromFile(caSecret, caPath); err != nil {
 		return utils.Errorf(err, L("failed to create %s secret"), CASecret)
 	}
 
-	if err := createSecretFromFile(DBSSLCertSecret, certPath); err != nil {
+	if err := createSecretFromFile(certSecret, certPath); err != nil {
 		return utils.Errorf(err, L("failed to create %s secret"), DBSSLCertSecret)
 	}
 
-	if err := createSecretFromFile(DBSSLKeySecret, keyPath); err != nil {
+	if err := createSecretFromFile(keySecret, keyPath); err != nil {
 		return utils.Errorf(err, L("failed to create %s secret"), DBSSLKeySecret)
 	}
 
@@ -78,7 +88,7 @@ func createSecret(name string, value string) error {
 
 // createSecretFromFile creates a podman secret from a file.
 func createSecretFromFile(name string, secretFile string) error {
-	if hasSecret(name) {
+	if HasSecret(name) {
 		return nil
 	}
 
@@ -89,13 +99,14 @@ func createSecretFromFile(name string, secretFile string) error {
 	return nil
 }
 
-func hasSecret(name string) bool {
+// HasSecret returns whether the secret is defined or not.
+func HasSecret(name string) bool {
 	return utils.RunCmd("podman", "secret", "exists", name) == nil
 }
 
 // DeleteSecret removes a podman secret.
 func DeleteSecret(name string, dryRun bool) {
-	if !hasSecret(name) {
+	if !HasSecret(name) {
 		return
 	}
 

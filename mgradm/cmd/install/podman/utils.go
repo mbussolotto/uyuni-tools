@@ -21,6 +21,7 @@ import (
 	"github.com/uyuni-project/uyuni-tools/shared"
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
 	shared_podman "github.com/uyuni-project/uyuni-tools/shared/podman"
+	"github.com/uyuni-project/uyuni-tools/shared/ssl"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
@@ -96,9 +97,7 @@ func installForPodman(
 		return utils.Error(err, L("cannot setup network"))
 	}
 
-	sslArgs, cleaner, err := generateSSLCertificates(preparedImage, &flags.ServerFlags, fqdn)
-	defer cleaner()
-	if err != nil {
+	if err = generateSSLCertificates(preparedImage, &flags.ServerFlags, fqdn); err != nil {
 		return err
 	}
 
@@ -139,7 +138,7 @@ func installForPodman(
 
 	log.Info().Msg(L("Run setup command in the container"))
 
-	if err := runSetup(preparedImage, &flags.ServerFlags, fqdn, sslArgs); err != nil {
+	if err := runSetup(preparedImage, &flags.ServerFlags, fqdn); err != nil {
 		return err
 	}
 
@@ -192,7 +191,7 @@ func installForPodman(
 }
 
 // runSetup execute the setup.
-func runSetup(image string, flags *adm_utils.ServerFlags, fqdn string, sslArgs []string) error {
+func runSetup(image string, flags *adm_utils.ServerFlags, fqdn string) error {
 	env := adm_utils.GetSetupEnv(flags.Mirror, &flags.Installation, fqdn, false)
 	envNames := []string{}
 	envValues := []string{}
@@ -213,8 +212,13 @@ func runSetup(image string, flags *adm_utils.ServerFlags, fqdn string, sslArgs [
 		"--secret", shared_podman.DBPassSecret + ",type=env,target=MANAGER_PASS",
 		"--secret", shared_podman.ReportDBUserSecret + ",type=env,target=REPORT_DB_USER",
 		"--secret", shared_podman.ReportDBPassSecret + ",type=env,target=REPORT_DB_PASS",
+		"-e REPORT_DB_CA_CERT=" + ssl.DBCAContainerPath,
+		"--secret", shared_podman.DBCASecret + ",type=mount,target=" + ssl.DBCAContainerPath,
+		"--secret", shared_podman.CASecret + ",type=mount,target=/ssl/ca.crt",
+		// TODO Directly deploy them and skip SSL checks in container?
+		"--secret", shared_podman.SSLCertSecret + ",type=mount,target=/ssl/server.crt",
+		"--secret", shared_podman.SSLKeySecret + ",type=mount,target=/ssl/server.key",
 	}
-	command = append(command, sslArgs...)
 	for _, volume := range utils.ServerVolumeMounts {
 		command = append(command, "-v", fmt.Sprintf("%s:%s", volume.Name, volume.MountPath))
 	}

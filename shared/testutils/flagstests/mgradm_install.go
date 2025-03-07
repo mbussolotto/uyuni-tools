@@ -38,6 +38,11 @@ var InstallFlagsTestArgs = func() []string {
 		"--ssl-ca-root", "path/root.crt",
 		"--ssl-server-cert", "path/srv.crt",
 		"--ssl-server-key", "path/srv.key",
+		"--ssl-db-ca-intermediate", "path/dbinter1.crt",
+		"--ssl-db-ca-intermediate", "path/dbinter2.crt",
+		"--ssl-db-ca-root", "path/dbroot.crt",
+		"--ssl-db-cert", "path/dbsrv.crt",
+		"--ssl-db-key", "path/dbsrv.key",
 		"--debug-java",
 		"--admin-login", "adminuser",
 		"--admin-password", "adminpass",
@@ -89,6 +94,12 @@ func AssertInstallFlags(t *testing.T, flags *utils.ServerFlags) {
 	testutils.AssertEquals(t, "Error parsing --ssl-ca-root", "path/root.crt", flags.Installation.SSL.Ca.Root)
 	testutils.AssertEquals(t, "Error parsing --ssl-server-cert", "path/srv.crt", flags.Installation.SSL.Server.Cert)
 	testutils.AssertEquals(t, "Error parsing --ssl-server-key", "path/srv.key", flags.Installation.SSL.Server.Key)
+	testutils.AssertEquals(t, "Error parsing --ssl-db-ca-intermediate",
+		[]string{"path/dbinter1.crt", "path/dbinter2.crt"}, flags.Installation.SSL.DB.CA.Intermediate,
+	)
+	testutils.AssertEquals(t, "Error parsing --ssl-db-ca-root", "path/dbroot.crt", flags.Installation.SSL.DB.CA.Root)
+	testutils.AssertEquals(t, "Error parsing --ssl-db-cert", "path/dbsrv.crt", flags.Installation.SSL.DB.Cert)
+	testutils.AssertEquals(t, "Error parsing --ssl-db-key", "path/dbsrv.key", flags.Installation.SSL.DB.Key)
 	testutils.AssertTrue(t, "Error parsing --debug-java", flags.Installation.Debug.Java)
 	testutils.AssertEquals(t, "Error parsing --admin-login", "adminuser", flags.Installation.Admin.Login)
 	testutils.AssertEquals(t, "Error parsing --admin-password", "adminpass", flags.Installation.Admin.Password)

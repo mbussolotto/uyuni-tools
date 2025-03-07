@@ -66,12 +66,13 @@ func (flags *InstallationFlags) CheckParameters(cmd *cobra.Command, command stri
 	}
 
 	// The admin password is only needed for local database
-	if flags.DB.Host == "db" {
+	localDB := flags.DB.Host == "db"
+	if localDB && flags.DB.Admin.Password == "" {
 		flags.DB.Admin.Password = utils.GetRandomBase64(30)
 	}
 
 	// Make sure we have all the required 3rd party flags or none
-	flags.SSL.CheckParameters()
+	flags.SSL.CheckParameters(localDB)
 
 	// Since we use cert-manager for self-signed certificates on kubernetes we don't need password for it
 	if !flags.SSL.UseExisting() && command == "podman" {
