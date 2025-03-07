@@ -210,9 +210,9 @@ func runSetup(image string, flags *adm_utils.ServerFlags, fqdn string, sslArgs [
 		"--network", shared_podman.UyuniNetwork,
 		"-e", "TZ=" + flags.Installation.TZ,
 		"--secret", shared_podman.DBUserSecret + ",type=env,target=MANAGER_USER",
-		"--secret", shared_podman.DBPassSecret + ",type=env,target=MANAGER_PASSWORD",
-		"--secret", shared_podman.ReportDBUserSecret + ",type=env,target=REPORTDB_USER",
-		"--secret", shared_podman.ReportDBPassSecret + ",type=env,target=REPORTDB_PASSWORD",
+		"--secret", shared_podman.DBPassSecret + ",type=env,target=MANAGER_PASS",
+		"--secret", shared_podman.ReportDBUserSecret + ",type=env,target=REPORT_DB_USER",
+		"--secret", shared_podman.ReportDBPassSecret + ",type=env,target=REPORT_DB_PASS",
 	}
 	command = append(command, sslArgs...)
 	for _, volume := range utils.ServerVolumeMounts {

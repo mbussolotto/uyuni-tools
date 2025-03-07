@@ -43,9 +43,9 @@ ExecStart=/bin/sh -c '/usr/bin/podman run \
 	--secret {{ .AdminUser }},type=env,target=POSTGRES_USER \
 	--secret {{ .AdminPassword }},type=env,target=POSTGRES_PASSWORD \
 	--secret {{ .ManagerUser }},type=env,target=MANAGER_USER \
-	--secret {{ .ManagerPassword }},type=env,target=MANAGER_PASSWORD \
-	--secret {{ .ReportUser }},type=env,target=REPORTDB_USER \
-	--secret {{ .ReportPassword }},type=env,target=REPORTDB_PASSWORD \
+	--secret {{ .ManagerPassword }},type=env,target=MANAGER_PASS \
+	--secret {{ .ReportUser }},type=env,target=REPORT_DB_USER \
+	--secret {{ .ReportPassword }},type=env,target=REPORT_DB_PASS \
 	{{- range .Ports }}
 	-p {{ .Exposed }}:{{ .Port }}{{if .Protocol}}/{{ .Protocol }}{{end}} \
         {{- if $.IPV6Enabled }}
