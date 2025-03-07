@@ -47,6 +47,13 @@ ExecStart=/bin/sh -c '/usr/bin/podman run \
 	{{- end }}
 	-e TZ=${TZ} \
 	--network {{ .Network }} \
+	--secret {{ .CaSecret }},type=mount,target=/etc/pki/trust/anchors/LOCAL-RHN-ORG-TRUSTED-SSL-CERT \
+	--secret {{ .AdminUser }},type=env,target=POSTGRES_USER \
+	--secret {{ .AdminPassword }},type=env,target=POSTGRES_PASSWORD \
+	--secret {{ .ManagerUser }},type=env,target=MANAGER_USER \
+	--secret {{ .ManagerPassword }},type=env,target=MANAGER_PASS \
+	--secret {{ .ReportUser }},type=env,target=REPORT_DB_USER \
+	--secret {{ .ReportPassword }},type=env,target=REPORT_DB_PASS \
 	${PODMAN_EXTRA_ARGS} ${UYUNI_IMAGE}'
 ExecStop=/usr/bin/podman exec \
     uyuni-server \
@@ -70,13 +77,22 @@ WantedBy=multi-user.target default.target
 
 // PodmanServiceTemplateData POD information to create systemd file.
 type PodmanServiceTemplateData struct {
-	Volumes     []types.VolumeMount
-	NamePrefix  string
-	Args        string
-	Ports       []types.PortMap
-	Image       string
-	Network     string
-	IPV6Enabled bool
+	Volumes         []types.VolumeMount
+	NamePrefix      string
+	Args            string
+	Ports           []types.PortMap
+	Image           string
+	Network         string
+	IPV6Enabled     bool
+	CaSecret        string
+	CertSecret      string
+	KeySecret       string
+	AdminUser       string
+	AdminPassword   string
+	ManagerUser     string
+	ManagerPassword string
+	ReportUser      string
+	ReportPassword  string
 }
 
 // Render will create the systemd configuration file.
