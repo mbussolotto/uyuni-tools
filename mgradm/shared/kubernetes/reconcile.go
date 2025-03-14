@@ -124,8 +124,8 @@ func Reconcile(flags *KubernetesServerFlags, fqdn string) error {
 	}
 
 	if hasDatabase {
-		oldPgVersion := inspectedData.CurrentPgVersion
-		newPgVersion := inspectedData.ImagePgVersion
+		oldPgVersion := inspectedData.CommonInspectData.CurrentPgVersion
+		newPgVersion := inspectedData.DBInspectData.ImagePgVersion
 
 		// Run the DB Upgrade job if needed
 		if oldPgVersion < newPgVersion {

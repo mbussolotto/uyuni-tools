@@ -370,12 +370,17 @@ func Upgrade(
 	systemd podman.Systemd,
 	authFile string,
 	registry string,
+	db adm_utils.DBFlags,
+	reportdb adm_utils.DBFlags,
+	ssl adm_utils.InstallSSLFlags,
 	image types.ImageFlags,
 	upgradeImage types.ImageFlags,
 	cocoFlags adm_utils.CocoFlags,
 	hubXmlrpcFlags adm_utils.HubXmlrpcFlags,
 	salineFlags adm_utils.SalineFlags,
 	pgsqlFlags adm_utils.PgsqlFlags,
+	scc types.SCCCredentials,
+	tz string,
 ) error {
 	// Calling cloudguestregistryauth only makes sense if using the cloud provider registry.
 	// This check assumes users won't use custom registries that are not the cloud provider one on a cloud image.
@@ -385,17 +390,46 @@ func Upgrade(
 		}
 	}
 
-	serverImage, err := utils.ComputeImage(registry, utils.DefaultTag, image)
-	if err != nil {
-		return errors.New(L("failed to compute image URL"))
+	serverImage, err := utils.ComputeImage("", utils.DefaultTag, image)
+	if err != nil && len(serverImage) > 0 {
+		return utils.Errorf(err, L("failed to determine image"))
 	}
 
-	preparedImage, err := podman.PrepareImage(authFile, serverImage, image.PullPolicy, true)
+	if len(serverImage) <= 0 {
+		log.Debug().Msg("Use deployed image")
+
+		serverImage, err = podman.GetRunningImage(podman.ServerContainerName)
+		if err != nil {
+			return utils.Errorf(err, L("failed to find the image of the currently running server container"))
+		}
+	}
+
+	log.Info().Msgf(L("pgsql image %[1]s"), pgsqlFlags.Image)
+	pgsqlImage, err := utils.ComputeImage("", utils.DefaultTag, pgsqlFlags.Image)
+	if err != nil && len(pgsqlImage) > 0 {
+		return utils.Errorf(err, L("failed to determine pgsql image"))
+	}
+
+	if len(pgsqlImage) <= 0 {
+		log.Debug().Msg("Use deployed pgsqlimage")
+
+		pgsqlImage, err = podman.GetRunningImage(podman.DBContainerName)
+		if err != nil {
+			return utils.Errorf(err, L("failed to find the image of the currently running db container"))
+		}
+	}
+
+	preparedServerImage, err := podman.PrepareImage(authFile, serverImage, image.PullPolicy, true)
 	if err != nil {
 		return err
 	}
 
-	inspectedValues, err := Inspect(preparedImage)
+	preparedPgsqlImage, err := podman.PrepareImage(authFile, pgsqlImage, image.PullPolicy, true)
+	if err != nil {
+		return err
+	}
+
+	inspectedValues, err := podman.Inspect(preparedServerImage, preparedPgsqlImage, image.PullPolicy, scc)
 	if err != nil {
 		return utils.Errorf(err, L("cannot inspect podman values"))
 	}
@@ -403,13 +437,13 @@ func Upgrade(
 	runningImage := podman.GetServiceImage(podman.ServerService)
 	var runningData *utils.ServerInspectData
 	if runningImage != "" {
-		runningData, err = Inspect(runningImage)
+		runningData, err = podman.Inspect(preparedServerImage, preparedPgsqlImage, image.PullPolicy, scc)
 		if err != nil {
 			return err
 		}
 	}
 
-	if err := adm_utils.SanityCheck(runningData, inspectedValues, preparedImage); err != nil {
+	if err := adm_utils.SanityCheck(runningData, inspectedValues, preparedServerImage); err != nil {
 		return err
 	}
 
@@ -421,34 +455,77 @@ func Upgrade(
 		err = systemd.StartService(podman.ServerService)
 	}()
 
-	if inspectedValues.CurrentPgVersionNotMigrated != "" ||
+	if inspectedValues.CommonInspectData.CurrentPgVersionNotMigrated != "" ||
 		inspectedValues.DBHost == "localhost" ||
 		inspectedValues.ReportDBHost == "localhost" {
-		log.Info().Msgf(L("Configuring split PostgreSQL container. Current version: %[1]s, not migrated version: %[2]s"),
-			inspectedValues.CurrentPgVersion, inspectedValues.CurrentPgVersionNotMigrated)
+		log.Info().Msgf(L("Configuring split PostgreSQL container. Image version: %[1]s, not migrated version: %[2]s"),
+			inspectedValues.DBInspectData.ImagePgVersion, inspectedValues.CommonInspectData.CurrentPgVersionNotMigrated)
 
-		if err := RunPgsqlContainerMigration(preparedImage, "db", "reportdb"); err != nil {
+		if err := RunPgsqlContainerMigration(serverImage, "db", "reportdb"); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))
 		}
-		inspectedValues.CurrentPgVersion = inspectedValues.CurrentPgVersionNotMigrated
+		fqdn, err := utils.GetFqdn([]string{})
+		if err != nil {
+			return err
+		}
+
+		if err = GenerateSSLCertificates(preparedServerImage, &ssl, tz, fqdn); err != nil {
+			return err
+		}
+
+		// Create all the database credentials secrets
+		if err := podman.CreateCredentialsSecrets(
+			podman.DBUserSecret, db.User,
+			podman.DBPassSecret, db.Password,
+		); err != nil {
+			return err
+		}
+
+		if err := podman.CreateCredentialsSecrets(
+			podman.ReportDBUserSecret, reportdb.User,
+			podman.ReportDBPassSecret, reportdb.Password,
+		); err != nil {
+			return err
+		}
+
+		if db.Host == "db" {
+			// The admin password is not needed for external databases
+			if err := podman.CreateCredentialsSecrets(
+				podman.DBAdminUserSecret, db.Admin.User,
+				podman.DBAdminPassSecret, db.Admin.Password,
+			); err != nil {
+				return err
+			}
+
+			// Run the DB container setup if the user doesn't set a custom host name for it.
+			if err := pgsql.SetupPgsql(systemd, authFile, &pgsqlFlags, &image); err != nil {
+				return err
+			}
+		} else {
+			log.Info().Msgf(
+				L("Skipped database container setup to use external database %s"),
+				db.Host,
+			)
+		}
 	}
 
-	if inspectedValues.ImagePgVersion > inspectedValues.CurrentPgVersion {
+	if inspectedValues.DBInspectData.ImagePgVersion > inspectedValues.CommonInspectData.CurrentPgVersion {
 		log.Info().Msgf(
 			L("Previous PostgreSQL is %[1]s, instead new one is %[2]s. Performing a DB version upgrade…"),
-			inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
+			inspectedValues.CommonInspectData.CurrentPgVersion, inspectedValues.DBInspectData.ImagePgVersion,
 		)
 		if err := RunPgsqlVersionUpgrade(
-			authFile, registry, image, upgradeImage, inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
+			authFile, registry, image, upgradeImage, inspectedValues.CommonInspectData.CurrentPgVersion,
+			inspectedValues.DBInspectData.ImagePgVersion,
 		); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))
 		}
-	} else if inspectedValues.ImagePgVersion == inspectedValues.CurrentPgVersion {
+	} else if inspectedValues.DBInspectData.ImagePgVersion == inspectedValues.CommonInspectData.CurrentPgVersion {
 		log.Info().Msgf(L("Upgrading to %s without changing PostgreSQL version"), inspectedValues.UyuniRelease)
 	} else {
 		return fmt.Errorf(
 			L("trying to downgrade PostgreSQL from %[1]s to %[2]s"),
-			inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
+			inspectedValues.CommonInspectData.CurrentPgVersion, inspectedValues.DBInspectData.ImagePgVersion,
 		)
 	}
 
@@ -458,12 +535,13 @@ func Upgrade(
 		return err
 	}
 
-	schemaUpdateRequired := inspectedValues.CurrentPgVersion != inspectedValues.ImagePgVersion
-	if err := RunPgsqlFinalizeScript(preparedImage, schemaUpdateRequired, false); err != nil {
+	schemaUpdateRequired :=
+		inspectedValues.CommonInspectData.CurrentPgVersion != inspectedValues.DBInspectData.ImagePgVersion
+	if err := RunPgsqlFinalizeScript(preparedServerImage, schemaUpdateRequired, false); err != nil {
 		return utils.Errorf(err, L("cannot run PostgreSQL finalize script"))
 	}
 
-	if err := RunPostUpgradeScript(preparedImage); err != nil {
+	if err := RunPostUpgradeScript(preparedServerImage); err != nil {
 		return utils.Errorf(err, L("cannot run post upgrade script"))
 	}
 
@@ -472,7 +550,7 @@ func Upgrade(
 	}
 
 	if err := podman.GenerateSystemdConfFile("uyuni-server", "generated.conf",
-		"Environment=UYUNI_IMAGE="+preparedImage, true,
+		"Environment=UYUNI_IMAGE="+preparedServerImage, true,
 	); err != nil {
 		return err
 	}
@@ -530,38 +608,6 @@ func updateServerSystemdService() error {
 	}
 
 	return GenerateServerSystemdService(getMirrorPath(out), hasDebugPorts(out))
-}
-
-// Inspect check values on a given image and deploy.
-func Inspect(preparedImage string) (*utils.ServerInspectData, error) {
-	scriptDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return nil, err
-	}
-	defer cleaner()
-
-	inspector := utils.NewServerInspector(scriptDir)
-	if err := inspector.GenerateScript(); err != nil {
-		return nil, err
-	}
-
-	podmanArgs := []string{
-		"-v", scriptDir + ":" + utils.InspectContainerDirectory,
-		"--security-opt", "label=disable",
-	}
-
-	err = podman.RunContainer("uyuni-inspect", preparedImage, utils.ServerMigrationVolumeMounts, podmanArgs,
-		[]string{utils.InspectContainerDirectory + "/" + utils.InspectScriptFilename})
-	if err != nil {
-		return nil, err
-	}
-
-	inspectResult, err := inspector.ReadInspectData()
-	if err != nil {
-		return nil, utils.Errorf(err, L("cannot inspect data"))
-	}
-
-	return inspectResult, err
 }
 
 // RunPgsqlContainerMigration migrate to separate postgres container.

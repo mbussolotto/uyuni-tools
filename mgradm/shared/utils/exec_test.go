@@ -52,7 +52,9 @@ func TestSanityCheck(t *testing.T) {
 		newValues := utils.ServerInspectData{
 			CommonInspectData: utils.CommonInspectData{
 				CurrentPgVersion: test.oldPgsqlVersion,
-				ImagePgVersion:   test.newPgsqlVersion,
+			},
+			DBInspectData: utils.DBInspectData{
+				ImagePgVersion: test.newPgsqlVersion,
 			},
 			UyuniRelease:       test.newUyuniRelease,
 			SuseManagerRelease: test.newSumaRelease,

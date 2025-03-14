@@ -51,8 +51,10 @@ func prepareThirdPartyCertificate(caChain *types.CaChain, pair *types.SSLPair, o
 	return nil
 }
 
+var newRunner = utils.NewRunner
+
 // generateSSLCertificates creates the self-signed certificates if needed.
-func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn string) error {
+func GenerateSSLCertificates(image string, ssl *adm_utils.InstallSSLFlags, tz string, fqdn string) error {
 	// Write the ordered cert and Root CA to temp files
 	tempDir, cleaner, err := utils.TempDir()
 	defer cleaner()
@@ -60,10 +62,10 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 		return err
 	}
 
-	if flags.Installation.SSL.UseExisting() {
+	if ssl.UseExisting() {
 		serverDir := path.Join(tempDir, "server")
 		if err := prepareThirdPartyCertificate(
-			&flags.Installation.SSL.Ca, &flags.Installation.SSL.Server, serverDir,
+			&ssl.Ca, &ssl.Server, serverDir,
 		); err != nil {
 			return err
 		}
@@ -72,15 +74,15 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 		if err := shared_podman.CreateTLSSecrets(
 			shared_podman.CASecret, path.Join(serverDir, "ca.crt"),
 			shared_podman.SSLCertSecret, path.Join(serverDir, "server.crt"),
-			shared_podman.SSLKeySecret, flags.Installation.SSL.Server.Key,
+			shared_podman.SSLKeySecret, ssl.Server.Key,
 		); err != nil {
 			return err
 		}
 
 		dbDir := path.Join(tempDir, "db")
 		if err := prepareThirdPartyCertificate(
-			&flags.Installation.SSL.DB.CA,
-			&flags.Installation.SSL.DB.SSLPair,
+			&ssl.DB.CA,
+			&ssl.DB.SSLPair,
 			dbDir,
 		); err != nil {
 			return err
@@ -90,7 +92,7 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 		if err := shared_podman.CreateTLSSecrets(
 			shared_podman.DBCASecret, path.Join(dbDir, "ca.crt"),
 			shared_podman.DBSSLCertSecret, path.Join(dbDir, "server.crt"),
-			shared_podman.DBSSLKeySecret, flags.Installation.SSL.DB.Key,
+			shared_podman.DBSSLKeySecret, ssl.DB.Key,
 		); err != nil {
 			return err
 		}
@@ -99,14 +101,14 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 	}
 
 	env := map[string]string{
-		"CERT_O":       flags.Installation.SSL.Org,
-		"CERT_OU":      flags.Installation.SSL.OU,
-		"CERT_CITY":    flags.Installation.SSL.City,
-		"CERT_STATE":   flags.Installation.SSL.State,
-		"CERT_COUNTRY": flags.Installation.SSL.Country,
-		"CERT_EMAIL":   flags.Installation.SSL.Email,
-		"CERT_CNAMES":  strings.Join(append([]string{fqdn}, flags.Installation.SSL.Cnames...), " "),
-		"CERT_PASS":    flags.Installation.SSL.Password,
+		"CERT_O":       ssl.Org,
+		"CERT_OU":      ssl.OU,
+		"CERT_CITY":    ssl.City,
+		"CERT_STATE":   ssl.State,
+		"CERT_COUNTRY": ssl.Country,
+		"CERT_EMAIL":   ssl.Email,
+		"CERT_CNAMES":  strings.Join(append([]string{fqdn}, ssl.Cnames...), " "),
+		"CERT_PASS":    ssl.Password,
 		"HOSTNAME":     fqdn,
 	}
 	envNames := []string{}
@@ -121,7 +123,7 @@ func generateSSLCertificates(image string, flags *adm_utils.ServerFlags, fqdn st
 		"--rm",
 		"--name", "uyuni-ssl-generator",
 		"--network", shared_podman.UyuniNetwork,
-		"-e", "TZ=" + flags.Installation.TZ,
+		"-e", "TZ=" + tz,
 		"-v", utils.RootVolumeMount.Name + ":" + utils.RootVolumeMount.MountPath,
 		"-v", tempDir + ":/ssl:z", // Bind mount for the generated certificates
 	}

@@ -19,7 +19,6 @@ func TestParamsParsing(t *testing.T) {
 	args := flagstests.InstallFlagsTestArgs()
 	args = append(args, flagstests.MirrorFlagTestArgs...)
 	args = append(args, flagstests.PodmanFlagsTestArgs...)
-	args = append(args, flagstests.PgsqlFlagsTestArgs...)
 	args = append(args, "srv.fq.dn")
 
 	// Test function asserting that the args are properly parsed
@@ -29,7 +28,6 @@ func TestParamsParsing(t *testing.T) {
 		flagstests.AssertMirrorFlag(t, flags.Mirror)
 		flagstests.AssertInstallFlags(t, &flags.ServerFlags)
 		flagstests.AssertPodmanInstallFlags(t, &flags.Podman)
-		flagstests.AssertPgsqlFlag(t, &flags.Pgsql)
 		testutils.AssertEquals(t, "Wrong FQDN", "srv.fq.dn", args[0])
 		return nil
 	}

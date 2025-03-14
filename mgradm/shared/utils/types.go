@@ -20,7 +20,7 @@ type InstallSSLFlags struct {
 	DB SSLFlags
 }
 
-// SSLFlags reprensents an SSL certificate and key with the CA chain
+// SSLFlags represents an SSL certificate and key with the CA chain.
 type SSLFlags struct {
 	types.SSLPair `mapstructure:",squash"`
 	CA            types.CaChain

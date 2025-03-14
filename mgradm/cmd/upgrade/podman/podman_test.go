@@ -16,6 +16,7 @@ import (
 func TestParamsParsing(t *testing.T) {
 	args := []string{}
 
+	args = append(args, "--ssl-password", "sslsecret")
 	args = append(args, flagstests.ImageFlagsTestArgs...)
 	args = append(args, flagstests.DBUpdateImageFlagTestArgs...)
 	args = append(args, flagstests.CocoFlagsTestArgs...)
@@ -24,6 +25,9 @@ func TestParamsParsing(t *testing.T) {
 	args = append(args, flagstests.SCCFlagTestArgs...)
 	args = append(args, flagstests.PodmanFlagsTestArgs...)
 	args = append(args, flagstests.PgsqlFlagsTestArgs...)
+	args = append(args, flagstests.DBFlagsTestArgs...)
+	args = append(args, flagstests.ReportDBFlagsTestArgs...)
+	args = append(args, flagstests.SSLGenerationFlagsTestArgs...)
 
 	// Test function asserting that the args are properly parsed
 	tester := func(_ *types.GlobalFlags, flags *podmanUpgradeFlags,
@@ -37,6 +41,10 @@ func TestParamsParsing(t *testing.T) {
 		flagstests.AssertSCCFlag(t, &flags.ServerFlags.Installation.SCC)
 		flagstests.AssertPodmanInstallFlags(t, &flags.Podman)
 		flagstests.AssertPgsqlFlag(t, &flags.Pgsql)
+		flagstests.AssertDBFlag(t, &flags.Installation.DB)
+		flagstests.AssertReportDBFlag(t, &flags.Installation.ReportDB)
+		flagstests.AssertSSLGenerationFlag(t, &flags.Installation.SSL.SSLCertGenerationFlags)
+		testutils.AssertEquals(t, "Error parsing --ssl-password", "sslsecret", flags.ServerFlags.Installation.SSL.Password)
 		return nil
 	}
 

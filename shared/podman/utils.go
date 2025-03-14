@@ -225,6 +225,7 @@ func getPodmanVolumeBasePath() (string, error) {
 // Inspect check values on a given image and deploy.
 func Inspect(
 	serverImage string,
+	pgsqlImage string,
 	pullPolicy string,
 	scc types.SCCCredentials,
 ) (*utils.ServerInspectData, error) {
@@ -245,6 +246,11 @@ func Inspect(
 	}
 	defer cleaner()
 
+	podmanArgs := []string{
+		"-v", scriptDir + ":" + utils.InspectContainerDirectory,
+		"--security-opt", "label=disable",
+	}
+
 	preparedImage, err := PrepareImage(authFile, serverImage, pullPolicy, true)
 	if err != nil {
 		return nil, err
@@ -254,12 +260,6 @@ func Inspect(
 	if err := inspector.GenerateScript(); err != nil {
 		return nil, err
 	}
-
-	podmanArgs := []string{
-		"-v", scriptDir + ":" + utils.InspectContainerDirectory,
-		"--security-opt", "label=disable",
-	}
-
 	err = RunContainer("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
 		[]string{utils.InspectContainerDirectory + "/" + utils.InspectScriptFilename})
 	if err != nil {
@@ -270,6 +270,29 @@ func Inspect(
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot inspect data"))
 	}
+
+	pgsqlPreparedImage, err := PrepareImage(authFile, pgsqlImage, pullPolicy, true)
+	if err != nil {
+		return nil, err
+	}
+
+	dbinspector := utils.NewDBInspector(scriptDir)
+	if err := dbinspector.GenerateScript(); err != nil {
+		return nil, err
+	}
+
+	err = RunContainer("uyuni-db-inspect", pgsqlPreparedImage, utils.PgsqlRequiredVolumeMounts, podmanArgs,
+		[]string{utils.InspectContainerDirectory + "/" + utils.InspectScriptFilename})
+	if err != nil {
+		return nil, err
+	}
+
+	dbInspectResult, err := dbinspector.ReadInspectData()
+	if err != nil {
+		return nil, utils.Errorf(err, L("cannot inspect data"))
+	}
+
+	inspectResult.DBInspectData.ImagePgVersion = dbInspectResult.ImagePgVersion
 
 	return inspectResult, err
 }

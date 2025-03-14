@@ -84,8 +84,8 @@ func migrateToPodman(
 		return nil
 	}
 
-	oldPgVersion := extractedData.CurrentPgVersion
-	newPgVersion := extractedData.ImagePgVersion
+	oldPgVersion := extractedData.CommonInspectData.CurrentPgVersion
+	newPgVersion := extractedData.DBInspectData.ImagePgVersion
 
 	if oldPgVersion != newPgVersion {
 		if err := podman.RunPgsqlVersionUpgrade(

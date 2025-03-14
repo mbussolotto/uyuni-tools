@@ -6,23 +6,34 @@ package shared
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/uyuni-project/uyuni-tools/mgradm/shared/utils"
+	adm_utils "github.com/uyuni-project/uyuni-tools/mgradm/shared/utils"
+	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
+	"github.com/uyuni-project/uyuni-tools/shared/ssl"
+	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
 // AddUpgradeFlags add upgrade flags to a command.
 func AddUpgradeFlags(cmd *cobra.Command) {
-	utils.AddImageFlag(cmd)
-	utils.AddSCCFlag(cmd)
-	utils.AddDBUpgradeImageFlag(cmd)
+	adm_utils.AddImageFlag(cmd)
+	adm_utils.AddSCCFlag(cmd)
 
-	utils.AddUpgradeCocoFlag(cmd)
-	utils.AddUpgradeHubXmlrpcFlags(cmd)
-	utils.AddUpgradeSalineFlag(cmd)
-	utils.AddPgsqlFlags(cmd)
+	// For generated CA and certificate
+	ssl.AddSSLGenerationFlags(cmd)
+	cmd.Flags().String("ssl-password", "", L("Password for the CA key to generate"))
+	_ = utils.AddFlagToHelpGroupID(cmd, "ssl-password", "ssl")
+
+	adm_utils.AddDBFlags(cmd)
+	adm_utils.AddReportDBFlags(cmd)
+
+	adm_utils.AddDBUpgradeImageFlag(cmd)
+	adm_utils.AddUpgradeCocoFlag(cmd)
+	adm_utils.AddUpgradeHubXmlrpcFlags(cmd)
+	adm_utils.AddUpgradeSalineFlag(cmd)
+	adm_utils.AddPgsqlFlags(cmd)
 }
 
 // AddUpgradeListFlags add upgrade list flags to a command.
 func AddUpgradeListFlags(cmd *cobra.Command) {
-	utils.AddImageFlag(cmd)
-	utils.AddSCCFlag(cmd)
+	adm_utils.AddImageFlag(cmd)
+	adm_utils.AddSCCFlag(cmd)
 }

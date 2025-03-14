@@ -55,8 +55,14 @@ type InstallationFlags struct {
 	Organization string
 }
 
-// CheckParameters checks parameters for install command.
-func (flags *InstallationFlags) CheckParameters(cmd *cobra.Command, command string) {
+// TODO create UpgradeFlags or do it in a better way.
+func (flags *InstallationFlags) CheckUpgradeParameters(cmd *cobra.Command, command string) {
+	flags.setPasswordIfMissing()
+
+	flags.checkSSLParameters(cmd, command)
+}
+
+func (flags *InstallationFlags) setPasswordIfMissing() {
 	if flags.DB.Password == "" {
 		flags.DB.Password = utils.GetRandomBase64(30)
 	}
@@ -66,18 +72,28 @@ func (flags *InstallationFlags) CheckParameters(cmd *cobra.Command, command stri
 	}
 
 	// The admin password is only needed for local database
-	localDB := flags.DB.Host == "db"
-	if localDB && flags.DB.Admin.Password == "" {
+	isLocalDB := flags.DB.Host == "db"
+	if isLocalDB && flags.DB.Admin.Password == "" {
 		flags.DB.Admin.Password = utils.GetRandomBase64(30)
 	}
+}
 
+func (flags *InstallationFlags) checkSSLParameters(cmd *cobra.Command, command string) {
+	isLocalDB := flags.DB.Host == "db"
 	// Make sure we have all the required 3rd party flags or none
-	flags.SSL.CheckParameters(localDB)
+	flags.SSL.CheckParameters(isLocalDB)
 
 	// Since we use cert-manager for self-signed certificates on kubernetes we don't need password for it
 	if !flags.SSL.UseExisting() && command == "podman" {
 		utils.AskPasswordIfMissing(&flags.SSL.Password, cmd.Flag("ssl-password").Usage, 0, 0)
 	}
+}
+
+// CheckParameters checks parameters for install command.
+func (flags *InstallationFlags) CheckParameters(cmd *cobra.Command, command string) {
+	flags.setPasswordIfMissing()
+
+	flags.checkSSLParameters(cmd, command)
 
 	// Use the host timezone if the user didn't define one
 	if flags.TZ == "" {
