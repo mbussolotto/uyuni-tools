@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-21 09:45+0100\n"
-"PO-Revision-Date: 2025-03-03 10:56+0000\n"
+"PO-Revision-Date: 2025-04-10 16:56+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/"
 "uyuni-tools-mgradm-5-0/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: mgradm/cmd/cmd.go:40
 msgid "Uyuni administration tool"
@@ -1827,7 +1827,7 @@ msgstr ""
 #: mgradm/shared/utils/cmd_utils.go:140 mgradm/shared/utils/cmd_utils.go:141
 #: mgradm/shared/utils/cmd_utils.go:150 mgradm/shared/utils/cmd_utils.go:151
 msgid "Hub XML-RPC API"
-msgstr "API XML-RPC del Hub"
+msgstr "Concentrador XML-RPC API"
 
 #: mgradm/shared/utils/cmd_utils.go:143
 msgid "How many replicas of the Hub XML-RPC API service container should be started."
