@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 09:45+0100\n"
+"POT-Creation-Date: 2025-04-11 13:38+0200\n"
 "PO-Revision-Date: 2025-04-10 16:56+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/"
-"uyuni-tools-mgradm-5-0/ca/>\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,15 +63,11 @@ msgstr "No s'ha pogut desmuntar la imatge ISO, deixant %s intacte"
 
 #: mgradm/cmd/distro/cp.go:47
 msgid "unable to login and register the distribution. Manual distro registration is required"
-msgstr ""
-"no s'ha pogut iniciar la sessió i registrar la distribució. Es requereix un "
-"registre de distribució manual"
+msgstr "no s'ha pogut iniciar la sessió i registrar la distribució. Es requereix un registre de distribució manual"
 
 #: mgradm/cmd/distro/cp.go:59
 msgid "unable to register the distribution. Manual distro registration is required"
-msgstr ""
-"no s'ha pogut registrar la distribució. Es requereix un registre de "
-"distribució manual"
+msgstr "no s'ha pogut registrar la distribució. Es requereix un registre de distribució manual"
 
 #: mgradm/cmd/distro/cp.go:61
 #, javascript-format
@@ -131,22 +126,16 @@ msgstr "Continua registrant la distribució d'instal·lació automàtica"
 
 #: mgradm/cmd/distro/detect.go:96
 msgid "distribution not found in product map. Please update productmap or provide channel label"
-msgstr ""
-"no s'ha trobat la distribució en el mapa del producte. Actualitzeu el mapa "
-"de producte o proporcioneu l'etiqueta del canal"
+msgstr "no s'ha trobat la distribució en el mapa del producte. Actualitzeu el mapa de producte o proporcioneu l'etiqueta del canal"
 
 #: mgradm/cmd/distro/detect.go:111
 msgid "unable to read distribution treeinfo. Please provide distribution details and/or channel label"
-msgstr ""
-"no s'ha pogut llegir la informació de l'arbre de la distribució. Si us plau, "
-"proporcioneu detalls de distribució i/o etiqueta de canal"
+msgstr "no s'ha pogut llegir la informació de l'arbre de la distribució. Si us plau, proporcioneu detalls de distribució i/o etiqueta de canal"
 
 #: mgradm/cmd/distro/detect.go:150
 #, javascript-format
 msgid "distribution treeinfo %s does not exists. Please provide distribution details and/or channel label"
-msgstr ""
-"la informació d'arbre de distribució %s no existeix. Si us plau, "
-"proporcioneu detalls de distribució i/o etiqueta de canal"
+msgstr "la informació d'arbre de distribució %s no existeix. Si us plau, proporcioneu detalls de distribució i/o etiqueta de canal"
 
 #: mgradm/cmd/distro/distro.go:32
 msgid ""
@@ -187,49 +176,34 @@ msgid ""
 msgstr ""
 "Assignació automàtica de productes de distribució d'instal·lació.\n"
 "\n"
-"Per tal que la distribució sigui registrada pel servidor és important "
-"assignar la distribució al canal de programari correcte.\n"
+"Per tal que la distribució sigui registrada pel servidor és important assignar la distribució al canal de programari correcte.\n"
 "\n"
-"Els canals de programari es poden anomenar de manera diferent sense cap "
-"corellació al nom de la distribució;\n"
-"Llavors es necessita per permetre el nom de distribució personalitzada al "
-"mapatge de canals de programari.\n"
+"Els canals de programari es poden anomenar de manera diferent sense cap corellació al nom de la distribució;\n"
+"Llavors es necessita per permetre el nom de distribució personalitzada al mapatge de canals de programari.\n"
 "\n"
-"Una manera d'establir el canal de programari és mitjançant l'indicador --"
-"channel a l'ordre de còpia de distribució.\n"
+"Una manera d'establir el canal de programari és mitjançant l'indicador --channel a l'ordre de còpia de distribució.\n"
 "\n"
-"Per a un ús freqüent, és possible escriure un mapatge personalitzat del "
-"producte al fitxer de configuració de mgradm de la següent manera:\n"
+"Per a un ús freqüent, és possible escriure un mapatge personalitzat del producte al fitxer de configuració de mgradm de la següent manera:\n"
 "\n"
 "Mapa de producte:\n"
 "  <distribution name>:\n"
 "    <distribution version>:\n"
 "      <distribution architecture>:\n"
 "        Etiqueta del canal: <channel label>\n"
-"        Tipusinstal·lació: <one of "
-"rhel7|rhel8|rhel9|sles12generic|sles15generic|genericrpm>\n"
+"        Tipusinstal·lació: <one of rhel7|rhel8|rhel9|sles12generic|sles15generic|genericrpm>\n"
 "        Nom de l'arbre: <custom distribution name>\n"
 "\n"
 "On\n"
-"* <distribution name> és el nom de la distribució, per defecte agafat del "
-"fitxer '.treeinfo' del suport.\n"
-"  Si no es troba o està disponible '.treeinfo', es requereix i s'utilitza "
-"l'opció de línia d'ordres.\n"
-"* <distribution version> és la versió de la distribució, per defecte agafada "
-"del fitxer '.treeinfo' del suport.\n"
-"  Si no es troba «.treeinfo», es requereix i s'utilitza l'opció de línia "
-"d'ordres.\n"
-"* <distribution architecture> és una arquitectura de distribució, per "
-"defecte extreta del fitxer '.treeinfo' del mitjà.\n"
-"  Si no es troba «.treeinfo», es requereix i s'utilitza l'opció de línia "
-"d'ordres.\n"
-"* ChannelLabel és l'etiqueta del canal del servidor Uyuni i que s'utilitzarà "
-"per a aquesta distribució;\n"
+"* <distribution name> és el nom de la distribució, per defecte agafat del fitxer '.treeinfo' del suport.\n"
+"  Si no es troba o està disponible '.treeinfo', es requereix i s'utilitza l'opció de línia d'ordres.\n"
+"* <distribution version> és la versió de la distribució, per defecte agafada del fitxer '.treeinfo' del suport.\n"
+"  Si no es troba «.treeinfo», es requereix i s'utilitza l'opció de línia d'ordres.\n"
+"* <distribution architecture> és una arquitectura de distribució, per defecte extreta del fitxer '.treeinfo' del mitjà.\n"
+"  Si no es troba «.treeinfo», es requereix i s'utilitza l'opció de línia d'ordres.\n"
+"* ChannelLabel és l'etiqueta del canal del servidor Uyuni i que s'utilitzarà per a aquesta distribució;\n"
 "  es pot substituir per l'indicador de la línia d'ordres.\n"
-"* InstallType s'utilitza quan es coneix l'instal·lador (per a l'autoyast o "
-"kickstart) o utilitza 'genericrpm'.\n"
-"* TreeName és com es presentarà la distribució a la interfície d'usuari del "
-"servidor Uyuni. Si no s'estableix, s'utilitza <distribution name>.\n"
+"* InstallType s'utilitza quan es coneix l'instal·lador (per a l'autoyast o kickstart) o utilitza 'genericrpm'.\n"
+"* TreeName és com es presentarà la distribució a la interfície d'usuari del servidor Uyuni. Si no s'estableix, s'utilitza <distribution name>.\n"
 "\n"
 "Mapa del producte en muntatge:\n"
 "\n"
@@ -259,13 +233,10 @@ msgid ""
 "\n"
 "Note: API details are required for auto registration."
 msgstr ""
-"Agafa un camí cap al fitxer o directori iso d'origen amb iso muntat i el "
-"copia al contenidor.\n"
+"Agafa un camí cap al fitxer o directori iso d'origen amb iso muntat i el copia al contenidor.\n"
 "\n"
-"Els paràmetres opcionals «distribution-name», «version» i «arch» especifica "
-"una distribució personalitzada.\n"
-"Si no s'estableix, s'intenta detectar automàticament el nom de la "
-"distribució:\n"
+"Els paràmetres opcionals «distribution-name», «version» i «arch» especifica una distribució personalitzada.\n"
+"Si no s'estableix, s'intenta detectar automàticament el nom de la distribució:\n"
 "\n"
 "- utilitza el nom del fitxer '.treeinfo' si existeix\n"
 "- utilitza el nom de l'ISO o del directori passat\n"
@@ -416,9 +387,7 @@ msgstr "no s'ha pogut determinar la imatge"
 #: mgradm/cmd/inspect/kubernetes.go:41
 #, javascript-format
 msgid "failed to find the image of the currently running server container: %s"
-msgstr ""
-"no s'ha pogut trobar la imatge del contenidor del servidor actualment en "
-"execució: %s"
+msgstr "no s'ha pogut trobar la imatge del contenidor del servidor actualment en execució: %s"
 
 #: mgradm/cmd/inspect/kubernetes.go:47
 #: mgradm/cmd/migrate/kubernetes/utils.go:43
@@ -438,9 +407,7 @@ msgstr "no es pot imprimir el resultat de la inspecció"
 
 #: mgradm/cmd/inspect/podman.go:37
 msgid "failed to find the image of the currently running server container"
-msgstr ""
-"no s'ha pogut trobar la imatge del contenidor del servidor actualment en "
-"execució"
+msgstr "no s'ha pogut trobar la imatge del contenidor del servidor actualment en execució"
 
 #: mgradm/cmd/install/install.go:20 mgradm/cmd/install/install.go:21
 msgid "Install a new server"
@@ -466,11 +433,9 @@ msgstr ""
 "\n"
 "L'ordre install assumeix el següent:\n"
 "  * El kubectl i el helm s'instal·len localment\n"
-"  * s'ha d'establir una configuració de kubectl que funcioni per a connectar-"
-"se al clúster on desplegar\n"
+"  * s'ha d'establir una configuració de kubectl que funcioni per a connectar-se al clúster on desplegar\n"
 "\n"
-"El fitxer de valors del helm se sobreescriurà amb els valors dels paràmetres "
-"de l'ordre o de la configuració.\n"
+"El fitxer de valors del helm se sobreescriurà amb els valors dels paràmetres de l'ordre o de la configuració.\n"
 "\n"
 "NOTA: la instal·lació en un clúster remot encara no està suportada!\n"
 
@@ -497,8 +462,7 @@ msgstr "no s'ha pogut aturar el servei"
 
 #: mgradm/cmd/install/kubernetes/utils.go:104
 msgid "error storing the SSL CA certificate in database"
-msgstr ""
-"s'ha produït un error en emmagatzemar el certificat SSL CA a la base de dades"
+msgstr "s'ha produït un error en emmagatzemar el certificat SSL CA a la base de dades"
 
 #: mgradm/cmd/install/podman/podman.go:25
 msgid "Install a new server on podman"
@@ -518,7 +482,7 @@ msgstr ""
 "\n"
 "NOTA: la instal·lació en un podman remot encara no està suportada!\n"
 
-#: mgradm/cmd/install/podman/utils.go:32 mgradm/shared/podman/podman.go:440
+#: mgradm/cmd/install/podman/utils.go:32 mgradm/shared/podman/podman.go:442
 msgid "Waiting for the server to start…"
 msgstr "S'està esperant que el servidor comenci…"
 
@@ -534,9 +498,7 @@ msgstr "no s'ha pogut iniciar la sessió a register.suse.com"
 
 #: mgradm/cmd/install/podman/utils.go:59
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
-msgstr ""
-"El servidor ja està inicialitzat! Desinstal·la abans d'intentar una nova "
-"instal·lació o utilitza l'ordre d'actualització"
+msgstr "El servidor ja està inicialitzat! Desinstal·la abans d'intentar una nova instal·lació o utilitza l'ordre d'actualització"
 
 #: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:33
 msgid "install podman before running this command"
@@ -551,8 +513,8 @@ msgstr "S'està configurant el servidor amb el FQDN «%s»"
 #: mgradm/cmd/migrate/kubernetes/utils.go:48 mgradm/shared/coco/coco.go:76
 #: mgradm/shared/hub/xmlrpcapi.go:44 mgradm/shared/kubernetes/install.go:51
 #: mgradm/shared/kubernetes/install.go:161 mgradm/shared/kubernetes/k3s.go:58
-#: mgradm/shared/kubernetes/k3s.go:63 mgradm/shared/podman/podman.go:267
-#: mgradm/shared/podman/podman.go:272 mgradm/shared/podman/podman.go:369
+#: mgradm/shared/kubernetes/k3s.go:63 mgradm/shared/podman/podman.go:269
+#: mgradm/shared/podman/podman.go:274 mgradm/shared/podman/podman.go:371
 msgid "failed to compute image URL"
 msgstr "no s'ha pogut calcular l'URL de la imatge"
 
@@ -591,9 +553,7 @@ msgstr "No és una adreça electrònica vàlida"
 
 #: mgradm/cmd/install/shared/flags.go:124
 msgid "Time zone to set on the server. Defaults to the host timezone"
-msgstr ""
-"Zona horària a establir al servidor. Per defecte a la zona horària de "
-"l'amfitrió"
+msgstr "Zona horària a establir al servidor. Per defecte a la zona horària de l'amfitrió"
 
 #: mgradm/cmd/install/shared/flags.go:125
 msgid "Administrator e-mail"
@@ -669,9 +629,7 @@ msgstr "Nom d'usuari de la base de dades d'informes"
 
 #: mgradm/cmd/install/shared/flags.go:155
 msgid "Report database password. Randomly generated by default"
-msgstr ""
-"Informa de la contrasenya de la base de dades. Generat aleatòriament per "
-"defecte"
+msgstr "Informa de la contrasenya de la base de dades. Generat aleatòriament per defecte"
 
 #: mgradm/cmd/install/shared/flags.go:157
 msgid "Report DB Flags"
@@ -759,9 +717,7 @@ msgstr "Primers indicadors d'usuari"
 
 #: mgradm/cmd/install/shared/shared.go:32
 msgid "Server appears to be already configured. Installation will continue, but installation options may be ignored."
-msgstr ""
-"Sembla que el servidor ja està configurat. La instal·lació continuarà, però "
-"les opcions d'instal·lació es poden ignorar."
+msgstr "Sembla que el servidor ja està configurat. La instal·lació continuarà, però les opcions d'instal·lació es poden ignorar."
 
 #: mgradm/cmd/install/shared/shared.go:44
 msgid "cannot copy /tmp/setup.sh"
@@ -775,9 +731,7 @@ msgstr "s'ha produït un error en executar l'script de configuració"
 #: mgradm/cmd/migrate/kubernetes/utils.go:197
 #: mgradm/cmd/migrate/podman/utils.go:158
 msgid "failed to add SSL CA certificate to host trusted certificates"
-msgstr ""
-"no s'ha pogut afegir el certificat SSL CA a l'amfitrió de certificats de "
-"confiança"
+msgstr "no s'ha pogut afegir el certificat SSL CA a l'amfitrió de certificats de confiança"
 
 #: mgradm/cmd/install/shared/shared.go:68
 msgid "unable to prepare API client"
@@ -790,21 +744,15 @@ msgstr "L'organització del servidor ja existeix, es reutilitza"
 #: mgradm/cmd/install/shared/shared.go:75
 #, javascript-format
 msgid "Administration user already exists, but organization %s could not be found"
-msgstr ""
-"L'usuari d'administració ja existeix, però no s'ha pogut trobar "
-"l'organització %s"
+msgstr "L'usuari d'administració ja existeix, però no s'ha pogut trobar l'organització %s"
 
 #: mgradm/cmd/install/shared/shared.go:87
 msgid "Administration user already exists, but provided credentials are not valid"
-msgstr ""
-"L'usuari d'administració ja existeix, però les credencials proporcionades no "
-"són vàlides"
+msgstr "L'usuari d'administració ja existeix, però les credencials proporcionades no són vàlides"
 
 #: mgradm/cmd/install/shared/shared.go:95
 msgid "Server set up, login on https://%[1]s with %[2]s user"
-msgstr ""
-"S'ha configurat el servidor, inicieu la sessió a https://%[1]s amb %[2]s "
-"d'usuari"
+msgstr "S'ha configurat el servidor, inicieu la sessió a https://%[1]s amb %[2]s d'usuari"
 
 #: mgradm/cmd/install/shared/shared.go:167
 msgid "Failed to generate setup script"
@@ -812,9 +760,7 @@ msgstr "No s'ha pogut generar l'script de configuració"
 
 #: mgradm/cmd/migrate/kubernetes/kubernetes.go:29
 msgid "Migrate a remote server to containers running on a kubernetes cluster"
-msgstr ""
-"Migra un servidor remot a contenidors que s'executen en un clúster de "
-"kubernetes"
+msgstr "Migra un servidor remot a contenidors que s'executen en un clúster de kubernetes"
 
 #: mgradm/cmd/migrate/kubernetes/kubernetes.go:30
 msgid ""
@@ -833,25 +779,18 @@ msgid ""
 "\n"
 "NOTE: migrating to a remote cluster is not supported yet!\n"
 msgstr ""
-"Migra un servidor remot a contenidors que s'executen en un clúster de "
-"kubernetes\n"
+"Migra un servidor remot a contenidors que s'executen en un clúster de kubernetes\n"
 "\n"
 "Aquesta ordre de migració assumeix algunes coses:\n"
-"  * la configuració SSH per al servidor d'origen és completa, incloent "
-"l'usuari i\n"
+"  * la configuració SSH per al servidor d'origen és completa, incloent l'usuari i\n"
 "    totes les opcions necessàries per connectar-se a la màquina,\n"
-"  * s'inicia un agent SSH i s'hi afegeix la clau a utilitzar per connectar-"
-"se al servidor,\n"
+"  * s'inicia un agent SSH i s'hi afegeix la clau a utilitzar per connectar-se al servidor,\n"
 "  * El kubectl i el helm s'instal·len localment,\n"
-"  * s'ha d'establir una configuració de kubectl que funcioni per a connectar-"
-"se al clúster on desplegar\n"
+"  * s'ha d'establir una configuració de kubectl que funcioni per a connectar-se al clúster on desplegar\n"
 "\n"
-"En migrar un servidor amb un certificat SSL Root CA generat automàticament, "
-"la clau privada\n"
-"Es requerirà una contrasenya per a convertir-la a RSA en un secret de "
-"kubernetes.\n"
-"Això no és necessari si el servidor d'origen no té un certificat SSL CA "
-"generat.\n"
+"En migrar un servidor amb un certificat SSL Root CA generat automàticament, la clau privada\n"
+"Es requerirà una contrasenya per a convertir-la a RSA en un secret de kubernetes.\n"
+"Això no és necessari si el servidor d'origen no té un certificat SSL CA generat.\n"
 "\n"
 "NOTA: la migració a un clúster remot encara no està suportada!\n"
 
@@ -888,9 +827,7 @@ msgstr "no s'han pogut establir les rèpliques a 0"
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
 #: mgradm/cmd/migrate/podman/utils.go:78
 msgid "Migration prepared. Run the 'migrate' command without '--prepare' to finish the migration."
-msgstr ""
-"Migració preparada. Executeu l'ordre «migra» sense «--prepare» per a acabar "
-"la migració."
+msgstr "Migració preparada. Executeu l'ordre «migra» sense «--prepare» per a acabar la migració."
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:134
 msgid "cannot setup SSL"
@@ -899,16 +836,12 @@ msgstr "no s'ha pogut configurar SSL"
 #: mgradm/cmd/migrate/kubernetes/utils.go:142
 #, javascript-format
 msgid "The mirror data will not be migrated, ensure it is available at %s"
-msgstr ""
-"Les dades de la rèplica no seran migrades, assegureu-vos que estan "
-"disponibles a %s"
+msgstr "Les dades de la rèplica no seran migrades, assegureu-vos que estan disponibles a %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:152
 #, javascript-format
 msgid "cannot upgrade helm chart to image %s using new SSL certificate"
-msgstr ""
-"no es pot actualitzar el diagrama de helm a la imatge %s utilitzant un "
-"certificat SSL nou"
+msgstr "no es pot actualitzar el diagrama de helm a la imatge %s utilitzant un certificat SSL nou"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:156
 #, javascript-format
@@ -917,7 +850,7 @@ msgstr "no es pot esperar al desplegament de %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
 #: mgradm/cmd/migrate/podman/utils.go:89
-#: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:403
+#: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 msgid "cannot run PostgreSQL version upgrade script"
 msgstr "no s'ha pogut executar l'script d'actualització de la versió PostgreSQL"
 
@@ -927,7 +860,7 @@ msgstr "no s'ha pogut executar l'script de finalització PostgreSQL"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
 #: mgradm/cmd/migrate/podman/utils.go:99
-#: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:420
+#: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 msgid "cannot run post upgrade script"
 msgstr "no s'ha pogut executar l'script d'actualització"
 
@@ -964,11 +897,9 @@ msgstr ""
 "Migra un servidor remot a contenidors que s'executen a podman\n"
 "\n"
 "Aquesta ordre de migració assumeix algunes coses:\n"
-"  * la configuració SSH per al servidor d'origen és completa, incloent "
-"l'usuari i\n"
+"  * la configuració SSH per al servidor d'origen és completa, incloent l'usuari i\n"
 "    totes les opcions necessàries per connectar-se a la màquina,\n"
-"  * s'inicia un agent SSH i s'hi afegeix la clau a utilitzar per connectar-"
-"se al servidor,\n"
+"  * s'inicia un agent SSH i s'hi afegeix la clau a utilitzar per connectar-se al servidor,\n"
 "  * podman s'instal·la localment\n"
 "\n"
 "NOTA: la migració a un podman remot encara no està suportada!\n"
@@ -986,7 +917,7 @@ msgid "cannot run migration script"
 msgstr "no s'ha pogut executar l'script de migració"
 
 #: mgradm/cmd/migrate/podman/utils.go:95
-#: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:416
+#: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 msgid "cannot run PostgreSQL finalize script"
 msgstr "no s'ha pogut executar l'script final PostgreSQL"
 
@@ -1000,8 +931,7 @@ msgstr "no s'ha pogut configurar el servei de proves de computació confidencial
 
 #: mgradm/cmd/migrate/podman/utils.go:131
 msgid "Enabling Hub XML-RPC API since it is enabled on the migrated server"
-msgstr ""
-"Habilitant l'API XML-RPC del Hub ja que està habilitada al servidor migrat"
+msgstr "Habilitant l'API XML-RPC del Hub ja que està habilitada al servidor migrat"
 
 #: mgradm/cmd/migrate/podman/utils.go:145
 msgid "Server migrated"
@@ -1009,14 +939,11 @@ msgstr "Servidor migrat"
 
 #: mgradm/cmd/migrate/shared/flags.go:28
 msgid "Prepare the mgration - copy the data without stopping the source server."
-msgstr ""
-"Prepareu la gració - copieu les dades sense aturar el servidor d'origen."
+msgstr "Prepareu la gració - copieu les dades sense aturar el servidor d'origen."
 
 #: mgradm/cmd/migrate/shared/flags.go:36
 msgid "User on the source server. Non-root user must have passwordless sudo privileges (NOPASSWD tag in /etc/sudoers)."
-msgstr ""
-"Usuari en el servidor d'origen. L'usuari no arrel ha de tenir privilegis "
-"sudo sense contrasenya (etiqueta NOPASSWD a /etc/sudoers)."
+msgstr "Usuari en el servidor d'origen. L'usuari no arrel ha de tenir privilegis sudo sense contrasenya (etiqueta NOPASSWD a /etc/sudoers)."
 
 #: mgradm/cmd/migrate/shared/shared.go:20
 msgid "SSH_AUTH_SOCK is not defined, start an SSH agent and try again"
@@ -1024,8 +951,7 @@ msgstr "SSHAUTHSOCK no està definit, inicieu un agent SSH i torneu-ho a provar"
 
 #: mgradm/cmd/migrate/shared/shared.go:30
 msgid "Failed to find home directory to look for SSH config"
-msgstr ""
-"No s'ha pogut trobar el directori d'inici per a cercar la configuració SSH"
+msgstr "No s'ha pogut trobar el directori d'inici per a cercar la configuració SSH"
 
 #: mgradm/cmd/restart/nokubernetes.go:23 mgradm/cmd/scale/nokubernetes.go:23
 #: mgradm/cmd/start/nokubernetes.go:23 mgradm/cmd/status/nokubernetes.go:23
@@ -1043,8 +969,7 @@ msgstr "Els kubernetes encara no estan admesos"
 
 #: mgradm/cmd/scale/podman.go:32
 msgid "Multiple Hub XML-RPC container replicas are not currently supported."
-msgstr ""
-"Actualment no s'admeten múltiples rèpliques de contenidors XML-RPC de Hub."
+msgstr "Actualment no s'admeten múltiples rèpliques de contenidors XML-RPC de Hub."
 
 #: mgradm/cmd/scale/podman.go:36
 #, javascript-format
@@ -1116,8 +1041,7 @@ msgid ""
 "Extract the host or cluster configuration and logs as well as those from\n"
 "the containers for support to help debugging."
 msgstr ""
-"Extreu la configuració del servidor o del clúster i els registres, així com "
-"els de\n"
+"Extreu la configuració del servidor o del clúster i els registres, així com els de\n"
 "els contenidors de suport per ajudar a la depuració."
 
 #: mgradm/cmd/support/config/config.go:31
@@ -1139,8 +1063,7 @@ msgid ""
 msgstr ""
 "Instal·la un paquet PTF o Test a podman\n"
 "\n"
-"L'ordre de suport ptf podman assumeix que podman està instal·lat localment "
-"i\n"
+"L'ordre de suport ptf podman assumeix que podman està instal·lat localment i\n"
 "la màquina amfitrió es registra a SCC.\n"
 "\n"
 "NOTA: per ara no s'admet la instal·lació en un podman remot!\n"
@@ -1238,13 +1161,11 @@ msgid ""
 "  # mgradm support sql example.sql -o out.log\n"
 "\n"
 msgstr ""
-"Executeu la consulta SQL ja sigui proporcionada en el fitxer sql o passada a "
-"través de l'entrada estàndard.\n"
+"Executeu la consulta SQL ja sigui proporcionada en el fitxer sql o passada a través de l'entrada estàndard.\n"
 "\n"
 "Exemples:\n"
 "\n"
-"  Executeu la consulta «selecciona el nom de l'ordinador des del rhnserver;» "
-"usant l'eco:\n"
+"  Executeu la consulta «selecciona el nom de l'ordinador des del rhnserver;» usant l'eco:\n"
 "\n"
 "    echo 'select hostname from rhnserver;'   mgradm support sql\n"
 "\n"
@@ -1252,8 +1173,7 @@ msgstr ""
 "\n"
 "    mgradm suporta sql -i\n"
 "\n"
-"  S'estan executant les consultes SQL al fitxer example.sql i se'ls ha "
-"enviat a un fitxer out.log\n"
+"  S'estan executant les consultes SQL al fitxer example.sql i se'ls ha enviat a un fitxer out.log\n"
 "\n"
 "   support mgradm admet sql example.sql -o out.log\n"
 "\n"
@@ -1305,9 +1225,7 @@ msgstr "No s'ha desinstal·lat res, executeu amb --force per a desinstal·lar"
 
 #: mgradm/cmd/uninstall/kubernetes.go:114
 msgid "Volumes have not been touched. Depending on the storage class used, they may not have been removed"
-msgstr ""
-"No s'han tocat els volums. Depenent de la classe d'emmagatzematge "
-"utilitzada, és possible que no s'hagin eliminat"
+msgstr "No s'han tocat els volums. Depenent de la classe d'emmagatzematge utilitzada, és possible que no s'hagin eliminat"
 
 #: mgradm/cmd/uninstall/podman.go:46
 #, javascript-format
@@ -1333,15 +1251,11 @@ msgstr "S'han eliminat totes les imatges"
 
 #: mgradm/cmd/uninstall/podman.go:77
 msgid "Nothing has been uninstalled, run with --force and --purge-volumes to actually uninstall and clear data"
-msgstr ""
-"No s'ha desinstal·lat res, executeu amb --force i --purge-volumes per a "
-"desinstal·lar i netejar dades"
+msgstr "No s'ha desinstal·lat res, executeu amb --force i --purge-volumes per a desinstal·lar i netejar dades"
 
 #: mgradm/cmd/uninstall/podman.go:80
 msgid "Data have been kept, use podman volume commands to clear the volumes"
-msgstr ""
-"S'han mantingut les dades, utilitzeu ordres de volum podman per netejar els "
-"volums"
+msgstr "S'han mantingut les dades, utilitzeu ordres de volum podman per netejar els volums"
 
 #: mgradm/cmd/uninstall/uninstall.go:20
 msgid "Uninstall a server"
@@ -1353,8 +1267,7 @@ msgid ""
 "By default it will only print what would be done, use --force to actually remove."
 msgstr ""
 "Desinstal·la un servidor i opcionalment els volums corresponents.\n"
-"Per defecte només imprimirà el que es faria, utilitzeu --force per eliminar-"
-"lo."
+"Per defecte només imprimirà el que es faria, utilitzeu --force per eliminar-lo."
 
 #: mgradm/cmd/upgrade/kubernetes/kubernetes.go:27
 #: mgradm/cmd/upgrade/kubernetes/kubernetes.go:28
@@ -1402,9 +1315,7 @@ msgstr "no s'ha pogut generar el servei systemd"
 
 #: mgradm/shared/hub/xmlrpcapi.go:66
 msgid "Multiple Hub XML-RPC container replicas are not currently supported, setting up only one."
-msgstr ""
-"Actualment no s'admeten múltiples rèpliques de contenidors XML-RPC de Hub, "
-"configurant-ne només una."
+msgstr "Actualment no s'admeten múltiples rèpliques de contenidors XML-RPC de Hub, configurant-ne només una."
 
 #: mgradm/shared/kubernetes/certificates.go:30
 msgid "Creating SSL server certificate secret"
@@ -1474,8 +1385,7 @@ msgstr "No s'ha pogut descodificar el certificat CA en base64"
 
 #: mgradm/shared/kubernetes/certificates.go:177
 msgid "Failed to create uyuni-ca config map from certificate"
-msgstr ""
-"No s'ha pogut crear el mapa de configuració uyuni-ca a partir del certificat"
+msgstr "No s'ha pogut crear el mapa de configuració uyuni-ca a partir del certificat"
 
 #: mgradm/shared/kubernetes/install.go:58
 msgid "cannot upgrade"
@@ -1483,8 +1393,7 @@ msgstr "no es pot actualitzar"
 
 #: mgradm/shared/kubernetes/install.go:81
 msgid "cannot install cert-manager and self-sign issuer"
-msgstr ""
-"no s'ha pogut instal·lar el gestor de certificats i l'emissor d'autosignació"
+msgstr "no s'ha pogut instal·lar el gestor de certificats i l'emissor d'autosignació"
 
 #: mgradm/shared/kubernetes/install.go:112
 msgid "Installing Uyuni"
@@ -1503,31 +1412,27 @@ msgid "cannot set replica to 0"
 msgstr "no es pot establir la rèplica a 0"
 
 #: mgradm/shared/kubernetes/install.go:204 mgradm/shared/kubernetes/k3s.go:46
-#: mgradm/shared/podman/podman.go:247
+#: mgradm/shared/podman/podman.go:249
 msgid "Previous PostgreSQL is %[1]s, new one is %[2]s. Performing a DB version upgrade…"
-msgstr ""
-"Previous PostgreSQL és %[1]s, nou és %[2]s. S'està realitzant una "
-"actualització de la versió DB…"
+msgstr "Previous PostgreSQL és %[1]s, nou és %[2]s. S'està realitzant una actualització de la versió DB…"
 
-#: mgradm/shared/kubernetes/install.go:213 mgradm/shared/podman/podman.go:406
+#: mgradm/shared/kubernetes/install.go:213 mgradm/shared/podman/podman.go:408
 #, javascript-format
 msgid "Upgrading to %s without changing PostgreSQL version"
 msgstr "S'està actualitzant a %s sense canviar la versió PostgreSQL"
 
-#: mgradm/shared/kubernetes/install.go:215 mgradm/shared/podman/podman.go:409
+#: mgradm/shared/kubernetes/install.go:215 mgradm/shared/podman/podman.go:411
 msgid "trying to downgrade PostgreSQL from %[1]s to %[2]s"
 msgstr "s'està intentant desactualitzar PostgreSQL de %[1]s a %[2]s"
 
-#: mgradm/shared/kubernetes/k3s.go:67 mgradm/shared/podman/podman.go:281
+#: mgradm/shared/kubernetes/k3s.go:67 mgradm/shared/podman/podman.go:283
 #, javascript-format
 msgid "Using database upgrade image %s"
 msgstr "Utilitzant la imatge d'actualització de la base de dades %s"
 
-#: mgradm/shared/kubernetes/k3s.go:70 mgradm/shared/podman/podman.go:287
+#: mgradm/shared/kubernetes/k3s.go:70 mgradm/shared/podman/podman.go:289
 msgid "cannot generate PostgreSQL database version upgrade script"
-msgstr ""
-"no s'ha pogut generar l'script d'actualització de la versió de la base de "
-"dades PostgreSQL"
+msgstr "no s'ha pogut generar l'script d'actualització de la versió de la base de dades PostgreSQL"
 
 #: mgradm/shared/kubernetes/k3s.go:75 mgradm/shared/kubernetes/k3s.go:131
 #: mgradm/shared/kubernetes/k3s.go:180
@@ -1542,7 +1447,7 @@ msgid "error running container %s"
 msgstr "s'ha produït un error en executar el contenidor %s"
 
 #: mgradm/shared/kubernetes/k3s.go:127 mgradm/shared/kubernetes/k3s.go:175
-#: mgradm/shared/podman/podman.go:316 mgradm/shared/podman/podman.go:340
+#: mgradm/shared/podman/podman.go:318 mgradm/shared/podman/podman.go:342
 msgid "cannot generate PostgreSQL finalization script"
 msgstr "no s'ha pogut generar l'script de finalització PostgreSQL"
 
@@ -1556,9 +1461,7 @@ msgstr "no s'ha pogut generar el fitxer de configuració de l'usuari del sistema
 
 #: mgradm/shared/podman/podman.go:113
 msgid "failed to create temporary folder on container to copy certificates to"
-msgstr ""
-"no s'ha pogut crear la carpeta temporal al contenidor per a copiar els "
-"certificats"
+msgstr "no s'ha pogut crear la carpeta temporal al contenidor per a copiar els certificats"
 
 #: mgradm/shared/podman/podman.go:153
 #, javascript-format
@@ -1589,47 +1492,43 @@ msgstr "S'està migrant el servidor"
 msgid "cannot run uyuni migration container"
 msgstr "no es pot executar el contenidor de migració uyuni"
 
-#: mgradm/shared/podman/podman.go:221
+#: mgradm/shared/podman/podman.go:222
 #, javascript-format
 msgid "cannot inspect volume %s"
 msgstr "no es pot inspeccionar el volum %s"
 
-#: mgradm/shared/podman/podman.go:224
+#: mgradm/shared/podman/podman.go:225
 #, javascript-format
 msgid "cannot restore %s SELinux permissions"
 msgstr "no es poden restaurar %s permisos de SELinux"
 
-#: mgradm/shared/podman/podman.go:231
+#: mgradm/shared/podman/podman.go:233
 msgid "cannot read extracted data"
 msgstr "no es poden llegir les dades extretes"
 
-#: mgradm/shared/podman/podman.go:379
+#: mgradm/shared/podman/podman.go:381
 msgid "cannot inspect podman values"
 msgstr "no es poden inspeccionar els valors de podman"
 
-#: mgradm/shared/podman/podman.go:389
+#: mgradm/shared/podman/podman.go:391
 msgid "cannot stop service"
 msgstr "no es pot aturar el servei"
 
-#: mgradm/shared/podman/podman.go:397
+#: mgradm/shared/podman/podman.go:399
 msgid "Previous postgresql is %[1]s, instead new one is %[2]s. Performing a DB version upgrade…"
-msgstr ""
-"El postgresql anterior és %[1]s, en canvi el nou és %[2]s. S'està realitzant "
-"una actualització de la versió DB…"
+msgstr "El postgresql anterior és %[1]s, en canvi el nou és %[2]s. S'està realitzant una actualització de la versió DB…"
 
-#: mgradm/shared/podman/podman.go:445
+#: mgradm/shared/podman/podman.go:447
 msgid "error upgrading confidential computing service."
 msgstr "s'ha produït un error en actualitzar el servei informàtic confidencial."
 
-#: mgradm/shared/podman/podman.go:508
+#: mgradm/shared/podman/podman.go:510
 msgid "cannot inspect data"
 msgstr "no es poden inspeccionar les dades"
 
-#: mgradm/shared/podman/podman.go:524
+#: mgradm/shared/podman/podman.go:526
 msgid "The above error is only relevant if using a public cloud provider registry"
-msgstr ""
-"L'error anterior només és rellevant si s'utilitza un registre públic de "
-"proveïdors de núvols"
+msgstr "L'error anterior només és rellevant si s'utilitza un registre públic de proveïdors de núvols"
 
 #: mgradm/shared/ssl/ssl.go:48
 msgid "Failed to find a non-CA certificate"
@@ -1694,9 +1593,7 @@ msgstr "No s'ha pogut convertir la clau privada CA a RSA"
 
 #: mgradm/shared/utils/cmd_utils.go:27
 msgid "Server certificate, key and root CA need to be all provided"
-msgstr ""
-"El certificat del servidor, la clau i l'arrel de la CA han de ser tots "
-"proporcionats"
+msgstr "El certificat del servidor, la clau i l'arrel de la CA han de ser tots proporcionats"
 
 #: mgradm/shared/utils/cmd_utils.go:35
 msgid "Kubernetes namespace where to install uyuni"
@@ -1712,9 +1609,7 @@ msgstr "Versió de la taula de comandaments uyuni"
 
 #: mgradm/shared/utils/cmd_utils.go:38
 msgid "Path to a values YAML file to use for Uyuni helm install"
-msgstr ""
-"Camí a un fitxer YAML de valors que s'utilitzarà per a la instal·lació del "
-"helm d'Uyuni"
+msgstr "Camí a un fitxer YAML de valors que s'utilitzarà per a la instal·lació del helm d'Uyuni"
 
 #: mgradm/shared/utils/cmd_utils.go:40
 msgid "Kubernetes namespace where to install cert-manager"
@@ -1722,9 +1617,7 @@ msgstr "Espai de noms del Kubernetes on instal·lar el gestor de certificats"
 
 #: mgradm/shared/utils/cmd_utils.go:43
 msgid "URL to the cert-manager helm chart. To be used for offline installations"
-msgstr ""
-"URL al diagrama de helm del gestor de certificats. S'utilitzarà per a instal·"
-"lacions fora de línia"
+msgstr "URL al diagrama de helm del gestor de certificats. S'utilitzarà per a instal·lacions fora de línia"
 
 #: mgradm/shared/utils/cmd_utils.go:45
 msgid "Version of the cert-manager helm chart"
@@ -1732,9 +1625,7 @@ msgstr "Versió de la llista de helms de cert-manager"
 
 #: mgradm/shared/utils/cmd_utils.go:46
 msgid "Path to a values YAML file to use for cert-manager helm install"
-msgstr ""
-"Camí a un fitxer YAML de valors que s'utilitzarà per a la instal·lació del "
-"helm del gestor de certificats"
+msgstr "Camí a un fitxer YAML de valors que s'utilitzarà per a la instal·lació del helm del gestor de certificats"
 
 #: mgradm/shared/utils/cmd_utils.go:48
 msgid "Helm Chart Flags"
@@ -1756,8 +1647,7 @@ msgid ""
 "It will be used as SCC credentials for products synchronization and to pull images from registry.suse.com"
 msgstr ""
 "Nom d'usuari del Centre de Clients SUSE.\n"
-"S'utilitzarà com a credencials SCC per a la sincronització de productes i "
-"per extreure imatges de register.suse.com"
+"S'utilitzarà com a credencials SCC per a la sincronització de productes i per extreure imatges de register.suse.com"
 
 #: mgradm/shared/utils/cmd_utils.go:83
 msgid ""
@@ -1765,8 +1655,7 @@ msgid ""
 "It will be used as SCC credentials for products synchronization and to pull images from registry.suse.com"
 msgstr ""
 "Contrasenya del Centre de Clients SUSE.\n"
-"S'utilitzarà com a credencials SCC per a la sincronització de productes i "
-"per extreure imatges de register.suse.com"
+"S'utilitzarà com a credencials SCC per a la sincronització de productes i per extreure imatges de register.suse.com"
 
 #: mgradm/shared/utils/cmd_utils.go:86
 msgid "SUSE Customer Center Flags"
@@ -1831,17 +1720,14 @@ msgstr "Concentrador XML-RPC API"
 
 #: mgradm/shared/utils/cmd_utils.go:143
 msgid "How many replicas of the Hub XML-RPC API service container should be started."
-msgstr ""
-"Quantes rèpliques del contenidor de serveis API de Hub XML-RPC s'han "
-"d'iniciar."
+msgstr "Quantes rèpliques del contenidor de serveis API de Hub XML-RPC s'han d'iniciar."
 
 #: mgradm/shared/utils/cmd_utils.go:153
 msgid ""
 "How many replicas of the Hub XML-RPC API service container should be started.\n"
 "Leave it unset if you want to keep the previous number of replicas."
 msgstr ""
-"Quantes rèpliques del contenidor de serveis API de Hub XML-RPC s'han "
-"d'iniciar.\n"
+"Quantes rèpliques del contenidor de serveis API de Hub XML-RPC s'han d'iniciar.\n"
 "Deixeu-lo sense establir si voleu mantenir el nombre anterior de rèpliques."
 
 #: mgradm/shared/utils/exec.go:27
@@ -1870,16 +1756,12 @@ msgstr "no es pot comprovar la versió del servidor"
 #: mgradm/shared/utils/exec.go:184
 #, javascript-format
 msgid "currently SUSE Manager %s is installed, instead the image is Uyuni. Upgrade is not supported"
-msgstr ""
-"Actualment s'instal·la el gestor SUSE %s, en lloc d'això la imatge és Uyuni. "
-"No s'admet l'actualització"
+msgstr "Actualment s'instal·la el gestor SUSE %s, en lloc d'això la imatge és Uyuni. No s'admet l'actualització"
 
 #: mgradm/shared/utils/exec.go:191
 #, javascript-format
 msgid "currently Uyuni %s is installed, instead the image is SUSE Manager. Upgrade is not supported"
-msgstr ""
-"Actualment Uyuni %s està instal·lat, en lloc d'això la imatge és SUSE "
-"Manager. No s'admet l'actualització"
+msgstr "Actualment Uyuni %s està instal·lat, en lloc d'això la imatge és SUSE Manager. No s'admet l'actualització"
 
 #: mgradm/shared/utils/exec.go:200
 msgid "failed to read current uyuni release"
