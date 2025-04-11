@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 09:45+0100\n"
+"POT-Creation-Date: 2025-04-11 13:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -424,7 +424,7 @@ msgid ""
 "NOTE: installing on a remote podman is not supported yet!\n"
 msgstr ""
 
-#: mgradm/cmd/install/podman/utils.go:32 mgradm/shared/podman/podman.go:440
+#: mgradm/cmd/install/podman/utils.go:32 mgradm/shared/podman/podman.go:442
 msgid "Waiting for the server to start…"
 msgstr ""
 
@@ -455,8 +455,8 @@ msgstr ""
 #: mgradm/cmd/migrate/kubernetes/utils.go:48 mgradm/shared/coco/coco.go:76
 #: mgradm/shared/hub/xmlrpcapi.go:44 mgradm/shared/kubernetes/install.go:51
 #: mgradm/shared/kubernetes/install.go:161 mgradm/shared/kubernetes/k3s.go:58
-#: mgradm/shared/kubernetes/k3s.go:63 mgradm/shared/podman/podman.go:267
-#: mgradm/shared/podman/podman.go:272 mgradm/shared/podman/podman.go:369
+#: mgradm/shared/kubernetes/k3s.go:63 mgradm/shared/podman/podman.go:269
+#: mgradm/shared/podman/podman.go:274 mgradm/shared/podman/podman.go:371
 msgid "failed to compute image URL"
 msgstr ""
 
@@ -778,7 +778,7 @@ msgstr ""
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
 #: mgradm/cmd/migrate/podman/utils.go:89
-#: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:403
+#: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 msgid "cannot run PostgreSQL version upgrade script"
 msgstr ""
 
@@ -788,7 +788,7 @@ msgstr ""
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
 #: mgradm/cmd/migrate/podman/utils.go:99
-#: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:420
+#: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 msgid "cannot run post upgrade script"
 msgstr ""
 
@@ -836,7 +836,7 @@ msgid "cannot run migration script"
 msgstr ""
 
 #: mgradm/cmd/migrate/podman/utils.go:95
-#: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:416
+#: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 msgid "cannot run PostgreSQL finalize script"
 msgstr ""
 
@@ -1301,25 +1301,25 @@ msgid "cannot set replica to 0"
 msgstr ""
 
 #: mgradm/shared/kubernetes/install.go:204 mgradm/shared/kubernetes/k3s.go:46
-#: mgradm/shared/podman/podman.go:247
+#: mgradm/shared/podman/podman.go:249
 msgid "Previous PostgreSQL is %[1]s, new one is %[2]s. Performing a DB version upgrade…"
 msgstr ""
 
-#: mgradm/shared/kubernetes/install.go:213 mgradm/shared/podman/podman.go:406
+#: mgradm/shared/kubernetes/install.go:213 mgradm/shared/podman/podman.go:408
 #, javascript-format
 msgid "Upgrading to %s without changing PostgreSQL version"
 msgstr ""
 
-#: mgradm/shared/kubernetes/install.go:215 mgradm/shared/podman/podman.go:409
+#: mgradm/shared/kubernetes/install.go:215 mgradm/shared/podman/podman.go:411
 msgid "trying to downgrade PostgreSQL from %[1]s to %[2]s"
 msgstr ""
 
-#: mgradm/shared/kubernetes/k3s.go:67 mgradm/shared/podman/podman.go:281
+#: mgradm/shared/kubernetes/k3s.go:67 mgradm/shared/podman/podman.go:283
 #, javascript-format
 msgid "Using database upgrade image %s"
 msgstr ""
 
-#: mgradm/shared/kubernetes/k3s.go:70 mgradm/shared/podman/podman.go:287
+#: mgradm/shared/kubernetes/k3s.go:70 mgradm/shared/podman/podman.go:289
 msgid "cannot generate PostgreSQL database version upgrade script"
 msgstr ""
 
@@ -1336,7 +1336,7 @@ msgid "error running container %s"
 msgstr ""
 
 #: mgradm/shared/kubernetes/k3s.go:127 mgradm/shared/kubernetes/k3s.go:175
-#: mgradm/shared/podman/podman.go:316 mgradm/shared/podman/podman.go:340
+#: mgradm/shared/podman/podman.go:318 mgradm/shared/podman/podman.go:342
 msgid "cannot generate PostgreSQL finalization script"
 msgstr ""
 
@@ -1381,41 +1381,41 @@ msgstr ""
 msgid "cannot run uyuni migration container"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:221
+#: mgradm/shared/podman/podman.go:222
 #, javascript-format
 msgid "cannot inspect volume %s"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:224
+#: mgradm/shared/podman/podman.go:225
 #, javascript-format
 msgid "cannot restore %s SELinux permissions"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:231
+#: mgradm/shared/podman/podman.go:233
 msgid "cannot read extracted data"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:379
+#: mgradm/shared/podman/podman.go:381
 msgid "cannot inspect podman values"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:389
+#: mgradm/shared/podman/podman.go:391
 msgid "cannot stop service"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:397
+#: mgradm/shared/podman/podman.go:399
 msgid "Previous postgresql is %[1]s, instead new one is %[2]s. Performing a DB version upgrade…"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:445
+#: mgradm/shared/podman/podman.go:447
 msgid "error upgrading confidential computing service."
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:508
+#: mgradm/shared/podman/podman.go:510
 msgid "cannot inspect data"
 msgstr ""
 
-#: mgradm/shared/podman/podman.go:524
+#: mgradm/shared/podman/podman.go:526
 msgid "The above error is only relevant if using a public cloud provider registry"
 msgstr ""
 
