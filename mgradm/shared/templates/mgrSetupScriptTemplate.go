@@ -11,6 +11,11 @@ import (
 
 //nolint:lll
 const mgrSetupScriptTemplate = `#!/bin/sh
+if test -e /root/.MANAGER_SETUP_COMPLETE; then
+	echo "Server appears to be already configured. Installation options may be ignored."
+	exit 0
+fi
+
 {{- range $name, $value := .Env }}
 export {{ $name }}='{{ $value }}'
 {{- end }}
