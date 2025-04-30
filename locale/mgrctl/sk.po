@@ -8,21 +8,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-11 13:38+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-04-30 20:59+0000\n"
+"Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
+"Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.1\n"
 
 #: mgrctl/cmd/api/api.go:26
 msgid "JSON over HTTP API helper tool"
-msgstr ""
+msgstr "Nástroj pomocníka JSON cez HTTP API"
 
 #: mgrctl/cmd/api/api.go:31
 msgid "Call API GET request"
-msgstr ""
+msgstr "Volanie požiadavky API GET"
 
 #: mgrctl/cmd/api/api.go:32
 msgid ""
@@ -31,6 +33,10 @@ msgid ""
 "Example:\n"
 "# mgrctl api get user/getDetails login=test"
 msgstr ""
+"Prevezme cestu API a voliteľné parametre a potom s nimi zadá požiadavku GET.\n"
+"\n"
+"Príklad:\n"
+"# mgrctl api get user/getDetails login=test"
 
 #: mgrctl/cmd/api/api.go:43
 msgid "Call API POST request"
@@ -104,7 +110,7 @@ msgstr ""
 
 #: mgrctl/cmd/cmd.go:30
 msgid "Tool to help managing Uyuni servers mainly through their API"
-msgstr ""
+msgstr "Nástroj na pomoc pri správe serverov Uyuni hlavne prostredníctvom ich API"
 
 #: mgrctl/cmd/cmd.go:37
 msgid "configuration file path"
@@ -177,8 +183,8 @@ msgstr ""
 #: mgrctl/cmd/exec/exec.go:140
 #, javascript-format
 msgid "Running %s"
-msgstr ""
+msgstr "Spustené %s"
 
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
-msgstr ""
+msgstr "Spustiť terminál v kontajneri servera"
