@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-11 13:38+0200\n"
-"PO-Revision-Date: 2025-04-30 20:59+0000\n"
+"PO-Revision-Date: 2025-05-01 17:59+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
 "Language: sk\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: mgrctl/cmd/api/api.go:43
 msgid "Call API POST request"
-msgstr ""
+msgstr "Volanie požiadavky API POST"
 
 #: mgrctl/cmd/api/api.go:44
 msgid ""
@@ -54,10 +54,19 @@ msgid ""
 "JSON example:\n"
 "# mgrctl api post user/create    '{\"login\":\"test\", \"password\":\"testXX\", \"firstName\":\"F\", \"lastName\":\"L\", \"email\":\"test@localhost\"}'\n"
 msgstr ""
+"Prevezme cestu API a parametre a potom s nimi zadá požiadavku POST.\n"
+"\n"
+"Parametre môžu byť buď kódovaný reťazec JSON alebo jedna či viac dvojíc kľúč=hodnota.\n"
+"\n"
+"Príklad dvojíc kľúč=hodnota:\n"
+"# mgrctl api post user/create login=test password=testXX firstName=F lastName=L email=test@localhost\n"
+"\n"
+"Príklad JSON:\n"
+"# mgrctl api post user/create    '{\"login\":\"test\", \"password\":\"testXX\", \"firstName\":\"F\", \"lastName\":\"L\", \"email\":\"test@localhost\"}'\n"
 
 #: mgrctl/cmd/api/api.go:62
 msgid "Store login information for future API usage"
-msgstr ""
+msgstr "Uloženie prihlasovacích informácií pre budúce použitie API"
 
 #: mgrctl/cmd/api/api.go:63
 msgid ""
@@ -66,10 +75,14 @@ msgid ""
 "User name, password and remote host can be provided using flags or will be asked interactively.\n"
 "Environment variables are also supported."
 msgstr ""
+"Prihlásenie uloží prihlasovacie informácie pre ďalšie volania API.\n"
+"\n"
+"Používateľské meno, heslo a vzdialený hostiteľ môžu byť zadané pomocou príznakov alebo budú požadované interaktívne.\n"
+"Podporované sú aj premenné prostredia."
 
 #: mgrctl/cmd/api/api.go:71
 msgid "Overwrite existing login if exists"
-msgstr ""
+msgstr "Prepísať existujúce prihlásenie, ak existuje"
 
 #: mgrctl/cmd/api/api.go:75
 msgid "Remove stored login information"
