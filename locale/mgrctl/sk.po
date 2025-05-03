@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-11 13:38+0200\n"
-"PO-Revision-Date: 2025-05-01 17:59+0000\n"
+"PO-Revision-Date: 2025-05-03 16:59+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
 "Language: sk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.1\n"
+"X-Generator: Weblate 5.11.3\n"
 
 #: mgrctl/cmd/api/api.go:26
 msgid "JSON over HTTP API helper tool"
@@ -86,24 +86,24 @@ msgstr "Prepísať existujúce prihlásenie, ak existuje"
 
 #: mgrctl/cmd/api/api.go:75
 msgid "Remove stored login information"
-msgstr ""
+msgstr "Odstrániť uložené prihlasovacie údaje"
 
 #: mgrctl/cmd/api/api.go:76
 msgid "Logout removes stored login information."
-msgstr ""
+msgstr "Odhlásenie odstráni uložené prihlasovacie informácie."
 
 #: mgrctl/cmd/api/get.go:28 mgrctl/cmd/api/post.go:28
 msgid "unable to login to the server"
-msgstr ""
+msgstr "nemožno sa prihlásiť na server"
 
 #: mgrctl/cmd/api/get.go:35 mgrctl/cmd/api/post.go:51
 #, javascript-format
 msgid "error in query '%s'"
-msgstr ""
+msgstr "chyba v dopyte '%s'"
 
 #: mgrctl/cmd/api/login.go:23
 msgid "Refusing to overwrite existing login. Use --force to ignore this check."
-msgstr ""
+msgstr "Odmietnutie prepísania existujúceho prihlásenia. Použite --force na ignorovanie tejto kontroly."
 
 #: mgrctl/cmd/api/login.go:35
 msgid "Failed to validate credentials."
