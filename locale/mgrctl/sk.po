@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-11 13:38+0200\n"
-"PO-Revision-Date: 2025-05-03 16:59+0000\n"
+"PO-Revision-Date: 2025-05-04 19:59+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
 "Language: sk\n"
@@ -107,19 +107,19 @@ msgstr "Odmietnutie prepísania existujúceho prihlásenia. Použite --force na 
 
 #: mgrctl/cmd/api/login.go:35
 msgid "Failed to validate credentials."
-msgstr ""
+msgstr "Nepodarilo sa overiť prihlasovacie údaje."
 
 #: mgrctl/cmd/api/login.go:41
 msgid "Login credentials verified."
-msgstr ""
+msgstr "Prihlasovacie údaje boli overené."
 
 #: mgrctl/cmd/api/login.go:51
 msgid "Successfully logged out"
-msgstr ""
+msgstr "Úspešné odhlásenie"
 
 #: mgrctl/cmd/cmd.go:29
 msgid "Uyuni control tool"
-msgstr ""
+msgstr "Ovládací nástroj Uyuni"
 
 #: mgrctl/cmd/cmd.go:30
 msgid "Tool to help managing Uyuni servers mainly through their API"
@@ -127,7 +127,7 @@ msgstr "Nástroj na pomoc pri správe serverov Uyuni hlavne prostredníctvom ich
 
 #: mgrctl/cmd/cmd.go:37
 msgid "configuration file path"
-msgstr ""
+msgstr "cesta ku konfiguračnému súboru"
 
 #: mgrctl/cmd/cmd.go:39
 msgid "application log level"
