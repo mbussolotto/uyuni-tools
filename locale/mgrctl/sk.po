@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-11 13:38+0200\n"
-"PO-Revision-Date: 2025-05-04 19:59+0000\n"
+"PO-Revision-Date: 2025-05-05 20:59+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
 "Language: sk\n"
@@ -131,27 +131,29 @@ msgstr "cesta ku konfiguračnému súboru"
 
 #: mgrctl/cmd/cmd.go:39
 msgid "application log level"
-msgstr ""
+msgstr "úroveň záznamu aplikácie"
 
 #: mgrctl/cmd/cmd.go:47
 #, javascript-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Vitajte v %s"
 
 #: mgrctl/cmd/cmd.go:48
 #, javascript-format
 msgid "Executing command: %s"
-msgstr ""
+msgstr "Vykonávajúci príkaz: %s"
 
 #: mgrctl/cmd/cp/cp.go:29
 msgid "Copy files to and from the containers"
-msgstr ""
+msgstr "Kopírovať súbory do a z kontajnerov"
 
 #: mgrctl/cmd/cp/cp.go:30
 msgid ""
 "Takes a source and destination parameters.\n"
 "\tOne of them can be prefixed with 'server:' to indicate the path is within the server pod."
 msgstr ""
+"Prevezme zdrojové a cieľové parametres.\n"
+"\tJeden z nich môže byť s predponou 'server:', ktorá označuje, že cesta sa nachádza v rámci podskupiny servera."
 
 #: mgrctl/cmd/cp/cp.go:39
 msgid "failed to unmarshall configuration"
