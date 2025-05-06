@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: 2025-03-10 07:56+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ko/>\n"
@@ -489,7 +489,7 @@ msgstr "서버가 시작되기를 기다리는 중…"
 msgid "cannot enable service"
 msgstr "서비스를 활성할 수 없음"
 
-#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:52
+#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:51
 #: mgradm/cmd/support/ptf/podman/utils.go:34
 #: mgradm/cmd/upgrade/podman/podman.go:72 mgradm/cmd/upgrade/podman/utils.go:24
 msgid "failed to login to registry.suse.com"
@@ -499,7 +499,7 @@ msgstr "registry.suse.com에 로그인하지 못했습니다."
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
 msgstr "서버가 이미 초기화되었습니다! 새 설치를 시도하기 전 제거하거나 upgrade 명령을 사용하십시오."
 
-#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:33
+#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:32
 msgid "install podman before running this command"
 msgstr "이 명령을 실행하기 전 podman 설치"
 
@@ -538,7 +538,7 @@ msgid "cannot update SSL certificate"
 msgstr "SSL 인증서를 업데이트하지 못함"
 
 #: mgradm/cmd/install/podman/utils.go:151
-#: mgradm/cmd/migrate/podman/utils.go:148
+#: mgradm/cmd/migrate/podman/utils.go:147
 msgid "cannot enable podman socket"
 msgstr "podman 소켓을 활성화할 수 없음"
 
@@ -728,7 +728,7 @@ msgstr "설정 스크립트를 실행하는 중 오류 발생"
 
 #: mgradm/cmd/install/shared/shared.go:52
 #: mgradm/cmd/migrate/kubernetes/utils.go:197
-#: mgradm/cmd/migrate/podman/utils.go:158
+#: mgradm/cmd/migrate/podman/utils.go:157
 msgid "failed to add SSL CA certificate to host trusted certificates"
 msgstr "SSL CA 인증서를 호스트의 신뢰할 수 있는 인증서에 추가하지 못했습니다."
 
@@ -824,7 +824,7 @@ msgid "cannot set replicas to 0"
 msgstr "복제본을 0으로 설정할 수 없음"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
-#: mgradm/cmd/migrate/podman/utils.go:78
+#: mgradm/cmd/migrate/podman/utils.go:77
 msgid "Migration prepared. Run the 'migrate' command without '--prepare' to finish the migration."
 msgstr "마이그레이션이 준비되었습니다. 마이그레이션을 마치려면 ''--prepare''를 제외하고 ''migrate'' 명령을 실행하십시오."
 
@@ -848,7 +848,7 @@ msgid "cannot wait for deployment of %s"
 msgstr "%s의 배포를 기다릴 수 없음"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
-#: mgradm/cmd/migrate/podman/utils.go:89
+#: mgradm/cmd/migrate/podman/utils.go:88
 #: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 msgid "cannot run PostgreSQL version upgrade script"
 msgstr "PostgreSQL 버전 업그레이드 스크립트를 실행할 수 없음"
@@ -858,7 +858,7 @@ msgid "cannot run PostgreSQL finalisation script"
 msgstr "PostgreSQL 최종 스크립트를 실행할 수 없음"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
-#: mgradm/cmd/migrate/podman/utils.go:99
+#: mgradm/cmd/migrate/podman/utils.go:98
 #: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 msgid "cannot run post upgrade script"
 msgstr "업그레이드 후 스크립트를 실행할 수 없음"
@@ -903,36 +903,36 @@ msgstr ""
 "\n"
 "참고: 원격 podman으로의 마이그레이션은 아직 지원되지 않습니다!\n"
 
-#: mgradm/cmd/migrate/podman/utils.go:42
+#: mgradm/cmd/migrate/podman/utils.go:41
 msgid "cannot compute image"
 msgstr "이미지를 계산할 수 없음"
 
-#: mgradm/cmd/migrate/podman/utils.go:64 mgradm/shared/podman/podman.go:82
+#: mgradm/cmd/migrate/podman/utils.go:63 mgradm/shared/podman/podman.go:82
 msgid "cannot setup network"
 msgstr "네트워크를 설정할 수 없음"
 
-#: mgradm/cmd/migrate/podman/utils.go:75
+#: mgradm/cmd/migrate/podman/utils.go:74
 msgid "cannot run migration script"
 msgstr "마이그레이션 스크립트를 실행할 수 없음"
 
-#: mgradm/cmd/migrate/podman/utils.go:95
+#: mgradm/cmd/migrate/podman/utils.go:94
 #: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 msgid "cannot run PostgreSQL finalize script"
 msgstr "PostgreSQL 최종 스크립트를 실행할 수 없음"
 
-#: mgradm/cmd/migrate/podman/utils.go:105
+#: mgradm/cmd/migrate/podman/utils.go:104
 msgid "cannot generate systemd service file"
 msgstr "systemd 서비스 파일을 생성할 수 없음"
 
-#: mgradm/cmd/migrate/podman/utils.go:120
+#: mgradm/cmd/migrate/podman/utils.go:119
 msgid "cannot setup confidential computing attestation service"
 msgstr "기밀 컴퓨팅 증명 서비스를 설정할 수 없음"
 
-#: mgradm/cmd/migrate/podman/utils.go:131
+#: mgradm/cmd/migrate/podman/utils.go:130
 msgid "Enabling Hub XML-RPC API since it is enabled on the migrated server"
 msgstr "마이그레이션된 서버에서 활성화되어 있으므로 Hub XML-RPC API 컨테이너 활성화"
 
-#: mgradm/cmd/migrate/podman/utils.go:145
+#: mgradm/cmd/migrate/podman/utils.go:144
 msgid "Server migrated"
 msgstr "서버 마이그레이션됨"
 

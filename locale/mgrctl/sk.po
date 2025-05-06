@@ -3,27 +3,28 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"PO-Revision-Date: 2025-05-05 20:59+0000\n"
+"Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
+"Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.3\n"
 
 #: mgrctl/cmd/api/api.go:26
 msgid "JSON over HTTP API helper tool"
-msgstr ""
+msgstr "Nástroj pomocníka JSON cez HTTP API"
 
 #: mgrctl/cmd/api/api.go:31
 msgid "Call API GET request"
-msgstr ""
+msgstr "Volanie požiadavky API GET"
 
 #: mgrctl/cmd/api/api.go:32
 msgid ""
@@ -32,10 +33,14 @@ msgid ""
 "Example:\n"
 "# mgrctl api get user/getDetails login=test"
 msgstr ""
+"Prevezme cestu API a voliteľné parametre a potom s nimi zadá požiadavku GET.\n"
+"\n"
+"Príklad:\n"
+"# mgrctl api get user/getDetails login=test"
 
 #: mgrctl/cmd/api/api.go:43
 msgid "Call API POST request"
-msgstr ""
+msgstr "Volanie požiadavky API POST"
 
 #: mgrctl/cmd/api/api.go:44
 msgid ""
@@ -49,10 +54,19 @@ msgid ""
 "JSON example:\n"
 "# mgrctl api post user/create    '{\"login\":\"test\", \"password\":\"testXX\", \"firstName\":\"F\", \"lastName\":\"L\", \"email\":\"test@localhost\"}'\n"
 msgstr ""
+"Prevezme cestu API a parametre a potom s nimi zadá požiadavku POST.\n"
+"\n"
+"Parametre môžu byť buď kódovaný reťazec JSON alebo jedna či viac dvojíc kľúč=hodnota.\n"
+"\n"
+"Príklad dvojíc kľúč=hodnota:\n"
+"# mgrctl api post user/create login=test password=testXX firstName=F lastName=L email=test@localhost\n"
+"\n"
+"Príklad JSON:\n"
+"# mgrctl api post user/create    '{\"login\":\"test\", \"password\":\"testXX\", \"firstName\":\"F\", \"lastName\":\"L\", \"email\":\"test@localhost\"}'\n"
 
 #: mgrctl/cmd/api/api.go:62
 msgid "Store login information for future API usage"
-msgstr ""
+msgstr "Uloženie prihlasovacích informácií pre budúce použitie API"
 
 #: mgrctl/cmd/api/api.go:63
 msgid ""
@@ -61,79 +75,85 @@ msgid ""
 "User name, password and remote host can be provided using flags or will be asked interactively.\n"
 "Environment variables are also supported."
 msgstr ""
+"Prihlásenie uloží prihlasovacie informácie pre ďalšie volania API.\n"
+"\n"
+"Používateľské meno, heslo a vzdialený hostiteľ môžu byť zadané pomocou príznakov alebo budú požadované interaktívne.\n"
+"Podporované sú aj premenné prostredia."
 
 #: mgrctl/cmd/api/api.go:71
 msgid "Overwrite existing login if exists"
-msgstr ""
+msgstr "Prepísať existujúce prihlásenie, ak existuje"
 
 #: mgrctl/cmd/api/api.go:75
 msgid "Remove stored login information"
-msgstr ""
+msgstr "Odstrániť uložené prihlasovacie údaje"
 
 #: mgrctl/cmd/api/api.go:76
 msgid "Logout removes stored login information."
-msgstr ""
+msgstr "Odhlásenie odstráni uložené prihlasovacie informácie."
 
 #: mgrctl/cmd/api/get.go:28 mgrctl/cmd/api/post.go:28
 msgid "unable to login to the server"
-msgstr ""
+msgstr "nemožno sa prihlásiť na server"
 
 #: mgrctl/cmd/api/get.go:35 mgrctl/cmd/api/post.go:51
 #, javascript-format
 msgid "error in query '%s'"
-msgstr ""
+msgstr "chyba v dopyte '%s'"
 
 #: mgrctl/cmd/api/login.go:23
 msgid "Refusing to overwrite existing login. Use --force to ignore this check."
-msgstr ""
+msgstr "Odmietnutie prepísania existujúceho prihlásenia. Použite --force na ignorovanie tejto kontroly."
 
 #: mgrctl/cmd/api/login.go:35
 msgid "Failed to validate credentials."
-msgstr ""
+msgstr "Nepodarilo sa overiť prihlasovacie údaje."
 
 #: mgrctl/cmd/api/login.go:41
 msgid "Login credentials verified."
-msgstr ""
+msgstr "Prihlasovacie údaje boli overené."
 
 #: mgrctl/cmd/api/login.go:51
 msgid "Successfully logged out"
-msgstr ""
+msgstr "Úspešné odhlásenie"
 
 #: mgrctl/cmd/cmd.go:29
 msgid "Uyuni control tool"
-msgstr ""
+msgstr "Ovládací nástroj Uyuni"
 
 #: mgrctl/cmd/cmd.go:30
 msgid "Tool to help managing Uyuni servers mainly through their API"
-msgstr ""
+msgstr "Nástroj na pomoc pri správe serverov Uyuni hlavne prostredníctvom ich API"
 
 #: mgrctl/cmd/cmd.go:37
 msgid "configuration file path"
-msgstr ""
+msgstr "cesta ku konfiguračnému súboru"
 
 #: mgrctl/cmd/cmd.go:39
 msgid "application log level"
-msgstr ""
+msgstr "úroveň záznamu aplikácie"
 
 #: mgrctl/cmd/cmd.go:47
 #, javascript-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Vitajte v %s"
 
 #: mgrctl/cmd/cmd.go:48
 #, javascript-format
 msgid "Executing command: %s"
-msgstr ""
+msgstr "Vykonávajúci príkaz: %s"
 
 #: mgrctl/cmd/cp/cp.go:29
 msgid "Copy files to and from the containers"
-msgstr ""
+msgstr "Kopírovať súbory do a z kontajnerov"
 
 #: mgrctl/cmd/cp/cp.go:30
 msgid ""
 "Takes a source and destination parameters.\n"
 "\tOne of them can be prefixed with 'server:' to indicate the path is within the server pod."
 msgstr ""
+"Prevezme zdrojové a cieľové parametres.\n"
+"\tJeden z nich môže byť s predponou 'server:', ktorá označuje, že cesta sa nachádza v rámci podskupiny servera."
 
 #: mgrctl/cmd/cp/cp.go:39
 msgid "failed to unmarshall configuration"
@@ -178,8 +198,8 @@ msgstr ""
 #: mgrctl/cmd/exec/exec.go:140
 #, javascript-format
 msgid "Running %s"
-msgstr ""
+msgstr "Spustené %s"
 
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
-msgstr ""
+msgstr "Spustiť terminál v kontajneri servera"

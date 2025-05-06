@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: 2025-04-10 16:56+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
@@ -490,7 +490,7 @@ msgstr "S'està esperant que el servidor comenci…"
 msgid "cannot enable service"
 msgstr "no es pot activar el servei"
 
-#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:52
+#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:51
 #: mgradm/cmd/support/ptf/podman/utils.go:34
 #: mgradm/cmd/upgrade/podman/podman.go:72 mgradm/cmd/upgrade/podman/utils.go:24
 msgid "failed to login to registry.suse.com"
@@ -500,7 +500,7 @@ msgstr "no s'ha pogut iniciar la sessió a register.suse.com"
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
 msgstr "El servidor ja està inicialitzat! Desinstal·la abans d'intentar una nova instal·lació o utilitza l'ordre d'actualització"
 
-#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:33
+#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:32
 msgid "install podman before running this command"
 msgstr "instal·la podman abans d'executar aquesta ordre"
 
@@ -539,7 +539,7 @@ msgid "cannot update SSL certificate"
 msgstr "no s'ha pogut actualitzar el certificat SSL"
 
 #: mgradm/cmd/install/podman/utils.go:151
-#: mgradm/cmd/migrate/podman/utils.go:148
+#: mgradm/cmd/migrate/podman/utils.go:147
 msgid "cannot enable podman socket"
 msgstr "no s'ha pogut habilitar el sòcol podman"
 
@@ -729,7 +729,7 @@ msgstr "s'ha produït un error en executar l'script de configuració"
 
 #: mgradm/cmd/install/shared/shared.go:52
 #: mgradm/cmd/migrate/kubernetes/utils.go:197
-#: mgradm/cmd/migrate/podman/utils.go:158
+#: mgradm/cmd/migrate/podman/utils.go:157
 msgid "failed to add SSL CA certificate to host trusted certificates"
 msgstr "no s'ha pogut afegir el certificat SSL CA a l'amfitrió de certificats de confiança"
 
@@ -825,7 +825,7 @@ msgid "cannot set replicas to 0"
 msgstr "no s'han pogut establir les rèpliques a 0"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
-#: mgradm/cmd/migrate/podman/utils.go:78
+#: mgradm/cmd/migrate/podman/utils.go:77
 msgid "Migration prepared. Run the 'migrate' command without '--prepare' to finish the migration."
 msgstr "Migració preparada. Executeu l'ordre «migra» sense «--prepare» per a acabar la migració."
 
@@ -849,7 +849,7 @@ msgid "cannot wait for deployment of %s"
 msgstr "no es pot esperar al desplegament de %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
-#: mgradm/cmd/migrate/podman/utils.go:89
+#: mgradm/cmd/migrate/podman/utils.go:88
 #: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 msgid "cannot run PostgreSQL version upgrade script"
 msgstr "no s'ha pogut executar l'script d'actualització de la versió PostgreSQL"
@@ -859,7 +859,7 @@ msgid "cannot run PostgreSQL finalisation script"
 msgstr "no s'ha pogut executar l'script de finalització PostgreSQL"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
-#: mgradm/cmd/migrate/podman/utils.go:99
+#: mgradm/cmd/migrate/podman/utils.go:98
 #: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 msgid "cannot run post upgrade script"
 msgstr "no s'ha pogut executar l'script d'actualització"
@@ -904,36 +904,36 @@ msgstr ""
 "\n"
 "NOTA: la migració a un podman remot encara no està suportada!\n"
 
-#: mgradm/cmd/migrate/podman/utils.go:42
+#: mgradm/cmd/migrate/podman/utils.go:41
 msgid "cannot compute image"
 msgstr "no es pot calcular la imatge"
 
-#: mgradm/cmd/migrate/podman/utils.go:64 mgradm/shared/podman/podman.go:82
+#: mgradm/cmd/migrate/podman/utils.go:63 mgradm/shared/podman/podman.go:82
 msgid "cannot setup network"
 msgstr "no s'ha pogut configurar la xarxa"
 
-#: mgradm/cmd/migrate/podman/utils.go:75
+#: mgradm/cmd/migrate/podman/utils.go:74
 msgid "cannot run migration script"
 msgstr "no s'ha pogut executar l'script de migració"
 
-#: mgradm/cmd/migrate/podman/utils.go:95
+#: mgradm/cmd/migrate/podman/utils.go:94
 #: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 msgid "cannot run PostgreSQL finalize script"
 msgstr "no s'ha pogut executar l'script final PostgreSQL"
 
-#: mgradm/cmd/migrate/podman/utils.go:105
+#: mgradm/cmd/migrate/podman/utils.go:104
 msgid "cannot generate systemd service file"
 msgstr "no s'ha pogut generar el fitxer de servei systemd"
 
-#: mgradm/cmd/migrate/podman/utils.go:120
+#: mgradm/cmd/migrate/podman/utils.go:119
 msgid "cannot setup confidential computing attestation service"
 msgstr "no s'ha pogut configurar el servei de proves de computació confidencial"
 
-#: mgradm/cmd/migrate/podman/utils.go:131
+#: mgradm/cmd/migrate/podman/utils.go:130
 msgid "Enabling Hub XML-RPC API since it is enabled on the migrated server"
 msgstr "Habilitant l'API XML-RPC del Hub ja que està habilitada al servidor migrat"
 
-#: mgradm/cmd/migrate/podman/utils.go:145
+#: mgradm/cmd/migrate/podman/utils.go:144
 msgid "Server migrated"
 msgstr "Servidor migrat"
 

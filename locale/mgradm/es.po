@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -431,7 +431,7 @@ msgstr ""
 msgid "cannot enable service"
 msgstr ""
 
-#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:52
+#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:51
 #: mgradm/cmd/support/ptf/podman/utils.go:34
 #: mgradm/cmd/upgrade/podman/podman.go:72 mgradm/cmd/upgrade/podman/utils.go:24
 msgid "failed to login to registry.suse.com"
@@ -441,7 +441,7 @@ msgstr ""
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
 msgstr ""
 
-#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:33
+#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:32
 msgid "install podman before running this command"
 msgstr ""
 
@@ -480,7 +480,7 @@ msgid "cannot update SSL certificate"
 msgstr ""
 
 #: mgradm/cmd/install/podman/utils.go:151
-#: mgradm/cmd/migrate/podman/utils.go:148
+#: mgradm/cmd/migrate/podman/utils.go:147
 msgid "cannot enable podman socket"
 msgstr ""
 
@@ -670,7 +670,7 @@ msgstr ""
 
 #: mgradm/cmd/install/shared/shared.go:52
 #: mgradm/cmd/migrate/kubernetes/utils.go:197
-#: mgradm/cmd/migrate/podman/utils.go:158
+#: mgradm/cmd/migrate/podman/utils.go:157
 msgid "failed to add SSL CA certificate to host trusted certificates"
 msgstr ""
 
@@ -752,7 +752,7 @@ msgid "cannot set replicas to 0"
 msgstr ""
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
-#: mgradm/cmd/migrate/podman/utils.go:78
+#: mgradm/cmd/migrate/podman/utils.go:77
 msgid "Migration prepared. Run the 'migrate' command without '--prepare' to finish the migration."
 msgstr ""
 
@@ -776,7 +776,7 @@ msgid "cannot wait for deployment of %s"
 msgstr ""
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
-#: mgradm/cmd/migrate/podman/utils.go:89
+#: mgradm/cmd/migrate/podman/utils.go:88
 #: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 msgid "cannot run PostgreSQL version upgrade script"
 msgstr ""
@@ -786,7 +786,7 @@ msgid "cannot run PostgreSQL finalisation script"
 msgstr ""
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
-#: mgradm/cmd/migrate/podman/utils.go:99
+#: mgradm/cmd/migrate/podman/utils.go:98
 #: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 msgid "cannot run post upgrade script"
 msgstr ""
@@ -822,36 +822,36 @@ msgid ""
 "NOTE: migrating to a remote podman is not supported yet!\n"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:42
+#: mgradm/cmd/migrate/podman/utils.go:41
 msgid "cannot compute image"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:64 mgradm/shared/podman/podman.go:82
+#: mgradm/cmd/migrate/podman/utils.go:63 mgradm/shared/podman/podman.go:82
 msgid "cannot setup network"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:75
+#: mgradm/cmd/migrate/podman/utils.go:74
 msgid "cannot run migration script"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:95
+#: mgradm/cmd/migrate/podman/utils.go:94
 #: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 msgid "cannot run PostgreSQL finalize script"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:105
+#: mgradm/cmd/migrate/podman/utils.go:104
 msgid "cannot generate systemd service file"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:120
+#: mgradm/cmd/migrate/podman/utils.go:119
 msgid "cannot setup confidential computing attestation service"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:131
+#: mgradm/cmd/migrate/podman/utils.go:130
 msgid "Enabling Hub XML-RPC API since it is enabled on the migrated server"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:145
+#: mgradm/cmd/migrate/podman/utils.go:144
 msgid "Server migrated"
 msgstr ""
 
