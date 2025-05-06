@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -283,7 +283,7 @@ msgid "namespace is required"
 msgstr ""
 
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
-#: shared/podman/secret.go:69 shared/podman/systemd.go:96
+#: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
 #: shared/podman/utils.go:135 shared/podman/utils.go:161
 #, javascript-format
@@ -682,23 +682,23 @@ msgstr ""
 msgid "Network removed"
 msgstr ""
 
-#: shared/podman/secret.go:46
+#: shared/podman/secret.go:47
 #, javascript-format
 msgid "failed to write %s secret to file"
 msgstr ""
 
-#: shared/podman/secret.go:50
+#: shared/podman/secret.go:52
 #, javascript-format
 msgid "failed to create podman secret %s"
 msgstr ""
 
-#: shared/podman/secret.go:71 shared/podman/utils.go:137
+#: shared/podman/secret.go:73 shared/podman/utils.go:137
 #: shared/podman/utils.go:163
 #, javascript-format
 msgid "Run %s"
 msgstr ""
 
-#: shared/podman/secret.go:73
+#: shared/podman/secret.go:76
 #, javascript-format
 msgid "Failed to delete %s secret"
 msgstr ""

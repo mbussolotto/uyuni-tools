@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 14:50+0100\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: 2024-04-08 14:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -294,7 +294,7 @@ msgid "namespace is required"
 msgstr "Une valeur est requise"
 
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
-#: shared/podman/secret.go:69 shared/podman/systemd.go:96
+#: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
 #: shared/podman/utils.go:135 shared/podman/utils.go:161
 #, javascript-format
@@ -703,23 +703,23 @@ msgstr "Impossible de supprimer le réseau %s"
 msgid "Network removed"
 msgstr "Réseau supprimé"
 
-#: shared/podman/secret.go:46
+#: shared/podman/secret.go:47
 #, fuzzy, javascript-format
 msgid "failed to write %s secret to file"
 msgstr "impossible de créer le répertoire %s: %s"
 
-#: shared/podman/secret.go:50
+#: shared/podman/secret.go:52
 #, fuzzy, javascript-format
 msgid "failed to create podman secret %s"
 msgstr "impossible d'exécuter helm %s: %s"
 
-#: shared/podman/secret.go:71 shared/podman/utils.go:137
+#: shared/podman/secret.go:73 shared/podman/utils.go:137
 #: shared/podman/utils.go:163
 #, javascript-format
 msgid "Run %s"
 msgstr ""
 
-#: shared/podman/secret.go:73
+#: shared/podman/secret.go:76
 #, fuzzy, javascript-format
 msgid "Failed to delete %s secret"
 msgstr "Impossible de tuer le serveur"

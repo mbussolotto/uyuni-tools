@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 09:45+0100\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: 2025-03-01 20:15+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/"
-"uyuni-tools-shared-5-0/ca/>\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,8 +36,7 @@ msgstr "Camí a un fitxer de certificat de la CA"
 
 #: shared/api/api.go:33
 msgid "If set, server certificate will not be checked for validity"
-msgstr ""
-"Si s'estableix, el certificat del servidor no es comprovarà si hi ha validesa"
+msgstr "Si s'estableix, el certificat del servidor no es comprovarà si hi ha validesa"
 
 #: shared/api/api.go:74
 msgid "401: unauthorized"
@@ -125,8 +123,7 @@ msgstr "no s'ha carregat cap credencial"
 
 #: shared/api/credentials.go:101
 msgid "specified api server does not match with stored credentials"
-msgstr ""
-"el servidor api especificat no coincideix amb les credencials emmagatzemades"
+msgstr "el servidor api especificat no coincideix amb les credencials emmagatzemades"
 
 #: shared/api/org/createFirst.go:22
 msgid "unable to prepare API client"
@@ -165,9 +162,7 @@ msgstr "El kubectl no està configurat per a connectar a un clúster, s'ignorar�
 
 #: shared/connection.go:112
 msgid "uyuni container is not accessible with one of podman, podman-remote or kubectl"
-msgstr ""
-"el contenidor uyuni no és accessible amb un de podman, podman-remote o "
-"kubectl"
+msgstr "el contenidor uyuni no és accessible amb un de podman, podman-remote o kubectl"
 
 #: shared/connection.go:115
 #, javascript-format
@@ -251,9 +246,7 @@ msgstr "no s'ha pogut executar supportconfig"
 
 #: shared/connection.go:497
 msgid "failed to find container supportconfig tarball from command output"
-msgstr ""
-"no s'ha pogut trobar el contenidor supportconfig tarball des de la sortida "
-"d'ordres"
+msgstr "no s'ha pogut trobar el contenidor supportconfig tarball des de la sortida d'ordres"
 
 #: shared/connection.go:503
 msgid "cannot copy tarball"
@@ -279,20 +272,18 @@ msgstr "no s'ha trobat cap o més desplegament"
 
 #: shared/kubernetes/helm.go:56
 msgid "failed to upgrade helm chart %[1]s in namespace %[2]s"
-msgstr ""
-"no s'ha pogut actualitzar el diagrama de helm %[1]s a l'espai de noms %[2]s"
+msgstr "no s'ha pogut actualitzar el diagrama de helm %[1]s a l'espai de noms %[2]s"
 
 #: shared/kubernetes/helm.go:58
 msgid "failed to install helm chart %[1]s in namespace %[2]s"
-msgstr ""
-"no s'ha pogut instal·lar el diagrama de helm %[1]s a l'espai de noms %[2]s"
+msgstr "no s'ha pogut instal·lar el diagrama de helm %[1]s a l'espai de noms %[2]s"
 
 #: shared/kubernetes/helm.go:67
 msgid "namespace is required"
 msgstr "l'espai de noms és obligatori"
 
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
-#: shared/podman/secret.go:69 shared/podman/systemd.go:96
+#: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
 #: shared/podman/utils.go:135 shared/podman/utils.go:161
 #, javascript-format
@@ -381,8 +372,7 @@ msgstr "no s'ha pogut definir el secret %s"
 
 #: shared/kubernetes/kubernetes.go:216
 msgid "failed to get deployment image pull secret"
-msgstr ""
-"no s'ha pogut obtenir el secret d'extracció de la imatge de desplegament"
+msgstr "no s'ha pogut obtenir el secret d'extracció de la imatge de desplegament"
 
 #: shared/kubernetes/rke2.go:21
 msgid "Installing RKE2 Nginx configuration"
@@ -443,14 +433,11 @@ msgid ""
 "be automatically removed when deleting the deployment even if --purge-volumes argument is not used."
 msgstr ""
 "\n"
-"Tingueu en compte que l'eliminació dels volums també es pot gestionar "
-"automàticament depenent de la classe d'emmagatzematge utilitzada\n"
+"Tingueu en compte que l'eliminació dels volums també es pot gestionar automàticament depenent de la classe d'emmagatzematge utilitzada\n"
 "quan s'instal·la en un clúster de kubernetes.\n"
 "\n"
-"Per exemple, en una instal·lació predeterminada del K3S, els volums "
-"d'emmagatzematge del proveïdor de camins locals seran\n"
-"s'eliminarà automàticament en suprimir el desplegament encara que no "
-"s'utilitzi l'argument --purge-volumes."
+"Per exemple, en una instal·lació predeterminada del K3S, els volums d'emmagatzematge del proveïdor de camins locals seran\n"
+"s'eliminarà automàticament en suprimir el desplegament encara que no s'utilitzi l'argument --purge-volumes."
 
 #: shared/kubernetes/utils.go:57 shared/kubernetes/utils.go:95
 msgid "failed to pull image"
@@ -458,15 +445,11 @@ msgstr "no s'ha pogut treure la imatge"
 
 #: shared/kubernetes/utils.go:60
 msgid "Waiting for %[1]s deployment to be ready in %[2]s namespace\n"
-msgstr ""
-"S'està esperant que el desplegament %[1]s estigui llest a l'espai de noms %"
-"[2]s\n"
+msgstr "S'està esperant que el desplegament %[1]s estigui llest a l'espai de noms %[2]s\n"
 
 #: shared/kubernetes/utils.go:70
 msgid "failed to find a ready replica for deployment %[1]s in namespace %[2]s after 120s"
-msgstr ""
-"no s'ha pogut trobar una rèplica preparada per al desplegament %[1]s a "
-"l'espai de noms %[2]s després de 120s"
+msgstr "no s'ha pogut trobar una rèplica preparada per al desplegament %[1]s a l'espai de noms %[2]s després de 120s"
 
 #: shared/kubernetes/utils.go:76
 msgid "Waiting for image of %[1]s pod in %[2]s namespace to be pulled"
@@ -503,8 +486,7 @@ msgstr "ha fallat la rèplica a %d"
 
 #: shared/kubernetes/utils.go:187
 msgid "cannot check if pod %[1]s is running in app %[2]s"
-msgstr ""
-"no es pot comprovar si el pod %[1]s s'està executant a l'aplicació %[2]s"
+msgstr "no es pot comprovar si el pod %[1]s s'està executant a l'aplicació %[2]s"
 
 #: shared/kubernetes/utils.go:198 shared/kubernetes/utils.go:244
 #: shared/kubernetes/utils.go:350
@@ -575,9 +557,7 @@ msgstr "Assegura que la imatge %s està disponible"
 
 #: shared/podman/images.go:46
 msgid "Pull Policy is always. Presence of RPM image will be checked and pulled from registry if not present"
-msgstr ""
-"La política de pícnic és sempre. La presència de la imatge RPM es comprovarà "
-"i es retirarà del registre si no hi és"
+msgstr "La política de pícnic és sempre. La presència de la imatge RPM es comprovarà i es retirarà del registre si no hi és"
 
 #: shared/podman/images.go:56
 #, javascript-format
@@ -586,9 +566,7 @@ msgstr "No es pot utilitzar la imatge RPM per a %s"
 
 #: shared/podman/images.go:58
 msgid "Using the %[1]s image loaded from the RPM instead of its online version %[2]s"
-msgstr ""
-"Utilitzant la imatge %[1]s carregada des del RPM en lloc de la seva versió "
-"en línia %[2]s"
+msgstr "Utilitzant la imatge %[1]s carregada des del RPM en lloc de la seva versió en línia %[2]s"
 
 #: shared/podman/images.go:63
 #, javascript-format
@@ -603,9 +581,7 @@ msgstr "manca la imatge %s i no es pot recuperar"
 #: shared/podman/images.go:86
 #, javascript-format
 msgid "Cannot correctly parse image name '%s', local image cannot be used"
-msgstr ""
-"No es pot analitzar correctament el nom de la imatge «%s», no es pot "
-"utilitzar la imatge local"
+msgstr "No es pot analitzar correctament el nom de la imatge «%s», no es pot utilitzar la imatge local"
 
 #: shared/podman/images.go:104
 msgid "cannot unmarshal image RPM metadata"
@@ -630,9 +606,7 @@ msgstr "no s'ha pogut comprovar si la imatge %s ja s'ha tirat"
 #: shared/podman/images.go:215
 #, javascript-format
 msgid "%s should contains just lower case character, otherwise podman pull would fails"
-msgstr ""
-"%s hauria de contenir només un caràcter en minúscula, en cas contrari "
-"l'estirada de podman fallaria"
+msgstr "%s hauria de contenir només un caràcter en minúscula, en cas contrari l'estirada de podman fallaria"
 
 #: shared/podman/images.go:217
 #, javascript-format
@@ -642,9 +616,7 @@ msgstr "S'està executant la podman pull %s"
 #: shared/podman/images.go:229
 #, javascript-format
 msgid "Running podman image search --list-tags %s --format={{.Tag}}"
-msgstr ""
-"S'està executant la cerca d'imatges de podman --list-tags %s "
-"--format.{{.Tag}}"
+msgstr "S'està executant la cerca d'imatges de podman --list-tags %s --format.{{.Tag}}"
 
 #: shared/podman/images.go:243
 #, javascript-format
@@ -663,9 +635,7 @@ msgstr "no s'ha pogut trobar cap imatge en execució per al contenidor %s"
 
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
-msgstr ""
-"S'utilitzaran els paràmetres de les credencials SCC. S'ignoraran les "
-"credencials SCC del servidor."
+msgstr "S'utilitzaran els paràmetres de les credencials SCC. S'ignoraran les credencials SCC del servidor."
 
 #: shared/podman/login.go:52
 msgid "failed to close the temporary auth file"
@@ -679,8 +649,7 @@ msgstr "S'està configurant la xarxa %s"
 #: shared/podman/network.go:43
 #, javascript-format
 msgid "%s network doesn't have IPv6, deleting existing network to enable IPv6 on it"
-msgstr ""
-"La xarxa %s no té IPv6, esborrant la xarxa existent per habilitar-hi IPv6"
+msgstr "La xarxa %s no té IPv6, esborrant la xarxa existent per habilitar-hi IPv6"
 
 #: shared/podman/network.go:47
 #, javascript-format
@@ -698,9 +667,7 @@ msgstr "no s'ha pogut trobar el dorsal de xarxa de podman"
 
 #: shared/podman/network.go:68
 msgid "Podman's network backend (%[1]s) is not netavark, skipping IPv6 enabling on %[2]s network"
-msgstr ""
-"El dorsal de xarxa de Podman (%[1]s) no és netavark, s'omet l'habilitació "
-"IPv6 a la xarxa %[2]s"
+msgstr "El dorsal de xarxa de Podman (%[1]s) no és netavark, s'omet l'habilitació IPv6 a la xarxa %[2]s"
 
 #: shared/podman/network.go:77
 #, javascript-format
@@ -721,23 +688,23 @@ msgstr "No s'ha pogut eliminar la xarxa %s"
 msgid "Network removed"
 msgstr "S'ha suprimit la xarxa"
 
-#: shared/podman/secret.go:46
+#: shared/podman/secret.go:47
 #, javascript-format
 msgid "failed to write %s secret to file"
 msgstr "no s'ha pogut escriure el secret %s al fitxer"
 
-#: shared/podman/secret.go:50
+#: shared/podman/secret.go:52
 #, javascript-format
 msgid "failed to create podman secret %s"
 msgstr "no s'ha pogut crear el secret podman %s"
 
-#: shared/podman/secret.go:71 shared/podman/utils.go:137
+#: shared/podman/secret.go:73 shared/podman/utils.go:137
 #: shared/podman/utils.go:163
 #, javascript-format
 msgid "Run %s"
 msgstr "Executa %s"
 
-#: shared/podman/secret.go:73
+#: shared/podman/secret.go:76
 #, javascript-format
 msgid "Failed to delete %s secret"
 msgstr "No s'ha pogut suprimir el secret %s"
@@ -755,8 +722,7 @@ msgstr "no s'ha pogut executar la podman inspect %s"
 #: shared/podman/support.go:46
 #, javascript-format
 msgid "failed to fetch the config files bound to container %s"
-msgstr ""
-"no s'han pogut recuperar els fitxers de configuració lligats al contenidor %s"
+msgstr "no s'han pogut recuperar els fitxers de configuració lligats al contenidor %s"
 
 #: shared/podman/support.go:52
 #, javascript-format
@@ -839,9 +805,7 @@ msgstr "Eliminaria %s si està buit"
 #: shared/podman/systemd.go:149
 #, javascript-format
 msgid "%s folder contains file created by the user. Please remove them when uninstallation is completed."
-msgstr ""
-"La carpeta %s conté el fitxer creat per l'usuari. Si us plau, elimineu-los "
-"quan s'hagi completat la desinstal·lació."
+msgstr "La carpeta %s conté el fitxer creat per l'usuari. Si us plau, elimineu-los quan s'hagi completat la desinstal·lació."
 
 #: shared/podman/systemd.go:161
 #, javascript-format
@@ -894,8 +858,7 @@ msgstr "no s'ha pogut escriure el fitxer %s"
 #: shared/podman/systemd.go:333
 #, javascript-format
 msgid "failed to remove old %s systemd service configuration file"
-msgstr ""
-"no s'ha pogut eliminar l'antic fitxer de configuració del servei systemd %s"
+msgstr "no s'ha pogut eliminar l'antic fitxer de configuració del servei systemd %s"
 
 #: shared/podman/systemd.go:355
 msgid "Service %[1]s already has %[2]d replicas."
@@ -987,15 +950,12 @@ msgid ""
 "tool to use to reach the container. Possible values: 'podman', 'podman-remote', 'kubectl'.\n"
 "Default guesses which to use."
 msgstr ""
-"eina a utilitzar per arribar al contenidor. Valors possibles: 'podman', "
-"'podman-remote', 'kubectl'.\n"
+"eina a utilitzar per arribar al contenidor. Valors possibles: 'podman', 'podman-remote', 'kubectl'.\n"
 "Endevinacions predeterminades que s'han d'utilitzar."
 
 #: shared/utils/cmd.go:86
 msgid "set whether to pull the images or not. The value can be one of 'Never', 'IfNotPresent' or 'Always'"
-msgstr ""
-"estableix si s'han d'estirar les imatges o no. El valor pot ser un de "
-"'Never', 'IfNotPresent' o 'Always'"
+msgstr "estableix si s'han d'estirar les imatges o no. El valor pot ser un de 'Never', 'IfNotPresent' o 'Always'"
 
 #: shared/utils/cmd.go:91
 msgid "PTF ID"
@@ -1074,40 +1034,27 @@ msgstr ""
 "  {{.NameAndAliases}}{{end}}{{if .HasExample}}\n"
 "\n"
 "Exemples:\n"
-"{{.Exemple}}{{end}}{{if .HasAvailableSubCommands}}{{$cmds :. .Ordres}}{{if "
-"eq (len .Grups) 0}}\n"
+"{{.Exemple}}{{end}}{{if .HasAvailableSubCommands}}{{$cmds :. .Ordres}}{{if eq (len .Grups) 0}}\n"
 "\n"
-"Ordres disponibles:{{range $cmds}}{{if (o .IsAvailableCommand (eq .Nom "
-"\"ajuda\")}}\n"
-"  {{rpad .Nom .NamePadding }} {{.Curt}}{{end}}{{end}}{{else}}{{range $group :"
-". .Grups}}\n"
+"Ordres disponibles:{{range $cmds}}{{if (o .IsAvailableCommand (eq .Nom \"ajuda\")}}\n"
+"  {{rpad .Nom .NamePadding }} {{.Curt}}{{end}}{{end}}{{else}}{{range $group :. .Grups}}\n"
 "\n"
-"{{.Títol}}{{range $cmds}}{{if (i (eq .GroupID $group.ID) (o "
-".IsAvailableCommand (eq .Nom \"ajuda\"))}}\n"
-"  {{rpad .Nom .NamePadding }} {{.Curt}}{{end}}{{end}}{{end}}{{if not "
-".AllChildCommandsHaveGroup}}\n"
+"{{.Títol}}{{range $cmds}}{{if (i (eq .GroupID $group.ID) (o .IsAvailableCommand (eq .Nom \"ajuda\"))}}\n"
+"  {{rpad .Nom .NamePadding }} {{.Curt}}{{end}}{{end}}{{end}}{{if not .AllChildCommandsHaveGroup}}\n"
 "\n"
-"Ordres addicionals:{{range $cmds}}{{if (i (eq .GroupID \""
-"\") (o .IsAvailableCommand (eq .Nom \"ajuda\"))}}\n"
-"  {{rpad .Nom .NamePadding }} "
-"{{.Curt}}{{end}}{{end}}{{end}}{{end}}{{end}}{{end}}{{end}}{{if "
-".HasAvailableLocalFlags}}\n"
+"Ordres addicionals:{{range $cmds}}{{if (i (eq .GroupID \"\") (o .IsAvailableCommand (eq .Nom \"ajuda\"))}}\n"
+"  {{rpad .Nom .NamePadding }} {{.Curt}}{{end}}{{end}}{{end}}{{end}}{{end}}{{end}}{{end}}{{if .HasAvailableLocalFlags}}\n"
 "\n"
 "Banderes:\n"
-"{{.LocalFlags.FlagUsages . trimTrailingWhitespaces}}{{end}}{{if "
-".HasAvailableInheritedFlags}}\n"
+"{{.LocalFlags.FlagUsages . trimTrailingWhitespaces}}{{end}}{{if .HasAvailableInheritedFlags}}\n"
 "\n"
 "Banderes globals:\n"
-"{{.HeritedFlags.FlagUsages . trimTrailingWhitespaces}}{{end}}{{if "
-".HasHelpSubCommands}}\n"
+"{{.HeritedFlags.FlagUsages . trimTrailingWhitespaces}}{{end}}{{if .HasHelpSubCommands}}\n"
 "\n"
-"Temes d'ajuda addicionals:{{range .Ordres}}{{if "
-".IsAdditionalHelpTopicCommand}}\n"
-"  {{rpad .CommandPath .OrdrePathPadding}} "
-"{{.Curt}}{{end}}{{end}}{{end}}{{end}}{{if .HasAvailableSubCommands}}\n"
+"Temes d'ajuda addicionals:{{range .Ordres}}{{if .IsAdditionalHelpTopicCommand}}\n"
+"  {{rpad .CommandPath .OrdrePathPadding}} {{.Curt}}{{end}}{{end}}{{end}}{{end}}{{if .HasAvailableSubCommands}}\n"
 "\n"
-"Utilitza \"{{.CommandPath}} [ordre] --help\" per a més informació sobre una "
-"ordre.{{end}}\n"
+"Utilitza \"{{.CommandPath}} [ordre] --help\" per a més informació sobre una ordre.{{end}}\n"
 
 #: shared/utils/config.go:143
 msgid ""
@@ -1148,13 +1095,10 @@ msgstr ""
 "\n"
 "Configuració:\n"
 "\n"
-"  Totes les banderes no globals es poden passar alternativament com a "
-"configuració.\n"
+"  Totes les banderes no globals es poden passar alternativament com a configuració.\n"
 "\n"
-"  El fitxer de configuració és un fitxer YAML amb entrades que coincideixin "
-"amb el nom de l'indicador.\n"
-"  El nom d'una bandera és la part després de la «--» del paràmetre de la "
-"línia d'ordres.\n"
+"  El fitxer de configuració és un fitxer YAML amb entrades que coincideixin amb el nom de l'indicador.\n"
+"  El nom d'una bandera és la part després de la «--» del paràmetre de la línia d'ordres.\n"
 "  Cada caràcter '' en el nom de la bandera significa una propietat niada.\n"
 "\n"
 "  Per exemple, el '--tz CEST' i '--ssl-password secret' s'assignaran a\n"
@@ -1174,11 +1118,9 @@ msgstr ""
 "\n"
 "Variables d'entorn:\n"
 "\n"
-"  Totes les banderes no globals també es poden passar com a variables "
-"d'entorn.\n"
+"  Totes les banderes no globals també es poden passar com a variables d'entorn.\n"
 "\n"
-"  El nom de la variable d'entorn és el nom de la bandera amb «-» reemplaçat "
-"per «»\n"
+"  El nom de la variable d'entorn és el nom de la bandera amb «-» reemplaçat per «»\n"
 "  i el {{ .Prefix d'EnvPrefix }}.\n"
 "\n"
 "  Per exemple, la bandera '--tz CEST' s'assignarà a '{{ .EnvPrefix }}TZ'\n"
@@ -1219,14 +1161,11 @@ msgstr "no s'han pogut desmarcar les dades inspeccionades"
 
 #: shared/utils/logUtils.go:97
 msgid "Couldn't open %[1]s file for writing, writing log to %[2]s"
-msgstr ""
-"No s'ha pogut obrir el fitxer %[1]s per a escriptura, s'està escrivint el "
-"registre a %[2]s"
+msgstr "No s'ha pogut obrir el fitxer %[1]s per a escriptura, s'està escrivint el registre a %[2]s"
 
 #: shared/utils/support.go:32
 msgid "Unable to detect hostname, using localhost"
-msgstr ""
-"No s'ha pogut detectar el nom de l'ordinador, s'està utilitzant el localhost"
+msgstr "No s'ha pogut detectar el nom de l'ordinador, s'està utilitzant el localhost"
 
 #: shared/utils/support.go:46
 msgid "Preparing the tarball"
@@ -1243,9 +1182,7 @@ msgstr "no s'ha pogut executar supportconfig a l'amfitrió"
 
 #: shared/utils/support.go:98
 msgid "failed to find host supportconfig tarball from command output"
-msgstr ""
-"no s'ha pogut trobar l'amfitrió supportconfig tarball des de la sortida de "
-"l'ordre"
+msgstr "no s'ha pogut trobar l'amfitrió supportconfig tarball des de la sortida de l'ordre"
 
 #: shared/utils/support.go:101
 msgid "supportconfig is not available on the host, skipping it"
@@ -1253,9 +1190,7 @@ msgstr "supportconfig no està disponible al servidor, s'ometrà"
 
 #: shared/utils/tar.go:48
 msgid "Skipping extraction of %[1]s in %[2]s file as it resolves outside the target path"
-msgstr ""
-"S'està ometent l'extracció de %[1]s al fitxer %[2]s mentre es resol fora del "
-"camí de destinació"
+msgstr "S'està ometent l'extracció de %[1]s al fitxer %[2]s mentre es resol fora del camí de destinació"
 
 #: shared/utils/tar.go:90
 #, javascript-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: 2024-04-17 08:03+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/uyuni/uyuni-tools/fr/>\n"
@@ -470,7 +470,7 @@ msgstr ""
 msgid "cannot enable service"
 msgstr "impossible d'activer le service systemd: %s"
 
-#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:52
+#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:51
 #: mgradm/cmd/support/ptf/podman/utils.go:34
 #: mgradm/cmd/upgrade/podman/podman.go:72 mgradm/cmd/upgrade/podman/utils.go:24
 msgid "failed to login to registry.suse.com"
@@ -480,7 +480,7 @@ msgstr ""
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
 msgstr ""
 
-#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:33
+#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:32
 msgid "install podman before running this command"
 msgstr "installer podman avant d'exécuter cette commande"
 
@@ -524,7 +524,7 @@ msgid "cannot update SSL certificate"
 msgstr "impossible de mettre à jour le certificat SSL: %s"
 
 #: mgradm/cmd/install/podman/utils.go:151
-#: mgradm/cmd/migrate/podman/utils.go:148
+#: mgradm/cmd/migrate/podman/utils.go:147
 #, fuzzy
 msgid "cannot enable podman socket"
 msgstr "impossible d'activer le socket podman: %s"
@@ -720,7 +720,7 @@ msgstr "erreur lors de l'exécution du script d'installation: %s"
 
 #: mgradm/cmd/install/shared/shared.go:52
 #: mgradm/cmd/migrate/kubernetes/utils.go:197
-#: mgradm/cmd/migrate/podman/utils.go:158
+#: mgradm/cmd/migrate/podman/utils.go:157
 msgid "failed to add SSL CA certificate to host trusted certificates"
 msgstr ""
 
@@ -822,7 +822,7 @@ msgid "cannot set replicas to 0"
 msgstr "impossible de mettre le nombre de répliques à 0: %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
-#: mgradm/cmd/migrate/podman/utils.go:78
+#: mgradm/cmd/migrate/podman/utils.go:77
 msgid "Migration prepared. Run the 'migrate' command without '--prepare' to finish the migration."
 msgstr ""
 
@@ -847,7 +847,7 @@ msgid "cannot wait for deployment of %s"
 msgstr "impossible d'attendre le déploiement de %s: %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
-#: mgradm/cmd/migrate/podman/utils.go:89
+#: mgradm/cmd/migrate/podman/utils.go:88
 #: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 #, fuzzy
 msgid "cannot run PostgreSQL version upgrade script"
@@ -859,7 +859,7 @@ msgid "cannot run PostgreSQL finalisation script"
 msgstr "impossible d'exécuter le script de finalisation de PostgreSQL: %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
-#: mgradm/cmd/migrate/podman/utils.go:99
+#: mgradm/cmd/migrate/podman/utils.go:98
 #: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 #, fuzzy
 msgid "cannot run post upgrade script"
@@ -906,41 +906,41 @@ msgstr ""
 "\n"
 "NOTE: pour l'instant la migration version un cluster distant n'est pas supportée!\n"
 
-#: mgradm/cmd/migrate/podman/utils.go:42
+#: mgradm/cmd/migrate/podman/utils.go:41
 #, fuzzy
 msgid "cannot compute image"
 msgstr "impossible de déterminer l'image: %s"
 
-#: mgradm/cmd/migrate/podman/utils.go:64 mgradm/shared/podman/podman.go:82
+#: mgradm/cmd/migrate/podman/utils.go:63 mgradm/shared/podman/podman.go:82
 #, fuzzy
 msgid "cannot setup network"
 msgstr "impossible de configurer le réseau: %s"
 
-#: mgradm/cmd/migrate/podman/utils.go:75
+#: mgradm/cmd/migrate/podman/utils.go:74
 #, fuzzy
 msgid "cannot run migration script"
 msgstr "impossible d'exécuter le script de migration: %s"
 
-#: mgradm/cmd/migrate/podman/utils.go:95
+#: mgradm/cmd/migrate/podman/utils.go:94
 #: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 #, fuzzy
 msgid "cannot run PostgreSQL finalize script"
 msgstr "impossible d'exécuter le script de finalisation de PostgreSQL: %s"
 
-#: mgradm/cmd/migrate/podman/utils.go:105
+#: mgradm/cmd/migrate/podman/utils.go:104
 #, fuzzy
 msgid "cannot generate systemd service file"
 msgstr "impossible de générer le fichier du service systemd: %s"
 
-#: mgradm/cmd/migrate/podman/utils.go:120
+#: mgradm/cmd/migrate/podman/utils.go:119
 msgid "cannot setup confidential computing attestation service"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:131
+#: mgradm/cmd/migrate/podman/utils.go:130
 msgid "Enabling Hub XML-RPC API since it is enabled on the migrated server"
 msgstr ""
 
-#: mgradm/cmd/migrate/podman/utils.go:145
+#: mgradm/cmd/migrate/podman/utils.go:144
 msgid "Server migrated"
 msgstr "Serveur migré"
 

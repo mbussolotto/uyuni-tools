@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:38+0200\n"
+"POT-Creation-Date: 2025-05-06 11:43+0200\n"
 "PO-Revision-Date: 2025-03-07 05:27+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/zh_CN/>\n"
@@ -489,7 +489,7 @@ msgstr "正在等待服务器启动…"
 msgid "cannot enable service"
 msgstr "无法启用服务"
 
-#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:52
+#: mgradm/cmd/install/podman/utils.go:53 mgradm/cmd/migrate/podman/utils.go:51
 #: mgradm/cmd/support/ptf/podman/utils.go:34
 #: mgradm/cmd/upgrade/podman/podman.go:72 mgradm/cmd/upgrade/podman/utils.go:24
 msgid "failed to login to registry.suse.com"
@@ -499,7 +499,7 @@ msgstr "无法登录 registry.suse.com"
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
 msgstr "服务器已初始化！请先将其卸装，再尝试进行全新安装或使用升级命令"
 
-#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:33
+#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:32
 msgid "install podman before running this command"
 msgstr "在运行此命令前安装 podman"
 
@@ -538,7 +538,7 @@ msgid "cannot update SSL certificate"
 msgstr "无法更新 SSL 证书"
 
 #: mgradm/cmd/install/podman/utils.go:151
-#: mgradm/cmd/migrate/podman/utils.go:148
+#: mgradm/cmd/migrate/podman/utils.go:147
 msgid "cannot enable podman socket"
 msgstr "无法启用 podman 套接字"
 
@@ -728,7 +728,7 @@ msgstr "运行设置脚本时出错"
 
 #: mgradm/cmd/install/shared/shared.go:52
 #: mgradm/cmd/migrate/kubernetes/utils.go:197
-#: mgradm/cmd/migrate/podman/utils.go:158
+#: mgradm/cmd/migrate/podman/utils.go:157
 msgid "failed to add SSL CA certificate to host trusted certificates"
 msgstr "无法将 SSL CA 证书添加到主机信任的证书列表中"
 
@@ -824,7 +824,7 @@ msgid "cannot set replicas to 0"
 msgstr "无法将复本数设置为 0"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
-#: mgradm/cmd/migrate/podman/utils.go:78
+#: mgradm/cmd/migrate/podman/utils.go:77
 msgid "Migration prepared. Run the 'migrate' command without '--prepare' to finish the migration."
 msgstr "已完成迁移准备。请运行不含 '--prepare' 的 'migrate' 命令完成迁移。"
 
@@ -848,7 +848,7 @@ msgid "cannot wait for deployment of %s"
 msgstr "无法等待 %s 部署"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:171
-#: mgradm/cmd/migrate/podman/utils.go:89
+#: mgradm/cmd/migrate/podman/utils.go:88
 #: mgradm/shared/kubernetes/install.go:210 mgradm/shared/podman/podman.go:405
 msgid "cannot run PostgreSQL version upgrade script"
 msgstr "无法运行 PostgreSQL 版本升级脚本"
@@ -858,7 +858,7 @@ msgid "cannot run PostgreSQL finalisation script"
 msgstr "无法运行 PostgreSQL 完成脚本"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:183
-#: mgradm/cmd/migrate/podman/utils.go:99
+#: mgradm/cmd/migrate/podman/utils.go:98
 #: mgradm/shared/kubernetes/install.go:227 mgradm/shared/podman/podman.go:422
 msgid "cannot run post upgrade script"
 msgstr "无法运行升级后脚本"
@@ -903,36 +903,36 @@ msgstr ""
 "\n"
 "注意：目前不支持迁移到远程 podman！\n"
 
-#: mgradm/cmd/migrate/podman/utils.go:42
+#: mgradm/cmd/migrate/podman/utils.go:41
 msgid "cannot compute image"
 msgstr "无法计算映像"
 
-#: mgradm/cmd/migrate/podman/utils.go:64 mgradm/shared/podman/podman.go:82
+#: mgradm/cmd/migrate/podman/utils.go:63 mgradm/shared/podman/podman.go:82
 msgid "cannot setup network"
 msgstr "无法设置网络"
 
-#: mgradm/cmd/migrate/podman/utils.go:75
+#: mgradm/cmd/migrate/podman/utils.go:74
 msgid "cannot run migration script"
 msgstr "无法运行迁移脚本"
 
-#: mgradm/cmd/migrate/podman/utils.go:95
+#: mgradm/cmd/migrate/podman/utils.go:94
 #: mgradm/shared/kubernetes/install.go:223 mgradm/shared/podman/podman.go:418
 msgid "cannot run PostgreSQL finalize script"
 msgstr "无法运行 PostgreSQL 完成脚本"
 
-#: mgradm/cmd/migrate/podman/utils.go:105
+#: mgradm/cmd/migrate/podman/utils.go:104
 msgid "cannot generate systemd service file"
 msgstr "无法生成 systemd 服务文件"
 
-#: mgradm/cmd/migrate/podman/utils.go:120
+#: mgradm/cmd/migrate/podman/utils.go:119
 msgid "cannot setup confidential computing attestation service"
 msgstr "无法设置机密计算认证服务"
 
-#: mgradm/cmd/migrate/podman/utils.go:131
+#: mgradm/cmd/migrate/podman/utils.go:130
 msgid "Enabling Hub XML-RPC API since it is enabled on the migrated server"
 msgstr "正在启用 Hub XML-RPC API，因为迁移的服务器上启用了该 API"
 
-#: mgradm/cmd/migrate/podman/utils.go:145
+#: mgradm/cmd/migrate/podman/utils.go:144
 msgid "Server migrated"
 msgstr "服务器已迁移"
 
