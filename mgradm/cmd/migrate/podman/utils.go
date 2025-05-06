@@ -10,7 +10,6 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 	migration_shared "github.com/uyuni-project/uyuni-tools/mgradm/cmd/migrate/shared"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/coco"
 	"github.com/uyuni-project/uyuni-tools/mgradm/shared/hub"
@@ -100,7 +99,7 @@ func migrateToPodman(
 	}
 
 	if err := podman.GenerateSystemdService(
-		extractedData.Timezone, preparedImage, false, flags.Mirror, viper.GetStringSlice("podman.arg"),
+		extractedData.Timezone, preparedImage, false, flags.Mirror, flags.Podman.Args,
 	); err != nil {
 		return utils.Errorf(err, L("cannot generate systemd service file"))
 	}
