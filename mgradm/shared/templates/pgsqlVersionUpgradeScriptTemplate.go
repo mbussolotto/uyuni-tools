@@ -23,8 +23,12 @@ test -d /usr/lib/postgresql$NEW_VERSION/bin
 echo "Testing presence of postgresql$OLD_VERSION..."
 test -d /usr/lib/postgresql$OLD_VERSION/bin
 
-echo "Create a backup at /var/lib/pgsql/data-pg$OLD_VERSION..."
-mv /var/lib/pgsql/data /var/lib/pgsql/data-pg$OLD_VERSION
+OLDVERSIONDIR="/var/lib/pgsql/data-pg$OLD_VERSION"
+test -d "$ODLVERSIONDIR" && mv "$OLDVERSIONDIR" "${OLDVERSIONDIR}-${RANDOM}"
+mkdir -p "$OLDVERSIONDIR"
+echo "Create a backup at $OLDVERSIONDIR"
+mv /var/lib/pgsql/data/* /var/lib/pgsql/$OLDVERSIONDIR
+
 echo "Create new database directory..."
 mkdir -p /var/lib/pgsql/data
 chown -R postgres:postgres /var/lib/pgsql
@@ -45,12 +49,12 @@ echo "Running initdb using postgres user"
 echo "Any suggested command from the console should be run using postgres user"
 su -s /bin/bash - postgres -c "initdb -D /var/lib/pgsql/data --locale=$POSTGRES_LANG"
 echo "Successfully initialized new postgresql $NEW_VERSION database."
-su -s /bin/bash - postgres -c "pg_upgrade --old-bindir=/usr/lib/postgresql$OLD_VERSION/bin --new-bindir=/usr/lib/postgresql$NEW_VERSION/bin --old-datadir=/var/lib/pgsql/data-pg$OLD_VERSION --new-datadir=/var/lib/pgsql/data $FAST_UPGRADE"
+su -s /bin/bash - postgres -c "pg_upgrade --old-bindir=/usr/lib/postgresql$OLD_VERSION/bin --new-bindir=/usr/lib/postgresql$NEW_VERSION/bin --old-datadir=$OLDVERSIONDIR --new-datadir=/var/lib/pgsql/data $FAST_UPGRADE"
 
-cp /var/lib/pgsql/data-pg$OLD_VERSION/pg_hba.conf /var/lib/pgsql/data
-mv /var/lib/pgsql/data-pg$OLD_VERSION/pg_hba.conf /var/lib/pgsql/data-pg$OLD_VERSION/pg_hba.conf.migrated
-cp /var/lib/pgsql/data-pg$OLD_VERSION/postgresql.conf /var/lib/pgsql/data/
-mv /var/lib/pgsql/data-pg$OLD_VERSION/postgresql.conf /var/lib/pgsql/data-pg$OLD_VERSION/postgresql.conf.migrated
+cp $OLDVERSIONDIR/pg_hba.conf /var/lib/pgsql/data
+mv $OLDVERSIONDIR/pg_hba.conf $OLDVERSIONDIR/pg_hba.conf.migrated
+cp $OLDVERSIONDIR/postgresql.conf /var/lib/pgsql/data/
+mv $OLDVERSIONDIR/postgresql.conf $OLDVERSIONDIR/postgresql.conf.migrated
 
 echo "DONE"`
 

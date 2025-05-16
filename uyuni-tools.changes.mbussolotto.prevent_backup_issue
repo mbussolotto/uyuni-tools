@@ -1,0 +1,2 @@
+- during pgsql upgrade, move content of pgsql data would prevent inconsistency
+  (bsc#1243105)
