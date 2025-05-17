@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-11 13:38+0200\n"
-"PO-Revision-Date: 2025-05-05 20:59+0000\n"
+"PO-Revision-Date: 2025-05-17 17:59+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
 "Language: sk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.3\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgrctl/cmd/api/api.go:26
 msgid "JSON over HTTP API helper tool"
@@ -157,43 +157,43 @@ msgstr ""
 
 #: mgrctl/cmd/cp/cp.go:39
 msgid "failed to unmarshall configuration"
-msgstr ""
+msgstr "nepodarilo sa zrušiť usporiadanie konfigurácie"
 
 #: mgrctl/cmd/cp/cp.go:45
 msgid "User or UID to set on the destination file"
-msgstr ""
+msgstr "Používateľ alebo UID, ktorý sa má nastaviť na cieľovom súbore"
 
 #: mgrctl/cmd/cp/cp.go:46
 msgid "Group or GID to set on the destination file"
-msgstr ""
+msgstr "Skupina alebo GID, ktoré sa majú nastaviť na cieľovom súbore"
 
 #: mgrctl/cmd/exec/exec.go:38
 msgid "Execute commands inside the uyuni containers using 'sh -c'"
-msgstr ""
+msgstr "Vykonať príkazy vo vnútri kontajnerov uyuni pomocou 'sh -c'"
 
 #: mgrctl/cmd/exec/exec.go:45
 msgid "environment variables to pass to the command, separated by commas"
-msgstr ""
+msgstr "premenné prostredia, ktoré sa majú odovzdať príkazu, oddelené čiarkami"
 
 #: mgrctl/cmd/exec/exec.go:47
 msgid "Pass stdin to the container"
-msgstr ""
+msgstr "Odovzdať stdin kontajneru"
 
 #: mgrctl/cmd/exec/exec.go:48
 msgid "Stdin is a TTY"
-msgstr ""
+msgstr "Stdin je TTY"
 
 #: mgrctl/cmd/exec/exec.go:106
 msgid "Command failed"
-msgstr ""
+msgstr "Príkaz zlyhal"
 
 #: mgrctl/cmd/exec/exec.go:110
 msgid "Command returned with exit code 0"
-msgstr ""
+msgstr "Príkaz vrátený s návratovým kódom 0"
 
 #: mgrctl/cmd/exec/exec.go:124
 msgid "cannot write"
-msgstr ""
+msgstr "nemožno zapísať"
 
 #: mgrctl/cmd/exec/exec.go:140
 #, javascript-format
