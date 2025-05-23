@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-03-07 05:27+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/zh_CN/>\n"
@@ -1048,6 +1048,11 @@ msgstr ""
 msgid "path where to extract the data"
 msgstr "从中提取数据的路径"
 
+#: mgradm/cmd/support/config/extractor.go:23
+#, fuzzy, javascript-format
+msgid "failed to remove %s temporary file"
+msgstr "无法读取证书文件 %s"
+
 #: mgradm/cmd/support/ptf/podman/podman.go:30
 msgid "Install a PTF or Test package on podman"
 msgstr "在 podman 上安装 PTF 或测试软件包"
@@ -1919,10 +1924,6 @@ msgstr "找不到 /etc/uyuni-release 和 /etc/susemanagere-release"
 
 #~ msgid "Also remove the volumes"
 #~ msgstr "同时去除卷"
-
-#, fuzzy, javascript-format
-#~ msgid "Failed to remove %s.service file"
-#~ msgstr "无法读取证书文件 %s"
 
 #~ msgid "set whether to pull the images or not during upgrade. The value can be one of 'Never', 'IfNotPresent' or 'Always'"
 #~ msgstr "设置升级期间是否拉取映像。值可以是以下之一：'Never'、'IfNotPresent' 或 'Always'"

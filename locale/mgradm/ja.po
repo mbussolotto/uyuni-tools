@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-03-09 04:56+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ja/>\n"
@@ -1049,6 +1049,11 @@ msgstr ""
 msgid "path where to extract the data"
 msgstr "データを抽出するパス"
 
+#: mgradm/cmd/support/config/extractor.go:23
+#, fuzzy, javascript-format
+msgid "failed to remove %s temporary file"
+msgstr "証明書ファイル %s の読み込みに失敗しました"
+
 #: mgradm/cmd/support/ptf/podman/podman.go:30
 msgid "Install a PTF or Test package on podman"
 msgstr "PTFまたはTestパッケージをpodmanにインストールする"
@@ -1920,10 +1925,6 @@ msgstr "etc/uyuni-releaseも/etc/susemanagere-releaseも見つかりません"
 
 #~ msgid "Also remove the volumes"
 #~ msgstr "ボリュームも削除する"
-
-#, fuzzy, javascript-format
-#~ msgid "Failed to remove %s.service file"
-#~ msgstr "証明書ファイル %s の読み込みに失敗しました"
 
 #~ msgid "set whether to pull the images or not during upgrade. The value can be one of 'Never', 'IfNotPresent' or 'Always'"
 #~ msgstr "アップグレード時にイメージをプルするかどうかを設定します。値には 「Never」、「IfNotPresent」または「Always」のいずれかを指定します"
