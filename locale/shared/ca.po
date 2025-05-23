@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-03-01 20:15+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ca/>\n"
@@ -747,12 +747,12 @@ msgstr "no s'ha pogut tancar el fitxer de bolcat d'inspeccions"
 msgid "failed to close bound files"
 msgstr "no s'han pogut tancar els fitxers lligats"
 
-#: shared/podman/support.go:160
+#: shared/podman/support.go:146
 #, javascript-format
 msgid "failed create %s file"
 msgstr "no s'ha pogut crear el fitxer %s"
 
-#: shared/podman/support.go:165
+#: shared/podman/support.go:151
 #, javascript-format
 msgid "failed to run journalctl -u %s"
 msgstr "no s'ha pogut executar journalctl -u %s"
@@ -1134,6 +1134,64 @@ msgstr "Ajuda sobre el fitxer de configuració i les variables d'entorn"
 msgid "failed to compute config help command"
 msgstr "no s'ha pogut calcular l'ordre d'ajuda de configuració"
 
+#: shared/utils/files.go:21
+#, javascript-format
+msgid "cannot check content of %s"
+msgstr "no es pot comprovar el contingut de %s"
+
+#: shared/utils/files.go:33
+#, javascript-format
+msgid "Cannot remove %s folder"
+msgstr "No es pot eliminar la carpeta %s"
+
+#: shared/utils/files.go:44
+#, javascript-format
+msgid "Failed to get %s file informations"
+msgstr "No s'ha pogut obtenir la informació del fitxer %s"
+
+#: shared/utils/files.go:53
+#, javascript-format
+msgid "Failed to read file %s"
+msgstr "No s'ha pogut llegir el fitxer %s"
+
+#: shared/utils/files.go:69
+#, javascript-format
+msgid "Would remove file %s"
+msgstr "Eliminaria el fitxer %s"
+
+#: shared/utils/files.go:71
+#, javascript-format
+msgid "Removing file %s"
+msgstr "S'està suprimint el fitxer %s"
+
+#: shared/utils/files.go:73
+#, javascript-format
+msgid "Failed to remove file %s"
+msgstr "No s'ha pogut eliminar el fitxer %s"
+
+#: shared/utils/files.go:83
+msgid "failed to create temporary directory"
+msgstr "no s'ha pogut crear el directori temporal"
+
+#: shared/utils/files.go:87
+msgid "failed to remove temporary directory"
+msgstr "no s'ha pogut eliminar el directori temporal"
+
+#: shared/utils/files.go:97
+#, fuzzy, javascript-format
+msgid "fails to open %s file"
+msgstr "no s'ha pogut escriure el fitxer %s"
+
+#: shared/utils/files.go:109
+#, fuzzy, javascript-format
+msgid "failed to read %s file"
+msgstr "no s'ha pogut crear el fitxer %s"
+
+#: shared/utils/files.go:113
+#, fuzzy, javascript-format
+msgid "failed to copy %s file"
+msgstr "no s'ha pogut crear el fitxer %s"
+
 #: shared/utils/flaggroups.go:56
 msgid "Flags:\n"
 msgstr "Banderes:\n"
@@ -1275,72 +1333,29 @@ msgid "Failed to run %s"
 msgstr "No s'ha pogut executar %s"
 
 #: shared/utils/utils.go:269
-#, javascript-format
-msgid "cannot check content of %s"
-msgstr "no es pot comprovar el contingut de %s"
-
-#: shared/utils/utils.go:281
-#, javascript-format
-msgid "Cannot remove %s folder"
-msgstr "No es pot eliminar la carpeta %s"
-
-#: shared/utils/utils.go:292
-#, javascript-format
-msgid "Failed to get %s file informations"
-msgstr "No s'ha pogut obtenir la informació del fitxer %s"
-
-#: shared/utils/utils.go:301
-#, javascript-format
-msgid "Failed to read file %s"
-msgstr "No s'ha pogut llegir el fitxer %s"
-
-#: shared/utils/utils.go:317
-#, javascript-format
-msgid "Would remove file %s"
-msgstr "Eliminaria el fitxer %s"
-
-#: shared/utils/utils.go:319
-#, javascript-format
-msgid "Removing file %s"
-msgstr "S'està suprimint el fitxer %s"
-
-#: shared/utils/utils.go:321
-#, javascript-format
-msgid "Failed to remove file %s"
-msgstr "No s'ha pogut eliminar el fitxer %s"
-
-#: shared/utils/utils.go:331
-msgid "failed to create temporary directory"
-msgstr "no s'ha pogut crear el directori temporal"
-
-#: shared/utils/utils.go:335
-msgid "failed to remove temporary directory"
-msgstr "no s'ha pogut eliminar el directori temporal"
-
-#: shared/utils/utils.go:345
 msgid "Failed to read random data"
 msgstr "No s'han pogut llegir les dades aleatòries"
 
-#: shared/utils/utils.go:366
+#: shared/utils/utils.go:290
 #, javascript-format
 msgid "error downloading from %s"
 msgstr "s'ha produït un error en baixar de %s"
 
-#: shared/utils/utils.go:372
+#: shared/utils/utils.go:296
 #, javascript-format
 msgid "bad status: %s"
 msgstr "estat incorrecte: %s"
 
-#: shared/utils/utils.go:447
+#: shared/utils/utils.go:371
 msgid "failed to compute server FQDN"
 msgstr "no s'ha pogut calcular el servidor FQDN"
 
-#: shared/utils/utils.go:461
+#: shared/utils/utils.go:385
 #, javascript-format
 msgid "%s is not a valid FQDN"
 msgstr "%s no és un FQDN vàlid"
 
-#: shared/utils/utils.go:465
+#: shared/utils/utils.go:389
 #, javascript-format
 msgid "cannot resolve %s"
 msgstr "no es pot resoldre %s"

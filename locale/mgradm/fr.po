@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2024-04-17 08:03+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/uyuni/uyuni-tools/fr/>\n"
@@ -1055,6 +1055,11 @@ msgstr ""
 msgid "path where to extract the data"
 msgstr "chemin vers lequel extraire les données"
 
+#: mgradm/cmd/support/config/extractor.go:23
+#, fuzzy, javascript-format
+msgid "failed to remove %s temporary file"
+msgstr "Impossible de lire le fichier de certificat %s"
+
 #: mgradm/cmd/support/ptf/podman/podman.go:30
 #, fuzzy
 msgid "Install a PTF or Test package on podman"
@@ -1916,10 +1921,6 @@ msgstr ""
 
 #~ msgid "Also remove the volumes"
 #~ msgstr "Supprimer également les volumes"
-
-#, fuzzy, javascript-format
-#~ msgid "Failed to remove %s.service file"
-#~ msgstr "Impossible de lire le fichier de certificat %s"
 
 #, javascript-format
 #~ msgid "Using migration image %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-03-08 17:00+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ja/>\n"
@@ -757,12 +757,12 @@ msgstr "一時認証ファイルを閉じることができませんでした"
 msgid "failed to close bound files"
 msgstr "%s ファイルの作成に失敗しました"
 
-#: shared/podman/support.go:160
+#: shared/podman/support.go:146
 #, javascript-format
 msgid "failed create %s file"
 msgstr "%s ファイルの作成に失敗しました"
 
-#: shared/podman/support.go:165
+#: shared/podman/support.go:151
 #, javascript-format
 msgid "failed to run journalctl -u %s"
 msgstr "ournalctl -u %sの実行に失敗しました"
@@ -1142,6 +1142,65 @@ msgstr "設定ファイルと環境変数のヘルプ"
 msgid "failed to compute config help command"
 msgstr "config helpコマンドの計算に失敗しました"
 
+#: shared/utils/files.go:21
+#, javascript-format
+msgid "cannot check content of %s"
+msgstr "%s の内容を確認できません"
+
+#: shared/utils/files.go:33
+#, javascript-format
+msgid "Cannot remove %s folder"
+msgstr "%s フォルダを削除できません"
+
+#: shared/utils/files.go:44
+#, javascript-format
+msgid "Failed to get %s file informations"
+msgstr "%s ファイル情報の取得に失敗しました"
+
+#: shared/utils/files.go:53
+#, javascript-format
+msgid "Failed to read file %s"
+msgstr "ファイル %s の読み込みに失敗しました"
+
+#: shared/utils/files.go:69
+#, javascript-format
+msgid "Would remove file %s"
+msgstr "ファイル %s を削除します"
+
+#: shared/utils/files.go:71
+#, javascript-format
+msgid "Removing file %s"
+msgstr "ファイル %s を削除中"
+
+#: shared/utils/files.go:73
+#, javascript-format
+msgid "Failed to remove file %s"
+msgstr "ファイル %s の削除に失敗しました"
+
+#: shared/utils/files.go:83
+msgid "failed to create temporary directory"
+msgstr "一時ディレクトリの作成に失敗しました"
+
+#: shared/utils/files.go:87
+#, fuzzy
+msgid "failed to remove temporary directory"
+msgstr "一時ディレクトリの作成に失敗しました"
+
+#: shared/utils/files.go:97
+#, fuzzy, javascript-format
+msgid "fails to open %s file"
+msgstr "%s ファイルの書き込みに失敗しました"
+
+#: shared/utils/files.go:109
+#, fuzzy, javascript-format
+msgid "failed to read %s file"
+msgstr "%s ファイルの作成に失敗しました"
+
+#: shared/utils/files.go:113
+#, fuzzy, javascript-format
+msgid "failed to copy %s file"
+msgstr "%s ファイルの作成に失敗しました"
+
 #: shared/utils/flaggroups.go:56
 msgid "Flags:\n"
 msgstr "フラグ:\n"
@@ -1282,73 +1341,29 @@ msgid "Failed to run %s"
 msgstr "%s の実行に失敗しました"
 
 #: shared/utils/utils.go:269
-#, javascript-format
-msgid "cannot check content of %s"
-msgstr "%s の内容を確認できません"
-
-#: shared/utils/utils.go:281
-#, javascript-format
-msgid "Cannot remove %s folder"
-msgstr "%s フォルダを削除できません"
-
-#: shared/utils/utils.go:292
-#, javascript-format
-msgid "Failed to get %s file informations"
-msgstr "%s ファイル情報の取得に失敗しました"
-
-#: shared/utils/utils.go:301
-#, javascript-format
-msgid "Failed to read file %s"
-msgstr "ファイル %s の読み込みに失敗しました"
-
-#: shared/utils/utils.go:317
-#, javascript-format
-msgid "Would remove file %s"
-msgstr "ファイル %s を削除します"
-
-#: shared/utils/utils.go:319
-#, javascript-format
-msgid "Removing file %s"
-msgstr "ファイル %s を削除中"
-
-#: shared/utils/utils.go:321
-#, javascript-format
-msgid "Failed to remove file %s"
-msgstr "ファイル %s の削除に失敗しました"
-
-#: shared/utils/utils.go:331
-msgid "failed to create temporary directory"
-msgstr "一時ディレクトリの作成に失敗しました"
-
-#: shared/utils/utils.go:335
-#, fuzzy
-msgid "failed to remove temporary directory"
-msgstr "一時ディレクトリの作成に失敗しました"
-
-#: shared/utils/utils.go:345
 msgid "Failed to read random data"
 msgstr "ランダムデータの読み込みに失敗しました"
 
-#: shared/utils/utils.go:366
+#: shared/utils/utils.go:290
 #, javascript-format
 msgid "error downloading from %s"
 msgstr "%s からのダウンロードでエラーが発生しました"
 
-#: shared/utils/utils.go:372
+#: shared/utils/utils.go:296
 #, javascript-format
 msgid "bad status: %s"
 msgstr "不良ステータス: %s"
 
-#: shared/utils/utils.go:447
+#: shared/utils/utils.go:371
 msgid "failed to compute server FQDN"
 msgstr "サーバFQDNの計算に失敗しました"
 
-#: shared/utils/utils.go:461
+#: shared/utils/utils.go:385
 #, javascript-format
 msgid "%s is not a valid FQDN"
 msgstr "%s は有効なFQDNではありません"
 
-#: shared/utils/utils.go:465
+#: shared/utils/utils.go:389
 #, javascript-format
 msgid "cannot resolve %s"
 msgstr "%s を解決できません"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2024-04-08 14:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -765,12 +765,12 @@ msgstr "impossible de créer le répertoire %s: %s"
 msgid "failed to close bound files"
 msgstr "impossible de créer le répertoire %s: %s"
 
-#: shared/podman/support.go:160
+#: shared/podman/support.go:146
 #, fuzzy, javascript-format
 msgid "failed create %s file"
 msgstr "impossible de créer le répertoire %s: %s"
 
-#: shared/podman/support.go:165
+#: shared/podman/support.go:151
 #, fuzzy, javascript-format
 msgid "failed to run journalctl -u %s"
 msgstr "impossible d'exécuter helm %s: %s"
@@ -1149,6 +1149,66 @@ msgstr ""
 msgid "failed to compute config help command"
 msgstr "impossible de créer la commande d'aide config"
 
+#: shared/utils/files.go:21
+#, javascript-format
+msgid "cannot check content of %s"
+msgstr ""
+
+#: shared/utils/files.go:33
+#, fuzzy, javascript-format
+msgid "Cannot remove %s folder"
+msgstr "impossible de créer le répertoire %s: %s"
+
+#: shared/utils/files.go:44
+#, javascript-format
+msgid "Failed to get %s file informations"
+msgstr "Impossible d'obtenir les informations du fichier %s"
+
+#: shared/utils/files.go:53
+#, javascript-format
+msgid "Failed to read file %s"
+msgstr "Impossible de lire le fichier %s"
+
+#: shared/utils/files.go:69
+#, javascript-format
+msgid "Would remove file %s"
+msgstr "Supprimerait le fichier %s"
+
+#: shared/utils/files.go:71
+#, javascript-format
+msgid "Removing file %s"
+msgstr "Suppression du fichier %s"
+
+#: shared/utils/files.go:73
+#, javascript-format
+msgid "Failed to remove file %s"
+msgstr "Impossible de supprimer le fichier %s"
+
+#: shared/utils/files.go:83
+#, fuzzy
+msgid "failed to create temporary directory"
+msgstr "impossible de créer le répertoire %s: %s"
+
+#: shared/utils/files.go:87
+#, fuzzy
+msgid "failed to remove temporary directory"
+msgstr "impossible de créer le répertoire %s: %s"
+
+#: shared/utils/files.go:97
+#, fuzzy, javascript-format
+msgid "fails to open %s file"
+msgstr "impossible de créer le répertoire %s: %s"
+
+#: shared/utils/files.go:109
+#, fuzzy, javascript-format
+msgid "failed to read %s file"
+msgstr "impossible de créer le répertoire %s: %s"
+
+#: shared/utils/files.go:113
+#, fuzzy, javascript-format
+msgid "failed to copy %s file"
+msgstr "impossible de créer le répertoire %s: %s"
+
 #: shared/utils/flaggroups.go:56
 msgid "Flags:\n"
 msgstr ""
@@ -1296,75 +1356,30 @@ msgid "Failed to run %s"
 msgstr "Erreur lors de l'exécution de %s"
 
 #: shared/utils/utils.go:269
-#, javascript-format
-msgid "cannot check content of %s"
-msgstr ""
-
-#: shared/utils/utils.go:281
-#, fuzzy, javascript-format
-msgid "Cannot remove %s folder"
-msgstr "impossible de créer le répertoire %s: %s"
-
-#: shared/utils/utils.go:292
-#, javascript-format
-msgid "Failed to get %s file informations"
-msgstr "Impossible d'obtenir les informations du fichier %s"
-
-#: shared/utils/utils.go:301
-#, javascript-format
-msgid "Failed to read file %s"
-msgstr "Impossible de lire le fichier %s"
-
-#: shared/utils/utils.go:317
-#, javascript-format
-msgid "Would remove file %s"
-msgstr "Supprimerait le fichier %s"
-
-#: shared/utils/utils.go:319
-#, javascript-format
-msgid "Removing file %s"
-msgstr "Suppression du fichier %s"
-
-#: shared/utils/utils.go:321
-#, javascript-format
-msgid "Failed to remove file %s"
-msgstr "Impossible de supprimer le fichier %s"
-
-#: shared/utils/utils.go:331
-#, fuzzy
-msgid "failed to create temporary directory"
-msgstr "impossible de créer le répertoire %s: %s"
-
-#: shared/utils/utils.go:335
-#, fuzzy
-msgid "failed to remove temporary directory"
-msgstr "impossible de créer le répertoire %s: %s"
-
-#: shared/utils/utils.go:345
 msgid "Failed to read random data"
 msgstr "Impossible de lire des données aléatoires"
 
-#: shared/utils/utils.go:366
+#: shared/utils/utils.go:290
 #, javascript-format
 msgid "error downloading from %s"
 msgstr ""
 
-#: shared/utils/utils.go:372
+#: shared/utils/utils.go:296
 #, javascript-format
 msgid "bad status: %s"
 msgstr ""
 
-#: shared/utils/utils.go:447
+#: shared/utils/utils.go:371
 #, fuzzy
 msgid "failed to compute server FQDN"
 msgstr "impossible de se connecter au serveur: %s"
 
-#: shared/utils/utils.go:461
+#: shared/utils/utils.go:385
 #, javascript-format
 msgid "%s is not a valid FQDN"
 msgstr ""
 
-#: shared/utils/utils.go:465
+#: shared/utils/utils.go:389
 #, fuzzy, javascript-format
 msgid "cannot resolve %s"
 msgstr "erreur d'analyse du fichier de configuration %s: %s"

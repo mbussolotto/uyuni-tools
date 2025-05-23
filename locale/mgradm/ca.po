@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-05-17 09:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
@@ -1047,6 +1047,11 @@ msgstr ""
 #: mgradm/cmd/support/config/config.go:31
 msgid "path where to extract the data"
 msgstr "camí on extreure les dades"
+
+#: mgradm/cmd/support/config/extractor.go:23
+#, fuzzy, javascript-format
+msgid "failed to remove %s temporary file"
+msgstr "No s'ha pogut eliminar el volum %s"
 
 #: mgradm/cmd/support/ptf/podman/podman.go:30
 msgid "Install a PTF or Test package on podman"

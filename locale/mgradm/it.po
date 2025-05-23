@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 11:43+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2024-05-16 09:23+0000\n"
 "Last-Translator: Marina Latini <marina.latini@suse.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm/it/>\n"
@@ -1011,6 +1011,11 @@ msgstr ""
 msgid "path where to extract the data"
 msgstr ""
 
+#: mgradm/cmd/support/config/extractor.go:23
+#, fuzzy, javascript-format
+msgid "failed to remove %s temporary file"
+msgstr "mancata identificazione dell'immagine: %s"
+
 #: mgradm/cmd/support/ptf/podman/podman.go:30
 #, fuzzy
 msgid "Install a PTF or Test package on podman"
@@ -1796,10 +1801,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "failed to get status of the server service"
 #~ msgstr "connessione non riuscita al server Hub: %s"
-
-#, fuzzy, javascript-format
-#~ msgid "Failed to remove %s.service file"
-#~ msgstr "mancata identificazione dell'immagine: %s"
 
 #~ msgid "unable to mount ISO image. Mount manually and try again"
 #~ msgstr "impossibile montare l'immagine ISO. Montare manualmente e riprovare"
