@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 09:45+0100\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-02-22 05:50+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/uyuni/"
-"uyuni-tools-mgrpxy-5-0/de/>\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -510,15 +509,11 @@ msgstr "Abbild-URL konnte nicht berechnet werden"
 
 #: mgrpxy/shared/utils/flags.go:65
 msgid "SUSE Customer Center username. It will be used to pull images from registry.suse.com"
-msgstr ""
-"Benutzername für das SUSE Customer Center. Er wird verwendet, um Abbilder "
-"von registry.suse.com zu beziehen"
+msgstr "Benutzername für das SUSE Customer Center. Er wird verwendet, um Abbilder von registry.suse.com zu beziehen"
 
 #: mgrpxy/shared/utils/flags.go:68
 msgid "SUSE Customer Center password. It will be used to pull images from registry.suse.com"
-msgstr ""
-"Passwort für das SUSE Customer Center. Es wird verwendet, um Abbilder von "
-"registry.suse.com zu beziehen"
+msgstr "Passwort für das SUSE Customer Center. Es wird verwendet, um Abbilder von registry.suse.com zu beziehen"
 
 #: mgrpxy/shared/utils/flags.go:71
 msgid "SUSE Customer Center Flags"
