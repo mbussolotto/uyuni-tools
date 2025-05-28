@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-07 05:27+0000\n"
+"PO-Revision-Date: 2025-05-28 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgrpxy/cmd/cache/clear.go:22 mgrpxy/cmd/cache/clear.go:23
 msgid "Clear the cache"
@@ -491,9 +491,8 @@ msgid "failed to write in file %s"
 msgstr "无法在文件 %s 中写入数据"
 
 #: mgrpxy/shared/kubernetes/deploy.go:184
-#, fuzzy
 msgid "failed to scale replicas to 1"
-msgstr "无法创建临时目录"
+msgstr "无法将复本数扩大到 1"
 
 #: mgrpxy/shared/podman/podman.go:38
 msgid "cannot setup network"
