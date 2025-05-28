@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-07 05:27+0000\n"
+"PO-Revision-Date: 2025-05-28 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgradm/cmd/cmd.go:40
 msgid "Uyuni administration tool"
@@ -403,9 +403,8 @@ msgid "cannot print inspect result"
 msgstr "无法列显检查结果"
 
 #: mgradm/cmd/inspect/podman.go:37
-#, fuzzy
 msgid "failed to find the image of the currently running server container"
-msgstr "找不到目前正在运行的服务器容器的映像：%s"
+msgstr "找不到目前正在运行的服务器容器的映像"
 
 #: mgradm/cmd/install/install.go:20 mgradm/cmd/install/install.go:21
 msgid "Install a new server"
@@ -1313,7 +1312,7 @@ msgstr "无法生成 systemd 配置文件"
 #: mgradm/shared/hub/xmlrpcapi.go:35
 #, javascript-format
 msgid "No changes requested for hub. Keep %d replicas."
-msgstr ""
+msgstr "未针对 Hub 请求更改。保留 %d 个复本。"
 
 #: mgradm/shared/hub/xmlrpcapi.go:53
 msgid "cannot generate systemd service"
