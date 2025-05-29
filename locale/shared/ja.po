@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-08 17:00+0000\n"
+"PO-Revision-Date: 2025-05-29 04:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: shared/api/api.go:29
 msgid "FQDN of the server to connect to"
@@ -643,7 +643,7 @@ msgstr "コンテナ %s に対して実行中のイメージが見つかりま�
 
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
-msgstr ""
+msgstr "SCC資格情報パラメータが使用されます。ホストからのSCC資格情報は無視されます。"
 
 #: shared/podman/login.go:52
 msgid "failed to close the temporary auth file"
