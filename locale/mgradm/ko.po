@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-05-29 04:59+0000\n"
+"PO-Revision-Date: 2025-05-29 10:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ko/>\n"
 "Language: ko\n"
@@ -377,7 +377,6 @@ msgid "Extract information from image and deployment"
 msgstr "이미지 및 배포에서 정보 추출"
 
 #: mgradm/cmd/inspect/kubernetes.go:32 mgradm/cmd/inspect/podman.go:28
-#, fuzzy
 msgid "failed to determine image"
 msgstr "이미지를 확인하지 못함"
 
@@ -404,7 +403,6 @@ msgid "cannot print inspect result"
 msgstr "검사 결과를 인쇄하지 못함"
 
 #: mgradm/cmd/inspect/podman.go:37
-#, fuzzy
 msgid "failed to find the image of the currently running server container"
 msgstr "현재 실행 중인 서버 컨테이너의 이미지를 찾지 못함"
 
@@ -1717,7 +1715,6 @@ msgstr "시작해야 하는 기밀 컴퓨팅 컨테이너의 복제본 수. (현
 
 #: mgradm/shared/utils/cmd_utils.go:140 mgradm/shared/utils/cmd_utils.go:141
 #: mgradm/shared/utils/cmd_utils.go:150 mgradm/shared/utils/cmd_utils.go:151
-#, fuzzy
 msgid "Hub XML-RPC API"
 msgstr "Hub XML-RPC API"
 
