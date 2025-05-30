@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-10 07:56+0000\n"
+"PO-Revision-Date: 2025-05-30 06:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ko/>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgrpxy/cmd/cache/clear.go:22 mgrpxy/cmd/cache/clear.go:23
 msgid "Clear the cache"
@@ -490,9 +490,8 @@ msgid "failed to write in file %s"
 msgstr "%s 파일에 쓰지 못함"
 
 #: mgrpxy/shared/kubernetes/deploy.go:184
-#, fuzzy
 msgid "failed to scale replicas to 1"
-msgstr "임시 디렉토리를 만들지 못함"
+msgstr "복제본을 1로 배율 조정하지 못함"
 
 #: mgrpxy/shared/podman/podman.go:38
 msgid "cannot setup network"
