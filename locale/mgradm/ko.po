@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-05-29 10:59+0000\n"
+"PO-Revision-Date: 2025-05-30 06:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ko/>\n"
 "Language: ko\n"
@@ -1311,7 +1311,7 @@ msgstr "systemd conf 파일을 생성할 수 없음"
 #: mgradm/shared/hub/xmlrpcapi.go:35
 #, javascript-format
 msgid "No changes requested for hub. Keep %d replicas."
-msgstr ""
+msgstr "허브에 대한 변경 요청이 없습니다. %d 복제본을 유지하십시오."
 
 #: mgradm/shared/hub/xmlrpcapi.go:53
 msgid "cannot generate systemd service"
