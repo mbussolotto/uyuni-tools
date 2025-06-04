@@ -6,6 +6,7 @@ package podman
 
 import (
 	"os"
+	"os/exec"
 	"path"
 	"strings"
 
@@ -76,4 +77,13 @@ func DeleteSecret(name string, dryRun bool) {
 			log.Error().Err(err).Msgf(L("Failed to delete %s secret"), name)
 		}
 	}
+}
+
+// IsSecretPresent returns true if podman secret is already present.
+func IsSecretPresent(secret string) bool {
+	cmd := exec.Command("podman", "secret", "exists", secret)
+	if err := cmd.Run(); err != nil {
+		return false
+	}
+	return cmd.ProcessState.ExitCode() == 0
 }
