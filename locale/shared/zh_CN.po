@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
 "PO-Revision-Date: 2025-05-28 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/zh_CN/>\n"
@@ -291,7 +291,7 @@ msgstr "必须指定名称空间"
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
 #: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:135 shared/podman/utils.go:161
+#: shared/podman/utils.go:137 shared/podman/utils.go:163
 #, javascript-format
 msgid "Would run %s"
 msgstr "将运行 %s"
@@ -336,7 +336,7 @@ msgstr "找不到运行 uyuni 的节点"
 msgid "cannot run inspect pod"
 msgstr "无法运行检查 pod"
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:268
+#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:270
 msgid "cannot inspect data"
 msgstr "无法检查数据"
 
@@ -706,8 +706,8 @@ msgstr "无法写入 %s 文件"
 msgid "failed to create podman secret %s"
 msgstr "无法运行 podman inspect %s"
 
-#: shared/podman/secret.go:73 shared/podman/utils.go:137
-#: shared/podman/utils.go:163
+#: shared/podman/secret.go:73 shared/podman/utils.go:139
+#: shared/podman/utils.go:165
 #, javascript-format
 msgid "Run %s"
 msgstr "运行 %s"
@@ -894,60 +894,60 @@ msgstr "要传递给 podman 的额外参数"
 msgid "failed to enable podman.socket unit"
 msgstr "无法启用 podman.socket 单元"
 
-#: shared/podman/utils.go:81
+#: shared/podman/utils.go:83
 #, javascript-format
 msgid "failed to run %s container"
 msgstr "无法运行 %s 容器"
 
-#: shared/podman/utils.go:92
+#: shared/podman/utils.go:94
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr "将会针对 ID 为 %[2]s 的容器运行 podman kill %[1]s"
 
-#: shared/podman/utils.go:93
+#: shared/podman/utils.go:95
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr "将会针对 ID 为 %[2]s 容器运行 podman remove %[1]s"
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:97
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr "针对 ID 为 %[2]s 的容器运行 podman kill %[1]s"
 
-#: shared/podman/utils.go:98
+#: shared/podman/utils.go:100
 msgid "Failed to kill the server"
 msgstr "无法终止服务器"
 
-#: shared/podman/utils.go:100
+#: shared/podman/utils.go:102
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr "针对 ID 为 %[2]s 的容器运行 podman remove %[1]s"
 
-#: shared/podman/utils.go:103
+#: shared/podman/utils.go:105
 msgid "Error removing container"
 msgstr "去除容器时出错"
 
-#: shared/podman/utils.go:108
+#: shared/podman/utils.go:110
 msgid "Container already removed"
 msgstr "容器已去除"
 
-#: shared/podman/utils.go:116
+#: shared/podman/utils.go:118
 #, fuzzy, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr "无法启用 %s systemd 服务"
 
-#: shared/podman/utils.go:123
+#: shared/podman/utils.go:125
 #, fuzzy, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr "无法启用 %s systemd 服务"
 
-#: shared/podman/utils.go:140
+#: shared/podman/utils.go:142
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr "无法去除映像 %s"
 
-#: shared/podman/utils.go:175
+#: shared/podman/utils.go:177
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr "卷 %s 挂载在外部,无法去除该目录"
 
-#: shared/podman/utils.go:241
+#: shared/podman/utils.go:243
 msgid "failed to login to registry.suse.com"
 msgstr "无法登录 registry.suse.com"
 
