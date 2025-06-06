@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-09 04:56+0000\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"PO-Revision-Date: 2025-05-30 06:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgradm/cmd/cmd.go:40
 msgid "Uyuni administration tool"
@@ -404,9 +404,8 @@ msgid "cannot print inspect result"
 msgstr "検査結果を出力できません"
 
 #: mgradm/cmd/inspect/podman.go:37
-#, fuzzy
 msgid "failed to find the image of the currently running server container"
-msgstr "現在実行中のサーバコンテナのイメージが見つかりませんでした: %s"
+msgstr "現在実行中のサーバコンテナのイメージが見つかりませんでした"
 
 #: mgradm/cmd/install/install.go:20 mgradm/cmd/install/install.go:21
 msgid "Install a new server"
@@ -1314,7 +1313,7 @@ msgstr "systemd confファイルを生成できません"
 #: mgradm/shared/hub/xmlrpcapi.go:35
 #, javascript-format
 msgid "No changes requested for hub. Keep %d replicas."
-msgstr ""
+msgstr "ハブに対する変更は要求されていません。%d レプリカを維持します。"
 
 #: mgradm/shared/hub/xmlrpcapi.go:53
 msgid "cannot generate systemd service"

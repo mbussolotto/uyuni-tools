@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-10 07:56+0000\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"PO-Revision-Date: 2025-05-30 06:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ko/>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgradm/cmd/cmd.go:40
 msgid "Uyuni administration tool"
@@ -378,7 +378,7 @@ msgstr "이미지 및 배포에서 정보 추출"
 
 #: mgradm/cmd/inspect/kubernetes.go:32 mgradm/cmd/inspect/podman.go:28
 msgid "failed to determine image"
-msgstr "이미지를 결정하지 못함"
+msgstr "이미지를 확인하지 못함"
 
 #: mgradm/cmd/inspect/kubernetes.go:41
 #, javascript-format
@@ -403,9 +403,8 @@ msgid "cannot print inspect result"
 msgstr "검사 결과를 인쇄하지 못함"
 
 #: mgradm/cmd/inspect/podman.go:37
-#, fuzzy
 msgid "failed to find the image of the currently running server container"
-msgstr "현재 실행 중인 서버 컨테이너의 이미지 찾기 실패: %s"
+msgstr "현재 실행 중인 서버 컨테이너의 이미지를 찾지 못함"
 
 #: mgradm/cmd/install/install.go:20 mgradm/cmd/install/install.go:21
 msgid "Install a new server"
@@ -1312,7 +1311,7 @@ msgstr "systemd conf 파일을 생성할 수 없음"
 #: mgradm/shared/hub/xmlrpcapi.go:35
 #, javascript-format
 msgid "No changes requested for hub. Keep %d replicas."
-msgstr ""
+msgstr "허브에 대한 변경 요청이 없습니다. %d 복제본을 유지하십시오."
 
 #: mgradm/shared/hub/xmlrpcapi.go:53
 msgid "cannot generate systemd service"

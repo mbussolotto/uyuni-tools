@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-08 17:00+0000\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"PO-Revision-Date: 2025-05-29 04:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgrpxy/cmd/cache/clear.go:22 mgrpxy/cmd/cache/clear.go:23
 msgid "Clear the cache"
@@ -489,9 +489,8 @@ msgid "failed to write in file %s"
 msgstr "ファイル %s への書き込みに失敗しました"
 
 #: mgrpxy/shared/kubernetes/deploy.go:184
-#, fuzzy
 msgid "failed to scale replicas to 1"
-msgstr "一時ディレクトリの作成に失敗しました"
+msgstr "レプリカを1にスケールできませんでした"
 
 #: mgrpxy/shared/podman/podman.go:38
 msgid "cannot setup network"

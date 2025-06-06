@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
 "PO-Revision-Date: 2025-03-10 07:56+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ko/>\n"
@@ -291,7 +291,7 @@ msgstr "네임스페이스는 필수입니다."
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
 #: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:135 shared/podman/utils.go:161
+#: shared/podman/utils.go:137 shared/podman/utils.go:163
 #, javascript-format
 msgid "Would run %s"
 msgstr "%s 실행"
@@ -336,7 +336,7 @@ msgstr "uyuni를 실행하는 노드를 찾을 수 없음"
 msgid "cannot run inspect pod"
 msgstr "Pod를 검사할 수 없음"
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:268
+#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:270
 msgid "cannot inspect data"
 msgstr "데이터를 검사할 수 없음"
 
@@ -706,8 +706,8 @@ msgstr "%s 파일 쓰기 실패"
 msgid "failed to create podman secret %s"
 msgstr "podman 조사 %s 실행 실패"
 
-#: shared/podman/secret.go:73 shared/podman/utils.go:137
-#: shared/podman/utils.go:163
+#: shared/podman/secret.go:73 shared/podman/utils.go:139
+#: shared/podman/utils.go:165
 #, javascript-format
 msgid "Run %s"
 msgstr "%s 실행"
@@ -894,60 +894,60 @@ msgstr "podman에게 전달할 추가 인자"
 msgid "failed to enable podman.socket unit"
 msgstr "podman.socket 단위 활성화하지 못함"
 
-#: shared/podman/utils.go:81
+#: shared/podman/utils.go:83
 #, javascript-format
 msgid "failed to run %s container"
 msgstr "%s 컨테이너를 실행하지 못함"
 
-#: shared/podman/utils.go:92
+#: shared/podman/utils.go:94
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr "컨테이너 ID: %[2]s에 대해 podman kill %[1]s을(를) 실행하시겠습니까?"
 
-#: shared/podman/utils.go:93
+#: shared/podman/utils.go:95
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr "컨테이너 ID: %[2]s에 대해 podman remove %[1]s을(를) 실행하시겠습니까?"
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:97
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr "컨테이너 id %[2]s에 대해 podman kill %[1]s 실행"
 
-#: shared/podman/utils.go:98
+#: shared/podman/utils.go:100
 msgid "Failed to kill the server"
 msgstr "서버 종료 실패"
 
-#: shared/podman/utils.go:100
+#: shared/podman/utils.go:102
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr "컨테이너 id %[2]s에 대해 podman remove %[1]s 실행"
 
-#: shared/podman/utils.go:103
+#: shared/podman/utils.go:105
 msgid "Error removing container"
 msgstr "컨테이너 제거 중 오류 발생"
 
-#: shared/podman/utils.go:108
+#: shared/podman/utils.go:110
 msgid "Container already removed"
 msgstr "컨테이너 이미 제거됨"
 
-#: shared/podman/utils.go:116
+#: shared/podman/utils.go:118
 #, fuzzy, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr "%s systemd service를 활성화하지 못함"
 
-#: shared/podman/utils.go:123
+#: shared/podman/utils.go:125
 #, fuzzy, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr "%s systemd service를 활성화하지 못함"
 
-#: shared/podman/utils.go:140
+#: shared/podman/utils.go:142
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr "%s 이미지를 제거하지 못함"
 
-#: shared/podman/utils.go:175
+#: shared/podman/utils.go:177
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr "볼륨 %s이(가) 외부에 탑재되어 있어, 디렉토리를 제거할 수 없습니다"
 
-#: shared/podman/utils.go:241
+#: shared/podman/utils.go:243
 msgid "failed to login to registry.suse.com"
 msgstr "registry.suse.com에 로그인하지 못했습니다."
 

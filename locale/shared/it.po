@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
 "PO-Revision-Date: 2024-05-16 09:23+0000\n"
 "Last-Translator: Marina Latini <marina.latini@suse.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared/it/>\n"
@@ -291,7 +291,7 @@ msgstr ""
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
 #: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:135 shared/podman/utils.go:161
+#: shared/podman/utils.go:137 shared/podman/utils.go:163
 #, javascript-format
 msgid "Would run %s"
 msgstr ""
@@ -338,7 +338,7 @@ msgstr "impossibile trovare il nodo che ha in esecuzione uyuni: %s"
 msgid "cannot run inspect pod"
 msgstr "impossibile ispezionare i valori dell'host: %s"
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:268
+#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:270
 #, fuzzy
 msgid "cannot inspect data"
 msgstr "impossibile ispezionare i valori dell'host: %s"
@@ -706,8 +706,8 @@ msgstr "mancata creazione della directory temporanea: %s"
 msgid "failed to create podman secret %s"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: shared/podman/secret.go:73 shared/podman/utils.go:137
-#: shared/podman/utils.go:163
+#: shared/podman/secret.go:73 shared/podman/utils.go:139
+#: shared/podman/utils.go:165
 #, javascript-format
 msgid "Run %s"
 msgstr ""
@@ -896,60 +896,60 @@ msgstr ""
 msgid "failed to enable podman.socket unit"
 msgstr ""
 
-#: shared/podman/utils.go:81
+#: shared/podman/utils.go:83
 #, javascript-format
 msgid "failed to run %s container"
 msgstr ""
 
-#: shared/podman/utils.go:92
+#: shared/podman/utils.go:94
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:93
+#: shared/podman/utils.go:95
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:97
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:98
+#: shared/podman/utils.go:100
 msgid "Failed to kill the server"
 msgstr ""
 
-#: shared/podman/utils.go:100
+#: shared/podman/utils.go:102
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:103
+#: shared/podman/utils.go:105
 msgid "Error removing container"
 msgstr ""
 
-#: shared/podman/utils.go:108
+#: shared/podman/utils.go:110
 msgid "Container already removed"
 msgstr ""
 
-#: shared/podman/utils.go:116
+#: shared/podman/utils.go:118
 #, fuzzy, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: shared/podman/utils.go:123
+#: shared/podman/utils.go:125
 #, fuzzy, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: shared/podman/utils.go:140
+#: shared/podman/utils.go:142
 #, fuzzy, javascript-format
 msgid "Failed to remove image %s"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: shared/podman/utils.go:175
+#: shared/podman/utils.go:177
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr ""
 
-#: shared/podman/utils.go:241
+#: shared/podman/utils.go:243
 msgid "failed to login to registry.suse.com"
 msgstr ""
 

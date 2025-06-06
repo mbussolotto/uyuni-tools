@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
-"PO-Revision-Date: 2025-03-08 17:00+0000\n"
+"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"PO-Revision-Date: 2025-05-29 04:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: shared/api/api.go:29
 msgid "FQDN of the server to connect to"
@@ -291,7 +291,7 @@ msgstr "ネームスペースが必要です"
 #: shared/kubernetes/helm.go:77 shared/podman/network.go:108
 #: shared/podman/secret.go:71 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:135 shared/podman/utils.go:161
+#: shared/podman/utils.go:137 shared/podman/utils.go:163
 #, javascript-format
 msgid "Would run %s"
 msgstr "%s を実行します"
@@ -336,7 +336,7 @@ msgstr "uyuniを実行しているノードが見つかりません"
 msgid "cannot run inspect pod"
 msgstr "ポッドを検査できません"
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:268
+#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:270
 msgid "cannot inspect data"
 msgstr "データを検査できません"
 
@@ -643,7 +643,7 @@ msgstr "コンテナ %s に対して実行中のイメージが見つかりま�
 
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
-msgstr ""
+msgstr "SCC資格情報パラメータが使用されます。ホストからのSCC資格情報は無視されます。"
 
 #: shared/podman/login.go:52
 msgid "failed to close the temporary auth file"
@@ -706,8 +706,8 @@ msgstr "%s ファイルの書き込みに失敗しました"
 msgid "failed to create podman secret %s"
 msgstr "podman inspect %s の実行に失敗しました"
 
-#: shared/podman/secret.go:73 shared/podman/utils.go:137
-#: shared/podman/utils.go:163
+#: shared/podman/secret.go:73 shared/podman/utils.go:139
+#: shared/podman/utils.go:165
 #, javascript-format
 msgid "Run %s"
 msgstr "%s の実行"
@@ -894,60 +894,60 @@ msgstr "podmanに渡す追加引数"
 msgid "failed to enable podman.socket unit"
 msgstr "podman.socketユニットの有効化に失敗しました"
 
-#: shared/podman/utils.go:81
+#: shared/podman/utils.go:83
 #, javascript-format
 msgid "failed to run %s container"
 msgstr "%s コンテナの実行に失敗しました"
 
-#: shared/podman/utils.go:92
+#: shared/podman/utils.go:94
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr "podman kill %[1]s を実行します (コンテナID %[2]s に対して)"
 
-#: shared/podman/utils.go:93
+#: shared/podman/utils.go:95
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr "podman remove %[1]s を実行します(コンテナID %[2]s に対して)"
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:97
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr "podman kill %[1]s を実行します(コンテナID %[2]s に対して)"
 
-#: shared/podman/utils.go:98
+#: shared/podman/utils.go:100
 msgid "Failed to kill the server"
 msgstr "サーバの強制終了に失敗しました"
 
-#: shared/podman/utils.go:100
+#: shared/podman/utils.go:102
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr "podman remove %[1]s を実行します(コンテナID %[2]s に対して)"
 
-#: shared/podman/utils.go:103
+#: shared/podman/utils.go:105
 msgid "Error removing container"
 msgstr "コンテナ削除エラー"
 
-#: shared/podman/utils.go:108
+#: shared/podman/utils.go:110
 msgid "Container already removed"
 msgstr "コンテナはすでに削除されています"
 
-#: shared/podman/utils.go:116
+#: shared/podman/utils.go:118
 #, fuzzy, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr "%s systemdサービスを有効にできませんでした"
 
-#: shared/podman/utils.go:123
+#: shared/podman/utils.go:125
 #, fuzzy, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr "%s systemdサービスを有効にできませんでした"
 
-#: shared/podman/utils.go:140
+#: shared/podman/utils.go:142
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr "イメージ %s の削除に失敗しました"
 
-#: shared/podman/utils.go:175
+#: shared/podman/utils.go:177
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr "ボリューム %s は外部にマウントされているため、ディレクトリを削除できません"
 
-#: shared/podman/utils.go:241
+#: shared/podman/utils.go:243
 msgid "failed to login to registry.suse.com"
 msgstr "registry.suse.comへのログインに失敗しました"
 
