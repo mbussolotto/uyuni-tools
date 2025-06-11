@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -14,6 +14,7 @@ import (
 	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 
+	"github.com/uyuni-project/uyuni-tools/mgradm/cmd/backup"
 	"github.com/uyuni-project/uyuni-tools/mgradm/cmd/distro"
 	"github.com/uyuni-project/uyuni-tools/mgradm/cmd/gpg"
 	"github.com/uyuni-project/uyuni-tools/mgradm/cmd/hub"
@@ -64,6 +65,7 @@ func NewUyuniadmCommand() (*cobra.Command, error) {
 			utils.LogInit(true)
 			utils.SetLogLevel(globalFlags.LogLevel)
 			log.Info().Msgf(L("Welcome to %s"), name)
+			log.Info().Msgf(L("Use of this software implies acceptance of the End User License Agreement."))
 			log.Info().Msgf(L("Executing command: %s"), cmd.Name())
 		}
 	}
@@ -96,6 +98,7 @@ func NewUyuniadmCommand() (*cobra.Command, error) {
 	rootCmd.AddCommand(inspect.NewCommand(globalFlags))
 	rootCmd.AddCommand(upgrade.NewCommand(globalFlags))
 	rootCmd.AddCommand(gpg.NewCommand(globalFlags))
+	rootCmd.AddCommand(backup.NewCommand(globalFlags))
 
 	rootCmd.AddCommand(utils.GetConfigHelpCommand())
 
