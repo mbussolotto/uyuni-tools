@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"POT-Creation-Date: 2025-06-11 15:08+0200\n"
 "PO-Revision-Date: 2025-05-25 10:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
@@ -18,41 +18,506 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: mgradm/cmd/cmd.go:40
+#: mgradm/cmd/backup/backup.go:28
+msgid "Create backup"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:29
+msgid "Create backup of the already configured Uyuni system"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:35
+msgid "Skip backup of selected volumes"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:36
+msgid "Backup additional volumes to the build-in ones"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:37
+msgid "Do not backup database volume, allow online backup."
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:38
+msgid "Do not backup container images"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:39
+msgid "Do not backup podman configuration. On restore defaults will be used"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:40
+msgid "Do not restart services after backup is done"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:41 mgradm/cmd/backup/backup.go:64
+msgid "Print expected actions, but no action is done"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:52
+msgid "Restore backup from the directory"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:53
+msgid "Restore backup of the previously configured Uyuni system from a specified directory"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:59
+msgid "Skip restore of selected volumes"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:60
+#, fuzzy
+#| msgid "Report database name"
+msgid "Do not restore database volume"
+msgstr "Nom de la base de dades d'informes"
+
+#: mgradm/cmd/backup/backup.go:61
+msgid "Skip restore of container images"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:62
+msgid "Do not restore podman configuration. Defaults will be used"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:63
+#, fuzzy
+#| msgid "Restarting services after updating the certificate"
+msgid "Restart service after restore is done"
+msgstr "S'estan reiniciant els serveis després d'actualitzar el certificat"
+
+#: mgradm/cmd/backup/backup.go:65
+#, fuzzy
+#| msgid "Force overwrite of output file if already exists"
+msgid "Force overwrite of existing items"
+msgstr "Força la sobreescriptura del fitxer de sortida si ja existeix"
+
+#: mgradm/cmd/backup/backup.go:66
+msgid "Skip existing items and restore the rest"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:67
+msgid "Skip verification of the backup files"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:77
+msgid "Backup solution"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:78
+#, fuzzy
+#| msgid "Tools for autoinstallation distributions management"
+msgid "Tools for local backup management"
+msgstr "Eines per a la gestió de distribucions d'instal·lació automàtica"
+
+#: mgradm/cmd/backup/backup.go:101
+#, javascript-format
+msgid "Backup aborted, partially backed up files remains in '%s'"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:105
+msgid "Important data were backed up successfully, but errors were present. Restore will use default values where needed"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:125
+msgid "Encountered problems:"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:127
+msgid "Restore aborted with partially restored files. Resolve the error and try again"
+msgstr ""
+
+#: mgradm/cmd/backup/backup.go:130
+msgid "Important data were restored successfully, but with warnings"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:59
+#, fuzzy
+#| msgid "Stop the server"
+msgid "Stopping server service"
+msgstr "Atura el servidor"
+
+#: mgradm/cmd/backup/create/create.go:82
+#, fuzzy
+#| msgid "Restart the server"
+msgid "Restarting server service"
+msgstr "Reinicia el servidor"
+
+#: mgradm/cmd/backup/create/create.go:86
+#, javascript-format
+msgid "Backup finished into %s"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:105
+#, javascript-format
+msgid "Would create '%s' directory"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:108
+msgid "unable to create target output directory: %w"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:149
+msgid "Backing up container volumes"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:173
+msgid "Backing up container images"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:178
+#, javascript-format
+msgid "Not backing up image %s"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:186
+msgid "Systemd services and configuration was not backed up"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:187
+#, fuzzy
+#| msgid "Enabling system service"
+msgid "Backing up Systemd services"
+msgstr "S'està habilitant el servei del sistema"
+
+#: mgradm/cmd/backup/create/create.go:204
+msgid "Podman configuration was not backed up"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:205
+#, fuzzy
+#| msgid "failed to unmarshall configuration"
+msgid "Backing up podman configuration"
+msgstr "no s'ha pogut desfer la configuració del «marshall»"
+
+#: mgradm/cmd/backup/create/create.go:227
+#, javascript-format
+msgid "output directory %s already exists and is not empty"
+msgstr ""
+
+#: mgradm/cmd/backup/create/create.go:237
+msgid "server is not initialized."
+msgstr ""
+
+#: mgradm/cmd/backup/create/podman_utils.go:36
+#, fuzzy
+#| msgid "failed to create folder %s"
+msgid "failed to create podman backup tarball: %w"
+msgstr "no s'ha pogut crear la carpeta %s"
+
+#: mgradm/cmd/backup/create/podman_utils.go:46
+msgid "Network was not backed up"
+msgstr ""
+
+#: mgradm/cmd/backup/create/podman_utils.go:62
+msgid "Podman secrets were not backed up"
+msgstr ""
+
+#: mgradm/cmd/backup/create/podman_utils.go:82
+#: mgradm/cmd/backup/create/podman_utils.go:97
+#: mgradm/cmd/uninstall/kubernetes.go:62 mgradm/cmd/uninstall/kubernetes.go:63
+#, javascript-format
+msgid "Would run %s"
+msgstr "S'executaria %s"
+
+#: mgradm/cmd/backup/create/podman_utils.go:87
+#, fuzzy
+#| msgid "failed to extract payg data"
+msgid "Failed to export network data"
+msgstr "no s'han pogut extreure les dades de pagament"
+
+#: mgradm/cmd/backup/create/podman_utils.go:102
+#, fuzzy
+#| msgid "failed to extract payg data"
+msgid "Failed to export secrets data"
+msgstr "no s'han pogut extreure les dades de pagament"
+
+#: mgradm/cmd/backup/create/podman_utils.go:122
+#, fuzzy
+#| msgid "Failed to parse start date: %s\n"
+msgid "Failed to read secrets data"
+msgstr "No s'ha pogut analitzar la data d'inici: %s\n"
+
+#: mgradm/cmd/backup/create/podman_utils.go:128
+#: mgradm/cmd/backup/restore/podman_utils.go:153
+msgid "Unable to decode podman secrets"
+msgstr ""
+
+#: mgradm/cmd/backup/create/podman_utils.go:143
+msgid "Unable to encode secrets backup"
+msgstr ""
+
+#: mgradm/cmd/backup/create/systemd_utils.go:25
+#, fuzzy, javascript-format
+#| msgid "Would run %s"
+msgid "Would backup %s"
+msgstr "S'executaria %s"
+
+#: mgradm/cmd/backup/create/systemd_utils.go:31
+#, fuzzy
+#| msgid "failed to create folder %s"
+msgid "failed to create Systemd backup tarball: %w"
+msgstr "no s'ha pogut crear la carpeta %s"
+
+#: mgradm/cmd/backup/restore/podman_utils.go:48
+#, javascript-format
+msgid "Ignoring unexpected file in the podman backup %s"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:59
+msgid "Unable to decode network data backup"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:63
+msgid "Incorrect network data backup"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:97
+#: mgradm/cmd/backup/restore/podman_utils.go:130
+msgid "podman network already exists"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:102
+msgid "Unable to create podman network! Check the error and create network manually before starting the service"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:110
+#, fuzzy
+#| msgid "failed to unmarshall configuration"
+msgid "Would restore network configuration"
+msgstr "no s'ha pogut desfer la configuració del «marshall»"
+
+#: mgradm/cmd/backup/restore/podman_utils.go:115
+msgid "Failed to read backed up network configuration, trying default"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:121
+msgid "Failed to decode backed up network configuration, trying default"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:129
+msgid "Podman network already exists, not restoring unless forced"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:142
+msgid "Restoring podman network"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:144
+#, fuzzy
+#| msgid "failed to create folder %s"
+msgid "Unlable to create podman network"
+msgstr "no s'ha pogut crear la carpeta %s"
+
+#: mgradm/cmd/backup/restore/podman_utils.go:161
+#, javascript-format
+msgid "Unable to decode secret %s, using as is"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:174
+msgid "Would restore podman secrets"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:180
+msgid "Failed to read backed up podman secrets, no secrets were restored"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:185
+msgid "Failed to decode backed up podman secrets, no secrets were restored"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:190
+msgid "Restoring podman secrets"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:197
+#, javascript-format
+msgid "Podman secret %s is already present, not restoring unless forced"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/podman_utils.go:203
+#, fuzzy
+#| msgid "Failed to create uyuni-crt TLS secret"
+msgid "Unable to create podman secret"
+msgstr "No s'ha pogut crear el secret uyuni-crt TLS"
+
+#: mgradm/cmd/backup/restore/restore.go:104
+#, fuzzy, javascript-format
+#| msgid "source %s does not exists"
+msgid "input directory %s does not exists"
+msgstr "la font %s no existeix"
+
+#: mgradm/cmd/backup/restore/restore.go:114
+msgid "Restoring over already initialized server"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:116
+msgid "server is already initialized. Use force to overwrite"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:135
+msgid "No volumes found in the backup"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:140
+msgid "Unable to read directory with the volumes"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:153
+#, javascript-format
+msgid "Skipping volume %s"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:161
+#, fuzzy, javascript-format
+#| msgid "Using database upgrade image %s"
+msgid "Skipping database volume %s"
+msgstr "Utilitzant la imatge d'actualització de la base de dades %s"
+
+#: mgradm/cmd/backup/restore/restore.go:168
+#, fuzzy, javascript-format
+#| msgid "cannot inspect volume %s"
+msgid "Not restoring existing volume %s"
+msgstr "no es pot inspeccionar el volum %s"
+
+#: mgradm/cmd/backup/restore/restore.go:172
+#, javascript-format
+msgid "Not restoring existing volume %s unless forced"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:174
+#, javascript-format
+msgid "Volume %s will be overwriten"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:191
+msgid "No images found in the backup"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:195
+msgid "Unable to read directory with the images"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:233
+msgid "podman config backup not found in the backup location, trying defaults"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:239
+#, fuzzy
+#| msgid "unable to cleanup source file"
+msgid "Unable to validate podman backup file"
+msgstr "no s'ha pogut netejar el fitxer font"
+
+#: mgradm/cmd/backup/restore/restore.go:247
+#, fuzzy
+#| msgid "cannot generate systemd user configuration file"
+msgid "Restoring systemd configuration"
+msgstr "no s'ha pogut generar el fitxer de configuració de l'usuari del sistema"
+
+#: mgradm/cmd/backup/restore/restore.go:250
+msgid "systemd backup not found in the backup location, generating defaults"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/restore.go:255
+#, fuzzy
+#| msgid "failed to generate systemd service unit file"
+msgid "Unable to validate systemd backup file"
+msgstr "no s'ha pogut generar el fitxer de la unitat de servei del systemd"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:40
+#, fuzzy, javascript-format
+#| msgid "Would run %s"
+msgid "Would restore %s"
+msgstr "S'executaria %s"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:48
+#, fuzzy, javascript-format
+#| msgid "failed to create folder %s"
+msgid "Unable to create directory %s"
+msgstr "no s'ha pogut crear la carpeta %s"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:58
+#, javascript-format
+msgid "Unknown filetype of %s"
+msgstr ""
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:63
+#, fuzzy, javascript-format
+#| msgid "failed to create folder %s"
+msgid "Unable to restore file details for %s"
+msgstr "no s'ha pogut crear la carpeta %s"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:73
+#, fuzzy, javascript-format
+#| msgid "Failed to create issuer"
+msgid "Unable to create %s"
+msgstr "No s'ha pogut crear l'emissor"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:77
+#, fuzzy, javascript-format
+#| msgid "unable to prepare API client"
+msgid "Unable to restore content of %s"
+msgstr "no s'ha pogut preparar el client API"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:96
+#, fuzzy
+#| msgid "cannot generate systemd service"
+msgid "Would generate default systemd services"
+msgstr "no s'ha pogut generar el servei systemd"
+
+#: mgradm/cmd/backup/shared/utils.go:31
+#, javascript-format
+msgid "unable to determine target %s storage size"
+msgstr ""
+
+#: mgradm/cmd/backup/shared/utils.go:61
+msgid "insufficient space on target device"
+msgstr ""
+
+#: mgradm/cmd/backup/shared/utils.go:68 mgradm/cmd/install/podman/utils.go:65
+#: mgradm/cmd/migrate/podman/utils.go:32
+msgid "install podman before running this command"
+msgstr "instal·la podman abans d'executar aquesta ordre"
+
+#: mgradm/cmd/cmd.go:41
 msgid "Uyuni administration tool"
 msgstr "Eina d'administració Uyuni"
 
-#: mgradm/cmd/cmd.go:41
+#: mgradm/cmd/cmd.go:42
 msgid "Tool to help administering Uyuni servers in containers"
 msgstr "Eina per a ajudar a administrar servidors Uyuni en contenidors"
 
-#: mgradm/cmd/cmd.go:48
+#: mgradm/cmd/cmd.go:49
 msgid "Server Deployment:"
 msgstr "Desplegament del servidor:"
 
-#: mgradm/cmd/cmd.go:52
+#: mgradm/cmd/cmd.go:53
 msgid "Server Management:"
 msgstr "Gestió del servidor:"
 
-#: mgradm/cmd/cmd.go:56
+#: mgradm/cmd/cmd.go:57
 msgid "Administrator tools:"
 msgstr "Eines de l'administrador:"
 
-#: mgradm/cmd/cmd.go:66
+#: mgradm/cmd/cmd.go:67
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "Us donem la benvinguda a %s"
 
-#: mgradm/cmd/cmd.go:67
+#: mgradm/cmd/cmd.go:68
+msgid "Use of this software implies acceptance of the End User License Agreement."
+msgstr ""
+
+#: mgradm/cmd/cmd.go:69
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "S'està executant l'ordre: %s"
 
-#: mgradm/cmd/cmd.go:71
+#: mgradm/cmd/cmd.go:73
 msgid "configuration file path"
 msgstr "camí del fitxer de configuració"
 
-#: mgradm/cmd/cmd.go:73
+#: mgradm/cmd/cmd.go:75
 msgid "application log level"
 msgstr "nivell de registre de l'aplicació"
 
@@ -499,10 +964,6 @@ msgstr "no s'ha pogut iniciar la sessió a register.suse.com"
 #: mgradm/cmd/install/podman/utils.go:59
 msgid "Server is already initialized! Uninstall before attempting new installation or use upgrade command"
 msgstr "El servidor ja està inicialitzat! Desinstal·la abans d'intentar una nova instal·lació o utilitza l'ordre d'actualització"
-
-#: mgradm/cmd/install/podman/utils.go:65 mgradm/cmd/migrate/podman/utils.go:32
-msgid "install podman before running this command"
-msgstr "instal·la podman abans d'executar aquesta ordre"
 
 #: mgradm/cmd/install/podman/utils.go:72
 #, javascript-format
@@ -1210,11 +1671,6 @@ msgstr "--purge-volumes s'ignora en un desplegament de kubernetes"
 #: mgradm/cmd/uninstall/kubernetes.go:32
 msgid "--purge-images is ignored on a kubernetes deployment"
 msgstr "--purge-images s'ignora en un desplegament de kubernetes"
-
-#: mgradm/cmd/uninstall/kubernetes.go:62 mgradm/cmd/uninstall/kubernetes.go:63
-#, javascript-format
-msgid "Would run %s"
-msgstr "S'executaria %s"
 
 #: mgradm/cmd/uninstall/kubernetes.go:69
 msgid "Failed deleting config map"

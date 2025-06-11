@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"POT-Creation-Date: 2025-06-11 15:08+0200\n"
 "PO-Revision-Date: 2024-10-13 01:48+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/de/>\n"
@@ -282,10 +282,12 @@ msgstr ""
 msgid "namespace is required"
 msgstr ""
 
-#: shared/kubernetes/helm.go:77 shared/podman/network.go:108
-#: shared/podman/secret.go:71 shared/podman/systemd.go:96
+#: shared/kubernetes/helm.go:77 shared/podman/images.go:292
+#: shared/podman/images.go:307 shared/podman/network.go:108
+#: shared/podman/secret.go:72 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:137 shared/podman/utils.go:163
+#: shared/podman/utils.go:138 shared/podman/utils.go:177
+#: shared/podman/utils.go:210 shared/podman/utils.go:230
 #, javascript-format
 msgid "Would run %s"
 msgstr ""
@@ -330,7 +332,7 @@ msgstr ""
 msgid "cannot run inspect pod"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:270
+#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:352
 msgid "cannot inspect data"
 msgstr ""
 
@@ -627,6 +629,24 @@ msgstr ""
 msgid "cannot find any running image for container %s"
 msgstr ""
 
+#: shared/podman/images.go:294 shared/podman/images.go:309
+#: shared/podman/secret.go:74 shared/podman/utils.go:140
+#: shared/podman/utils.go:179 shared/podman/utils.go:213
+#: shared/podman/utils.go:242
+#, javascript-format
+msgid "Run %s"
+msgstr ""
+
+#: shared/podman/images.go:297
+#, fuzzy, javascript-format
+msgid "Failed to export image %s"
+msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
+
+#: shared/podman/images.go:312
+#, fuzzy, javascript-format
+msgid "Failed to restore image %s"
+msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
+
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
 msgstr ""
@@ -682,23 +702,17 @@ msgstr ""
 msgid "Network removed"
 msgstr ""
 
-#: shared/podman/secret.go:47
+#: shared/podman/secret.go:48
 #, javascript-format
 msgid "failed to write %s secret to file"
 msgstr ""
 
-#: shared/podman/secret.go:52
+#: shared/podman/secret.go:53
 #, fuzzy, javascript-format
 msgid "failed to create podman secret %s"
 msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
 
-#: shared/podman/secret.go:73 shared/podman/utils.go:139
-#: shared/podman/utils.go:165
-#, javascript-format
-msgid "Run %s"
-msgstr ""
-
-#: shared/podman/secret.go:76
+#: shared/podman/secret.go:77
 #, fuzzy, javascript-format
 msgid "Failed to delete %s secret"
 msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
@@ -871,68 +885,92 @@ msgstr ""
 msgid "cannot disable service"
 msgstr ""
 
-#: shared/podman/utils.go:56
+#: shared/podman/utils.go:57
 msgid "Extra arguments to pass to podman"
 msgstr ""
 
-#: shared/podman/utils.go:63
+#: shared/podman/utils.go:64
 msgid "failed to enable podman.socket unit"
 msgstr ""
 
-#: shared/podman/utils.go:83
+#: shared/podman/utils.go:84
 #, javascript-format
 msgid "failed to run %s container"
 msgstr ""
 
-#: shared/podman/utils.go:94
+#: shared/podman/utils.go:95
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:96
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:97
+#: shared/podman/utils.go:98
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:100
+#: shared/podman/utils.go:101
 msgid "Failed to kill the server"
 msgstr ""
 
-#: shared/podman/utils.go:102
+#: shared/podman/utils.go:103
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:105
+#: shared/podman/utils.go:106
 msgid "Error removing container"
 msgstr ""
 
-#: shared/podman/utils.go:110
+#: shared/podman/utils.go:111
 msgid "Container already removed"
 msgstr ""
 
-#: shared/podman/utils.go:118
+#: shared/podman/utils.go:119
 #, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr ""
 
-#: shared/podman/utils.go:125
+#: shared/podman/utils.go:126
 #, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr ""
 
-#: shared/podman/utils.go:142
+#: shared/podman/utils.go:143
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr ""
 
-#: shared/podman/utils.go:177
+#: shared/podman/utils.go:191
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr ""
 
-#: shared/podman/utils.go:243
+#: shared/podman/utils.go:215
+#, fuzzy, javascript-format
+msgid "Failed to export volume %s"
+msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
+
+#: shared/podman/utils.go:218
+msgid "Failed to write checksum of volume %[1]s to the %[2]s"
+msgstr ""
+
+#: shared/podman/utils.go:235
+#, javascript-format
+msgid "Checksum does not match for volume %s"
+msgstr ""
+
+#: shared/podman/utils.go:239
+#, fuzzy, javascript-format
+msgid "Failed to precreate empty volume %s"
+msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
+
+#: shared/podman/utils.go:244
+#, fuzzy, javascript-format
+msgid "Failed to import volume %s"
+msgstr "Gespeicherte Anmeldeinformationen konnten nicht entfernt werden!"
+
+#: shared/podman/utils.go:325
 msgid "failed to login to registry.suse.com"
 msgstr ""
 
@@ -1290,4 +1328,38 @@ msgstr ""
 #: shared/utils/utils.go:389
 #, javascript-format
 msgid "cannot resolve %s"
+msgstr ""
+
+#: shared/utils/utils.go:406
+#, javascript-format
+msgid "Failed to calculate checksum of the file %s"
+msgstr ""
+
+#: shared/utils/utils.go:410
+msgid "Failed to write checksum of the file %[1]s to the %[2]s"
+msgstr ""
+
+#: shared/utils/utils.go:420
+#, javascript-format
+msgid "Checksum of %s does not match"
+msgstr ""
+
+#: shared/utils/uyuniservices.go:18
+msgid "Main service"
+msgstr ""
+
+#: shared/utils/uyuniservices.go:24
+msgid "Migration helper"
+msgstr ""
+
+#: shared/utils/uyuniservices.go:30
+msgid "Confidential computing attestation"
+msgstr ""
+
+#: shared/utils/uyuniservices.go:36
+msgid "Hub XML-RPC API"
+msgstr ""
+
+#: shared/utils/uyuniservices.go:42
+msgid "Saline"
 msgstr ""
