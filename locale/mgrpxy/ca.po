@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 09:26+0200\n"
+"POT-Creation-Date: 2025-06-11 15:08+0200\n"
 "PO-Revision-Date: 2025-02-28 08:53+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ca/>\n"
@@ -65,15 +65,19 @@ msgid "Welcome to %s"
 msgstr "Us donem la benvinguda a %s"
 
 #: mgrpxy/cmd/cmd.go:62
+msgid "Use of this software implies acceptance of the End User License Agreement."
+msgstr ""
+
+#: mgrpxy/cmd/cmd.go:63
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "S'està executant l'ordre: %s"
 
-#: mgrpxy/cmd/cmd.go:66
+#: mgrpxy/cmd/cmd.go:67
 msgid "configuration file path"
 msgstr "camí del fitxer de configuració"
 
-#: mgrpxy/cmd/cmd.go:68
+#: mgrpxy/cmd/cmd.go:69
 msgid "application log level"
 msgstr "nivell de registre de l'aplicació"
 
