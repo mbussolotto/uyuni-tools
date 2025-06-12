@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-25 10:59+0000\n"
+"PO-Revision-Date: 2025-06-12 15:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
@@ -20,198 +20,180 @@ msgstr ""
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
-msgstr ""
+msgstr "Crea una còpia de seguretat"
 
 #: mgradm/cmd/backup/backup.go:29
 msgid "Create backup of the already configured Uyuni system"
-msgstr ""
+msgstr "Crea una còpia de seguretat del sistema Uyuni ja configurat"
 
 #: mgradm/cmd/backup/backup.go:35
 msgid "Skip backup of selected volumes"
-msgstr ""
+msgstr "Omet la còpia de seguretat dels volums seleccionats"
 
 #: mgradm/cmd/backup/backup.go:36
 msgid "Backup additional volumes to the build-in ones"
-msgstr ""
+msgstr "Fes una còpia de seguretat dels volums addicionals als integrats"
 
 #: mgradm/cmd/backup/backup.go:37
 msgid "Do not backup database volume, allow online backup."
-msgstr ""
+msgstr "No facis còpies de seguretat del volum de la base de dades, permet les còpies de seguretat en línia."
 
 #: mgradm/cmd/backup/backup.go:38
 msgid "Do not backup container images"
-msgstr ""
+msgstr "No facis còpies de seguretat de les imatges del contenidor"
 
 #: mgradm/cmd/backup/backup.go:39
 msgid "Do not backup podman configuration. On restore defaults will be used"
-msgstr ""
+msgstr "No facis una còpia de seguretat de la configuració de Podman. En restaurar-la, s'usaran els valors per defecte."
 
 #: mgradm/cmd/backup/backup.go:40
 msgid "Do not restart services after backup is done"
-msgstr ""
+msgstr "No reiniciïs els serveis després que s'hagi fet la còpia de seguretat"
 
 #: mgradm/cmd/backup/backup.go:41 mgradm/cmd/backup/backup.go:64
 msgid "Print expected actions, but no action is done"
-msgstr ""
+msgstr "Imprimeix les accions esperades, però no es fa cap acció"
 
 #: mgradm/cmd/backup/backup.go:52
 msgid "Restore backup from the directory"
-msgstr ""
+msgstr "Restaura una còpia de seguretat des del directori"
 
 #: mgradm/cmd/backup/backup.go:53
 msgid "Restore backup of the previously configured Uyuni system from a specified directory"
-msgstr ""
+msgstr "Restaura una còpia de seguretat del sistema Uyuni configurat prèviament des d'un directori especificat"
 
 #: mgradm/cmd/backup/backup.go:59
 msgid "Skip restore of selected volumes"
-msgstr ""
+msgstr "Omet la restauració dels volums seleccionats"
 
 #: mgradm/cmd/backup/backup.go:60
-#, fuzzy
-#| msgid "Report database name"
 msgid "Do not restore database volume"
-msgstr "Nom de la base de dades d'informes"
+msgstr "No restauris el volum de la base de dades"
 
 #: mgradm/cmd/backup/backup.go:61
 msgid "Skip restore of container images"
-msgstr ""
+msgstr "Omet la restauració d'imatges de contenidors"
 
 #: mgradm/cmd/backup/backup.go:62
 msgid "Do not restore podman configuration. Defaults will be used"
-msgstr ""
+msgstr "No restauris la configuració de podman. S'usaran els valors per defecte."
 
 #: mgradm/cmd/backup/backup.go:63
-#, fuzzy
-#| msgid "Restarting services after updating the certificate"
 msgid "Restart service after restore is done"
-msgstr "S'estan reiniciant els serveis després d'actualitzar el certificat"
+msgstr "Reinicia el servei després que s'hagi completat la restauració"
 
 #: mgradm/cmd/backup/backup.go:65
-#, fuzzy
-#| msgid "Force overwrite of output file if already exists"
 msgid "Force overwrite of existing items"
-msgstr "Força la sobreescriptura del fitxer de sortida si ja existeix"
+msgstr "Força la sobreescriptura d'elements existents"
 
 #: mgradm/cmd/backup/backup.go:66
 msgid "Skip existing items and restore the rest"
-msgstr ""
+msgstr "Omet els elements existents i restaura la resta"
 
 #: mgradm/cmd/backup/backup.go:67
 msgid "Skip verification of the backup files"
-msgstr ""
+msgstr "Omet la verificació dels fitxers de còpia de seguretat"
 
 #: mgradm/cmd/backup/backup.go:77
 msgid "Backup solution"
-msgstr ""
+msgstr "Solució de còpia de seguretat"
 
 #: mgradm/cmd/backup/backup.go:78
-#, fuzzy
-#| msgid "Tools for autoinstallation distributions management"
 msgid "Tools for local backup management"
-msgstr "Eines per a la gestió de distribucions d'instal·lació automàtica"
+msgstr "Eines per a la gestió de còpies de seguretat locals"
 
 #: mgradm/cmd/backup/backup.go:101
 #, javascript-format
 msgid "Backup aborted, partially backed up files remains in '%s'"
-msgstr ""
+msgstr "Còpia de seguretat avortada, els fitxers parcialment copiats romanen a %s"
 
 #: mgradm/cmd/backup/backup.go:105
 msgid "Important data were backed up successfully, but errors were present. Restore will use default values where needed"
-msgstr ""
+msgstr "S'ha fet una còpia de seguretat de les dades importants correctament, però hi havia errors. La restauració usarà els valors predeterminats on calgui."
 
 #: mgradm/cmd/backup/backup.go:125
 msgid "Encountered problems:"
-msgstr ""
+msgstr "Problemes trobats:"
 
 #: mgradm/cmd/backup/backup.go:127
 msgid "Restore aborted with partially restored files. Resolve the error and try again"
-msgstr ""
+msgstr "Restauració avortada amb fitxers parcialment restaurats. Resoleu l'error i torneu-ho a provar."
 
 #: mgradm/cmd/backup/backup.go:130
 msgid "Important data were restored successfully, but with warnings"
-msgstr ""
+msgstr "Les dades importants s'han restaurat correctament, però amb avisos."
 
 #: mgradm/cmd/backup/create/create.go:59
-#, fuzzy
-#| msgid "Stop the server"
 msgid "Stopping server service"
-msgstr "Atura el servidor"
+msgstr "Aturant el servei del servidor"
 
 #: mgradm/cmd/backup/create/create.go:82
-#, fuzzy
-#| msgid "Restart the server"
 msgid "Restarting server service"
-msgstr "Reinicia el servidor"
+msgstr "Reiniciant el servei del servidor"
 
 #: mgradm/cmd/backup/create/create.go:86
 #, javascript-format
 msgid "Backup finished into %s"
-msgstr ""
+msgstr "Còpia de seguretat acabada a %s"
 
 #: mgradm/cmd/backup/create/create.go:105
 #, javascript-format
 msgid "Would create '%s' directory"
-msgstr ""
+msgstr "Crearia el directori %s"
 
 #: mgradm/cmd/backup/create/create.go:108
 msgid "unable to create target output directory: %w"
-msgstr ""
+msgstr "No s'ha pogut crear el directori de sortida de destinació: %w"
 
 #: mgradm/cmd/backup/create/create.go:149
 msgid "Backing up container volumes"
-msgstr ""
+msgstr "Còpia de seguretat dels volums del contenidor"
 
 #: mgradm/cmd/backup/create/create.go:173
 msgid "Backing up container images"
-msgstr ""
+msgstr "Còpia de seguretat de les imatges del contenidor"
 
 #: mgradm/cmd/backup/create/create.go:178
 #, javascript-format
 msgid "Not backing up image %s"
-msgstr ""
+msgstr "No es fa una còpia de seguretat de la imatge %s"
 
 #: mgradm/cmd/backup/create/create.go:186
 msgid "Systemd services and configuration was not backed up"
-msgstr ""
+msgstr "No s'ha fet una còpia de seguretat dels serveis i la configuració de Systemd"
 
 #: mgradm/cmd/backup/create/create.go:187
-#, fuzzy
-#| msgid "Enabling system service"
 msgid "Backing up Systemd services"
-msgstr "S'està habilitant el servei del sistema"
+msgstr "Còpia de seguretat dels serveis de Systemd"
 
 #: mgradm/cmd/backup/create/create.go:204
 msgid "Podman configuration was not backed up"
-msgstr ""
+msgstr "No s'ha fet una còpia de seguretat de la configuració de Podman"
 
 #: mgradm/cmd/backup/create/create.go:205
-#, fuzzy
-#| msgid "failed to unmarshall configuration"
 msgid "Backing up podman configuration"
-msgstr "no s'ha pogut desfer la configuració del «marshall»"
+msgstr "Còpia de seguretat de la configuració de podman"
 
 #: mgradm/cmd/backup/create/create.go:227
 #, javascript-format
 msgid "output directory %s already exists and is not empty"
-msgstr ""
+msgstr "El directori de sortida %s ja existeix i no està buit"
 
 #: mgradm/cmd/backup/create/create.go:237
 msgid "server is not initialized."
-msgstr ""
+msgstr "el servidor no està inicialitzat."
 
 #: mgradm/cmd/backup/create/podman_utils.go:36
-#, fuzzy
-#| msgid "failed to create folder %s"
 msgid "failed to create podman backup tarball: %w"
-msgstr "no s'ha pogut crear la carpeta %s"
+msgstr "No s'ha pogut crear el fitxer tar de còpia de seguretat de Podman: %w"
 
 #: mgradm/cmd/backup/create/podman_utils.go:46
 msgid "Network was not backed up"
-msgstr ""
+msgstr "No s'ha fet una còpia de seguretat de la xarxa"
 
 #: mgradm/cmd/backup/create/podman_utils.go:62
 msgid "Podman secrets were not backed up"
-msgstr ""
+msgstr "Dels secrets de Podman no s'ha fet una còpia de seguretat"
 
 #: mgradm/cmd/backup/create/podman_utils.go:82
 #: mgradm/cmd/backup/create/podman_utils.go:97
@@ -221,43 +203,34 @@ msgid "Would run %s"
 msgstr "S'executaria %s"
 
 #: mgradm/cmd/backup/create/podman_utils.go:87
-#, fuzzy
-#| msgid "failed to extract payg data"
 msgid "Failed to export network data"
-msgstr "no s'han pogut extreure les dades de pagament"
+msgstr "No s'han pogut exportar les dades de xarxa"
 
 #: mgradm/cmd/backup/create/podman_utils.go:102
-#, fuzzy
-#| msgid "failed to extract payg data"
 msgid "Failed to export secrets data"
-msgstr "no s'han pogut extreure les dades de pagament"
+msgstr "No s'han pogut exportar les dades dels secrets"
 
 #: mgradm/cmd/backup/create/podman_utils.go:122
-#, fuzzy
-#| msgid "Failed to parse start date: %s\n"
 msgid "Failed to read secrets data"
-msgstr "No s'ha pogut analitzar la data d'inici: %s\n"
+msgstr "No s'han pogut llegir les dades dels secrets"
 
 #: mgradm/cmd/backup/create/podman_utils.go:128
 #: mgradm/cmd/backup/restore/podman_utils.go:153
 msgid "Unable to decode podman secrets"
-msgstr ""
+msgstr "No es poden descodificar els secrets del podman"
 
 #: mgradm/cmd/backup/create/podman_utils.go:143
 msgid "Unable to encode secrets backup"
-msgstr ""
+msgstr "No es pot codificar la còpia de seguretat dels secrets"
 
 #: mgradm/cmd/backup/create/systemd_utils.go:25
-#, fuzzy, javascript-format
-#| msgid "Would run %s"
+#, javascript-format
 msgid "Would backup %s"
-msgstr "S'executaria %s"
+msgstr "Es farà una còpia de seguretat de %s"
 
 #: mgradm/cmd/backup/create/systemd_utils.go:31
-#, fuzzy
-#| msgid "failed to create folder %s"
 msgid "failed to create Systemd backup tarball: %w"
-msgstr "no s'ha pogut crear la carpeta %s"
+msgstr "No s'ha pogut crear el fitxer tar de còpia de seguretat de Systemd: %w"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:48
 #, javascript-format
@@ -506,7 +479,7 @@ msgstr "Us donem la benvinguda a %s"
 
 #: mgradm/cmd/cmd.go:68
 msgid "Use of this software implies acceptance of the End User License Agreement."
-msgstr ""
+msgstr "L'ús d'aquest programari implica l'acceptació de l'Acord de llicència d'usuari final."
 
 #: mgradm/cmd/cmd.go:69
 #, javascript-format
