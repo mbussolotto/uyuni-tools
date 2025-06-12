@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-28 08:59+0000\n"
+"PO-Revision-Date: 2025-06-12 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -27,13 +27,16 @@ msgid "Call API GET request"
 msgstr "Call API GET 请求"
 
 #: mgrctl/cmd/api/api.go:32
-#, fuzzy
 msgid ""
 "Takes an API path and optional parameters and then issues GET request with them.\n"
 "\n"
 "Example:\n"
 "# mgrctl api get user/getDetails login=test"
-msgstr "接受 API 路径和可选参数，然后使用它们发出 GET 请求。如果提供了用户和口令，则会在调用 API 之前调用登录"
+msgstr ""
+"接受 API 路径和可选参数，然后使用它们发出 GET 请求。\n"
+"\n"
+"示例：\n"
+"# mgrctl api get user/getDetails login=test"
 
 #: mgrctl/cmd/api/api.go:43
 msgid "Call API POST request"
@@ -63,7 +66,7 @@ msgstr ""
 
 #: mgrctl/cmd/api/api.go:62
 msgid "Store login information for future API usage"
-msgstr ""
+msgstr "存储登录信息以便将来使用 API"
 
 #: mgrctl/cmd/api/api.go:63
 msgid ""
@@ -72,43 +75,47 @@ msgid ""
 "User name, password and remote host can be provided using flags or will be asked interactively.\n"
 "Environment variables are also supported."
 msgstr ""
+"登录名用于存储登录信息，以便下次调用 API。\n"
+"\n"
+"用户名、口令和远程主机可以通过标志提供或以交互方式询问。\n"
+"此外还支持环境变量。"
 
 #: mgrctl/cmd/api/api.go:71
 msgid "Overwrite existing login if exists"
-msgstr ""
+msgstr "重写现有登录名（如果存在）"
 
 #: mgrctl/cmd/api/api.go:75
 msgid "Remove stored login information"
-msgstr ""
+msgstr "去除存储的登录信息"
 
 #: mgrctl/cmd/api/api.go:76
 msgid "Logout removes stored login information."
-msgstr ""
+msgstr "注销会去除存储的登录信息。"
 
 #: mgrctl/cmd/api/get.go:28 mgrctl/cmd/api/post.go:28
 msgid "unable to login to the server"
 msgstr "无法登录到服务器"
 
 #: mgrctl/cmd/api/get.go:35 mgrctl/cmd/api/post.go:51
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "error in query '%s'"
-msgstr "查询 %s 中存在错误"
+msgstr "查询 \"%s\" 中存在错误"
 
 #: mgrctl/cmd/api/login.go:23
 msgid "Refusing to overwrite existing login. Use --force to ignore this check."
-msgstr ""
+msgstr "将拒绝重写现有登录名。使用 --force 可忽略此检查。"
 
 #: mgrctl/cmd/api/login.go:35
 msgid "Failed to validate credentials."
-msgstr ""
+msgstr "无法验证身份凭证。"
 
 #: mgrctl/cmd/api/login.go:41
 msgid "Login credentials verified."
-msgstr ""
+msgstr "已校验登录身份凭证。"
 
 #: mgrctl/cmd/api/login.go:51
 msgid "Successfully logged out"
-msgstr ""
+msgstr "已成功注销"
 
 #: mgrctl/cmd/cmd.go:29
 msgid "Uyuni control tool"
