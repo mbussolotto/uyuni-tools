@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-30 06:59+0000\n"
+"PO-Revision-Date: 2025-06-13 04:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ja/>\n"
 "Language: ja\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
-msgstr ""
+msgstr "バックアップの作成"
 
 #: mgradm/cmd/backup/backup.go:29
 msgid "Create backup of the already configured Uyuni system"
@@ -67,10 +67,8 @@ msgid "Skip restore of selected volumes"
 msgstr ""
 
 #: mgradm/cmd/backup/backup.go:60
-#, fuzzy
-#| msgid "Also remove the volumes"
 msgid "Do not restore database volume"
-msgstr "ボリュームも削除する"
+msgstr "データベースボリュームを復元しない"
 
 #: mgradm/cmd/backup/backup.go:61
 msgid "Skip restore of container images"
@@ -81,16 +79,12 @@ msgid "Do not restore podman configuration. Defaults will be used"
 msgstr ""
 
 #: mgradm/cmd/backup/backup.go:63
-#, fuzzy
-#| msgid "Restarting services after updating the certificate"
 msgid "Restart service after restore is done"
-msgstr "証明書更新後のサービスの再起動"
+msgstr "復元が完了したらサービスを再起動します"
 
 #: mgradm/cmd/backup/backup.go:65
-#, fuzzy
-#| msgid "Force overwrite of output file if already exists"
 msgid "Force overwrite of existing items"
-msgstr "出力ファイルがすでに存在する場合、強制的に上書きします"
+msgstr "既存の項目を強制的に上書きする"
 
 #: mgradm/cmd/backup/backup.go:66
 msgid "Skip existing items and restore the rest"
@@ -105,10 +99,8 @@ msgid "Backup solution"
 msgstr ""
 
 #: mgradm/cmd/backup/backup.go:78
-#, fuzzy
-#| msgid "Tools for autoinstallation distributions management"
 msgid "Tools for local backup management"
-msgstr "自動インストールディストリビューション管理用ツール"
+msgstr "ローカルバックアップ管理用ツール"
 
 #: mgradm/cmd/backup/backup.go:101
 #, javascript-format
@@ -132,16 +124,12 @@ msgid "Important data were restored successfully, but with warnings"
 msgstr ""
 
 #: mgradm/cmd/backup/create/create.go:59
-#, fuzzy
-#| msgid "Stop the server"
 msgid "Stopping server service"
-msgstr "サーバの停止"
+msgstr "サーバサービスの停止"
 
 #: mgradm/cmd/backup/create/create.go:82
-#, fuzzy
-#| msgid "Restart the server"
 msgid "Restarting server service"
-msgstr "サーバの再起動"
+msgstr "サーバサービスの再起動"
 
 #: mgradm/cmd/backup/create/create.go:86
 #, javascript-format
@@ -149,10 +137,9 @@ msgid "Backup finished into %s"
 msgstr ""
 
 #: mgradm/cmd/backup/create/create.go:105
-#, fuzzy, javascript-format
-#| msgid "failed to create temporary directory"
+#, javascript-format
 msgid "Would create '%s' directory"
-msgstr "一時ディレクトリの作成に失敗しました"
+msgstr "「%s」ディレクトリを作成します"
 
 #: mgradm/cmd/backup/create/create.go:108
 #, fuzzy
