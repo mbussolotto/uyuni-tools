@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-13 07:59+0000\n"
+"PO-Revision-Date: 2025-06-13 10:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ja/>\n"
 "Language: ja\n"
@@ -76,7 +76,7 @@ msgstr "コンテナイメージの復元をスキップする"
 
 #: mgradm/cmd/backup/backup.go:62
 msgid "Do not restore podman configuration. Defaults will be used"
-msgstr ""
+msgstr "podmanの設定を復元しないでください。デフォルトが使用されます"
 
 #: mgradm/cmd/backup/backup.go:63
 msgid "Restart service after restore is done"
@@ -88,15 +88,15 @@ msgstr "既存の項目を強制的に上書きします"
 
 #: mgradm/cmd/backup/backup.go:66
 msgid "Skip existing items and restore the rest"
-msgstr ""
+msgstr "既存の項目をスキップして残りを復元する"
 
 #: mgradm/cmd/backup/backup.go:67
 msgid "Skip verification of the backup files"
-msgstr ""
+msgstr "バックアップファイルの検証をスキップする"
 
 #: mgradm/cmd/backup/backup.go:77
 msgid "Backup solution"
-msgstr ""
+msgstr "バックアップソリューション"
 
 #: mgradm/cmd/backup/backup.go:78
 msgid "Tools for local backup management"
@@ -105,23 +105,23 @@ msgstr "ローカルバックアップ管理用ツール"
 #: mgradm/cmd/backup/backup.go:101
 #, javascript-format
 msgid "Backup aborted, partially backed up files remains in '%s'"
-msgstr ""
+msgstr "バックアップが中止されました。部分的にバックアップされたファイルが「%s」に残っています"
 
 #: mgradm/cmd/backup/backup.go:105
 msgid "Important data were backed up successfully, but errors were present. Restore will use default values where needed"
-msgstr ""
+msgstr "重要なデータは正常にバックアップされましたが、エラーが発生しました。復元では必要に応じてデフォルト値が使用されます"
 
 #: mgradm/cmd/backup/backup.go:125
 msgid "Encountered problems:"
-msgstr ""
+msgstr "発生した問題:"
 
 #: mgradm/cmd/backup/backup.go:127
 msgid "Restore aborted with partially restored files. Resolve the error and try again"
-msgstr ""
+msgstr "復元が中止され、一部のファイルが復元されました。エラーを解決して再試行してください"
 
 #: mgradm/cmd/backup/backup.go:130
 msgid "Important data were restored successfully, but with warnings"
-msgstr ""
+msgstr "重要なデータは正常に復元されましたが、警告が発生しました"
 
 #: mgradm/cmd/backup/create/create.go:59
 msgid "Stopping server service"
@@ -134,7 +134,7 @@ msgstr "サーバサービスの再起動"
 #: mgradm/cmd/backup/create/create.go:86
 #, javascript-format
 msgid "Backup finished into %s"
-msgstr ""
+msgstr "%s へのバックアップが完了しました"
 
 #: mgradm/cmd/backup/create/create.go:105
 #, javascript-format
@@ -147,11 +147,11 @@ msgstr "ターゲット出力ディレクトリを作成できません: %w"
 
 #: mgradm/cmd/backup/create/create.go:149
 msgid "Backing up container volumes"
-msgstr ""
+msgstr "コンテナボリュームのバックアップ"
 
 #: mgradm/cmd/backup/create/create.go:173
 msgid "Backing up container images"
-msgstr ""
+msgstr "コンテナイメージのバックアップ"
 
 #: mgradm/cmd/backup/create/create.go:178
 #, javascript-format
@@ -217,11 +217,11 @@ msgstr "シークレットデータの読み込みに失敗しました"
 #: mgradm/cmd/backup/create/podman_utils.go:128
 #: mgradm/cmd/backup/restore/podman_utils.go:153
 msgid "Unable to decode podman secrets"
-msgstr ""
+msgstr "podmanのシークレットをデコードできません"
 
 #: mgradm/cmd/backup/create/podman_utils.go:143
 msgid "Unable to encode secrets backup"
-msgstr ""
+msgstr "シークレットのバックアップをエンコードできません"
 
 #: mgradm/cmd/backup/create/systemd_utils.go:25
 #, javascript-format
@@ -235,24 +235,24 @@ msgstr "Systemdのバックアップtarballの作成に失敗しました: %w"
 #: mgradm/cmd/backup/restore/podman_utils.go:48
 #, javascript-format
 msgid "Ignoring unexpected file in the podman backup %s"
-msgstr ""
+msgstr "podmanのバックアップ %s 内の予期しないファイルを無視します"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:59
 msgid "Unable to decode network data backup"
-msgstr ""
+msgstr "ネットワークデータのバックアップをデコードできません"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:63
 msgid "Incorrect network data backup"
-msgstr ""
+msgstr "ネットワークデータのバックアップが正しくありません"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:97
 #: mgradm/cmd/backup/restore/podman_utils.go:130
 msgid "podman network already exists"
-msgstr ""
+msgstr "podmanのネットワークはすでに存在します"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:102
 msgid "Unable to create podman network! Check the error and create network manually before starting the service"
-msgstr ""
+msgstr "podmanのネットワークを作成できません。エラーを確認し、サービスを開始する前に手動でネットワークを作成してください"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:110
 msgid "Would restore network configuration"
@@ -260,19 +260,19 @@ msgstr "ネットワーク設定を復元します"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:115
 msgid "Failed to read backed up network configuration, trying default"
-msgstr ""
+msgstr "バックアップされたネットワーク設定の読み込みに失敗しました。デフォルトを試行しています"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:121
 msgid "Failed to decode backed up network configuration, trying default"
-msgstr ""
+msgstr "バックアップされたネットワーク設定のデコードに失敗しました。デフォルトを試行しています"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:129
 msgid "Podman network already exists, not restoring unless forced"
-msgstr ""
+msgstr "podmanのネットワークはすでに存在しており、強制されない限り復元されません"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:142
 msgid "Restoring podman network"
-msgstr ""
+msgstr "podmanネットワークの復元"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:144
 msgid "Unlable to create podman network"
@@ -285,24 +285,24 @@ msgstr "シークレット %s をデコードできません。そのまま使�
 
 #: mgradm/cmd/backup/restore/podman_utils.go:174
 msgid "Would restore podman secrets"
-msgstr ""
+msgstr "podmanのシークレットを復元します"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:180
 msgid "Failed to read backed up podman secrets, no secrets were restored"
-msgstr ""
+msgstr "バックアップされたpodmanのシークレットの読み込みに失敗しました。シークレットは復元されませんでした"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:185
 msgid "Failed to decode backed up podman secrets, no secrets were restored"
-msgstr ""
+msgstr "バックアップされたpodmanのシークレットのデコードに失敗しました。シークレットは復元されませんでした"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:190
 msgid "Restoring podman secrets"
-msgstr ""
+msgstr "podmanのシークレットの復元"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:197
 #, javascript-format
 msgid "Podman secret %s is already present, not restoring unless forced"
-msgstr ""
+msgstr "podmanのシークレット %s はすでに存在しており、強制されない限り復元されません"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:203
 msgid "Unable to create podman secret"
@@ -315,24 +315,24 @@ msgstr "入力ディレクトリ %s が存在しません"
 
 #: mgradm/cmd/backup/restore/restore.go:114
 msgid "Restoring over already initialized server"
-msgstr ""
+msgstr "すでに初期化されたサーバの復元"
 
 #: mgradm/cmd/backup/restore/restore.go:116
 msgid "server is already initialized. Use force to overwrite"
-msgstr ""
+msgstr "サーバはすでに初期化されています。強制的に上書きしてください"
 
 #: mgradm/cmd/backup/restore/restore.go:135
 msgid "No volumes found in the backup"
-msgstr ""
+msgstr "バックアップにボリュームが見つかりません"
 
 #: mgradm/cmd/backup/restore/restore.go:140
 msgid "Unable to read directory with the volumes"
-msgstr ""
+msgstr "ボリュームのあるディレクトリを読み込むことができません"
 
 #: mgradm/cmd/backup/restore/restore.go:153
 #, javascript-format
 msgid "Skipping volume %s"
-msgstr ""
+msgstr "ボリューム %s をスキップしています"
 
 #: mgradm/cmd/backup/restore/restore.go:161
 #, javascript-format
@@ -347,24 +347,24 @@ msgstr "既存のボリューム %s を復元しません"
 #: mgradm/cmd/backup/restore/restore.go:172
 #, javascript-format
 msgid "Not restoring existing volume %s unless forced"
-msgstr ""
+msgstr "強制されない限り、既存のボリューム %s を復元しません"
 
 #: mgradm/cmd/backup/restore/restore.go:174
 #, javascript-format
 msgid "Volume %s will be overwriten"
-msgstr ""
+msgstr "ボリューム %s は上書きされます"
 
 #: mgradm/cmd/backup/restore/restore.go:191
 msgid "No images found in the backup"
-msgstr ""
+msgstr "バックアップにイメージが見つかりません"
 
 #: mgradm/cmd/backup/restore/restore.go:195
 msgid "Unable to read directory with the images"
-msgstr ""
+msgstr "イメージのあるディレクトリを読み込むことができません"
 
 #: mgradm/cmd/backup/restore/restore.go:233
 msgid "podman config backup not found in the backup location, trying defaults"
-msgstr ""
+msgstr "podmanのconfigバックアップがバックアップ場所に見つかりません。デフォルトを試しています"
 
 #: mgradm/cmd/backup/restore/restore.go:239
 msgid "Unable to validate podman backup file"
@@ -376,7 +376,7 @@ msgstr "systemd設定の復元"
 
 #: mgradm/cmd/backup/restore/restore.go:250
 msgid "systemd backup not found in the backup location, generating defaults"
-msgstr ""
+msgstr "バックアップの場所にsystemdのバックアップが見つかりません。デフォルトが生成されます"
 
 #: mgradm/cmd/backup/restore/restore.go:255
 msgid "Unable to validate systemd backup file"
@@ -395,7 +395,7 @@ msgstr "ディレクトリ %s を作成できません"
 #: mgradm/cmd/backup/restore/systemd_utils.go:58
 #, javascript-format
 msgid "Unknown filetype of %s"
-msgstr ""
+msgstr "%s のファイルタイプが不明です"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:63
 #, javascript-format
@@ -410,7 +410,7 @@ msgstr "%s を作成できません"
 #: mgradm/cmd/backup/restore/systemd_utils.go:77
 #, javascript-format
 msgid "Unable to restore content of %s"
-msgstr ""
+msgstr "%s のコンテンツを復元できません"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:96
 msgid "Would generate default systemd services"
@@ -419,11 +419,11 @@ msgstr "デフォルトのsystemdサービスを生成します"
 #: mgradm/cmd/backup/shared/utils.go:31
 #, javascript-format
 msgid "unable to determine target %s storage size"
-msgstr ""
+msgstr "ターゲット %s のストレージサイズを決定できません"
 
 #: mgradm/cmd/backup/shared/utils.go:61
 msgid "insufficient space on target device"
-msgstr ""
+msgstr "ターゲットデバイスの空き容量が不足しています"
 
 #: mgradm/cmd/backup/shared/utils.go:68 mgradm/cmd/install/podman/utils.go:65
 #: mgradm/cmd/migrate/podman/utils.go:32
@@ -457,7 +457,7 @@ msgstr "%s へようこそ"
 
 #: mgradm/cmd/cmd.go:68
 msgid "Use of this software implies acceptance of the End User License Agreement."
-msgstr ""
+msgstr "このソフトウェアを使用すると、エンドユーザライセンス契約に同意したことになります。"
 
 #: mgradm/cmd/cmd.go:69
 #, javascript-format
@@ -1147,7 +1147,7 @@ msgstr "SSL CA証明書をホストの信頼済み証明書に追加できませ
 
 #: mgradm/cmd/install/shared/shared.go:68
 msgid "unable to prepare API client"
-msgstr ""
+msgstr "APIクライアントを準備できません"
 
 #: mgradm/cmd/install/shared/shared.go:72
 msgid "Server organization already exists, reusing"
@@ -1940,7 +1940,7 @@ msgstr "データを検査できません"
 
 #: mgradm/shared/podman/podman.go:526
 msgid "The above error is only relevant if using a public cloud provider registry"
-msgstr ""
+msgstr "上記のエラーは、パブリッククラウドプロバイダのレジストリを使用している場合のみ関係します"
 
 #: mgradm/shared/ssl/ssl.go:48
 msgid "Failed to find a non-CA certificate"
@@ -2058,12 +2058,16 @@ msgid ""
 "SUSE Customer Center username.\n"
 "It will be used as SCC credentials for products synchronization and to pull images from registry.suse.com"
 msgstr ""
+"SUSEカスタマーセンターのユーザ名。 \n"
+"これは、製品の同期とregistry.suse.comからのイメージの取得のためにSCC資格情報として使用されます"
 
 #: mgradm/shared/utils/cmd_utils.go:83
 msgid ""
 "SUSE Customer Center password.\n"
 "It will be used as SCC credentials for products synchronization and to pull images from registry.suse.com"
 msgstr ""
+"SUSEカスタマーセンターのパスワード。 \n"
+"これは、製品の同期とregistry.suse.comからのイメージの取得のためにSCC資格情報として使用されます"
 
 #: mgradm/shared/utils/cmd_utils.go:86
 msgid "SUSE Customer Center Flags"
