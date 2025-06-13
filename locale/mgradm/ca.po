@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-13 10:59+0000\n"
+"PO-Revision-Date: 2025-06-13 13:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
@@ -371,70 +371,59 @@ msgid "Unable to validate podman backup file"
 msgstr "No es pot validar el fitxer de còpia de seguretat de podman"
 
 #: mgradm/cmd/backup/restore/restore.go:247
-#, fuzzy
-#| msgid "cannot generate systemd user configuration file"
 msgid "Restoring systemd configuration"
-msgstr "no s'ha pogut generar el fitxer de configuració de l'usuari del sistema"
+msgstr "Restauració de la configuració de systemd"
 
 #: mgradm/cmd/backup/restore/restore.go:250
 msgid "systemd backup not found in the backup location, generating defaults"
-msgstr ""
+msgstr "No s'ha trobat la còpia de seguretat de systemd a la ubicació de la còpia de seguretat. Es generen valors per defecte."
 
 #: mgradm/cmd/backup/restore/restore.go:255
-#, fuzzy
-#| msgid "failed to generate systemd service unit file"
 msgid "Unable to validate systemd backup file"
-msgstr "no s'ha pogut generar el fitxer de la unitat de servei del systemd"
+msgstr "No es pot validar el fitxer de còpia de seguretat de systemd"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:40
-#, fuzzy, javascript-format
-#| msgid "Would run %s"
+#, javascript-format
 msgid "Would restore %s"
-msgstr "S'executaria %s"
+msgstr "Restauraria %s"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:48
-#, fuzzy, javascript-format
-#| msgid "failed to create folder %s"
+#, javascript-format
 msgid "Unable to create directory %s"
-msgstr "no s'ha pogut crear la carpeta %s"
+msgstr "No s'ha pogut crear el directori %s"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:58
 #, javascript-format
 msgid "Unknown filetype of %s"
-msgstr ""
+msgstr "Tipus de fitxer desconegut de %s"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:63
-#, fuzzy, javascript-format
-#| msgid "failed to create folder %s"
+#, javascript-format
 msgid "Unable to restore file details for %s"
-msgstr "no s'ha pogut crear la carpeta %s"
+msgstr "No s'han pogut restaurar els detalls del fitxer %s"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:73
-#, fuzzy, javascript-format
-#| msgid "Failed to create issuer"
+#, javascript-format
 msgid "Unable to create %s"
-msgstr "No s'ha pogut crear l'emissor"
+msgstr "No es pot crear %s"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:77
-#, fuzzy, javascript-format
-#| msgid "unable to prepare API client"
+#, javascript-format
 msgid "Unable to restore content of %s"
-msgstr "no s'ha pogut preparar el client API"
+msgstr "No s'ha pogut restaurar el contingut de %s"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:96
-#, fuzzy
-#| msgid "cannot generate systemd service"
 msgid "Would generate default systemd services"
-msgstr "no s'ha pogut generar el servei systemd"
+msgstr "Generaria serveis de systemd per defecte"
 
 #: mgradm/cmd/backup/shared/utils.go:31
 #, javascript-format
 msgid "unable to determine target %s storage size"
-msgstr ""
+msgstr "no es pot determinar la mida d'emmagatzematge de l'objectiu %s"
 
 #: mgradm/cmd/backup/shared/utils.go:61
 msgid "insufficient space on target device"
-msgstr ""
+msgstr "espai insuficient al dispositiu de destinació"
 
 #: mgradm/cmd/backup/shared/utils.go:68 mgradm/cmd/install/podman/utils.go:65
 #: mgradm/cmd/migrate/podman/utils.go:32
@@ -2139,7 +2128,7 @@ msgstr ""
 #: mgradm/shared/utils/cmd_utils.go:140 mgradm/shared/utils/cmd_utils.go:141
 #: mgradm/shared/utils/cmd_utils.go:150 mgradm/shared/utils/cmd_utils.go:151
 msgid "Hub XML-RPC API"
-msgstr "Concentrador XML-RPC API"
+msgstr "API del concentrador XML-RPC"
 
 #: mgradm/shared/utils/cmd_utils.go:143
 msgid "How many replicas of the Hub XML-RPC API service container should be started."
