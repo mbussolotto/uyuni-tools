@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-03-10 07:56+0000\n"
+"PO-Revision-Date: 2025-06-13 10:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ko/>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: shared/api/api.go:29
 msgid "FQDN of the server to connect to"
@@ -39,8 +39,9 @@ msgid "If set, server certificate will not be checked for validity"
 msgstr "설정하면 서버 인증서의 유효성을 확인하지 않습니다."
 
 #: shared/api/api.go:74
+#, fuzzy
 msgid "401: unauthorized"
-msgstr ""
+msgstr "401: 승인되지 않음"
 
 #: shared/api/api.go:88
 #, javascript-format
@@ -48,17 +49,19 @@ msgid "unknown error: %d"
 msgstr "알 수 없는 오류: %d"
 
 #: shared/api/api.go:120
+#, fuzzy
 msgid "server URL is not provided"
-msgstr ""
+msgstr "서버 URL이 제공되지 않음"
 
 #: shared/api/api.go:152
+#, fuzzy
 msgid "Cached session is expired."
-msgstr ""
+msgstr "캐시된 세션이 만료되었습니다."
 
 #: shared/api/api.go:154 shared/api/credentials.go:70
 #, fuzzy
 msgid "Failed to remove stored credentials!"
-msgstr "%s 파일 제거를 하지 못함"
+msgstr "저장된 자격 증명을 제거하지 못했습니다!"
 
 #: shared/api/api.go:172
 msgid "Unable to create login data"
@@ -71,69 +74,75 @@ msgstr "로그인 응답에서 인증 쿠키를 찾을 수 없습니다."
 #: shared/api/api.go:217
 #, fuzzy
 msgid "failed to logout from the server"
-msgstr "서버에 연결하지 못함"
+msgstr "서버에서 로그아웃하지 못함"
 
 #: shared/api/api.go:238
 msgid "Unable to convert data to JSON"
 msgstr "데이터를 JSON으로 변환할 수 없습니다."
 
 #: shared/api/credentials.go:21
+#, fuzzy
 msgid "not logged in, session cookie is missing"
-msgstr ""
+msgstr "로그인되지 않음, 세션 쿠키가 누락됨"
 
 #: shared/api/credentials.go:34
 #, fuzzy
 msgid "unable to create credentials json"
-msgstr "로그인 데이터를 생성할 수 없습니다."
+msgstr "자격 증명 json을 만들 수 없음"
 
 #: shared/api/credentials.go:39
 #, fuzzy, javascript-format
 msgid "unable to write credentials store %s"
-msgstr "tar.gz를 %s에 쓰지 못함"
+msgstr "자격 증명 저장소 %s에 쓸 수 없습니다."
 
 #: shared/api/credentials.go:53
 #, fuzzy
 msgid "API server URL"
-msgstr "API 서버 비밀번호"
+msgstr "API 서버 URL"
 
 #: shared/api/credentials.go:54
 #, fuzzy
 msgid "API server user"
-msgstr "API 서버 비밀번호"
+msgstr "API 서버 사용자"
 
 #: shared/api/credentials.go:55
 msgid "API server password"
 msgstr "API 서버 비밀번호"
 
 #: shared/api/credentials.go:58
+#, fuzzy
 msgid "No credentials provided"
-msgstr ""
+msgstr "자격 증명 제공되지 않음"
 
 #: shared/api/credentials.go:68
+#, fuzzy
 msgid "Cannot load stored credentials"
-msgstr ""
+msgstr "저장된 자격 증명을 로드할 수 없음"
 
 #: shared/api/credentials.go:83
 #, fuzzy, javascript-format
 msgid "unable to read credentials file %s"
-msgstr "%s 파일 읽기 실패"
+msgstr "자격 증명 파일 %s을 읽을 수 없음"
 
 #: shared/api/credentials.go:88
+#, fuzzy
 msgid "unable to decode credentials file"
-msgstr ""
+msgstr "자격 증명 파일을 디코딩할 수 없음"
 
 #: shared/api/credentials.go:92
+#, fuzzy
 msgid "no credentials loaded"
-msgstr ""
+msgstr "자격 증명이 로드되지 않음"
 
 #: shared/api/credentials.go:101
+#, fuzzy
 msgid "specified api server does not match with stored credentials"
-msgstr ""
+msgstr "지정된 API 서버가 저장된 자격 증명과 일치하지 않음"
 
 #: shared/api/org/createFirst.go:22
 #, fuzzy
 msgid "unable to prepare API client"
-msgstr "로그인 데이터를 생성할 수 없습니다."
+msgstr "API 클라이언트를 준비할 수 없음"
 
 #: shared/api/org/createFirst.go:36
 msgid "failed to create first user and organization"
@@ -371,17 +380,17 @@ msgstr "base64 시크릿 %s을(를) 디코딩하지 못함"
 #: shared/kubernetes/kubernetes.go:185
 #, fuzzy, javascript-format
 msgid "failed to write %s secret definition file"
-msgstr "%s 파일 쓰기 실패"
+msgstr "%s 시크릿 정의 파일 쓰기 실패"
 
 #: shared/kubernetes/kubernetes.go:189
 #, fuzzy, javascript-format
 msgid "failed to define %s secret"
-msgstr "%s 서비스 비활성화 실패"
+msgstr "%s 시크릿을 정의하지 못함"
 
 #: shared/kubernetes/kubernetes.go:216
 #, fuzzy
 msgid "failed to get deployment image pull secret"
-msgstr "배포 상태를 구문 분석하지 못함"
+msgstr "배포 이미지 끌어오기 시크릿을 가져오지 못함"
 
 #: shared/kubernetes/rke2.go:21
 msgid "Installing RKE2 Nginx configuration"
@@ -655,13 +664,13 @@ msgstr "%s 실행"
 #, fuzzy, javascript-format
 #| msgid "Failed to remove image %s"
 msgid "Failed to export image %s"
-msgstr "%s 이미지를 제거하지 못함"
+msgstr "%s 이미지를 내보내지 못함"
 
 #: shared/podman/images.go:312
 #, fuzzy, javascript-format
 #| msgid "Failed to remove image %s"
 msgid "Failed to restore image %s"
-msgstr "%s 이미지를 제거하지 못함"
+msgstr "%s 이미지를 복원하지 못함"
 
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
@@ -721,17 +730,17 @@ msgstr "네트워크 제거됨"
 #: shared/podman/secret.go:48
 #, fuzzy, javascript-format
 msgid "failed to write %s secret to file"
-msgstr "%s 파일 쓰기 실패"
+msgstr "%s 시크릿을 파일에 쓰지 못함"
 
 #: shared/podman/secret.go:53
 #, fuzzy, javascript-format
 msgid "failed to create podman secret %s"
-msgstr "podman 조사 %s 실행 실패"
+msgstr "podman 시크릿 %s 만들기 실패"
 
 #: shared/podman/secret.go:77
 #, fuzzy, javascript-format
 msgid "Failed to delete %s secret"
-msgstr "%s 서비스 비활성화 실패"
+msgstr "%s 시크릿 삭제 실패"
 
 #: shared/podman/support.go:27
 msgid "No systemd file to add to the archive"
@@ -766,12 +775,12 @@ msgstr "systemctl cat uyuni-* 실행 실패"
 #: shared/podman/support.go:85
 #, fuzzy
 msgid "failed to close inspect dump file"
-msgstr "임시 인증 파일 닫기 실패"
+msgstr "덤프 파일 조사 닫기 실패"
 
 #: shared/podman/support.go:108
 #, fuzzy
 msgid "failed to close bound files"
-msgstr "%s 파일 생성 실패"
+msgstr "바운드 파일 닫기 실패"
 
 #: shared/podman/support.go:146
 #, javascript-format
@@ -946,12 +955,12 @@ msgstr "컨테이너 이미 제거됨"
 #: shared/podman/utils.go:119
 #, fuzzy, javascript-format
 msgid "failed to get %s systemd service definition"
-msgstr "%s systemd service를 활성화하지 못함"
+msgstr "%s systemd 서비스 정의를 가져오지 못함"
 
 #: shared/podman/utils.go:126
 #, fuzzy, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
-msgstr "%s systemd service를 활성화하지 못함"
+msgstr "%s systemd 서비스에 UYUNI_IMAGE 정의되지 않음"
 
 #: shared/podman/utils.go:143
 #, javascript-format
@@ -967,29 +976,29 @@ msgstr "볼륨 %s이(가) 외부에 탑재되어 있어, 디렉토리를 제거�
 #, fuzzy, javascript-format
 #| msgid "Failed to remove volume %s"
 msgid "Failed to export volume %s"
-msgstr "%s 볼륨 제거 실패"
+msgstr "%s 볼륨 내보내기 실패"
 
 #: shared/podman/utils.go:218
 #, fuzzy
 msgid "Failed to write checksum of volume %[1]s to the %[2]s"
-msgstr "볼륨 폴더 %s을(를) %s에 연결 실패: %s"
+msgstr "볼륨 %[1]의 체크섬을 %[2]에 쓰지 못했습니다."
 
 #: shared/podman/utils.go:235
-#, javascript-format
+#, fuzzy, javascript-format
 msgid "Checksum does not match for volume %s"
-msgstr ""
+msgstr "볼륨 %s에 대한 체크섬이 일치하지 않음"
 
 #: shared/podman/utils.go:239
 #, fuzzy, javascript-format
 #| msgid "Failed to remove volume %s"
 msgid "Failed to precreate empty volume %s"
-msgstr "%s 볼륨 제거 실패"
+msgstr "비어 있는 볼륨 %s 미리 만들기 실패"
 
 #: shared/podman/utils.go:244
 #, fuzzy, javascript-format
 #| msgid "Failed to remove volume %s"
 msgid "Failed to import volume %s"
-msgstr "%s 볼륨 제거 실패"
+msgstr "%s 볼륨 가져오기 실패"
 
 #: shared/podman/utils.go:325
 msgid "failed to login to registry.suse.com"
@@ -1004,7 +1013,9 @@ msgstr "구성을 마샬링 해제하지 못했습니다."
 msgid ""
 "tool to use to reach the container. Possible values: 'podman', 'podman-remote', 'kubectl'.\n"
 "Default guesses which to use."
-msgstr "컨테이너에 도달하기 위해 사용되는 도구. 가능한 값: 'podman', 'podman-remote', 'kubectl'. 사용할 기본값 추측."
+msgstr ""
+"컨테이너에 도달하기 위해 사용되는 도구. 가능한 값: 'podman', 'podman-remote', 'kubectl'.\n"
+"사용할 기본값 추측."
 
 #: shared/utils/cmd.go:86
 msgid "set whether to pull the images or not. The value can be one of 'Never', 'IfNotPresent' or 'Always'"
@@ -1230,22 +1241,22 @@ msgstr "임시 디렉토리를 만들지 못함"
 #: shared/utils/files.go:87
 #, fuzzy
 msgid "failed to remove temporary directory"
-msgstr "임시 디렉토리를 만들지 못함"
+msgstr "임시 디렉토리를 제거하지 못함"
 
 #: shared/utils/files.go:97
 #, fuzzy, javascript-format
 msgid "fails to open %s file"
-msgstr "%s 파일 쓰기 실패"
+msgstr "%s 파일 열기 실패"
 
 #: shared/utils/files.go:109
 #, fuzzy, javascript-format
 msgid "failed to read %s file"
-msgstr "%s 파일 생성 실패"
+msgstr "%s 파일 읽기 실패"
 
 #: shared/utils/files.go:113
 #, fuzzy, javascript-format
 msgid "failed to copy %s file"
-msgstr "%s 파일 생성 실패"
+msgstr "%s 파일 복사 실패"
 
 #: shared/utils/flaggroups.go:56
 msgid "Flags:\n"
@@ -1342,8 +1353,9 @@ msgstr "공백이나 탭을 포함할 수 없습니다."
 
 #: shared/utils/utils.go:103 shared/utils/utils.go:127
 #: shared/utils/utils.go:140
+#, fuzzy
 msgid "not an interactive device, not asking for missing value"
-msgstr ""
+msgstr "대화형 장치가 아니며, 누락된 값을 요구하지 않음"
 
 #: shared/utils/utils.go:112
 msgid "Confirm the password"
@@ -1418,39 +1430,42 @@ msgstr "%s 해결 불가"
 #, fuzzy, javascript-format
 #| msgid "Failed to remove file %s"
 msgid "Failed to calculate checksum of the file %s"
-msgstr "%s 파일 제거 실패"
+msgstr "파일 %s의 체크섬을 계산하지 못함"
 
 #: shared/utils/utils.go:410
 #, fuzzy
 msgid "Failed to write checksum of the file %[1]s to the %[2]s"
-msgstr "볼륨 폴더 %s을(를) %s에 연결 실패: %s"
+msgstr "%[1] 파일의 체크섬을 %[2]에 쓰지 못했습니다."
 
 #: shared/utils/utils.go:420
-#, javascript-format
+#, fuzzy, javascript-format
 msgid "Checksum of %s does not match"
-msgstr ""
+msgstr "%s의 체크섬이 일치하지 않음"
 
 #: shared/utils/uyuniservices.go:18
 #, fuzzy
 #| msgid "cannot enable service"
 msgid "Main service"
-msgstr "서비스를 활성할 수 없음"
+msgstr "기본 서비스"
 
 #: shared/utils/uyuniservices.go:24
+#, fuzzy
 msgid "Migration helper"
-msgstr ""
+msgstr "마이그레이션 도우미"
 
 #: shared/utils/uyuniservices.go:30
 msgid "Confidential computing attestation"
-msgstr ""
+msgstr "기밀 컴퓨팅 증명"
 
 #: shared/utils/uyuniservices.go:36
+#, fuzzy
 msgid "Hub XML-RPC API"
-msgstr ""
+msgstr "Hub XML-RPC API"
 
 #: shared/utils/uyuniservices.go:42
+#, fuzzy
 msgid "Saline"
-msgstr ""
+msgstr "Saline"
 
 #~ msgid "cannot fetch namespace"
 #~ msgstr "네임스페이스를 가져올 수 없음"
