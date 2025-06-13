@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-29 04:59+0000\n"
+"PO-Revision-Date: 2025-06-13 10:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ja/>\n"
 "Language: ja\n"
@@ -131,9 +131,8 @@ msgid "specified api server does not match with stored credentials"
 msgstr ""
 
 #: shared/api/org/createFirst.go:22
-#, fuzzy
 msgid "unable to prepare API client"
-msgstr "ログインデータを作成できません"
+msgstr "APIクライアントを準備できません"
 
 #: shared/api/org/createFirst.go:36
 msgid "failed to create first user and organization"
