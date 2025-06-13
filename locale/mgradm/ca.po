@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-13 07:59+0000\n"
+"PO-Revision-Date: 2025-06-13 10:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
@@ -243,143 +243,132 @@ msgstr "No es pot descodificar la còpia de seguretat de dades de xarxa"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:63
 msgid "Incorrect network data backup"
-msgstr ""
+msgstr "Còpia de seguretat de dades de xarxa incorrecta"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:97
 #: mgradm/cmd/backup/restore/podman_utils.go:130
 msgid "podman network already exists"
-msgstr ""
+msgstr "La xarxa de podman ja existeix"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:102
 msgid "Unable to create podman network! Check the error and create network manually before starting the service"
-msgstr ""
+msgstr "No s'ha pogut crear la xarxa de podman! Comproveu l'error i creeu la xarxa manualment abans d'iniciar el servei."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:110
-#, fuzzy
-#| msgid "failed to unmarshall configuration"
 msgid "Would restore network configuration"
-msgstr "no s'ha pogut desfer la configuració del «marshall»"
+msgstr "Restauraria la configuració de la xarxa"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:115
 msgid "Failed to read backed up network configuration, trying default"
-msgstr ""
+msgstr "No s'ha pogut llegir la configuració de xarxa de la còpia de seguretat; s'intenta la configuració predeterminada."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:121
 msgid "Failed to decode backed up network configuration, trying default"
-msgstr ""
+msgstr "No s'ha pogut descodificar la configuració de xarxa de la còpia de seguretat; s'intenta la configuració predeterminada."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:129
 msgid "Podman network already exists, not restoring unless forced"
-msgstr ""
+msgstr "La xarxa de Podman ja existeix, no es restaura tret que es forci."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:142
 msgid "Restoring podman network"
-msgstr ""
+msgstr "Restauració de la xarxa de podman"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:144
-#, fuzzy
-#| msgid "failed to create folder %s"
 msgid "Unlable to create podman network"
-msgstr "no s'ha pogut crear la carpeta %s"
+msgstr "No s'ha pogut crear una xarxa de podman"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:161
 #, javascript-format
 msgid "Unable to decode secret %s, using as is"
-msgstr ""
+msgstr "No es pot descodificar el secret %s, s'usa tal com és"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:174
 msgid "Would restore podman secrets"
-msgstr ""
+msgstr "Restauraria els secrets de Podman"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:180
 msgid "Failed to read backed up podman secrets, no secrets were restored"
-msgstr ""
+msgstr "No s'han pogut llegir els secrets de podman de la còpia de seguretat; no s'ha restaurat cap secret."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:185
 msgid "Failed to decode backed up podman secrets, no secrets were restored"
-msgstr ""
+msgstr "No s'han pogut descodificar els secrets de podman de la còpia de seguretat, no s'ha restaurat cap secret."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:190
 msgid "Restoring podman secrets"
-msgstr ""
+msgstr "Restauració dels secrets de Podman"
 
 #: mgradm/cmd/backup/restore/podman_utils.go:197
 #, javascript-format
 msgid "Podman secret %s is already present, not restoring unless forced"
-msgstr ""
+msgstr "El secret %s de Podman ja és present, no es restaura tret que es forci."
 
 #: mgradm/cmd/backup/restore/podman_utils.go:203
-#, fuzzy
-#| msgid "Failed to create uyuni-crt TLS secret"
 msgid "Unable to create podman secret"
-msgstr "No s'ha pogut crear el secret uyuni-crt TLS"
+msgstr "No s'ha pogut crear el secret del podman."
 
 #: mgradm/cmd/backup/restore/restore.go:104
-#, fuzzy, javascript-format
-#| msgid "source %s does not exists"
+#, javascript-format
 msgid "input directory %s does not exists"
-msgstr "la font %s no existeix"
+msgstr "El directori d'entrada %s no existeix."
 
 #: mgradm/cmd/backup/restore/restore.go:114
 msgid "Restoring over already initialized server"
-msgstr ""
+msgstr "Restauració sobre un servidor ja iniciat"
 
 #: mgradm/cmd/backup/restore/restore.go:116
 msgid "server is already initialized. Use force to overwrite"
-msgstr ""
+msgstr "el servidor ja està iniciat. Es força la sobreescriptura"
 
 #: mgradm/cmd/backup/restore/restore.go:135
 msgid "No volumes found in the backup"
-msgstr ""
+msgstr "No s'han trobat volums a la còpia de seguretat."
 
 #: mgradm/cmd/backup/restore/restore.go:140
 msgid "Unable to read directory with the volumes"
-msgstr ""
+msgstr "No es pot llegir el directori amb els volums."
 
 #: mgradm/cmd/backup/restore/restore.go:153
 #, javascript-format
 msgid "Skipping volume %s"
-msgstr ""
+msgstr "S'omet el volum %s"
 
 #: mgradm/cmd/backup/restore/restore.go:161
-#, fuzzy, javascript-format
-#| msgid "Using database upgrade image %s"
+#, javascript-format
 msgid "Skipping database volume %s"
-msgstr "Utilitzant la imatge d'actualització de la base de dades %s"
+msgstr "S'omet el volum de la base de dades %s"
 
 #: mgradm/cmd/backup/restore/restore.go:168
-#, fuzzy, javascript-format
-#| msgid "cannot inspect volume %s"
+#, javascript-format
 msgid "Not restoring existing volume %s"
-msgstr "no es pot inspeccionar el volum %s"
+msgstr "No s'ha restaurat el volum existent %s"
 
 #: mgradm/cmd/backup/restore/restore.go:172
 #, javascript-format
 msgid "Not restoring existing volume %s unless forced"
-msgstr ""
+msgstr "No es restaura el volum existent %s tret que es forci"
 
 #: mgradm/cmd/backup/restore/restore.go:174
 #, javascript-format
 msgid "Volume %s will be overwriten"
-msgstr ""
+msgstr "El volum %s se sobreescriurà"
 
 #: mgradm/cmd/backup/restore/restore.go:191
 msgid "No images found in the backup"
-msgstr ""
+msgstr "No s'han trobat imatges a la còpia de seguretat"
 
 #: mgradm/cmd/backup/restore/restore.go:195
 msgid "Unable to read directory with the images"
-msgstr ""
+msgstr "No es pot llegir el directori amb les imatges"
 
 #: mgradm/cmd/backup/restore/restore.go:233
 msgid "podman config backup not found in the backup location, trying defaults"
-msgstr ""
+msgstr "No s'ha trobat la còpia de seguretat de la configuració de Podman a la ubicació de la còpia de seguretat. Es proven els valors per defecte."
 
 #: mgradm/cmd/backup/restore/restore.go:239
-#, fuzzy
-#| msgid "unable to cleanup source file"
 msgid "Unable to validate podman backup file"
-msgstr "no s'ha pogut netejar el fitxer font"
+msgstr "No es pot validar el fitxer de còpia de seguretat de podman"
 
 #: mgradm/cmd/backup/restore/restore.go:247
 #, fuzzy
