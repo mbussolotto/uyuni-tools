@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-07 11:59+0000\n"
+"PO-Revision-Date: 2025-06-13 13:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ca/>\n"
 "Language: ca\n"
@@ -644,16 +644,14 @@ msgid "Run %s"
 msgstr "Executa %s"
 
 #: shared/podman/images.go:297
-#, fuzzy, javascript-format
-#| msgid "Failed to remove image %s"
+#, javascript-format
 msgid "Failed to export image %s"
-msgstr "No s'ha pogut eliminar la imatge %s"
+msgstr "No s'ha pogut exportar la imatge %s"
 
 #: shared/podman/images.go:312
-#, fuzzy, javascript-format
-#| msgid "Failed to remove image %s"
+#, javascript-format
 msgid "Failed to restore image %s"
-msgstr "No s'ha pogut eliminar la imatge %s"
+msgstr "No s'ha pogut restaurar la imatge %s"
 
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
@@ -954,31 +952,28 @@ msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr "El volum %s està muntat externament, no es pot eliminar el directori"
 
 #: shared/podman/utils.go:215
-#, fuzzy, javascript-format
-#| msgid "Failed to remove file %s"
+#, javascript-format
 msgid "Failed to export volume %s"
-msgstr "No s'ha pogut eliminar el fitxer %s"
+msgstr "No s'ha pogut exportar el volum %s"
 
 #: shared/podman/utils.go:218
 msgid "Failed to write checksum of volume %[1]s to the %[2]s"
-msgstr ""
+msgstr "No s'ha pogut escriure la suma de verificació del volum %[1]s a %[2]s"
 
 #: shared/podman/utils.go:235
 #, javascript-format
 msgid "Checksum does not match for volume %s"
-msgstr ""
+msgstr "La suma de verificació no coincideix per al volum %s"
 
 #: shared/podman/utils.go:239
-#, fuzzy, javascript-format
-#| msgid "failed to create podman secret %s"
+#, javascript-format
 msgid "Failed to precreate empty volume %s"
-msgstr "no s'ha pogut crear el secret podman %s"
+msgstr "No s'ha pogut precrear el volum buit %s"
 
 #: shared/podman/utils.go:244
-#, fuzzy, javascript-format
-#| msgid "Failed to remove file %s"
+#, javascript-format
 msgid "Failed to import volume %s"
-msgstr "No s'ha pogut eliminar el fitxer %s"
+msgstr "No s'ha pogut importar el volum %s"
 
 #: shared/podman/utils.go:325
 msgid "failed to login to registry.suse.com"
@@ -1404,38 +1399,35 @@ msgid "cannot resolve %s"
 msgstr "no es pot resoldre %s"
 
 #: shared/utils/utils.go:406
-#, fuzzy, javascript-format
-#| msgid "Failed to remove file %s"
+#, javascript-format
 msgid "Failed to calculate checksum of the file %s"
-msgstr "No s'ha pogut eliminar el fitxer %s"
+msgstr "No s'ha pogut calcular la suma de verificació del fitxer %s"
 
 #: shared/utils/utils.go:410
 msgid "Failed to write checksum of the file %[1]s to the %[2]s"
-msgstr ""
+msgstr "No s'ha pogut escriure la suma de verificació del fitxer %[1]s a %[2]s"
 
 #: shared/utils/utils.go:420
 #, javascript-format
 msgid "Checksum of %s does not match"
-msgstr ""
+msgstr "La suma de verificació de %s no coincideix"
 
 #: shared/utils/uyuniservices.go:18
-#, fuzzy
-#| msgid "cannot enable service"
 msgid "Main service"
-msgstr "no es pot activar el servei"
+msgstr "Servei principal"
 
 #: shared/utils/uyuniservices.go:24
 msgid "Migration helper"
-msgstr ""
+msgstr "Assistent de migració"
 
 #: shared/utils/uyuniservices.go:30
 msgid "Confidential computing attestation"
-msgstr ""
+msgstr "Certificació d'informàtica confidencial"
 
 #: shared/utils/uyuniservices.go:36
 msgid "Hub XML-RPC API"
-msgstr ""
+msgstr "API del concentrador XML-RPC"
 
 #: shared/utils/uyuniservices.go:42
 msgid "Saline"
-msgstr ""
+msgstr "Saline"
