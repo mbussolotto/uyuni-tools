@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-13 10:59+0000\n"
+"PO-Revision-Date: 2025-06-14 03:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ja/>\n"
 "Language: ja\n"
@@ -40,7 +40,7 @@ msgstr "設定されている場合、サーバ証明書は有効性をチェッ
 
 #: shared/api/api.go:74
 msgid "401: unauthorized"
-msgstr ""
+msgstr "401: 権限がありません"
 
 #: shared/api/api.go:88
 #, javascript-format
@@ -49,11 +49,11 @@ msgstr "不明なエラー: %d"
 
 #: shared/api/api.go:120
 msgid "server URL is not provided"
-msgstr ""
+msgstr "サーバURLが提供されていません"
 
 #: shared/api/api.go:152
 msgid "Cached session is expired."
-msgstr ""
+msgstr "キャッシュされたセッションの有効期限が切れています。"
 
 #: shared/api/api.go:154 shared/api/credentials.go:70
 #, fuzzy
@@ -79,7 +79,7 @@ msgstr "データをJSONに変換できません"
 
 #: shared/api/credentials.go:21
 msgid "not logged in, session cookie is missing"
-msgstr ""
+msgstr "ログインしていません。セッションクッキーがありません"
 
 #: shared/api/credentials.go:34
 #, fuzzy
@@ -107,11 +107,11 @@ msgstr "APIサーバのパスワード"
 
 #: shared/api/credentials.go:58
 msgid "No credentials provided"
-msgstr ""
+msgstr "資格情報が提供されていません"
 
 #: shared/api/credentials.go:68
 msgid "Cannot load stored credentials"
-msgstr ""
+msgstr "保存されている資格情報をロードできません"
 
 #: shared/api/credentials.go:83
 #, fuzzy, javascript-format
@@ -120,15 +120,15 @@ msgstr "ファイル %s の読み込みに失敗しました"
 
 #: shared/api/credentials.go:88
 msgid "unable to decode credentials file"
-msgstr ""
+msgstr "資格情報ファイルをデコードできません"
 
 #: shared/api/credentials.go:92
 msgid "no credentials loaded"
-msgstr ""
+msgstr "資格情報がロードされていません"
 
 #: shared/api/credentials.go:101
 msgid "specified api server does not match with stored credentials"
-msgstr ""
+msgstr "指定されたAPIサーバが、保存されている資格情報と一致しません"
 
 #: shared/api/org/createFirst.go:22
 msgid "unable to prepare API client"
@@ -976,7 +976,7 @@ msgstr "ボリュームフォルダ %s を %s にリンクできませんでし�
 #: shared/podman/utils.go:235
 #, javascript-format
 msgid "Checksum does not match for volume %s"
-msgstr ""
+msgstr "ボリューム %s のチェックサムが一致しません"
 
 #: shared/podman/utils.go:239
 #, fuzzy, javascript-format
@@ -1340,7 +1340,7 @@ msgstr "スペースやタブを含むことはできません"
 #: shared/utils/utils.go:103 shared/utils/utils.go:127
 #: shared/utils/utils.go:140
 msgid "not an interactive device, not asking for missing value"
-msgstr ""
+msgstr "対話型デバイスではないので、不足している値を求めません"
 
 #: shared/utils/utils.go:112
 msgid "Confirm the password"
@@ -1425,7 +1425,7 @@ msgstr "ボリュームフォルダ %s を %s にリンクできませんでし�
 #: shared/utils/utils.go:420
 #, javascript-format
 msgid "Checksum of %s does not match"
-msgstr ""
+msgstr "%s のチェックサムが一致しません"
 
 #: shared/utils/uyuniservices.go:18
 #, fuzzy
@@ -1435,19 +1435,19 @@ msgstr "サービスを有効にできません"
 
 #: shared/utils/uyuniservices.go:24
 msgid "Migration helper"
-msgstr ""
+msgstr "移行ヘルパー"
 
 #: shared/utils/uyuniservices.go:30
 msgid "Confidential computing attestation"
-msgstr ""
+msgstr "コンフィデンシャルコンピューティング認証"
 
 #: shared/utils/uyuniservices.go:36
 msgid "Hub XML-RPC API"
-msgstr ""
+msgstr "Hub XML-RPC API"
 
 #: shared/utils/uyuniservices.go:42
 msgid "Saline"
-msgstr ""
+msgstr "Saline"
 
 #~ msgid "cannot fetch namespace"
 #~ msgstr "ネームスペースをフェッチできません"
