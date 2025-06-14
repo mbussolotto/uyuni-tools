@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-14 03:59+0000\n"
+"PO-Revision-Date: 2025-06-14 14:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ja/>\n"
 "Language: ja\n"
@@ -56,9 +56,8 @@ msgid "Cached session is expired."
 msgstr "キャッシュされたセッションの有効期限が切れています。"
 
 #: shared/api/api.go:154 shared/api/credentials.go:70
-#, fuzzy
 msgid "Failed to remove stored credentials!"
-msgstr "ファイル %s の削除に失敗しました"
+msgstr "保存されている資格情報の削除に失敗しました!"
 
 #: shared/api/api.go:172
 msgid "Unable to create login data"
@@ -69,9 +68,8 @@ msgid "auth cookie not found in login response"
 msgstr "ログイン応答に認証クッキーが見つかりません"
 
 #: shared/api/api.go:217
-#, fuzzy
 msgid "failed to logout from the server"
-msgstr "サーバへの接続に失敗しました"
+msgstr "サーバからのログアウトに失敗しました"
 
 #: shared/api/api.go:238
 msgid "Unable to convert data to JSON"
@@ -82,24 +80,21 @@ msgid "not logged in, session cookie is missing"
 msgstr "ログインしていません。セッションクッキーがありません"
 
 #: shared/api/credentials.go:34
-#, fuzzy
 msgid "unable to create credentials json"
-msgstr "ログインデータを作成できません"
+msgstr "資格情報jsonを作成できません"
 
 #: shared/api/credentials.go:39
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "unable to write credentials store %s"
-msgstr "tar.gzの %s への書き込みに失敗しました"
+msgstr "資格情報ストア %s に書き込めません"
 
 #: shared/api/credentials.go:53
-#, fuzzy
 msgid "API server URL"
-msgstr "APIサーバのパスワード"
+msgstr "APIサーバのURL"
 
 #: shared/api/credentials.go:54
-#, fuzzy
 msgid "API server user"
-msgstr "APIサーバのパスワード"
+msgstr "APIサーバのユーザ"
 
 #: shared/api/credentials.go:55
 msgid "API server password"
@@ -114,9 +109,9 @@ msgid "Cannot load stored credentials"
 msgstr "保存されている資格情報をロードできません"
 
 #: shared/api/credentials.go:83
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "unable to read credentials file %s"
-msgstr "ファイル %s の読み込みに失敗しました"
+msgstr "資格情報ファイル %s を読み込めません"
 
 #: shared/api/credentials.go:88
 msgid "unable to decode credentials file"
@@ -368,19 +363,18 @@ msgid "Failed to base64 decode secret %s"
 msgstr "シークレット %s のbase64デコードに失敗しました"
 
 #: shared/kubernetes/kubernetes.go:185
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to write %s secret definition file"
-msgstr "%s ファイルの書き込みに失敗しました"
+msgstr "%s シークレット定義ファイルの書き込みに失敗しました"
 
 #: shared/kubernetes/kubernetes.go:189
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to define %s secret"
-msgstr "%s サービスを無効にできませんでした"
+msgstr "%s シークレットの定義に失敗しました"
 
 #: shared/kubernetes/kubernetes.go:216
-#, fuzzy
 msgid "failed to get deployment image pull secret"
-msgstr "配備ステータスの解析に失敗しました"
+msgstr "配備イメージのプルシークレットの取得に失敗しました"
 
 #: shared/kubernetes/rke2.go:21
 msgid "Installing RKE2 Nginx configuration"
@@ -564,7 +558,6 @@ msgid "Ensure image %s is available"
 msgstr "イメージ %s が使用可能であることを確認します"
 
 #: shared/podman/images.go:46
-#, fuzzy
 msgid "Pull Policy is always. Presence of RPM image will be checked and pulled from registry if not present"
 msgstr "プルポリシーが常に適用されます。RPMイメージがあるかどうかがチェックされ、存在しない場合はレジストリからプルされます"
 
@@ -651,16 +644,14 @@ msgid "Run %s"
 msgstr "%s の実行"
 
 #: shared/podman/images.go:297
-#, fuzzy, javascript-format
-#| msgid "Failed to remove image %s"
+#, javascript-format
 msgid "Failed to export image %s"
-msgstr "イメージ %s の削除に失敗しました"
+msgstr "イメージ %s のエクスポートに失敗しました"
 
 #: shared/podman/images.go:312
-#, fuzzy, javascript-format
-#| msgid "Failed to remove image %s"
+#, javascript-format
 msgid "Failed to restore image %s"
-msgstr "イメージ %s の削除に失敗しました"
+msgstr "イメージ %s の復元に失敗しました"
 
 #: shared/podman/login.go:25
 msgid "SCC credentials parameters will be used. SCC credentials from host will be ignored."
@@ -718,19 +709,19 @@ msgid "Network removed"
 msgstr "ネットワークが削除されました"
 
 #: shared/podman/secret.go:48
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to write %s secret to file"
-msgstr "%s ファイルの書き込みに失敗しました"
+msgstr "%s シークレットのファイルへの書き込みに失敗しました"
 
 #: shared/podman/secret.go:53
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to create podman secret %s"
-msgstr "podman inspect %s の実行に失敗しました"
+msgstr "podmanシークレット %s の作成に失敗しました"
 
 #: shared/podman/secret.go:77
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Failed to delete %s secret"
-msgstr "%s サービスを無効にできませんでした"
+msgstr "%s シークレットの削除に失敗しました"
 
 #: shared/podman/support.go:27
 msgid "No systemd file to add to the archive"
@@ -763,14 +754,12 @@ msgid "failed to run systemctl cat uyuni-*"
 msgstr "systemctl cat uyuni-*の実行に失敗しました"
 
 #: shared/podman/support.go:85
-#, fuzzy
 msgid "failed to close inspect dump file"
-msgstr "一時認証ファイルを閉じることができませんでした"
+msgstr "検査ダンプファイルを閉じることができませんでした"
 
 #: shared/podman/support.go:108
-#, fuzzy
 msgid "failed to close bound files"
-msgstr "%s ファイルの作成に失敗しました"
+msgstr "バンドルファイルを閉じることができませんでした"
 
 #: shared/podman/support.go:146
 #, javascript-format
@@ -943,14 +932,14 @@ msgid "Container already removed"
 msgstr "コンテナはすでに削除されています"
 
 #: shared/podman/utils.go:119
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to get %s systemd service definition"
-msgstr "%s systemdサービスを有効にできませんでした"
+msgstr "%s systemdサービス定義の取得に失敗しました"
 
 #: shared/podman/utils.go:126
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
-msgstr "%s systemdサービスを有効にできませんでした"
+msgstr "%s systemdサービスにUYUNI_IMAGEが定義されていません"
 
 #: shared/podman/utils.go:143
 #, javascript-format
@@ -963,15 +952,13 @@ msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr "ボリューム %s は外部にマウントされているため、ディレクトリを削除できません"
 
 #: shared/podman/utils.go:215
-#, fuzzy, javascript-format
-#| msgid "Failed to remove volume %s"
+#, javascript-format
 msgid "Failed to export volume %s"
-msgstr "ボリューム %s の削除に失敗しました"
+msgstr "ボリューム %s のエクスポートに失敗しました"
 
 #: shared/podman/utils.go:218
-#, fuzzy
 msgid "Failed to write checksum of volume %[1]s to the %[2]s"
-msgstr "ボリュームフォルダ %s を %s にリンクできませんでした: %s"
+msgstr "ボリューム %[1]s のチェックサムを %[2]s に書き込めませんでした"
 
 #: shared/podman/utils.go:235
 #, javascript-format
@@ -979,16 +966,14 @@ msgid "Checksum does not match for volume %s"
 msgstr "ボリューム %s のチェックサムが一致しません"
 
 #: shared/podman/utils.go:239
-#, fuzzy, javascript-format
-#| msgid "Failed to remove volume %s"
+#, javascript-format
 msgid "Failed to precreate empty volume %s"
-msgstr "ボリューム %s の削除に失敗しました"
+msgstr "空のボリューム %s の事前作成に失敗しました"
 
 #: shared/podman/utils.go:244
-#, fuzzy, javascript-format
-#| msgid "Failed to remove volume %s"
+#, javascript-format
 msgid "Failed to import volume %s"
-msgstr "ボリューム %s の削除に失敗しました"
+msgstr "ボリューム %s のインポートに失敗しました"
 
 #: shared/podman/utils.go:325
 msgid "failed to login to registry.suse.com"
@@ -999,11 +984,12 @@ msgid "failed to unmarshall configuration"
 msgstr "設定のアンマーシャルに失敗しました"
 
 #: shared/utils/cmd.go:70
-#, fuzzy
 msgid ""
 "tool to use to reach the container. Possible values: 'podman', 'podman-remote', 'kubectl'.\n"
 "Default guesses which to use."
-msgstr "コンテナに到達するために使用するツール。指定できる値:「 podman」、「podman-remote」、「kubectl」。デフォルトではどれを使用するかを推測します。"
+msgstr ""
+"コンテナに到達するために使用するツール。指定できる値:「 podman」、「podman-remote」、「kubectl」。 \n"
+"デフォルトではどれを使用するかを推測します。"
 
 #: shared/utils/cmd.go:86
 msgid "set whether to pull the images or not. The value can be one of 'Never', 'IfNotPresent' or 'Always'"
@@ -1109,7 +1095,6 @@ msgstr ""
 "コマンドの詳細については、「{{.CommandPath}} [command] --help」を使用してください。{{end}}\n"
 
 #: shared/utils/config.go:143
-#, fuzzy
 msgid ""
 "\n"
 "Configuration:\n"
@@ -1149,17 +1134,17 @@ msgstr ""
 "設定:\n"
 "\n"
 "  非グローバルフラグはすべて設定として渡すこともできます。\n"
-"  \n"
+"\n"
 "  設定ファイルはフラグ名と一致するエントリを含むYAMLファイルです。\n"
 "  フラグの名前はコマンドラインパラメータの「--」以降の部分です。\n"
 "  フラグ名の「_」文字はすべて、ネストされたプロパティを意味します。\n"
-"  \n"
+"\n"
 "  たとえば 「--tz CEST」と「--ssl-password secret」はこのYAML設定にマップされます。\n"
-"  \n"
+"\n"
 "    tz: CEST\n"
 "    ssl:\n"
 "      パスワード: secret\n"
-"  \n"
+"\n"
 "  設定ファイルは以下の場所と順序で検索されます:\n"
 "  · /etc/uyuni/uyuni-tools.yam\n"
 "  · $XDG_CONFIG_HOME/{{ .Name }}/{{ .ConfigFile }}\n"
@@ -1171,11 +1156,11 @@ msgstr ""
 "環境変数:\n"
 "\n"
 "  非グローバルフラグはすべて、環境変数として渡すこともできます。\n"
-"  \n"
+"\n"
 "    環境変数名は、フラグ名の「-」を「_」に置き換え、{{ .EnvPrefix }}プレフィックスを付けたものです。\n"
-"  \n"
+"\n"
 "  たとえば、「--tz CEST」フラグは「{{ .EnvPrefix }}_TZ」にマップされ、\n"
-"  「--ssl-password」フラグは「{{ .EnvPrefix }}_SSL_PASSWORD」にマップされます。 \n"
+"  「--ssl-password」フラグは「{{ .EnvPrefix }}_SSL_PASSWORD」にマップされます。\n"
 
 #: shared/utils/config.go:180
 msgid "Help on configuration file and environment variables"
@@ -1225,24 +1210,23 @@ msgid "failed to create temporary directory"
 msgstr "一時ディレクトリの作成に失敗しました"
 
 #: shared/utils/files.go:87
-#, fuzzy
 msgid "failed to remove temporary directory"
-msgstr "一時ディレクトリの作成に失敗しました"
+msgstr "一時ディレクトリの削除に失敗しました"
 
 #: shared/utils/files.go:97
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "fails to open %s file"
-msgstr "%s ファイルの書き込みに失敗しました"
+msgstr "%s ファイルを開けません"
 
 #: shared/utils/files.go:109
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to read %s file"
-msgstr "%s ファイルの作成に失敗しました"
+msgstr "%s ファイルの読み込みに失敗しました"
 
 #: shared/utils/files.go:113
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "failed to copy %s file"
-msgstr "%s ファイルの作成に失敗しました"
+msgstr "%s ファイルのコピーに失敗しました"
 
 #: shared/utils/flaggroups.go:56
 msgid "Flags:\n"
@@ -1351,7 +1335,6 @@ msgid "Two different passwords have been provided"
 msgstr "2つの異なるパスワードが指定されています"
 
 #: shared/utils/utils.go:150
-#, fuzzy
 msgid "failed to read input"
 msgstr "入力の読み込みに失敗しました"
 
@@ -1412,15 +1395,13 @@ msgid "cannot resolve %s"
 msgstr "%s を解決できません"
 
 #: shared/utils/utils.go:406
-#, fuzzy, javascript-format
-#| msgid "Failed to remove file %s"
+#, javascript-format
 msgid "Failed to calculate checksum of the file %s"
-msgstr "ファイル %s の削除に失敗しました"
+msgstr "ファイル %s のチェックサムの計算に失敗しました"
 
 #: shared/utils/utils.go:410
-#, fuzzy
 msgid "Failed to write checksum of the file %[1]s to the %[2]s"
-msgstr "ボリュームフォルダ %s を %s にリンクできませんでした: %s"
+msgstr "ファイル %[1]s のチェックサムを %[2]s に書き込めませんでした"
 
 #: shared/utils/utils.go:420
 #, javascript-format
@@ -1428,10 +1409,8 @@ msgid "Checksum of %s does not match"
 msgstr "%s のチェックサムが一致しません"
 
 #: shared/utils/uyuniservices.go:18
-#, fuzzy
-#| msgid "cannot enable service"
 msgid "Main service"
-msgstr "サービスを有効にできません"
+msgstr "主なサービス"
 
 #: shared/utils/uyuniservices.go:24
 msgid "Migration helper"
