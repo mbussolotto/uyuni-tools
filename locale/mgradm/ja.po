@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-14 14:59+0000\n"
+"PO-Revision-Date: 2025-06-15 05:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ja/>\n"
 "Language: ja\n"
@@ -475,7 +475,7 @@ msgstr "アプリケーションログレベル"
 #: mgradm/cmd/distro/cp.go:31
 #, javascript-format
 msgid "Unable to unmount ISO image, leaving %s intact"
-msgstr "ISOイメージをアンマウントできません。%s はそのまま残ります。"
+msgstr "ISOイメージをアンマウントできません。%s はそのまま残ります"
 
 #: mgradm/cmd/distro/cp.go:47
 msgid "unable to login and register the distribution. Manual distro registration is required"
@@ -1835,7 +1835,7 @@ msgstr "PostgreSQLバージョンを変更せずに %s にアップグレード�
 
 #: mgradm/shared/kubernetes/install.go:215 mgradm/shared/podman/podman.go:411
 msgid "trying to downgrade PostgreSQL from %[1]s to %[2]s"
-msgstr "PostgreSQLを  %[1]s  から  %[2]s にダウングレードしようとしています"
+msgstr "PostgreSQLを %[1]s から %[2]s にダウングレードしようとしています"
 
 #: mgradm/shared/kubernetes/k3s.go:67 mgradm/shared/podman/podman.go:283
 #, javascript-format
@@ -1928,7 +1928,7 @@ msgstr "サービスを停止できません"
 
 #: mgradm/shared/podman/podman.go:399
 msgid "Previous postgresql is %[1]s, instead new one is %[2]s. Performing a DB version upgrade…"
-msgstr "以前のpostgresqlは %[1]s、新しいpostgresqlは  %[2]s です。DBバージョンのアップグレードを実行中…"
+msgstr "以前のpostgresqlは %[1]s、新しいpostgresqlは %[2]s です。DBバージョンのアップグレードを実行中…"
 
 #: mgradm/shared/podman/podman.go:447
 msgid "error upgrading confidential computing service."
