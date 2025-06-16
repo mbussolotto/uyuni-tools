@@ -312,7 +312,7 @@ func RunPgsqlFinalizeScript(serverImage string, schemaUpdateRequired bool, migra
 	}
 	pgsqlFinalizeContainer := "uyuni-finalize-pgsql"
 	pgsqlFinalizeScriptName, err := adm_utils.GenerateFinalizePostgresScript(
-		scriptDir, true, schemaUpdateRequired, true, migration, false,
+		scriptDir, schemaUpdateRequired, migration, false,
 	)
 	if err != nil {
 		return utils.Errorf(err, L("cannot generate PostgreSQL finalization script"))
