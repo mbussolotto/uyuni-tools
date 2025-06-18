@@ -324,7 +324,7 @@ func ExportImage(name string, outputDir string, dryRun bool) error {
 }
 
 func RestoreImage(imageFile string, dryRun bool) error {
-	restoreCommand := []string{"podman", "image", "import", "--quiet", imageFile}
+	restoreCommand := []string{"podman", "image", "load", "--quiet", "-i", imageFile}
 	if dryRun {
 		log.Info().Msgf(L("Would run %s"), strings.Join(restoreCommand, " "))
 	} else {
