@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-06-13 13:59+0000\n"
+"PO-Revision-Date: 2025-06-18 10:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.12.1\n"
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
@@ -1097,7 +1097,7 @@ msgstr "Camí de la clau del servidor"
 
 #: mgradm/cmd/install/shared/flags.go:188
 msgid "3rd Party SSL Certificate Flags"
-msgstr "Banderes de certificat SSL de 3a part"
+msgstr "Banderes del certificat SSL de tercers"
 
 #: mgradm/cmd/install/shared/flags.go:196
 msgid "Enable tomcat and taskomatic remote debugging"
