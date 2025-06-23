@@ -19,6 +19,10 @@ import (
 
 func filesRemover(files []string) {
 	for _, file := range files {
+		if !utils.FileExists(file) {
+			log.Trace().Msgf("%s will not be removed since it doesn't exists", file)
+			continue
+		}
 		if err := os.Remove(file); err != nil {
 			log.Error().Err(err).Msgf(L("failed to remove %s temporary file"), file)
 		}
