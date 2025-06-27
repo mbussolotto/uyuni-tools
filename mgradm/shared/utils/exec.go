@@ -111,7 +111,6 @@ func RunMigration(cnx *shared.Connection, script string) error {
 
 // GenerateMigrationScript generates the script that perform migration.
 func GenerateMigrationScript(sourceFqdn string, user string, kubernetes bool, prepare bool) (string, error) {
-
 	data := templates.MigrateScriptTemplateData{
 		Volumes:    utils.ServerVolumeMounts,
 		SourceFqdn: sourceFqdn,

@@ -65,7 +65,7 @@ func RunPgsqlVersionUpgrade(
 		}
 
 		log.Info().Msgf(L("Using database upgrade image %s"), upgradeImageURL)
-		pgsqlVersionUpgradeScriptName, err := adm_utils.GeneratePgsqlVersionUpgradeScript(oldPgsql, newPgsql, true)
+		script, err := adm_utils.GeneratePgsqlVersionUpgradeScript(oldPgsql, newPgsql, true)
 		if err != nil {
 			return utils.Errorf(err, L("cannot generate PostgreSQL database version upgrade script"))
 		}
@@ -99,9 +99,9 @@ func RunPgsqlVersionUpgrade(
 			return err
 		}
 
-		err = kubernetes.RunPod(
+		_, err = kubernetes.RunPod(
 			namespace, pgsqlVersionUpgradeContainer, kubernetes.ServerFilter, upgradeImageURL, image.PullPolicy,
-			"/var/lib/uyuni-tools/"+pgsqlVersionUpgradeScriptName, overridePgsqlVersioUpgrade,
+			[]string{"sh", "-c", script}, overridePgsqlVersioUpgrade,
 		)
 		if err != nil {
 			return utils.Errorf(err, L("error running container %s"), pgsqlVersionUpgradeContainer)
@@ -120,7 +120,7 @@ func RunPgsqlFinalizeScript(
 	}
 	defer cleaner()
 	pgsqlFinalizeContainer := "uyuni-finalize-pgsql"
-	pgsqlFinalizeScriptName, err := adm_utils.GenerateFinalizePostgresScript(
+	script, err := adm_utils.GenerateFinalizePostgresScript(
 		schemaUpdateRequired, migration, true,
 	)
 	if err != nil {
@@ -152,9 +152,9 @@ func RunPgsqlFinalizeScript(
 	if err != nil {
 		return err
 	}
-	err = kubernetes.RunPod(
+	_, err = kubernetes.RunPod(
 		namespace, pgsqlFinalizeContainer, kubernetes.ServerFilter, serverImage, pullPolicy,
-		"/var/lib/uyuni-tools/"+pgsqlFinalizeScriptName, overridePgsqlFinalize,
+		[]string{"sh", "-c", script}, overridePgsqlFinalize,
 	)
 	if err != nil {
 		return utils.Errorf(err, L("error running container %s"), pgsqlFinalizeContainer)
@@ -170,7 +170,7 @@ func RunPostUpgradeScript(serverImage string, pullPolicy string, namespace strin
 	}
 	defer cleaner()
 	postUpgradeContainer := "uyuni-post-upgrade"
-	postUpgradeScriptName, err := adm_utils.GeneratePostUpgradeScript("localhost")
+	script, err := adm_utils.GeneratePostUpgradeScript("localhost")
 	if err != nil {
 		return utils.Errorf(err, L("cannot generate PostgreSQL finalization script"))
 	}
@@ -202,9 +202,9 @@ func RunPostUpgradeScript(serverImage string, pullPolicy string, namespace strin
 		return err
 	}
 
-	err = kubernetes.RunPod(
+	_, err = kubernetes.RunPod(
 		namespace, postUpgradeContainer, kubernetes.ServerFilter, serverImage, pullPolicy,
-		"/var/lib/uyuni-tools/"+postUpgradeScriptName, overridePostUpgrade,
+		[]string{"sh", "-c", script}, overridePostUpgrade,
 	)
 	if err != nil {
 		return utils.Errorf(err, L("error running container %s"), postUpgradeContainer)

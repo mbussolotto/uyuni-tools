@@ -9,6 +9,7 @@ package kubernetes
 import (
 	"encoding/base64"
 	"fmt"
+	"os"
 	"os/exec"
 	"path"
 
@@ -110,7 +111,12 @@ func migrateToKubernetes(
 		return utils.Errorf(err, L("cannot run migration"))
 	}
 
-	extractedData, err := utils.ReadInspectData[utils.InspectResult](path.Join(dataDir, "data"))
+	dataPath := path.Join(dataDir, "data")
+	data, err := os.ReadFile(dataPath)
+	if err != nil {
+		log.Fatal().Err(err).Msgf(L("Failed to read file %s"), dataPath)
+	}
+	extractedData, err := utils.ReadInspectData[utils.InspectResult](data)
 	if err != nil {
 		return utils.Errorf(err, L("cannot read data from container"))
 	}

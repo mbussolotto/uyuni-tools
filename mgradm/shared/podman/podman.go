@@ -7,6 +7,7 @@ package podman
 import (
 	"errors"
 	"fmt"
+	"os"
 	"os/exec"
 	"path"
 	"path/filepath"
@@ -232,7 +233,13 @@ func RunMigration(
 		}
 	}
 
-	extractedData, err := utils.ReadInspectData[utils.InspectResult](path.Join(dataDir, "data"))
+	dataPath := path.Join(dataDir, "data")
+	data, err := os.ReadFile(dataPath)
+	if err != nil {
+		log.Fatal().Err(err).Msgf(L("Failed to read file %s"), dataPath)
+	}
+
+	extractedData, err := utils.ReadInspectData[utils.InspectResult](data)
 
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot read extracted data"))
@@ -457,31 +464,27 @@ func updateServerSystemdService() error {
 	return GenerateServerSystemdService(getMirrorPath(out), hasDebugPorts(out))
 }
 
+var newRunner = utils.NewRunner
+
 // Inspect check values on a given image and deploy.
 func Inspect(preparedImage string) (*utils.ServerInspectData, error) {
-	scriptDir, cleaner, err := utils.TempDir()
+	script, err := utils.NewServerInspector().GenerateScript()
 	if err != nil {
-		return nil, err
-	}
-	defer cleaner()
-
-	inspector := utils.NewServerInspector(scriptDir)
-	if err := inspector.GenerateScript(); err != nil {
 		return nil, err
 	}
 
 	podmanArgs := []string{
-		"-v", scriptDir + ":" + utils.InspectContainerDirectory,
 		"--security-opt", "label=disable",
 	}
 
-	err = podman.RunContainer("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
-		[]string{utils.InspectContainerDirectory + "/" + utils.InspectScriptFilename})
+	args := podman.PrepareContainerRunArgs("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
+		[]string{"sh", "-c", script})
+	out, err := newRunner("podman", args...).Log(zerolog.DebugLevel).Exec()
 	if err != nil {
 		return nil, err
 	}
 
-	inspectResult, err := inspector.ReadInspectData()
+	inspectResult, err := utils.ReadInspectData[utils.ServerInspectData](out)
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot inspect data"))
 	}
