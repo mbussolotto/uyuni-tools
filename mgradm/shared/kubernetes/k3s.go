@@ -65,7 +65,7 @@ func RunPgsqlVersionUpgrade(
 		}
 
 		log.Info().Msgf(L("Using database upgrade image %s"), upgradeImageURL)
-		pgsqlVersionUpgradeScriptName, err := adm_utils.GeneratePgsqlVersionUpgradeScript(scriptDir, oldPgsql, newPgsql, true)
+		pgsqlVersionUpgradeScriptName, err := adm_utils.GeneratePgsqlVersionUpgradeScript(oldPgsql, newPgsql, true)
 		if err != nil {
 			return utils.Errorf(err, L("cannot generate PostgreSQL database version upgrade script"))
 		}
@@ -121,7 +121,7 @@ func RunPgsqlFinalizeScript(
 	defer cleaner()
 	pgsqlFinalizeContainer := "uyuni-finalize-pgsql"
 	pgsqlFinalizeScriptName, err := adm_utils.GenerateFinalizePostgresScript(
-		scriptDir, schemaUpdateRequired, migration, true,
+		schemaUpdateRequired, migration, true,
 	)
 	if err != nil {
 		return utils.Errorf(err, L("cannot generate PostgreSQL finalization script"))
@@ -170,7 +170,7 @@ func RunPostUpgradeScript(serverImage string, pullPolicy string, namespace strin
 	}
 	defer cleaner()
 	postUpgradeContainer := "uyuni-post-upgrade"
-	postUpgradeScriptName, err := adm_utils.GeneratePostUpgradeScript(scriptDir, "localhost")
+	postUpgradeScriptName, err := adm_utils.GeneratePostUpgradeScript("localhost")
 	if err != nil {
 		return utils.Errorf(err, L("cannot generate PostgreSQL finalization script"))
 	}

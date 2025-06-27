@@ -58,12 +58,10 @@ func migrateToKubernetes(
 	sshConfigPath, sshKnownhostsPath := migration_shared.GetSSHPaths()
 
 	// Prepare the migration script and folder
-	scriptDir, cleaner, err := adm_utils.GenerateMigrationScript(fqdn, flags.User, true, flags.Prepare)
+	script, err := adm_utils.GenerateMigrationScript(fqdn, flags.User, true, flags.Prepare)
 	if err != nil {
 		return utils.Errorf(err, L("failed to generate migration script"))
 	}
-
-	defer cleaner()
 
 	// We don't need the SSL certs at this point of the migration
 	clusterInfos, err := shared_kubernetes.CheckCluster()
@@ -82,12 +80,18 @@ func migrateToKubernetes(
 		return err
 	}
 
+	dataDir, cleaner, err := utils.TempDir()
+	if err != nil {
+		return err
+	}
+	defer cleaner()
+
 	// Deploy for running migration command
 	migrationArgs := append(helmArgs,
 		"--set", "migration.ssh.agentSocket="+sshAuthSocket,
 		"--set", "migration.ssh.configPath="+sshConfigPath,
 		"--set", "migration.ssh.knownHostsPath="+sshKnownhostsPath,
-		"--set", "migration.dataPath="+scriptDir,
+		"--set", "migration.dataPath="+dataDir,
 	)
 
 	if err := kubernetes.Deploy(cnx, flags.Image.Registry, &flags.Image, &flags.Helm,
@@ -102,11 +106,11 @@ func migrateToKubernetes(
 		return utils.Errorf(err, L("cannot find node running uyuni"))
 	}
 	// Run the actual migration
-	if err := adm_utils.RunMigration(cnx, "migrate.sh"); err != nil {
+	if err := adm_utils.RunMigration(cnx, script); err != nil {
 		return utils.Errorf(err, L("cannot run migration"))
 	}
 
-	extractedData, err := utils.ReadInspectData[utils.InspectResult](path.Join(scriptDir, "data"))
+	extractedData, err := utils.ReadInspectData[utils.InspectResult](path.Join(dataDir, "data"))
 	if err != nil {
 		return utils.Errorf(err, L("cannot read data from container"))
 	}
@@ -129,7 +133,7 @@ func migrateToKubernetes(
 		}
 	}()
 
-	setupSSLArray, err := setupSSL(&flags.Helm, kubeconfig, scriptDir, flags.SSL.Password, flags.Image.PullPolicy)
+	setupSSLArray, err := setupSSL(&flags.Helm, kubeconfig, dataDir, flags.SSL.Password, flags.Image.PullPolicy)
 	if err != nil {
 		return utils.Errorf(err, L("cannot setup SSL"))
 	}
