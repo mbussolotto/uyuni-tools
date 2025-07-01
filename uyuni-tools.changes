@@ -1,4 +1,23 @@
 -------------------------------------------------------------------
+Tue Jul 01 11:32:03 CEST 2025 - rosuna@suse.com
+
+- version 0.1.31-0
+  * Add the info message about End User License Agreement
+  * Don't migrate py2*-compat-salt.conf files (bsc#1240626)
+  * Check for restorecon before using it (bsc#1240698)
+  * Adjust the distro path in cobbler files after migration
+    (bsc#1238929)
+  * Add mgradm support ptf podman --pullPolicy flag (bsc#1236877)
+  * Support: don't dump files in bound folders (bsc#1243297)
+  * Cleanup host supportconfig files (bsc#1242174)
+  * During migration, check if backup already exists (bsc#1243105)
+  * Remove SHM size limits from all containers (bsc#1243274)
+  * Don't migrate /etc/apache2/vhosts.d/cobbler.conf
+  * Fix migration --prepare for autoinstallable distributions (bsc#1243802)
+  * Skip instalation if the server is already set up (bsc#1238849)
+  * Bump the default image tag to 5.0.5
+
+-------------------------------------------------------------------
 Thu Jun 05 14:35:46 CEST 2025 - rosuna@suse.com
 
 - version 0.1.30-0
