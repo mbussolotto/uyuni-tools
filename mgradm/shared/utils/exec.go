@@ -74,11 +74,9 @@ func GeneratePgsqlVersionUpgradeScript(
 
 // GenerateFinalizePostgresScript generates the script to finalize PostgreSQL upgrade.
 func GenerateFinalizePostgresScript(
-	scriptDir string, runAutotune bool, runReindex bool, runSchemaUpdate bool, migration bool, kubernetes bool,
+	scriptDir string, runSchemaUpdate bool, migration bool, kubernetes bool,
 ) (string, error) {
 	data := templates.FinalizePostgresTemplateData{
-		RunAutotune:     runAutotune,
-		RunReindex:      runReindex,
 		RunSchemaUpdate: runSchemaUpdate,
 		Migration:       migration,
 		Kubernetes:      kubernetes,
