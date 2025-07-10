@@ -12,12 +12,12 @@ import (
 const postUpgradeScriptTemplate = `#!/bin/bash
 {{ if .CobblerHost }}
 sed 's/cobbler\.host.*/cobbler\.host = {{ .CobblerHost }}/' -i /etc/rhn/rhn.conf;
-grep uyuni_authentication_endpoint /etc/cobbler/settings.yaml
+grep uyuni_authentication_endpoint /etc/cobbler/settings.d/zz-uyuni.settings
 if [ $? -eq 1 ]; then
-	echo 'uyuni_authentication_endpoint: "http://localhost"' >> /etc/cobbler/settings.yaml
+	echo 'uyuni_authentication_endpoint: "http://localhost"' >> /etc/cobbler/settings.d/zz-uyuni.settings
 else
 	sed 's/uyuni_authentication_endpoint.*/uyuni_authentication_endpoint: http:\/\/localhost/' \
-        -i /etc/cobbler/settings.yaml;
+        -i /etc/cobbler/settings.d/zz-uyuni.settings;
 fi
 {{ end }}
 

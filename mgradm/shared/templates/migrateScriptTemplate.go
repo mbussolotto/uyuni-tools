@@ -154,7 +154,7 @@ sed 's/report_db_host = {{ .SourceFqdn }}/report_db_host = localhost/' -i /etc/r
 if ! grep -q '^java.hostname *=' /etc/rhn/rhn.conf; then
     sed 's/server\.jabber_server/java\.hostname/' -i /etc/rhn/rhn.conf;
 fi
-sed 's/client_use_localhost: false/client_use_localhost: true/' -i /etc/cobbler/settings.yaml;
+echo 'client_use_localhost: true' >> /etc/cobbler/settings.d/zz-uyuni.settings;
 
 echo "Altering configuration for container environment..."
 sed 's/address=[^:]*:/address=*:/' -i /etc/rhn/taskomatic.conf;
