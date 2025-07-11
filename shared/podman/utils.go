@@ -18,6 +18,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
+	"github.com/uyuni-project/uyuni-tools/shared/templates"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
 	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
@@ -66,8 +67,10 @@ func EnablePodmanSocket() error {
 	return err
 }
 
-// RunContainer execute a container.
-func RunContainer(name string, image string, volumes []types.VolumeMount, extraArgs []string, cmd []string) error {
+// PrepareContainerRunArgs computes the common podman arguments to run a container.
+func PrepareContainerRunArgs(
+	name string, image string, volumes []types.VolumeMount, extraArgs []string, cmd []string,
+) []string {
 	podmanArgs := append([]string{"run", "--name", name}, GetCommonParams()...)
 	podmanArgs = append(podmanArgs, extraArgs...)
 	podmanArgs = append(podmanArgs, "--shm-size=0")
@@ -79,6 +82,12 @@ func RunContainer(name string, image string, volumes []types.VolumeMount, extraA
 	podmanArgs = append(podmanArgs, image)
 	podmanArgs = append(podmanArgs, cmd...)
 
+	return podmanArgs
+}
+
+// RunContainer execute a container.
+func RunContainer(name string, image string, volumes []types.VolumeMount, extraArgs []string, cmd []string) error {
+	podmanArgs := PrepareContainerRunArgs(name, image, volumes, extraArgs, cmd)
 	err := utils.RunCmdStdMapping(zerolog.DebugLevel, "podman", podmanArgs...)
 	if err != nil {
 		return utils.Errorf(err, L("failed to run %s container"), name)
@@ -225,7 +234,14 @@ func ExportVolume(name string, outputDir string, dryRun bool) error {
 // If dryRun is set to true, only messages will be logged to exmplain what would happen.
 func ImportVolume(name string, volumePath string, skipVerify bool, dryRun bool) error {
 	createCommand := []string{"podman", "volume", "create", "--ignore", name}
-	importCommand := []string{"podman", "volume", "import", name, volumePath}
+
+	basePath, err := GetPodmanVolumeBasePath()
+	if err != nil {
+		log.Debug().Msg("cannot get base volume path")
+		return err
+	}
+	importCommand := []string{"tar", "xf", volumePath, "-C", path.Join(basePath, name, "_data")}
+
 	if dryRun {
 		log.Info().Msgf(L("Would run %s"), strings.Join(importCommand, " "))
 		return nil
@@ -309,12 +325,6 @@ func Inspect(
 	pullPolicy string,
 	scc types.SCCCredentials,
 ) (*utils.ServerInspectData, error) {
-	scriptDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return nil, err
-	}
-	defer cleaner()
-
 	hostData, err := InspectHost()
 	if err != nil {
 		return nil, err
@@ -326,31 +336,46 @@ func Inspect(
 	}
 	defer cleaner()
 
-	preparedImage, err := PrepareImage(authFile, serverImage, pullPolicy, true)
+	inspectResult, err := containerInspect[utils.ServerInspectData](
+		serverImage, authFile, pullPolicy, utils.NewServerInspector(),
+	)
 	if err != nil {
 		return nil, err
 	}
 
-	inspector := utils.NewServerInspector(scriptDir)
-	if err := inspector.GenerateScript(); err != nil {
-		return nil, err
-	}
+	return inspectResult, err
+}
 
+var newRunner = utils.NewRunner
+
+func containerInspect[T any](
+	image string, authFile string, pullPolicy string, inspector templates.InspectTemplateData,
+) (*T, error) {
 	podmanArgs := []string{
-		"-v", scriptDir + ":" + utils.InspectContainerDirectory,
 		"--security-opt", "label=disable",
 	}
 
-	err = RunContainer("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
-		[]string{utils.InspectContainerDirectory + "/" + utils.InspectScriptFilename})
+	preparedImage, err := PrepareImage(authFile, image, pullPolicy, true)
 	if err != nil {
 		return nil, err
 	}
 
-	inspectResult, err := inspector.ReadInspectData()
+	script, err := inspector.GenerateScript()
+	if err != nil {
+		return nil, err
+	}
+
+	args := PrepareContainerRunArgs("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
+		[]string{"sh", "-c", script})
+	out, err := newRunner("podman", args...).Log(zerolog.DebugLevel).Exec()
+	if err != nil {
+		return nil, err
+	}
+
+	inspectResult, err := utils.ReadInspectData[T](out)
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot inspect data"))
 	}
 
-	return inspectResult, err
+	return inspectResult, nil
 }

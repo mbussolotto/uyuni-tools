@@ -284,9 +284,9 @@ func RunPod(
 	filter string,
 	image string,
 	pullPolicy string,
-	command string,
+	command []string,
 	override ...string,
-) error {
+) ([]byte, error) {
 	arguments := []string{"run", podname, "-n", namespace, "--image", image, "--image-pull-policy", pullPolicy, filter}
 
 	if len(override) > 0 {
@@ -297,21 +297,27 @@ func RunPod(
 		}
 	}
 
-	arguments = append(arguments, "--command", "--", command)
+	arguments = append(arguments, "--command", "--")
+	arguments = append(arguments, command...)
 	err := utils.RunCmdStdMapping(zerolog.DebugLevel, "kubectl", arguments...)
 	if err != nil {
-		return utils.Errorf(err, PL("The first placeholder is a command",
+		return nil, utils.Errorf(err, PL("The first placeholder is a command",
 			"cannot run %[1]s using image %[2]s"), command, image)
 	}
 	err = waitForPod(namespace, podname)
 	if err != nil {
-		return utils.Errorf(err, L("deleting pod %s. Status fails with error"), podname)
+		return nil, utils.Errorf(err, L("deleting pod %s. Status fails with error"), podname)
+	}
+
+	data, err := utils.RunCmdOutput(zerolog.DebugLevel, "kubectl", "logs", "-n", namespace, podname)
+	if err != nil {
+		return nil, utils.Errorf(err, L("failed to get the %s pod logs"), podname)
 	}
 
 	defer func() {
 		err = DeletePod(namespace, podname, filter)
 	}()
-	return nil
+	return data, nil
 }
 
 // DeletePod deletes a kubernetes pod named podname.

@@ -8,7 +8,6 @@ import (
 	"errors"
 	"fmt"
 	"os/exec"
-	"path/filepath"
 	"strings"
 
 	"github.com/rs/zerolog"
@@ -53,7 +52,6 @@ func ExecCommand(logLevel zerolog.Level, cnx *shared.Connection, args ...string)
 
 // GeneratePgsqlVersionUpgradeScript generates the PostgreSQL version upgrade script.
 func GeneratePgsqlVersionUpgradeScript(
-	scriptDir string,
 	oldPgVersion string,
 	newPgVersion string,
 	kubernetes bool,
@@ -64,52 +62,47 @@ func GeneratePgsqlVersionUpgradeScript(
 		Kubernetes: kubernetes,
 	}
 
-	scriptName := "pgsqlVersionUpgrade.sh"
-	scriptPath := filepath.Join(scriptDir, scriptName)
-	if err := utils.WriteTemplateToFile(data, scriptPath, 0555, true); err != nil {
-		return "", fmt.Errorf(L("failed to generate %s"), scriptName)
+	scriptBuilder := new(strings.Builder)
+	if err := data.Render(scriptBuilder); err != nil {
+		return "", utils.Errorf(err, L("failed to render database upgrade script"))
 	}
-	return scriptName, nil
+	return scriptBuilder.String(), nil
 }
 
 // GenerateFinalizePostgresScript generates the script to finalize PostgreSQL upgrade.
 func GenerateFinalizePostgresScript(
-	scriptDir string, runAutotune bool, runReindex bool, runSchemaUpdate bool, migration bool, kubernetes bool,
+	runSchemaUpdate bool, migration bool, kubernetes bool,
 ) (string, error) {
 	data := templates.FinalizePostgresTemplateData{
-		RunAutotune:     runAutotune,
-		RunReindex:      runReindex,
 		RunSchemaUpdate: runSchemaUpdate,
 		Migration:       migration,
 		Kubernetes:      kubernetes,
 	}
 
-	scriptName := "pgsqlFinalize.sh"
-	scriptPath := filepath.Join(scriptDir, scriptName)
-	if err := utils.WriteTemplateToFile(data, scriptPath, 0555, true); err != nil {
-		return "", fmt.Errorf(L("failed to generate %s"), scriptName)
+	scriptBuilder := new(strings.Builder)
+	if err := data.Render(scriptBuilder); err != nil {
+		return "", utils.Errorf(err, L("failed to render database finalization script"))
 	}
-	return scriptName, nil
+	return scriptBuilder.String(), nil
 }
 
 // GeneratePostUpgradeScript generates the script to be run after upgrade.
-func GeneratePostUpgradeScript(scriptDir string, cobblerHost string) (string, error) {
+func GeneratePostUpgradeScript(cobblerHost string) (string, error) {
 	data := templates.PostUpgradeTemplateData{
 		CobblerHost: cobblerHost,
 	}
 
-	scriptName := "postUpgrade.sh"
-	scriptPath := filepath.Join(scriptDir, scriptName)
-	if err := utils.WriteTemplateToFile(data, scriptPath, 0555, true); err != nil {
-		return "", fmt.Errorf(L("failed to generate %s"), scriptName)
+	scriptBuilder := new(strings.Builder)
+	if err := data.Render(scriptBuilder); err != nil {
+		return "", utils.Errorf(err, L("failed to render database post upgrade script"))
 	}
-	return scriptName, nil
+	return scriptBuilder.String(), nil
 }
 
 // RunMigration execute the migration script.
-func RunMigration(cnx *shared.Connection, scriptName string) error {
+func RunMigration(cnx *shared.Connection, script string) error {
 	log.Info().Msg(L("Migrating server"))
-	err := ExecCommand(zerolog.InfoLevel, cnx, "/var/lib/uyuni-tools/"+scriptName)
+	err := ExecCommand(zerolog.InfoLevel, cnx, "sh", "-c", script)
 	if err != nil {
 		return utils.Errorf(err, L("error running the migration script"))
 	}
@@ -117,12 +110,7 @@ func RunMigration(cnx *shared.Connection, scriptName string) error {
 }
 
 // GenerateMigrationScript generates the script that perform migration.
-func GenerateMigrationScript(sourceFqdn string, user string, kubernetes bool, prepare bool) (string, func(), error) {
-	scriptDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return "", nil, err
-	}
-
+func GenerateMigrationScript(sourceFqdn string, user string, kubernetes bool, prepare bool) (string, error) {
 	data := templates.MigrateScriptTemplateData{
 		Volumes:    utils.ServerVolumeMounts,
 		SourceFqdn: sourceFqdn,
@@ -131,12 +119,12 @@ func GenerateMigrationScript(sourceFqdn string, user string, kubernetes bool, pr
 		Prepare:    prepare,
 	}
 
-	scriptPath := filepath.Join(scriptDir, "migrate.sh")
-	if err = utils.WriteTemplateToFile(data, scriptPath, 0555, true); err != nil {
-		return "", cleaner, utils.Errorf(err, L("failed to generate migration script"))
+	scriptBuilder := new(strings.Builder)
+	if err := data.Render(scriptBuilder); err != nil {
+		return "", utils.Errorf(err, L("failed to generate migration script"))
 	}
 
-	return scriptDir, cleaner, nil
+	return scriptBuilder.String(), nil
 }
 
 // RunningImage returns the image running in the current system.

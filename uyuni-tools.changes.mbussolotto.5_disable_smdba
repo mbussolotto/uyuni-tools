@@ -1,0 +1,1 @@
+- Run smdba and reindex only during migration (bsc#1244534)

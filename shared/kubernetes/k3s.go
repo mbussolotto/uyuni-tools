@@ -7,7 +7,6 @@ package kubernetes
 import (
 	"fmt"
 	"os/exec"
-	"path"
 	"time"
 
 	"github.com/rs/zerolog"
@@ -64,12 +63,12 @@ func InspectKubernetes(namespace string, serverImage string, pullPolicy string) 
 	}
 	defer cleaner()
 
-	inspector := utils.NewServerInspector(scriptDir)
-	if err := inspector.GenerateScript(); err != nil {
+	script, err := utils.NewServerInspector().GenerateScript()
+	if err != nil {
 		return nil, err
 	}
 
-	command := path.Join(utils.InspectContainerDirectory, utils.InspectScriptFilename)
+	command := []string{"sh", "-c", script}
 
 	const podName = "inspector"
 
@@ -107,12 +106,12 @@ func InspectKubernetes(namespace string, serverImage string, pullPolicy string) 
 	if err != nil {
 		return nil, err
 	}
-	err = RunPod(namespace, podName, ServerFilter, serverImage, pullPolicy, command, override)
+	out, err := RunPod(namespace, podName, ServerFilter, serverImage, pullPolicy, command, override)
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot run inspect pod"))
 	}
 
-	inspectResult, err := inspector.ReadInspectData()
+	inspectResult, err := utils.ReadInspectData[utils.ServerInspectData](out)
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot inspect data"))
 	}

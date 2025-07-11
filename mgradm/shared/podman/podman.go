@@ -7,6 +7,7 @@ package podman
 import (
 	"errors"
 	"fmt"
+	"os"
 	"os/exec"
 	"path"
 	"path/filepath"
@@ -187,9 +188,14 @@ func RunMigration(
 	user string,
 	prepare bool,
 ) (*utils.InspectResult, error) {
-	scriptDir, cleaner, err := adm_utils.GenerateMigrationScript(sourceFqdn, user, false, prepare)
+	script, err := adm_utils.GenerateMigrationScript(sourceFqdn, user, false, prepare)
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot generate migration script"))
+	}
+
+	dataDir, cleaner, err := utils.TempDir()
+	if err != nil {
+		return nil, err
 	}
 	defer cleaner()
 
@@ -197,7 +203,7 @@ func RunMigration(
 		"--security-opt", "label=disable",
 		"-e", "SSH_AUTH_SOCK",
 		"-v", filepath.Dir(sshAuthSocket) + ":" + filepath.Dir(sshAuthSocket),
-		"-v", scriptDir + ":/var/lib/uyuni-tools/",
+		"-v", dataDir + ":/var/lib/uyuni-tools/",
 	}
 
 	if sshConfigPath != "" {
@@ -210,7 +216,7 @@ func RunMigration(
 
 	log.Info().Msg(L("Migrating server"))
 	if err := podman.RunContainer("uyuni-migration", preparedImage, utils.ServerVolumeMounts, extraArgs,
-		[]string{"/var/lib/uyuni-tools/migrate.sh"}); err != nil {
+		[]string{"bash", "-e", "-c", script}); err != nil {
 		return nil, utils.Errorf(err, L("cannot run uyuni migration container"))
 	}
 
@@ -227,7 +233,13 @@ func RunMigration(
 		}
 	}
 
-	extractedData, err := utils.ReadInspectData[utils.InspectResult](path.Join(scriptDir, "data"))
+	dataPath := path.Join(dataDir, "data")
+	data, err := os.ReadFile(dataPath)
+	if err != nil {
+		log.Fatal().Err(err).Msgf(L("Failed to read file %s"), dataPath)
+	}
+
+	extractedData, err := utils.ReadInspectData[utils.InspectResult](data)
 
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot read extracted data"))
@@ -249,19 +261,14 @@ func RunPgsqlVersionUpgrade(
 		L("Previous PostgreSQL is %[1]s, new one is %[2]s. Performing a DB version upgrade…"), oldPgsql, newPgsql,
 	)
 
-	scriptDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return err
-	}
-	defer cleaner()
 	if newPgsql > oldPgsql {
 		pgsqlVersionUpgradeContainer := "uyuni-upgrade-pgsql"
 		extraArgs := []string{
-			"-v", scriptDir + ":/var/lib/uyuni-tools/",
 			"--security-opt", "label=disable",
 		}
 
 		upgradeImageURL := ""
+		var err error
 		if upgradeImage.Name == "" {
 			upgradeImageURL, err = utils.ComputeImage(registry, utils.DefaultTag, image,
 				fmt.Sprintf("-migration-%s-%s", oldPgsql, newPgsql))
@@ -282,15 +289,13 @@ func RunPgsqlVersionUpgrade(
 
 		log.Info().Msgf(L("Using database upgrade image %s"), preparedImage)
 
-		pgsqlVersionUpgradeScriptName, err := adm_utils.GeneratePgsqlVersionUpgradeScript(
-			scriptDir, oldPgsql, newPgsql, false,
-		)
+		script, err := adm_utils.GeneratePgsqlVersionUpgradeScript(oldPgsql, newPgsql, false)
 		if err != nil {
 			return utils.Errorf(err, L("cannot generate PostgreSQL database version upgrade script"))
 		}
 
 		err = podman.RunContainer(pgsqlVersionUpgradeContainer, preparedImage, utils.ServerVolumeMounts, extraArgs,
-			[]string{"/var/lib/uyuni-tools/" + pgsqlVersionUpgradeScriptName})
+			[]string{"bash", "-e", "-c", script})
 		if err != nil {
 			return err
 		}
@@ -300,53 +305,31 @@ func RunPgsqlVersionUpgrade(
 
 // RunPgsqlFinalizeScript run the script with all the action required to a db after upgrade.
 func RunPgsqlFinalizeScript(serverImage string, schemaUpdateRequired bool, migration bool) error {
-	scriptDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return err
-	}
-	defer cleaner()
-
 	extraArgs := []string{
-		"-v", scriptDir + ":/var/lib/uyuni-tools/",
 		"--security-opt", "label=disable",
 	}
 	pgsqlFinalizeContainer := "uyuni-finalize-pgsql"
-	pgsqlFinalizeScriptName, err := adm_utils.GenerateFinalizePostgresScript(
-		scriptDir, true, schemaUpdateRequired, true, migration, false,
-	)
+	script, err := adm_utils.GenerateFinalizePostgresScript(schemaUpdateRequired, migration, false)
 	if err != nil {
 		return utils.Errorf(err, L("cannot generate PostgreSQL finalization script"))
 	}
-	err = podman.RunContainer(pgsqlFinalizeContainer, serverImage, utils.ServerVolumeMounts, extraArgs,
-		[]string{"/var/lib/uyuni-tools/" + pgsqlFinalizeScriptName})
-	if err != nil {
-		return err
-	}
-	return nil
+	return podman.RunContainer(pgsqlFinalizeContainer, serverImage, utils.ServerVolumeMounts, extraArgs,
+		[]string{"bash", "-e", "-c", script})
 }
 
 // RunPostUpgradeScript run the script with the changes to apply after the upgrade.
 func RunPostUpgradeScript(serverImage string) error {
-	scriptDir, cleaner, err := utils.TempDir()
-	if err != nil {
-		return err
-	}
-	defer cleaner()
 	postUpgradeContainer := "uyuni-post-upgrade"
 	extraArgs := []string{
-		"-v", scriptDir + ":/var/lib/uyuni-tools/",
 		"--security-opt", "label=disable",
 	}
-	postUpgradeScriptName, err := adm_utils.GeneratePostUpgradeScript(scriptDir, "localhost")
+	script, err := adm_utils.GeneratePostUpgradeScript("localhost")
 	if err != nil {
 		return utils.Errorf(err, L("cannot generate PostgreSQL finalization script"))
 	}
-	err = podman.RunContainer(postUpgradeContainer, serverImage, utils.ServerVolumeMounts, extraArgs,
-		[]string{"/var/lib/uyuni-tools/" + postUpgradeScriptName})
-	if err != nil {
-		return err
-	}
-	return nil
+	// Post upgrade script expects some commands to fail and checks their result, don't use sh -e.
+	return podman.RunContainer(postUpgradeContainer, serverImage, utils.ServerVolumeMounts, extraArgs,
+		[]string{"bash", "-c", script})
 }
 
 // Upgrade will upgrade server to the image given as attribute.
@@ -481,31 +464,27 @@ func updateServerSystemdService() error {
 	return GenerateServerSystemdService(getMirrorPath(out), hasDebugPorts(out))
 }
 
+var newRunner = utils.NewRunner
+
 // Inspect check values on a given image and deploy.
 func Inspect(preparedImage string) (*utils.ServerInspectData, error) {
-	scriptDir, cleaner, err := utils.TempDir()
+	script, err := utils.NewServerInspector().GenerateScript()
 	if err != nil {
-		return nil, err
-	}
-	defer cleaner()
-
-	inspector := utils.NewServerInspector(scriptDir)
-	if err := inspector.GenerateScript(); err != nil {
 		return nil, err
 	}
 
 	podmanArgs := []string{
-		"-v", scriptDir + ":" + utils.InspectContainerDirectory,
 		"--security-opt", "label=disable",
 	}
 
-	err = podman.RunContainer("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
-		[]string{utils.InspectContainerDirectory + "/" + utils.InspectScriptFilename})
+	args := podman.PrepareContainerRunArgs("uyuni-inspect", preparedImage, utils.ServerVolumeMounts, podmanArgs,
+		[]string{"sh", "-c", script})
+	out, err := newRunner("podman", args...).Log(zerolog.DebugLevel).Exec()
 	if err != nil {
 		return nil, err
 	}
 
-	inspectResult, err := inspector.ReadInspectData()
+	inspectResult, err := utils.ReadInspectData[utils.ServerInspectData](out)
 	if err != nil {
 		return nil, utils.Errorf(err, L("cannot inspect data"))
 	}
