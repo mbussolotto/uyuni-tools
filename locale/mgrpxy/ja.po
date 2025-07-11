@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2025-06-15 05:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ja/>\n"
@@ -76,10 +76,6 @@ msgstr "コマンドの実行中: %s"
 #: mgrpxy/cmd/cmd.go:67
 msgid "configuration file path"
 msgstr "設定ファイルパス"
-
-#: mgrpxy/cmd/cmd.go:69
-msgid "application log level"
-msgstr "アプリケーションログレベル"
 
 #: mgrpxy/cmd/install/install.go:20 mgrpxy/cmd/install/install.go:21
 msgid "Install a new proxy from scratch"
@@ -597,6 +593,9 @@ msgstr "%s コンテナのイメージ"
 #, javascript-format
 msgid "Tag for %s container, overrides the global value if set"
 msgstr "%s コンテナ用のタグ。設定されている場合はグローバル値を上書きします"
+
+#~ msgid "application log level"
+#~ msgstr "アプリケーションログレベル"
 
 #~ msgid "specify a private registry"
 #~ msgstr "プライベートレジストリを指定してください"

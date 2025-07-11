@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2025-06-17 08:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/ko/>\n"
@@ -129,16 +129,12 @@ msgstr "주로 API를 통해 Uyuni 서버를 관리하는 데 유용한 도구"
 msgid "configuration file path"
 msgstr "구성 파일 경로"
 
-#: mgrctl/cmd/cmd.go:39
-msgid "application log level"
-msgstr "애플리케이션 로그 수준"
-
-#: mgrctl/cmd/cmd.go:47
+#: mgrctl/cmd/cmd.go:45
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "%s 시작"
 
-#: mgrctl/cmd/cmd.go:48
+#: mgrctl/cmd/cmd.go:46
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "실행 중 명령: %s"
@@ -203,6 +199,9 @@ msgstr "%s 실행 중"
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
 msgstr "서버 컨테이너 내에서 터미널 실행"
+
+#~ msgid "application log level"
+#~ msgstr "애플리케이션 로그 수준"
 
 #~ msgid "Takes an API path and parameters and then issues POST request with them. User and password are mandatory. Parameters can be either JSON encoded string or one or more key=value pairs."
 #~ msgstr "API 경로와 파라미터를 받은 가져온 이를 사용하여 POST 요청을 발급합니다. 사용자 및 비밀번호는 필수입니다. 파라미터는 JSON 인코딩된 문자열 또는 하나 이상의 키=값 쌍일 수 있습니다."

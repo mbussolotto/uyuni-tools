@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2025-06-12 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/zh_CN/>\n"
@@ -129,16 +129,12 @@ msgstr "用于帮助管理 Uyuni 服务器（主要通过其 API）的工具"
 msgid "configuration file path"
 msgstr "配置文件路径"
 
-#: mgrctl/cmd/cmd.go:39
-msgid "application log level"
-msgstr "应用程序日志级别"
-
-#: mgrctl/cmd/cmd.go:47
+#: mgrctl/cmd/cmd.go:45
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "欢迎使用 %s"
 
-#: mgrctl/cmd/cmd.go:48
+#: mgrctl/cmd/cmd.go:46
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "正在执行命令：%s"
@@ -203,6 +199,9 @@ msgstr "正在运行 %s"
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
 msgstr "在服务器容器内运行终端"
+
+#~ msgid "application log level"
+#~ msgstr "应用程序日志级别"
 
 #~ msgid "Takes an API path and parameters and then issues POST request with them. User and password are mandatory. Parameters can be either JSON encoded string or one or more key=value pairs."
 #~ msgstr "接受 API 路径和其他参数，然后使用它们发出 POST 请求。必须提供用户和口令。参数可以是 JSON 编码的字符串或一个或多个键值对。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2024-04-08 14:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -114,16 +114,12 @@ msgstr "Outil pour aider à gérer des serveurs Uyuni, principalement via leur A
 msgid "configuration file path"
 msgstr "chemin vers le fichier de configuration"
 
-#: mgrctl/cmd/cmd.go:39
-msgid "application log level"
-msgstr "niveau de verbosité de l'application"
-
-#: mgrctl/cmd/cmd.go:47
+#: mgrctl/cmd/cmd.go:45
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "Bienvenue à %s"
 
-#: mgrctl/cmd/cmd.go:48
+#: mgrctl/cmd/cmd.go:46
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "Exécution de la commande: %s"
@@ -189,6 +185,9 @@ msgstr "Exécution: %s %s"
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
 msgstr "Exécuter un terminal dans le conteneur du serveur"
+
+#~ msgid "application log level"
+#~ msgstr "niveau de verbosité de l'application"
 
 #~ msgid "Takes an API path and parameters and then issues POST request with them. User and password are mandatory. Parameters can be either JSON encoded string or one or more key=value pairs."
 #~ msgstr "Effectue une requête POST avec un chemin d'API et des paramètres. L'utilisateur et le mot de passe sont obligatoires. Les paramètres peuvent être soit une chaîne de caractères encodée en JSON ou une ou plusieurs paire clé=valeur."

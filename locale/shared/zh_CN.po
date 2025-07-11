@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2025-06-12 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/zh_CN/>\n"
@@ -286,8 +286,8 @@ msgstr "必须指定名称空间"
 #: shared/podman/images.go:307 shared/podman/network.go:108
 #: shared/podman/secret.go:72 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:138 shared/podman/utils.go:177
-#: shared/podman/utils.go:210 shared/podman/utils.go:230
+#: shared/podman/utils.go:147 shared/podman/utils.go:186
+#: shared/podman/utils.go:219 shared/podman/utils.go:246
 #, javascript-format
 msgid "Would run %s"
 msgstr "将运行 %s"
@@ -302,37 +302,37 @@ msgstr "正在卸装 %s"
 msgid "failed to run helm %s"
 msgstr "无法运行 helm %s"
 
-#: shared/kubernetes/k3s.go:24
+#: shared/kubernetes/k3s.go:23
 msgid "Installing K3s Traefik configuration"
 msgstr "正在安装 K3s Traefik 配置"
 
-#: shared/kubernetes/k3s.go:31
+#: shared/kubernetes/k3s.go:30
 msgid "Failed to write K3s Traefik configuration"
 msgstr "无法写入 K3s Traefik 配置"
 
-#: shared/kubernetes/k3s.go:35
+#: shared/kubernetes/k3s.go:34
 msgid "Waiting for Traefik to be reloaded"
 msgstr "正在等待重新装载 Traefik"
 
-#: shared/kubernetes/k3s.go:57
+#: shared/kubernetes/k3s.go:56
 #, javascript-format
 msgid "install %s before running this command"
 msgstr "在运行此命令前安装 %s"
 
-#: shared/kubernetes/k3s.go:78
+#: shared/kubernetes/k3s.go:77
 #, javascript-format
 msgid "cannot delete %s"
 msgstr "无法删除 %s"
 
-#: shared/kubernetes/k3s.go:84
+#: shared/kubernetes/k3s.go:83
 msgid "cannot find node running uyuni"
 msgstr "找不到运行 uyuni 的节点"
 
-#: shared/kubernetes/k3s.go:112
+#: shared/kubernetes/k3s.go:111
 msgid "cannot run inspect pod"
 msgstr "无法运行检查 pod"
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:352
+#: shared/kubernetes/k3s.go:116 shared/podman/utils.go:377
 msgid "cannot inspect data"
 msgstr "无法检查数据"
 
@@ -491,7 +491,7 @@ msgid "cannot check if pod %[1]s is running in app %[2]s"
 msgstr "无法检查 pod %[1]s 是否正在应用程序 %[2]s 中运行"
 
 #: shared/kubernetes/utils.go:198 shared/kubernetes/utils.go:244
-#: shared/kubernetes/utils.go:350
+#: shared/kubernetes/utils.go:356
 #, javascript-format
 msgid "cannot execute %s"
 msgstr "无法执行 %s"
@@ -511,44 +511,50 @@ msgstr "无法将 %s 的复本数设置为 0"
 msgid "%s is not a valid image pull policy value"
 msgstr "%s 不是有效的映像拉取策略值"
 
-#: shared/kubernetes/utils.go:304
+#: shared/kubernetes/utils.go:305
 msgctxt "The first placeholder is a command"
 msgid "cannot run %[1]s using image %[2]s"
 msgstr "无法使用映像 %[2]s 运行 %[1]s"
 
-#: shared/kubernetes/utils.go:308
+#: shared/kubernetes/utils.go:309
 #, javascript-format
 msgid "deleting pod %s. Status fails with error"
 msgstr "正在删除 pod %s。状态：由于发生错误而失败"
 
-#: shared/kubernetes/utils.go:321 shared/kubernetes/utils.go:330
+#: shared/kubernetes/utils.go:314
+#, fuzzy, javascript-format
+#| msgid "failed to get events for pod %s"
+msgid "failed to get the %s pod logs"
+msgstr "无法获取 pod %s 的事件"
+
+#: shared/kubernetes/utils.go:327 shared/kubernetes/utils.go:336
 #, javascript-format
 msgid "cannot delete pod %s"
 msgstr "无法删除 pod %s"
 
-#: shared/kubernetes/utils.go:357
+#: shared/kubernetes/utils.go:363
 #, javascript-format
 msgid "error during execution of %s"
 msgstr "执行 %s 期间出错"
 
-#: shared/kubernetes/utils.go:362
+#: shared/kubernetes/utils.go:368
 msgid "pod %[1]s status is not %[2]s in %[3]d seconds"
 msgstr "pod %[1]s 的状态在 %[3]d 秒内未 %[2]s"
 
-#: shared/kubernetes/utils.go:379
+#: shared/kubernetes/utils.go:385
 #, javascript-format
 msgid "cannot find node name matching filter %s"
 msgstr "找不到与过滤器 %s 匹配的节点名称"
 
-#: shared/kubernetes/utils.go:388
+#: shared/kubernetes/utils.go:394
 msgid "cannot serialize pod definition override"
 msgstr "无法序列化 pod 定义覆盖"
 
-#: shared/podman/hostinspector.go:67
+#: shared/podman/hostinspector.go:50
 msgid "failed to run inspect script in host system"
 msgstr "无法在主机系统中运行检查脚本"
 
-#: shared/podman/hostinspector.go:72
+#: shared/podman/hostinspector.go:55
 msgid "cannot inspect host data"
 msgstr "无法检查主机数据"
 
@@ -636,9 +642,9 @@ msgid "cannot find any running image for container %s"
 msgstr "未找到容器 %s 的任何运行中映像"
 
 #: shared/podman/images.go:294 shared/podman/images.go:309
-#: shared/podman/secret.go:74 shared/podman/utils.go:140
-#: shared/podman/utils.go:179 shared/podman/utils.go:213
-#: shared/podman/utils.go:242
+#: shared/podman/secret.go:74 shared/podman/utils.go:149
+#: shared/podman/utils.go:188 shared/podman/utils.go:222
+#: shared/podman/utils.go:258
 #, javascript-format
 msgid "Run %s"
 msgstr "运行 %s"
@@ -890,92 +896,92 @@ msgstr "无法启用服务"
 msgid "cannot disable service"
 msgstr "无法禁用服务"
 
-#: shared/podman/utils.go:57
+#: shared/podman/utils.go:58
 msgid "Extra arguments to pass to podman"
 msgstr "要传递给 podman 的额外参数"
 
-#: shared/podman/utils.go:64
+#: shared/podman/utils.go:65
 msgid "failed to enable podman.socket unit"
 msgstr "无法启用 podman.socket 单元"
 
-#: shared/podman/utils.go:84
+#: shared/podman/utils.go:93
 #, javascript-format
 msgid "failed to run %s container"
 msgstr "无法运行 %s 容器"
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:104
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr "将会针对 ID 为 %[2]s 的容器运行 podman kill %[1]s"
 
-#: shared/podman/utils.go:96
+#: shared/podman/utils.go:105
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr "将会针对 ID 为 %[2]s 容器运行 podman remove %[1]s"
 
-#: shared/podman/utils.go:98
+#: shared/podman/utils.go:107
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr "针对 ID 为 %[2]s 的容器运行 podman kill %[1]s"
 
-#: shared/podman/utils.go:101
+#: shared/podman/utils.go:110
 msgid "Failed to kill the server"
 msgstr "无法终止服务器"
 
-#: shared/podman/utils.go:103
+#: shared/podman/utils.go:112
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr "针对 ID 为 %[2]s 的容器运行 podman remove %[1]s"
 
-#: shared/podman/utils.go:106
+#: shared/podman/utils.go:115
 msgid "Error removing container"
 msgstr "去除容器时出错"
 
-#: shared/podman/utils.go:111
+#: shared/podman/utils.go:120
 msgid "Container already removed"
 msgstr "容器已去除"
 
-#: shared/podman/utils.go:119
+#: shared/podman/utils.go:128
 #, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr "无法获取 %s systemd 服务定义"
 
-#: shared/podman/utils.go:126
+#: shared/podman/utils.go:135
 #, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr "%s systemd 服务中未定义 UYUNI_IMAGE"
 
-#: shared/podman/utils.go:143
+#: shared/podman/utils.go:152
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr "无法去除映像 %s"
 
-#: shared/podman/utils.go:191
+#: shared/podman/utils.go:200
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr "卷 %s 挂载在外部,无法去除该目录"
 
-#: shared/podman/utils.go:215
+#: shared/podman/utils.go:224
 #, javascript-format
 msgid "Failed to export volume %s"
 msgstr "无法导出卷 %s"
 
-#: shared/podman/utils.go:218
+#: shared/podman/utils.go:227
 msgid "Failed to write checksum of volume %[1]s to the %[2]s"
 msgstr "无法将卷 %[1]s 的校验和写入 %[2]s"
 
-#: shared/podman/utils.go:235
+#: shared/podman/utils.go:251
 #, javascript-format
 msgid "Checksum does not match for volume %s"
 msgstr "校验和与卷 %s 不匹配"
 
-#: shared/podman/utils.go:239
+#: shared/podman/utils.go:255
 #, javascript-format
 msgid "Failed to precreate empty volume %s"
 msgstr "无法预先创建空卷 %s"
 
-#: shared/podman/utils.go:244
+#: shared/podman/utils.go:260
 #, javascript-format
 msgid "Failed to import volume %s"
 msgstr "无法导入卷 %s"
 
-#: shared/podman/utils.go:325
+#: shared/podman/utils.go:335
 msgid "failed to login to registry.suse.com"
 msgstr "无法登录 registry.suse.com"
 
@@ -1018,6 +1024,16 @@ msgstr "同时去除卷"
 #: shared/utils/cmd.go:113
 msgid "Also remove the container images"
 msgstr "同时去除容器映像"
+
+#: shared/utils/cmd.go:123 shared/utils/cmd.go:126
+msgid "application log level"
+msgstr ""
+
+#: shared/utils/cmd.go:129
+#, fuzzy
+#| msgid "Failed to find home directory"
+msgid "Failed to hide --loglevel parameter"
+msgstr "找不到主目录"
 
 #: shared/utils/config.go:40
 #, javascript-format
@@ -1238,20 +1254,11 @@ msgstr "标志：\n"
 msgid "no such flag help group: %v"
 msgstr "不存在以下标志帮助组：%v"
 
-#: shared/utils/inspector.go:58
-msgid "failed to generate inspect script"
-msgstr "无法生成检查脚本"
-
-#: shared/utils/inspector.go:83
-#, javascript-format
-msgid "cannot read file %s"
-msgstr "无法读取文件 %s"
-
-#: shared/utils/inspector.go:88
+#: shared/utils/inspector.go:20
 msgid "cannot read config"
 msgstr "无法读取配置"
 
-#: shared/utils/inspector.go:93
+#: shared/utils/inspector.go:25
 msgid "failed to unmarshal the inspected data"
 msgstr "无法解组检查的数据"
 
@@ -1267,20 +1274,20 @@ msgstr "无法检测主机名，正在使用 localhost"
 msgid "Preparing the tarball"
 msgstr "正在准备 Tar 包"
 
-#: shared/utils/support.go:58
+#: shared/utils/support.go:62
 #, javascript-format
 msgid "failed to add %s to tarball"
 msgstr "无法将 %s 添加到 Tar 包"
 
-#: shared/utils/support.go:88
+#: shared/utils/support.go:92
 msgid "failed to run supportconfig on the host"
 msgstr "无法在主机上运行 supportconfig"
 
-#: shared/utils/support.go:98
+#: shared/utils/support.go:102
 msgid "failed to find host supportconfig tarball from command output"
 msgstr "在命令输出中找不到主机 supportconfig Tar 包"
 
-#: shared/utils/support.go:101
+#: shared/utils/support.go:105
 msgid "supportconfig is not available on the host, skipping it"
 msgstr "无法在主机上使用 supportconfig，正在跳过"
 
@@ -1429,6 +1436,13 @@ msgstr "Hub XML-RPC API"
 #: shared/utils/uyuniservices.go:42
 msgid "Saline"
 msgstr "Saline"
+
+#~ msgid "failed to generate inspect script"
+#~ msgstr "无法生成检查脚本"
+
+#, javascript-format
+#~ msgid "cannot read file %s"
+#~ msgstr "无法读取文件 %s"
 
 #~ msgid "cannot fetch namespace"
 #~ msgstr "无法提取名称空间"
