@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-11 09:44+0200\n"
-"PO-Revision-Date: 2025-06-13 13:59+0000\n"
+"PO-Revision-Date: 2025-07-11 11:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #: shared/api/api.go:29
 msgid "FQDN of the server to connect to"
@@ -522,10 +522,9 @@ msgid "deleting pod %s. Status fails with error"
 msgstr "s'està suprimint el pod %s. L'estat ha fallat amb un error"
 
 #: shared/kubernetes/utils.go:314
-#, fuzzy, javascript-format
-#| msgid "failed to get events for pod %s"
+#, javascript-format
 msgid "failed to get the %s pod logs"
-msgstr "no s'han pogut obtenir els esdeveniments del pod %s"
+msgstr "No s'han pogut obtenir els registres del pod %s"
 
 #: shared/kubernetes/utils.go:327 shared/kubernetes/utils.go:336
 #, javascript-format
@@ -1027,13 +1026,11 @@ msgstr "Elimina també les imatges del contenidor"
 
 #: shared/utils/cmd.go:123 shared/utils/cmd.go:126
 msgid "application log level"
-msgstr ""
+msgstr "nivell de registre de l'aplicació"
 
 #: shared/utils/cmd.go:129
-#, fuzzy
-#| msgid "Failed to find home directory"
 msgid "Failed to hide --loglevel parameter"
-msgstr "No s'ha pogut trobar el directori d'inici"
+msgstr "No s'ha pogut ocultar el paràmetre --loglevel"
 
 #: shared/utils/config.go:40
 #, javascript-format
