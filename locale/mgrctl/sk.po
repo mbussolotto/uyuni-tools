@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2025-05-17 17:59+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/sk/>\n"
@@ -129,16 +129,12 @@ msgstr "Nástroj na pomoc pri správe serverov Uyuni hlavne prostredníctvom ich
 msgid "configuration file path"
 msgstr "cesta ku konfiguračnému súboru"
 
-#: mgrctl/cmd/cmd.go:39
-msgid "application log level"
-msgstr "úroveň záznamu aplikácie"
-
-#: mgrctl/cmd/cmd.go:47
+#: mgrctl/cmd/cmd.go:45
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "Vitajte v %s"
 
-#: mgrctl/cmd/cmd.go:48
+#: mgrctl/cmd/cmd.go:46
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "Vykonávajúci príkaz: %s"
@@ -203,3 +199,6 @@ msgstr "Spustené %s"
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
 msgstr "Spustiť terminál v kontajneri servera"
+
+#~ msgid "application log level"
+#~ msgstr "úroveň záznamu aplikácie"

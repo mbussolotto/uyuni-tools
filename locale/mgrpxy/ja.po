@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-29 04:59+0000\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
+"PO-Revision-Date: 2025-06-15 05:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ja/>\n"
 "Language: ja\n"
@@ -24,9 +24,8 @@ msgstr "キャッシュのクリア"
 
 #: mgrpxy/cmd/cache/kubernetes.go:25 mgrpxy/cmd/restart/kubernetes.go:25
 #: mgrpxy/cmd/start/kubernetes.go:25 mgrpxy/cmd/stop/kubernetes.go:25
-#, fuzzy
 msgid "failed retrieving namespace"
-msgstr "ファイル %s への書き込みに失敗しました"
+msgstr "ネームスペースの取得に失敗しました"
 
 #: mgrpxy/cmd/cache/kubernetes.go:29 mgrpxy/cmd/cache/podman.go:25
 msgid "failed to remove cached data"
@@ -67,7 +66,7 @@ msgstr "%s へようこそ"
 
 #: mgrpxy/cmd/cmd.go:62
 msgid "Use of this software implies acceptance of the End User License Agreement."
-msgstr ""
+msgstr "このソフトウェアを使用すると、エンドユーザライセンス契約に同意したことになります。"
 
 #: mgrpxy/cmd/cmd.go:63
 #, javascript-format
@@ -77,10 +76,6 @@ msgstr "コマンドの実行中: %s"
 #: mgrpxy/cmd/cmd.go:67
 msgid "configuration file path"
 msgstr "設定ファイルパス"
-
-#: mgrpxy/cmd/cmd.go:69
-msgid "application log level"
-msgstr "アプリケーションログレベル"
 
 #: mgrpxy/cmd/install/install.go:20 mgrpxy/cmd/install/install.go:21
 msgid "Install a new proxy from scratch"
@@ -161,21 +156,18 @@ msgid "failed to login to registry.suse.com"
 msgstr "registry.suse.comへのログインに失敗しました"
 
 #: mgrpxy/cmd/logs/kubernetes.go:29
-#, fuzzy
 msgid "failed to find proxy pod"
-msgstr "uyuni-proxy配備ネームスペースが見つかりませんでした"
+msgstr "プロキシポッドが見つかりませんでした"
 
 #: mgrpxy/cmd/logs/kubernetes.go:33
-#, fuzzy
 msgid "failed to find proxy deployment namespace"
-msgstr "uyuni-proxy配備ネームスペースが見つかりませんでした"
+msgstr "プロキシ配備ネームスペースが見つかりませんでした"
 
 #: mgrpxy/cmd/logs/logs.go:35
 msgid "Get the proxy logs"
 msgstr "プロキシログの取得"
 
 #: mgrpxy/cmd/logs/logs.go:36
-#, fuzzy
 msgid ""
 "Get the proxy logs\n"
 "The command automatically detects installed backend and displays the logs for containers managed by Kubernetes or Podman\n"
@@ -184,7 +176,8 @@ msgid ""
 msgstr ""
 "プロキシログの取得\n"
 "このコマンドは、インストールされたバックエンドを自動的に検出し、KubernetesまたはPodmanが管理しているコンテナのログを表示します\n"
-"ただし、ポッド名および／またはコンテナ名を指定して、特定のコンテナのログを取得できます。詳細については、例を参照してください。"
+"ただし、ポッド名および/またはコンテナ名を指定して、特定のコンテナのログを取得できます。\n"
+"詳細については、例を参照してください。"
 
 #: mgrpxy/cmd/logs/logs.go:62
 msgid "specify if logs should be followed"
@@ -199,11 +192,12 @@ msgid "number of lines to show from the end of the logs"
 msgstr "ログの末尾から表示する行数"
 
 #: mgrpxy/cmd/logs/logs.go:67
-#, fuzzy
 msgid ""
 "show logs since a specific time or duration.\n"
 "Supports Go duration strings and RFC3339 format (e.g. 3h, 2023-01-02T15:04:05)"
-msgstr "特定の時刻または期間以降のログを表示します。Go期間文字列およびRFC3339形式をサポートしています（5s、2m、3h、2023-01-02T15:04:05など）"
+msgstr ""
+"特定の時刻または期間以降のログを表示します。\n"
+"Go期間文字列およびRFC3339形式をサポートしています(3h、2023-01-02T15:04:05など)"
 
 #: mgrpxy/cmd/restart/restart.go:23 mgrpxy/cmd/restart/restart.go:24
 msgid "Restart the proxy"
@@ -255,7 +249,6 @@ msgid "Extract configuration and logs"
 msgstr "設定とログの抽出"
 
 #: mgrpxy/cmd/support/config/config.go:23
-#, fuzzy
 msgid ""
 "Extract the host or cluster configuration and logs as well as those from\n"
 "the containers for support to help debugging."
@@ -298,7 +291,6 @@ msgid "Install a PTF or Test package on podman"
 msgstr "PTFまたはTestパッケージをpodmanにインストールする"
 
 #: mgrpxy/cmd/support/ptf/podman/podman.go:30
-#, fuzzy
 msgid ""
 "Install a PTF or Test package on podman\n"
 "\n"
@@ -566,15 +558,15 @@ msgstr "イメージURLの計算に失敗しました"
 
 #: mgrpxy/shared/utils/flags.go:65
 msgid "SUSE Customer Center username. It will be used to pull images from registry.suse.com"
-msgstr ""
+msgstr "SUSEカスタマーセンターのユーザ名。これは、registry.suse.comからイメージを取得するために使用されます"
 
 #: mgrpxy/shared/utils/flags.go:68
 msgid "SUSE Customer Center password. It will be used to pull images from registry.suse.com"
-msgstr ""
+msgstr "SUSEカスタマーセンターのパスワード。これは、registry.suse.comからイメージを取得するために使用されます"
 
 #: mgrpxy/shared/utils/flags.go:71
 msgid "SUSE Customer Center Flags"
-msgstr ""
+msgstr "SUSEカスタマーセンターのフラグ"
 
 #: mgrpxy/shared/utils/flags.go:78
 msgid "image tag"
@@ -601,6 +593,9 @@ msgstr "%s コンテナのイメージ"
 #, javascript-format
 msgid "Tag for %s container, overrides the global value if set"
 msgstr "%s コンテナ用のタグ。設定されている場合はグローバル値を上書きします"
+
+#~ msgid "application log level"
+#~ msgstr "アプリケーションログレベル"
 
 #~ msgid "specify a private registry"
 #~ msgstr "プライベートレジストリを指定してください"

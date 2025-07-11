@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-02-28 08:53+0000\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
+"PO-Revision-Date: 2025-06-12 15:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mgrpxy/cmd/cache/clear.go:22 mgrpxy/cmd/cache/clear.go:23
 msgid "Clear the cache"
@@ -66,7 +66,7 @@ msgstr "Us donem la benvinguda a %s"
 
 #: mgrpxy/cmd/cmd.go:62
 msgid "Use of this software implies acceptance of the End User License Agreement."
-msgstr ""
+msgstr "L'ús d'aquest programari implica l'acceptació de l'Acord de llicència d'usuari final."
 
 #: mgrpxy/cmd/cmd.go:63
 #, javascript-format
@@ -76,10 +76,6 @@ msgstr "S'està executant l'ordre: %s"
 #: mgrpxy/cmd/cmd.go:67
 msgid "configuration file path"
 msgstr "camí del fitxer de configuració"
-
-#: mgrpxy/cmd/cmd.go:69
-msgid "application log level"
-msgstr "nivell de registre de l'aplicació"
 
 #: mgrpxy/cmd/install/install.go:20 mgrpxy/cmd/install/install.go:21
 msgid "Install a new proxy from scratch"
@@ -599,3 +595,6 @@ msgstr "Imatge per al contenidor %s"
 #, javascript-format
 msgid "Tag for %s container, overrides the global value if set"
 msgstr "Etiqueta per al contenidor %s, anul·la el valor global si s'estableix"
+
+#~ msgid "application log level"
+#~ msgstr "nivell de registre de l'aplicació"

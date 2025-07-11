@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2024-05-16 09:23+0000\n"
 "Last-Translator: Marina Latini <marina.latini@suse.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy/it/>\n"
@@ -77,10 +77,6 @@ msgstr ""
 
 #: mgrpxy/cmd/cmd.go:67
 msgid "configuration file path"
-msgstr ""
-
-#: mgrpxy/cmd/cmd.go:69
-msgid "application log level"
 msgstr ""
 
 #: mgrpxy/cmd/install/install.go:20 mgrpxy/cmd/install/install.go:21

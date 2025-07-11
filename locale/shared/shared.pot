@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -286,8 +286,8 @@ msgstr ""
 #: shared/podman/images.go:307 shared/podman/network.go:108
 #: shared/podman/secret.go:72 shared/podman/systemd.go:96
 #: shared/podman/systemd.go:175 shared/podman/systemd.go:176
-#: shared/podman/utils.go:138 shared/podman/utils.go:177
-#: shared/podman/utils.go:210 shared/podman/utils.go:230
+#: shared/podman/utils.go:147 shared/podman/utils.go:186
+#: shared/podman/utils.go:219 shared/podman/utils.go:246
 #, javascript-format
 msgid "Would run %s"
 msgstr ""
@@ -302,37 +302,37 @@ msgstr ""
 msgid "failed to run helm %s"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:24
+#: shared/kubernetes/k3s.go:23
 msgid "Installing K3s Traefik configuration"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:31
+#: shared/kubernetes/k3s.go:30
 msgid "Failed to write K3s Traefik configuration"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:35
+#: shared/kubernetes/k3s.go:34
 msgid "Waiting for Traefik to be reloaded"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:57
+#: shared/kubernetes/k3s.go:56
 #, javascript-format
 msgid "install %s before running this command"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:78
+#: shared/kubernetes/k3s.go:77
 #, javascript-format
 msgid "cannot delete %s"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:84
+#: shared/kubernetes/k3s.go:83
 msgid "cannot find node running uyuni"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:112
+#: shared/kubernetes/k3s.go:111
 msgid "cannot run inspect pod"
 msgstr ""
 
-#: shared/kubernetes/k3s.go:117 shared/podman/utils.go:352
+#: shared/kubernetes/k3s.go:116 shared/podman/utils.go:377
 msgid "cannot inspect data"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgid "cannot check if pod %[1]s is running in app %[2]s"
 msgstr ""
 
 #: shared/kubernetes/utils.go:198 shared/kubernetes/utils.go:244
-#: shared/kubernetes/utils.go:350
+#: shared/kubernetes/utils.go:356
 #, javascript-format
 msgid "cannot execute %s"
 msgstr ""
@@ -505,44 +505,49 @@ msgstr ""
 msgid "%s is not a valid image pull policy value"
 msgstr ""
 
-#: shared/kubernetes/utils.go:304
+#: shared/kubernetes/utils.go:305
 msgctxt "The first placeholder is a command"
 msgid "cannot run %[1]s using image %[2]s"
 msgstr ""
 
-#: shared/kubernetes/utils.go:308
+#: shared/kubernetes/utils.go:309
 #, javascript-format
 msgid "deleting pod %s. Status fails with error"
 msgstr ""
 
-#: shared/kubernetes/utils.go:321 shared/kubernetes/utils.go:330
+#: shared/kubernetes/utils.go:314
+#, javascript-format
+msgid "failed to get the %s pod logs"
+msgstr ""
+
+#: shared/kubernetes/utils.go:327 shared/kubernetes/utils.go:336
 #, javascript-format
 msgid "cannot delete pod %s"
 msgstr ""
 
-#: shared/kubernetes/utils.go:357
+#: shared/kubernetes/utils.go:363
 #, javascript-format
 msgid "error during execution of %s"
 msgstr ""
 
-#: shared/kubernetes/utils.go:362
+#: shared/kubernetes/utils.go:368
 msgid "pod %[1]s status is not %[2]s in %[3]d seconds"
 msgstr ""
 
-#: shared/kubernetes/utils.go:379
+#: shared/kubernetes/utils.go:385
 #, javascript-format
 msgid "cannot find node name matching filter %s"
 msgstr ""
 
-#: shared/kubernetes/utils.go:388
+#: shared/kubernetes/utils.go:394
 msgid "cannot serialize pod definition override"
 msgstr ""
 
-#: shared/podman/hostinspector.go:67
+#: shared/podman/hostinspector.go:50
 msgid "failed to run inspect script in host system"
 msgstr ""
 
-#: shared/podman/hostinspector.go:72
+#: shared/podman/hostinspector.go:55
 msgid "cannot inspect host data"
 msgstr ""
 
@@ -630,9 +635,9 @@ msgid "cannot find any running image for container %s"
 msgstr ""
 
 #: shared/podman/images.go:294 shared/podman/images.go:309
-#: shared/podman/secret.go:74 shared/podman/utils.go:140
-#: shared/podman/utils.go:179 shared/podman/utils.go:213
-#: shared/podman/utils.go:242
+#: shared/podman/secret.go:74 shared/podman/utils.go:149
+#: shared/podman/utils.go:188 shared/podman/utils.go:222
+#: shared/podman/utils.go:258
 #, javascript-format
 msgid "Run %s"
 msgstr ""
@@ -884,92 +889,92 @@ msgstr ""
 msgid "cannot disable service"
 msgstr ""
 
-#: shared/podman/utils.go:57
+#: shared/podman/utils.go:58
 msgid "Extra arguments to pass to podman"
 msgstr ""
 
-#: shared/podman/utils.go:64
+#: shared/podman/utils.go:65
 msgid "failed to enable podman.socket unit"
 msgstr ""
 
-#: shared/podman/utils.go:84
+#: shared/podman/utils.go:93
 #, javascript-format
 msgid "failed to run %s container"
 msgstr ""
 
-#: shared/podman/utils.go:95
+#: shared/podman/utils.go:104
 msgid "Would run podman kill %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:96
+#: shared/podman/utils.go:105
 msgid "Would run podman remove %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:98
+#: shared/podman/utils.go:107
 msgid "Run podman kill %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:101
+#: shared/podman/utils.go:110
 msgid "Failed to kill the server"
 msgstr ""
 
-#: shared/podman/utils.go:103
+#: shared/podman/utils.go:112
 msgid "Run podman remove %[1]s for container id %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:106
+#: shared/podman/utils.go:115
 msgid "Error removing container"
 msgstr ""
 
-#: shared/podman/utils.go:111
+#: shared/podman/utils.go:120
 msgid "Container already removed"
 msgstr ""
 
-#: shared/podman/utils.go:119
+#: shared/podman/utils.go:128
 #, javascript-format
 msgid "failed to get %s systemd service definition"
 msgstr ""
 
-#: shared/podman/utils.go:126
+#: shared/podman/utils.go:135
 #, javascript-format
 msgid "no UYUNI_IMAGE defined in %s systemd service"
 msgstr ""
 
-#: shared/podman/utils.go:143
+#: shared/podman/utils.go:152
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr ""
 
-#: shared/podman/utils.go:191
+#: shared/podman/utils.go:200
 #, javascript-format
 msgid "Volume %s is externally mounted, directory cannot be removed"
 msgstr ""
 
-#: shared/podman/utils.go:215
+#: shared/podman/utils.go:224
 #, javascript-format
 msgid "Failed to export volume %s"
 msgstr ""
 
-#: shared/podman/utils.go:218
+#: shared/podman/utils.go:227
 msgid "Failed to write checksum of volume %[1]s to the %[2]s"
 msgstr ""
 
-#: shared/podman/utils.go:235
+#: shared/podman/utils.go:251
 #, javascript-format
 msgid "Checksum does not match for volume %s"
 msgstr ""
 
-#: shared/podman/utils.go:239
+#: shared/podman/utils.go:255
 #, javascript-format
 msgid "Failed to precreate empty volume %s"
 msgstr ""
 
-#: shared/podman/utils.go:244
+#: shared/podman/utils.go:260
 #, javascript-format
 msgid "Failed to import volume %s"
 msgstr ""
 
-#: shared/podman/utils.go:325
+#: shared/podman/utils.go:335
 msgid "failed to login to registry.suse.com"
 msgstr ""
 
@@ -1009,6 +1014,14 @@ msgstr ""
 
 #: shared/utils/cmd.go:113
 msgid "Also remove the container images"
+msgstr ""
+
+#: shared/utils/cmd.go:123 shared/utils/cmd.go:126
+msgid "application log level"
+msgstr ""
+
+#: shared/utils/cmd.go:129
+msgid "Failed to hide --loglevel parameter"
 msgstr ""
 
 #: shared/utils/config.go:40
@@ -1168,20 +1181,11 @@ msgstr ""
 msgid "no such flag help group: %v"
 msgstr ""
 
-#: shared/utils/inspector.go:58
-msgid "failed to generate inspect script"
-msgstr ""
-
-#: shared/utils/inspector.go:83
-#, javascript-format
-msgid "cannot read file %s"
-msgstr ""
-
-#: shared/utils/inspector.go:88
+#: shared/utils/inspector.go:20
 msgid "cannot read config"
 msgstr ""
 
-#: shared/utils/inspector.go:93
+#: shared/utils/inspector.go:25
 msgid "failed to unmarshal the inspected data"
 msgstr ""
 
@@ -1197,20 +1201,20 @@ msgstr ""
 msgid "Preparing the tarball"
 msgstr ""
 
-#: shared/utils/support.go:58
+#: shared/utils/support.go:62
 #, javascript-format
 msgid "failed to add %s to tarball"
 msgstr ""
 
-#: shared/utils/support.go:88
+#: shared/utils/support.go:92
 msgid "failed to run supportconfig on the host"
 msgstr ""
 
-#: shared/utils/support.go:98
+#: shared/utils/support.go:102
 msgid "failed to find host supportconfig tarball from command output"
 msgstr ""
 
-#: shared/utils/support.go:101
+#: shared/utils/support.go:105
 msgid "supportconfig is not available on the host, skipping it"
 msgstr ""
 

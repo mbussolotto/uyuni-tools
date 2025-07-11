@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-30 06:59+0000\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
+"PO-Revision-Date: 2025-06-17 08:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ko/>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.12.1\n"
 
 #: mgrpxy/cmd/cache/clear.go:22 mgrpxy/cmd/cache/clear.go:23
 msgid "Clear the cache"
@@ -66,7 +66,7 @@ msgstr "%s 시작"
 
 #: mgrpxy/cmd/cmd.go:62
 msgid "Use of this software implies acceptance of the End User License Agreement."
-msgstr ""
+msgstr "이 소프트웨어를 사용하면 최종 사용자 라이선스 계약에 동의하는 것으로 간주됩니다."
 
 #: mgrpxy/cmd/cmd.go:63
 #, javascript-format
@@ -76,10 +76,6 @@ msgstr "실행 중 명령: %s"
 #: mgrpxy/cmd/cmd.go:67
 msgid "configuration file path"
 msgstr "구성 파일 경로"
-
-#: mgrpxy/cmd/cmd.go:69
-msgid "application log level"
-msgstr "애플리케이션 로그 수준"
 
 #: mgrpxy/cmd/install/install.go:20 mgrpxy/cmd/install/install.go:21
 msgid "Install a new proxy from scratch"
@@ -162,21 +158,18 @@ msgid "failed to login to registry.suse.com"
 msgstr "registry.suse.com에 로그인하지 못했습니다."
 
 #: mgrpxy/cmd/logs/kubernetes.go:29
-#, fuzzy
 msgid "failed to find proxy pod"
-msgstr "uyuni-proxy 배포 네임스페이스를 찾지 못함"
+msgstr "프록시 pod를 찾지 못함"
 
 #: mgrpxy/cmd/logs/kubernetes.go:33
-#, fuzzy
 msgid "failed to find proxy deployment namespace"
-msgstr "uyuni-proxy 배포 네임스페이스를 찾지 못함"
+msgstr "프록시 배포 네임스페이스를 찾지 못함"
 
 #: mgrpxy/cmd/logs/logs.go:35
 msgid "Get the proxy logs"
 msgstr "프록시 로그 가져오기"
 
 #: mgrpxy/cmd/logs/logs.go:36
-#, fuzzy
 msgid ""
 "Get the proxy logs\n"
 "The command automatically detects installed backend and displays the logs for containers managed by Kubernetes or Podman\n"
@@ -185,7 +178,8 @@ msgid ""
 msgstr ""
 "프록시 로그 가져오기\n"
 "이 명령은 설치된 백엔드를 자동으로 감지하고 Kubernetes 또는 Podman에서 관리하는 컨테이너의 로그를 표시합니다.\n"
-"그러나 특정 컨테이너에 대한 로그를 가져오기 위해 Pod 및/또는 컨테이너의 이름을 지정할 수 있습니다. 자세한 내용은 예제를 참조하십시오."
+"그러나 특정 컨테이너에 대한 로그를 가져오기 위해 pod 및/또는 컨테이너의 이름을 지정할 수 있습니다.\n"
+"자세한 내용은 예제를 참조하십시오."
 
 #: mgrpxy/cmd/logs/logs.go:62
 msgid "specify if logs should be followed"
@@ -200,11 +194,12 @@ msgid "number of lines to show from the end of the logs"
 msgstr "로그의 끝에서 표시할 줄 수"
 
 #: mgrpxy/cmd/logs/logs.go:67
-#, fuzzy
 msgid ""
 "show logs since a specific time or duration.\n"
 "Supports Go duration strings and RFC3339 format (e.g. 3h, 2023-01-02T15:04:05)"
-msgstr "특정 시간 또는 기간 이후의 로그를 표시합니다. Go 기간 문자열 및 RFC3339 형식 지원(예: 5s, 2m, 3h, 2023-01-02T15:04:05)"
+msgstr ""
+"특정 시간 또는 기간 이후의 로그를 표시합니다.\n"
+"Go 기간 문자열 및 RFC3339 형식 지원(예: 5s, 2m, 3h, 2023-01-02T15:04:05)"
 
 #: mgrpxy/cmd/restart/restart.go:23 mgrpxy/cmd/restart/restart.go:24
 msgid "Restart the proxy"
@@ -299,7 +294,6 @@ msgid "Install a PTF or Test package on podman"
 msgstr "podman에 PTF 또는 테스트 패키지 설치"
 
 #: mgrpxy/cmd/support/ptf/podman/podman.go:30
-#, fuzzy
 msgid ""
 "Install a PTF or Test package on podman\n"
 "\n"
@@ -567,15 +561,15 @@ msgstr "이미지 URL을 계산하지 못함"
 
 #: mgrpxy/shared/utils/flags.go:65
 msgid "SUSE Customer Center username. It will be used to pull images from registry.suse.com"
-msgstr ""
+msgstr "SUSE 고객 센터 사용자 이름입니다. registry.suse.com에서 이미지를 가져오기 위한 용도로 사용됩니다."
 
 #: mgrpxy/shared/utils/flags.go:68
 msgid "SUSE Customer Center password. It will be used to pull images from registry.suse.com"
-msgstr ""
+msgstr "SUSE 고객 센터 암호입니다. registry.suse.com에서 이미지를 가져오기 위한 용도로 사용됩니다."
 
 #: mgrpxy/shared/utils/flags.go:71
 msgid "SUSE Customer Center Flags"
-msgstr ""
+msgstr "SUSE 고객 센터 플래그"
 
 #: mgrpxy/shared/utils/flags.go:78
 msgid "image tag"
@@ -602,6 +596,9 @@ msgstr "%s 컨테이너용 이미지"
 #, javascript-format
 msgid "Tag for %s container, overrides the global value if set"
 msgstr "%s 컨테이너에 대한 태그, 설정된 경우 전역 값 재정의"
+
+#~ msgid "application log level"
+#~ msgstr "애플리케이션 로그 수준"
 
 #~ msgid "specify a private registry"
 #~ msgstr "개인 레지스트리 지정"

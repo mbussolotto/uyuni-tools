@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
-"PO-Revision-Date: 2025-05-29 04:59+0000\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
+"PO-Revision-Date: 2025-06-14 14:59+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/ja/>\n"
 "Language: ja\n"
@@ -27,13 +27,16 @@ msgid "Call API GET request"
 msgstr "API GET要求を呼び出す"
 
 #: mgrctl/cmd/api/api.go:32
-#, fuzzy
 msgid ""
 "Takes an API path and optional parameters and then issues GET request with them.\n"
 "\n"
 "Example:\n"
 "# mgrctl api get user/getDetails login=test"
-msgstr "APIパスとオプションパラメータを受け取り、これらを使用してGET要求を発行します。ユーザとパスワードが指定された場合、APIコールの前にログインを呼び出します"
+msgstr ""
+"APIパスとオプションパラメータを受け取り、これらを使用してGET要求を発行します。\n"
+"\n"
+"例:\n"
+"# mgrctl api get user/getDetails login=test"
 
 #: mgrctl/cmd/api/api.go:43
 msgid "Call API POST request"
@@ -63,7 +66,7 @@ msgstr ""
 
 #: mgrctl/cmd/api/api.go:62
 msgid "Store login information for future API usage"
-msgstr ""
+msgstr "将来のAPI使用のためにログイン情報を保存する"
 
 #: mgrctl/cmd/api/api.go:63
 msgid ""
@@ -72,43 +75,47 @@ msgid ""
 "User name, password and remote host can be provided using flags or will be asked interactively.\n"
 "Environment variables are also supported."
 msgstr ""
+"ログインすると、次のAPI呼び出しのためのログイン情報が保存されます。\n"
+"\n"
+"ユーザ名、パスワード、リモートホストは、フラグを使用して指定することも、対話形式で尋ねることもできます。 \n"
+"環境変数もサポートされています。"
 
 #: mgrctl/cmd/api/api.go:71
 msgid "Overwrite existing login if exists"
-msgstr ""
+msgstr "既存のログインが存在する場合は上書きする"
 
 #: mgrctl/cmd/api/api.go:75
 msgid "Remove stored login information"
-msgstr ""
+msgstr "保存されているログイン情報を削除する"
 
 #: mgrctl/cmd/api/api.go:76
 msgid "Logout removes stored login information."
-msgstr ""
+msgstr "ログアウトすると、保存されているログイン情報が削除されます。"
 
 #: mgrctl/cmd/api/get.go:28 mgrctl/cmd/api/post.go:28
 msgid "unable to login to the server"
 msgstr "サーバにログインできません"
 
 #: mgrctl/cmd/api/get.go:35 mgrctl/cmd/api/post.go:51
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "error in query '%s'"
-msgstr "クエリ %s でエラーが発生しました"
+msgstr "クエリ「%s」でエラーが発生しました"
 
 #: mgrctl/cmd/api/login.go:23
 msgid "Refusing to overwrite existing login. Use --force to ignore this check."
-msgstr ""
+msgstr "既存のログインの上書きを拒否します。このチェックを無視するには--forceを使用します。"
 
 #: mgrctl/cmd/api/login.go:35
 msgid "Failed to validate credentials."
-msgstr ""
+msgstr "資格情報の検証に失敗しました。"
 
 #: mgrctl/cmd/api/login.go:41
 msgid "Login credentials verified."
-msgstr ""
+msgstr "ログイン資格情報が確認されました。"
 
 #: mgrctl/cmd/api/login.go:51
 msgid "Successfully logged out"
-msgstr ""
+msgstr "正常にログアウトしました"
 
 #: mgrctl/cmd/cmd.go:29
 msgid "Uyuni control tool"
@@ -122,16 +129,12 @@ msgstr "主にAPIを通じてUyuniサーバを管理するのに役立つツー�
 msgid "configuration file path"
 msgstr "設定ファイルパス"
 
-#: mgrctl/cmd/cmd.go:39
-msgid "application log level"
-msgstr "アプリケーションログレベル"
-
-#: mgrctl/cmd/cmd.go:47
+#: mgrctl/cmd/cmd.go:45
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "%s へようこそ"
 
-#: mgrctl/cmd/cmd.go:48
+#: mgrctl/cmd/cmd.go:46
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "コマンドの実行中: %s"
@@ -196,6 +199,9 @@ msgstr "%s を実行中"
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
 msgstr "サーバコンテナ内で端末を実行する"
+
+#~ msgid "application log level"
+#~ msgstr "アプリケーションログレベル"
 
 #~ msgid "Takes an API path and parameters and then issues POST request with them. User and password are mandatory. Parameters can be either JSON encoded string or one or more key=value pairs."
 #~ msgstr "APIパスとパラメータを受け取り、それらを使用してPOST要求を発行します。ユーザとパスワードは必須です。パラメータには、JSONでエンコードされた文字列か、1つ以上のkey=valueペアを指定できます。"

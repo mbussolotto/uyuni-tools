@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 15:08+0200\n"
+"POT-Creation-Date: 2025-07-11 09:44+0200\n"
 "PO-Revision-Date: 2024-12-07 21:48+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrctl-5-0/de/>\n"
@@ -112,16 +112,12 @@ msgstr ""
 msgid "configuration file path"
 msgstr "Konfigurationsdateipfad"
 
-#: mgrctl/cmd/cmd.go:39
-msgid "application log level"
-msgstr "Anwendungs-Protokollierungsebene"
-
-#: mgrctl/cmd/cmd.go:47
+#: mgrctl/cmd/cmd.go:45
 #, javascript-format
 msgid "Welcome to %s"
 msgstr "Willkommen bei %s"
 
-#: mgrctl/cmd/cmd.go:48
+#: mgrctl/cmd/cmd.go:46
 #, javascript-format
 msgid "Executing command: %s"
 msgstr "Befehl ausführen: %s"
@@ -184,3 +180,6 @@ msgstr "%s wird ausgeführt"
 #: mgrctl/cmd/term/term.go:21
 msgid "Run a terminal inside the server container"
 msgstr ""
+
+#~ msgid "application log level"
+#~ msgstr "Anwendungs-Protokollierungsebene"
