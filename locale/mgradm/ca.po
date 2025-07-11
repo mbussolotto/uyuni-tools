@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-11 09:44+0200\n"
-"PO-Revision-Date: 2025-06-18 10:59+0000\n"
+"PO-Revision-Date: 2025-07-11 11:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.1\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
@@ -1225,10 +1225,9 @@ msgstr "no es pot executar la migració"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:117
 #: mgradm/shared/podman/podman.go:239
-#, fuzzy, javascript-format
-#| msgid "failed to create folder %s"
+#, javascript-format
 msgid "Failed to read file %s"
-msgstr "no s'ha pogut crear la carpeta %s"
+msgstr "No s'ha pogut llegir el fitxer %s"
 
 #: mgradm/cmd/migrate/kubernetes/utils.go:121
 msgid "cannot read data from container"
@@ -2150,22 +2149,16 @@ msgid "exec command failed"
 msgstr "ha fallat l'ordre exec"
 
 #: mgradm/shared/utils/exec.go:67
-#, fuzzy
-#| msgid "failed to generate migration script"
 msgid "failed to render database upgrade script"
-msgstr "no s'ha pogut generar l'script de migració"
+msgstr "no s'ha pogut renderitzar l'script d'actualització de la base de dades"
 
 #: mgradm/shared/utils/exec.go:84
-#, fuzzy
-#| msgid "failed to generate migration script"
 msgid "failed to render database finalization script"
-msgstr "no s'ha pogut generar l'script de migració"
+msgstr "no s'ha pogut renderitzar l'script de finalització de la base de dades"
 
 #: mgradm/shared/utils/exec.go:97
-#, fuzzy
-#| msgid "Failed to generate setup script"
 msgid "failed to render database post upgrade script"
-msgstr "No s'ha pogut generar l'script de configuració"
+msgstr "no s'ha pogut renderitzar l'script de la base de dades després de l'actualització"
 
 #: mgradm/shared/utils/exec.go:107
 msgid "error running the migration script"
