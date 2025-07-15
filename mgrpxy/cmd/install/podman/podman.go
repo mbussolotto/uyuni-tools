@@ -7,14 +7,14 @@ package podman
 import (
 	"github.com/spf13/cobra"
 	"github.com/uyuni-project/uyuni-tools/mgrpxy/shared/podman"
-	"github.com/uyuni-project/uyuni-tools/mgrpxy/shared/utils"
+	pxy_utils "github.com/uyuni-project/uyuni-tools/mgrpxy/shared/utils"
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
 	shared_podman "github.com/uyuni-project/uyuni-tools/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
-	shared_utils "github.com/uyuni-project/uyuni-tools/shared/utils"
+	utils "github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
-func newCmd(globalFlags *types.GlobalFlags, run shared_utils.CommandFunc[podman.PodmanProxyFlags]) *cobra.Command {
+func newCmd(globalFlags *types.GlobalFlags, run utils.CommandFunc[podman.PodmanProxyFlags]) *cobra.Command {
 	podmanCmd := &cobra.Command{
 		Use:   "podman [path/to/config.tar.gz]",
 		Short: L("Install a new proxy on podman"),
@@ -30,12 +30,14 @@ NOTE: for now installing on a remote podman is not supported!
 		Args: cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var flags podman.PodmanProxyFlags
-			return shared_utils.CommandHelper(globalFlags, cmd, args, &flags, nil, run)
+			utils.DefaultRegistry = flags.Registry
+			utils.DefaultRegistryFQDN = utils.ComputeFQDN(utils.DefaultRegistry)
+			return utils.CommandHelper(globalFlags, cmd, args, &flags, nil, run)
 		},
 	}
 
-	utils.AddSCCFlag(podmanCmd)
-	utils.AddImageFlags(podmanCmd)
+	pxy_utils.AddSCCFlag(podmanCmd)
+	pxy_utils.AddImageFlags(podmanCmd)
 	shared_podman.AddPodmanArgFlag(podmanCmd)
 
 	return podmanCmd

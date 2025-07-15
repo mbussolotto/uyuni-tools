@@ -32,7 +32,7 @@ func migrateToPodman(
 
 	authFile, cleaner, err := podman_utils.PodmanLogin(hostData, flags.Installation.SCC)
 	if err != nil {
-		return utils.Errorf(err, L("failed to login to registry.suse.com"))
+		return utils.Errorf(err, L("failed to login to %s"), utils.DefaultRegistryFQDN)
 	}
 	defer cleaner()
 

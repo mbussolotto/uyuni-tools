@@ -20,6 +20,8 @@ var LocaleRoot = "locale"
 // DefaultRegistry represents the default name used for container image.
 var DefaultRegistry = "registry.opensuse.org/uyuni"
 
+var DefaultRegistryFQDN = ComputeFQDN(DefaultRegistry)
+
 // DefaultHelmRegistry represents the default name used for helm charts.
 var DefaultHelmRegistry = "registry.opensuse.org/uyuni"
 

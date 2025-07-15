@@ -26,7 +26,7 @@ func upgradePodman(_ *types.GlobalFlags, flags *podmanUpgradeFlags, cmd *cobra.C
 
 	authFile, cleaner, err := shared_podman.PodmanLogin(hostData, flags.Installation.SCC)
 	if err != nil {
-		return utils.Errorf(err, L("failed to login to registry.suse.com"))
+		return utils.Errorf(err, L("failed to login to %s"), utils.DefaultRegistryFQDN)
 	}
 	defer cleaner()
 

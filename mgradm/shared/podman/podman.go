@@ -311,7 +311,8 @@ func Upgrade(
 ) error {
 	// Calling cloudguestregistryauth only makes sense if using the cloud provider registry.
 	// This check assumes users won't use custom registries that are not the cloud provider one on a cloud image.
-	if !strings.HasPrefix(registry, "registry.suse.com") {
+	if !strings.HasPrefix(registry, "registry.suse.com") ||
+		!strings.HasPrefix(utils.DefaultRegistryFQDN, "registry.suse.com") {
 		if err := CallCloudGuestRegistryAuth(); err != nil {
 			return err
 		}
@@ -494,7 +495,8 @@ func Migrate(
 ) error {
 	// Calling cloudguestregistryauth only makes sense if using the cloud provider registry.
 	// This check assumes users won't use custom registries that are not the cloud provider one on a cloud image.
-	if !strings.HasPrefix(registry, "registry.suse.com") {
+	if !strings.HasPrefix(registry, "registry.suse.com") ||
+		!strings.HasPrefix(utils.DefaultRegistryFQDN, "registry.suse.com") {
 		if err := CallCloudGuestRegistryAuth(); err != nil {
 			return err
 		}

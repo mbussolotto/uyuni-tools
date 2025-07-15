@@ -37,6 +37,8 @@ NOTE: for now installing on a remote podman is not supported!
 		Args: cobra.ExactArgs(0),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var flags podmanPTFFlags
+			utils.DefaultRegistry = flags.ServerFlags.Default.Registry
+			utils.DefaultRegistryFQDN = utils.ComputeFQDN(utils.DefaultRegistry)
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, nil, run)
 		},
 	}

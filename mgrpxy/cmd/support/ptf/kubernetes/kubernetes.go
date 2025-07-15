@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 //go:build ptf
@@ -43,6 +43,7 @@ NOTE: installing on a remote cluster is not supported yet!
 	pxy_utils.AddImageFlags(kubernetesCmd)
 
 	kubernetes.AddHelmFlags(kubernetesCmd)
+
 
 	return kubernetesCmd
 }

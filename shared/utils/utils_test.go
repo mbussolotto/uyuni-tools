@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -19,6 +19,7 @@ import (
 	l10n_utils "github.com/uyuni-project/uyuni-tools/shared/l10n/utils"
 	"github.com/uyuni-project/uyuni-tools/shared/testutils"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
+	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
 type askTestData struct {
@@ -174,6 +175,15 @@ func TestComputePTF(t *testing.T) {
 			"27977",
 			"registry.suse.com/suse/manager/5.0/x86_64/proxy-helm:latest",
 			"ptf",
+			"registry.suse.com",
+		},
+		{
+			"myregistry.com/a/a196136/27977/suse/manager/5.0/x86_64/proxy-helm:latest-ptf-27977",
+			"a196136",
+			"27977",
+			"myregistry.com/suse/manager/5.0/x86_64/proxy-helm:latest",
+			"ptf",
+			"myregistry.com",
 		},
 	}
 
@@ -183,6 +193,7 @@ func TestComputePTF(t *testing.T) {
 		ptfID := testCase[2]
 		fullImage := testCase[3]
 		suffix := testCase[4]
+		utils.DefaultRegistryFQDN = testCase[5]
 
 		actual, err := ComputePTF(user, ptfID, fullImage, suffix)
 

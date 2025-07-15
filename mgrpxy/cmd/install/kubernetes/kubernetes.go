@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -35,6 +35,8 @@ NOTE: for now installing on a remote kubernetes cluster is not supported!
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var flags kubernetesProxyInstallFlags
+			utils.DefaultRegistry = flags.Registry
+			utils.DefaultRegistryFQDN = utils.ComputeFQDN(utils.DefaultRegistry)
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, nil, run)
 		},
 	}

@@ -15,10 +15,11 @@ import (
 
 // InspectFlags are the flags used by inspect commands.
 type inspectFlags struct {
-	Image   types.ImageFlags `mapstructure:",squash"`
-	Pgsql   types.PgsqlFlags
-	SCC     types.SCCCredentials
-	Backend string
+	Image           types.ImageFlags `mapstructure:",squash"`
+	Pgsql           types.PgsqlFlags
+	SCC             types.SCCCredentials
+	Backend         string
+	DefaultRegistry string
 }
 
 func newCmd(globalFlags *types.GlobalFlags, run utils.CommandFunc[inspectFlags]) *cobra.Command {
@@ -31,6 +32,8 @@ func newCmd(globalFlags *types.GlobalFlags, run utils.CommandFunc[inspectFlags])
 
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var flags inspectFlags
+			utils.DefaultRegistry = flags.Image.Registry
+			utils.DefaultRegistryFQDN = utils.ComputeFQDN(utils.DefaultRegistry)
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, nil, run)
 		},
 	}

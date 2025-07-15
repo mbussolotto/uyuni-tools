@@ -37,6 +37,8 @@ NOTE: installing on a remote podman is not supported yet!
 				flags.ServerFlags.Coco.IsChanged = v.IsSet("coco.replicas")
 				flags.ServerFlags.HubXmlrpc.IsChanged = v.IsSet("hubxmlrpc.replicas")
 				flags.ServerFlags.Saline.IsChanged = v.IsSet("saline.replicas") || v.IsSet("saline.port")
+				utils.DefaultRegistry = flags.ServerFlags.Image.Registry
+				utils.DefaultRegistryFQDN = utils.ComputeFQDN(utils.DefaultRegistry)
 			}
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, flagsUpdater, run)
 		},

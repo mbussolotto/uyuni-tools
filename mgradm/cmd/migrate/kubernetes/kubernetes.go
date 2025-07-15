@@ -45,6 +45,8 @@ This is not needed if the source server does not have a generated SSL CA certifi
 				flags.ServerFlags.HubXmlrpc.IsChanged = v.IsSet("hubxmlrpc.replicas")
 				flags.ServerFlags.Saline.IsChanged = v.IsSet("saline.replicas") || v.IsSet("saline.port")
 				flags.ServerFlags.Pgsql.IsChanged = v.IsSet("pgsql.replicas")
+				utils.DefaultRegistry = flags.ServerFlags.Image.Registry
+				utils.DefaultRegistryFQDN = utils.ComputeFQDN(utils.DefaultRegistry)
 			}
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, flagsUpdater, run)
 		},

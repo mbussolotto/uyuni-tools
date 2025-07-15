@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -34,7 +34,6 @@ NOTE: for now upgrading on a remote kubernetes cluster is not supported!
 	}
 
 	pxy_utils.AddImageFlags(cmd)
-
 	kubernetes.AddHelmFlags(cmd)
 
 	return cmd
