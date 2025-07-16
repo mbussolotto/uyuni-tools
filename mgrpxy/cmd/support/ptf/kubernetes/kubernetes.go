@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 //go:build ptf
@@ -36,6 +36,7 @@ NOTE: installing on a remote cluster is not supported yet!
 		Args: cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var flags kubernetesPTFFlags
+			utils.DefaultSCCRegistry = flags.UpgradeFlags.SCC.Registry
 			return utils.CommandHelper(globalFlags, cmd, args, &flags, nil, run)
 		},
 	}

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -16,6 +16,7 @@ import (
 	"github.com/uyuni-project/uyuni-tools/mgrpxy/shared/utils"
 	"github.com/uyuni-project/uyuni-tools/shared/kubernetes"
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
+	"github.com/uyuni-project/uyuni-tools/shared/types"
 	shared_utils "github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
@@ -24,6 +25,7 @@ const helmAppName = "uyuni-proxy"
 // KubernetesProxyUpgradeFlags represents the flags for the mgrpxy upgrade kubernetes command.
 type KubernetesProxyUpgradeFlags struct {
 	utils.ProxyImageFlags `mapstructure:",squash"`
+	SCC                   types.SCCCredentials
 	Helm                  HelmFlags
 }
 
