@@ -19,7 +19,6 @@ import (
 // Upgrade coco attestation.
 func Upgrade(
 	authFile string,
-	registry string,
 	cocoFlags adm_utils.CocoFlags,
 	baseImage types.ImageFlags,
 	dbPort int,
@@ -36,7 +35,7 @@ func Upgrade(
 		return err
 	}
 
-	if err := writeCocoServiceFiles(authFile, registry, cocoFlags, baseImage, dbName, dbPort); err != nil {
+	if err := writeCocoServiceFiles(authFile, cocoFlags, baseImage, dbName, dbPort); err != nil {
 		return err
 	}
 
@@ -48,7 +47,6 @@ func Upgrade(
 
 func writeCocoServiceFiles(
 	authFile string,
-	registry string,
 	cocoFlags adm_utils.CocoFlags,
 	baseImage types.ImageFlags,
 	dbName string,
@@ -71,7 +69,7 @@ func writeCocoServiceFiles(
 		log.Debug().Msg("No Confidential Computing requested.")
 	}
 
-	cocoImage, err := utils.ComputeImage(registry, baseImage.Tag, image)
+	cocoImage, err := utils.ComputeImage(baseImage.Registry.Host, baseImage.Tag, image)
 	if err != nil {
 		return utils.Errorf(err, L("failed to compute image URL"))
 	}
@@ -115,14 +113,13 @@ Environment=database_connection=jdbc:postgresql://uyuni-server.mgr.internal:%d/%
 // SetupCocoContainer sets up the confidential computing attestation service.
 func SetupCocoContainer(
 	authFile string,
-	registry string,
 	coco adm_utils.CocoFlags,
 	baseImage types.ImageFlags,
 	dbName string,
 	dbPort int,
 ) error {
 	if err := writeCocoServiceFiles(
-		authFile, registry, coco, baseImage, dbName, dbPort,
+		authFile, coco, baseImage, dbName, dbPort,
 	); err != nil {
 		return err
 	}

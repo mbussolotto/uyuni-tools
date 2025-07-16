@@ -44,7 +44,7 @@ func migrateToKubernetes(
 		return utils.Errorf(err, L("failed retrieving namespace"))
 	}
 
-	serverImage, err := utils.ComputeImage(flags.Image.Registry, utils.DefaultTag, flags.Image)
+	serverImage, err := utils.ComputeImage(flags.Image.Registry.Host, utils.DefaultTag, flags.Image)
 	if err != nil {
 		return utils.Errorf(err, L("failed to compute image URL"))
 	}
@@ -95,7 +95,7 @@ func migrateToKubernetes(
 		"--set", "migration.dataPath="+dataDir,
 	)
 
-	if err := kubernetes.Deploy(cnx, flags.Image.Registry, &flags.Image, &flags.Helm,
+	if err := kubernetes.Deploy(cnx, flags.Image.Registry.Host, &flags.Image, &flags.Helm,
 		clusterInfos, fqdn, false, flags.Prepare, migrationArgs...); err != nil {
 		return utils.Errorf(err, L("cannot run deploy"))
 	}
@@ -175,7 +175,7 @@ func migrateToKubernetes(
 	newPgVersion := extractedData.ImagePgVersion
 
 	if oldPgVersion != newPgVersion {
-		if err := kubernetes.RunPgsqlVersionUpgrade(flags.Image.Registry, flags.Image,
+		if err := kubernetes.RunPgsqlVersionUpgrade(flags.Image.Registry.Host, flags.Image,
 			flags.DBUpgradeImage, namespace, nodeName, oldPgVersion, newPgVersion,
 		); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))

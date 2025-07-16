@@ -48,7 +48,7 @@ func installForPodman(
 		return err
 	}
 
-	authFile, cleaner, err := shared_podman.PodmanLogin(hostData, flags.SCC)
+	authFile, cleaner, err := shared_podman.PodmanLogin(hostData, flags.Image.Registry, flags.SCC)
 	if err != nil {
 		return utils.Errorf(err, L("failed to login to registry.suse.com"))
 	}
@@ -71,7 +71,7 @@ func installForPodman(
 	}
 	log.Info().Msgf(L("Setting up the server with the FQDN '%s'"), fqdn)
 
-	image, err := utils.ComputeImage(flags.Image.Registry, utils.DefaultTag, flags.Image)
+	image, err := utils.ComputeImage(utils.DefaultRegistry, utils.DefaultTag, flags.Image)
 	if err != nil {
 		return utils.Errorf(err, L("failed to compute image URL"))
 	}
@@ -126,7 +126,7 @@ func installForPodman(
 			return err
 		}
 		if err := coco.SetupCocoContainer(
-			authFile, flags.Image.Registry, flags.Coco, flags.Image,
+			authFile, flags.Coco, flags.Image,
 			flags.DB.Name, flags.DB.Port,
 		); err != nil {
 			return err
@@ -135,7 +135,7 @@ func installForPodman(
 
 	if flags.HubXmlrpc.Replicas > 0 {
 		if err := hub.SetupHubXmlrpc(
-			authFile, flags.Image.Registry, flags.Image.PullPolicy, flags.Image.Tag, flags.HubXmlrpc,
+			authFile, flags.Image, flags.HubXmlrpc,
 		); err != nil {
 			return err
 		}

@@ -11,6 +11,7 @@ import (
 
 	"github.com/uyuni-project/uyuni-tools/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/shared/testutils"
+	"github.com/uyuni-project/uyuni-tools/shared/types"
 )
 
 func TestCheckParameters(t *testing.T) {
@@ -96,6 +97,11 @@ func TestCheckParameters(t *testing.T) {
 		flags := podmanPTFFlags{
 			PTFId:      "5678",
 			CustomerID: "1234",
+			Image: types.ImageFlags{
+				Registry: types.Registry{
+					Host: "registry.suse.com/suse/manager/5.0/x86_64/",
+				},
+			},
 		}
 		testCase := fmt.Sprintf("case #%d - ", i+1)
 		actualError := flags.checkParameters()

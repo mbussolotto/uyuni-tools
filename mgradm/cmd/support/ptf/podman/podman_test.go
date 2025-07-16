@@ -20,6 +20,10 @@ func TestParamsParsing(t *testing.T) {
 		"--test", "test123",
 		"--user", "sccuser",
 		"--pullPolicy", "never",
+		"--registry", "myOldRegistry",
+		"--registry-host", "myoverwrittenregistry",
+		"--registry-user", "user",
+		"--registry-password", "password",
 	}
 	args = append(args, flagstests.SCCFlagTestArgs...)
 

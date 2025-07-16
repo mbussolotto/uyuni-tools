@@ -312,6 +312,7 @@ func GetVolumeMountPoint(name string) (path string, err error) {
 func Inspect(
 	serverImage string,
 	pullPolicy string,
+	registry types.Registry,
 	scc types.SCCCredentials,
 ) (*utils.ServerInspectData, error) {
 	hostData, err := InspectHost()
@@ -319,7 +320,7 @@ func Inspect(
 		return nil, err
 	}
 
-	authFile, cleaner, err := PodmanLogin(hostData, scc)
+	authFile, cleaner, err := PodmanLogin(hostData, registry, scc)
 	if err != nil {
 		return nil, utils.Errorf(err, L("failed to login to registry.suse.com"))
 	}

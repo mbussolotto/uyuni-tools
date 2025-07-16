@@ -251,7 +251,6 @@ func RunMigration(
 // RunPgsqlVersionUpgrade perform a PostgreSQL major upgrade.
 func RunPgsqlVersionUpgrade(
 	authFile string,
-	registry string,
 	image types.ImageFlags,
 	upgradeImage types.ImageFlags,
 	oldPgsql string,
@@ -270,13 +269,13 @@ func RunPgsqlVersionUpgrade(
 		upgradeImageURL := ""
 		var err error
 		if upgradeImage.Name == "" {
-			upgradeImageURL, err = utils.ComputeImage(registry, utils.DefaultTag, image,
+			upgradeImageURL, err = utils.ComputeImage(image.Registry.Host, utils.DefaultTag, image,
 				fmt.Sprintf("-migration-%s-%s", oldPgsql, newPgsql))
 			if err != nil {
 				return utils.Errorf(err, L("failed to compute image URL"))
 			}
 		} else {
-			upgradeImageURL, err = utils.ComputeImage(registry, image.Tag, upgradeImage)
+			upgradeImageURL, err = utils.ComputeImage(image.Registry.Host, image.Tag, upgradeImage)
 			if err != nil {
 				return utils.Errorf(err, L("failed to compute image URL"))
 			}
@@ -335,7 +334,7 @@ func RunPostUpgradeScript(serverImage string) error {
 // Upgrade will upgrade server to the image given as attribute.
 func Upgrade(
 	authFile string,
-	registry string,
+	registry types.Registry,
 	image types.ImageFlags,
 	upgradeImage types.ImageFlags,
 	cocoFlags adm_utils.CocoFlags,
@@ -343,13 +342,13 @@ func Upgrade(
 ) error {
 	// Calling cloudguestregistryauth only makes sense if using the cloud provider registry.
 	// This check assumes users won't use custom registries that are not the cloud provider one on a cloud image.
-	if !strings.HasPrefix(registry, "registry.suse.com") {
+	if !strings.HasPrefix(image.Registry.Host, "registry.suse.com") {
 		if err := CallCloudGuestRegistryAuth(); err != nil {
 			return err
 		}
 	}
 
-	serverImage, err := utils.ComputeImage(registry, utils.DefaultTag, image)
+	serverImage, err := utils.ComputeImage(registry.Host, utils.DefaultTag, image)
 	if err != nil {
 		return errors.New(L("failed to compute image URL"))
 	}
@@ -383,7 +382,7 @@ func Upgrade(
 			inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
 		)
 		if err := RunPgsqlVersionUpgrade(
-			authFile, registry, image, upgradeImage, inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
+			authFile, image, upgradeImage, inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
 		); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))
 		}
@@ -424,14 +423,14 @@ func Upgrade(
 	}
 	log.Info().Msg(L("Waiting for the server to start…"))
 
-	err = coco.Upgrade(authFile, registry, cocoFlags, image,
+	err = coco.Upgrade(authFile, cocoFlags, image,
 		inspectedValues.DBPort, inspectedValues.DBName, inspectedValues.DBUser, inspectedValues.DBPassword)
 	if err != nil {
 		return utils.Errorf(err, L("error upgrading confidential computing service."))
 	}
 
 	if err := hub.Upgrade(
-		authFile, registry, image.PullPolicy, image.Tag, hubXmlrpcFlags,
+		authFile, image, hubXmlrpcFlags,
 	); err != nil {
 		return err
 	}

@@ -40,9 +40,9 @@ func ptfForPodman(
 		return err
 	}
 
-	authFile, cleaner, err := podman_shared.PodmanLogin(hostData, flags.UpgradeFlags.SCC)
+	authFile, cleaner, err := podman_shared.PodmanLogin(hostData, flags.UpgradeFlags.Registry, flags.SCC)
 	if err != nil {
-		return utils.Errorf(err, L("failed to login to registry.suse.com"))
+		return err
 	}
 	defer cleaner()
 
@@ -116,7 +116,7 @@ func updateParameters(flags *podmanPTFFlags) error {
 		if err != nil {
 			return err
 		}
-		config.imageFlag.Name, err = utils.ComputePTF(flags.UpgradeFlags.ProxyImageFlags.Registry,
+		config.imageFlag.Name, err = utils.ComputePTF(flags.UpgradeFlags.ProxyImageFlags.Registry.Host,
 			flags.CustomerID, projectID, runningImage, suffix)
 		if err != nil {
 			return err

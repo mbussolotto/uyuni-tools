@@ -156,7 +156,7 @@ func Upgrade(
 		return utils.Errorf(err, L("failed retrieving namespace"))
 	}
 
-	serverImage, err := utils.ComputeImage(image.Registry, utils.DefaultTag, *image)
+	serverImage, err := utils.ComputeImage(image.Registry.Host, utils.DefaultTag, *image)
 	if err != nil {
 		return utils.Errorf(err, L("failed to compute image URL"))
 	}
@@ -204,7 +204,7 @@ func Upgrade(
 		log.Info().Msgf(L("Previous PostgreSQL is %[1]s, new one is %[2]s. Performing a DB version upgrade…"),
 			inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion)
 
-		if err := RunPgsqlVersionUpgrade(image.Registry, *image, *upgradeImage, nodeName, namespace,
+		if err := RunPgsqlVersionUpgrade(image.Registry.Host, *image, *upgradeImage, nodeName, namespace,
 			inspectedValues.CurrentPgVersion, inspectedValues.ImagePgVersion,
 		); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))

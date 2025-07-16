@@ -17,9 +17,9 @@ import (
 	"github.com/uyuni-project/uyuni-tools/shared"
 	podman_utils "github.com/uyuni-project/uyuni-tools/shared/podman"
 	"github.com/uyuni-project/uyuni-tools/shared/types"
+	"github.com/uyuni-project/uyuni-tools/shared/utils"
 
 	. "github.com/uyuni-project/uyuni-tools/shared/l10n"
-	"github.com/uyuni-project/uyuni-tools/shared/utils"
 )
 
 func migrateToPodman(
@@ -36,7 +36,7 @@ func migrateToPodman(
 		return err
 	}
 
-	serverImage, err := utils.ComputeImage(flags.Image.Registry, utils.DefaultTag, flags.Image)
+	serverImage, err := utils.ComputeImage(flags.Image.Registry.Host, utils.DefaultTag, flags.Image)
 	if err != nil {
 		return utils.Errorf(err, L("cannot compute image"))
 	}
@@ -46,9 +46,9 @@ func migrateToPodman(
 		return err
 	}
 
-	authFile, cleaner, err := podman_utils.PodmanLogin(hostData, flags.SCC)
+	authFile, cleaner, err := podman_utils.PodmanLogin(hostData, flags.Image.Registry, flags.SCC)
 	if err != nil {
-		return utils.Errorf(err, L("failed to login to registry.suse.com"))
+		return err
 	}
 	defer cleaner()
 
@@ -83,7 +83,7 @@ func migrateToPodman(
 
 	if oldPgVersion != newPgVersion {
 		if err := podman.RunPgsqlVersionUpgrade(
-			authFile, flags.Image.Registry, flags.Image, flags.DBUpgradeImage, oldPgVersion, newPgVersion,
+			authFile, flags.Image, flags.DBUpgradeImage, oldPgVersion, newPgVersion,
 		); err != nil {
 			return utils.Errorf(err, L("cannot run PostgreSQL version upgrade script"))
 		}
@@ -112,7 +112,7 @@ func migrateToPodman(
 	// Prepare confidential computing containers
 	if flags.Coco.Replicas > 0 {
 		if err = coco.Upgrade(
-			authFile, flags.Image.Registry, flags.Coco, flags.Image,
+			authFile, flags.Coco, flags.Image,
 			extractedData.DBPort, extractedData.DBName,
 			extractedData.DBUser, extractedData.DBPassword,
 		); err != nil {
@@ -132,7 +132,7 @@ func migrateToPodman(
 	}
 	if hubReplicas > 0 {
 		if err := hub.SetupHubXmlrpc(
-			authFile, flags.Image.Registry, flags.Image.PullPolicy, flags.Image.Tag, flags.HubXmlrpc,
+			authFile, flags.Image, flags.HubXmlrpc,
 		); err != nil {
 			return err
 		}
