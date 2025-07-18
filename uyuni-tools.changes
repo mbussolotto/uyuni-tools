@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Fri Jul 18 09:32:42 CEST 2025 - michael.calmer@suse.com
+
+- version 0.1.32-0
+  * Fix version compare by backport from main (bsc#1246662)
+
+-------------------------------------------------------------------
 Tue Jul 01 11:32:03 CEST 2025 - rosuna@suse.com
 
 - version 0.1.31-0
