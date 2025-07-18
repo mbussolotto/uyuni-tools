@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Fri Jul 18 12:41:42 CEST 2025 - michael.calmer@suse.com
+
+- version 0.1.33-0
+  * Restore volumes using tar instead of podman import (bsc#1244127)
+
+-------------------------------------------------------------------
 Fri Jul 18 09:32:42 CEST 2025 - michael.calmer@suse.com
 
 - version 0.1.32-0
