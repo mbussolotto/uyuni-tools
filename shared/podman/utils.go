@@ -129,24 +129,6 @@ func GetServiceImage(service string) string {
 	return matches[1]
 }
 
-// DeleteImage deletes a podman image based on its name.
-// If dryRun is set to true, nothing will be done, only messages logged to explain what would happen.
-func DeleteImage(name string, dryRun bool) error {
-	exists := imageExists(name)
-	if exists {
-		if dryRun {
-			log.Info().Msgf(L("Would run %s"), "podman image rm "+name)
-		} else {
-			log.Info().Msgf(L("Run %s"), "podman image rm "+name)
-			err := utils.RunCmd("podman", "image", "rm", name)
-			if err != nil {
-				log.Error().Err(err).Msgf(L("Failed to remove image %s"), name)
-			}
-		}
-	}
-	return nil
-}
-
 func imageExists(volume string) bool {
 	cmd := exec.Command("podman", "image", "exists", volume)
 	if err := cmd.Run(); err != nil {

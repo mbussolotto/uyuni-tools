@@ -75,7 +75,7 @@ func gatherSystemdItems() []string {
 			continue
 		}
 
-		servicePath, err := systemd.GetServiceProperty(serviceName, podman.FragmentPath)
+		servicePath, err := podman.GetServiceProperty(serviceName, podman.FragmentPath)
 		if err != nil {
 			log.Debug().Err(err).Msgf("failed to get the path to the %s service file", serviceName)
 			// Skipping the dropins since we would likely get a similar error.
@@ -84,7 +84,7 @@ func gatherSystemdItems() []string {
 		result = append(result, servicePath)
 
 		// Get the drop in files
-		dropIns, err := systemd.GetServiceProperty(serviceName, podman.DropInPaths)
+		dropIns, err := podman.GetServiceProperty(serviceName, podman.DropInPaths)
 		if err != nil {
 			log.Debug().Err(err).Msgf("failed to get the path to the %s service configuration files", serviceName)
 		} else {
