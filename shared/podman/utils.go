@@ -129,31 +129,13 @@ func GetServiceImage(service string) string {
 		return ""
 	}
 
-	imageFinder := regexp.MustCompile(`UYUNI_IMAGE=(.*)`)
+	imageFinder := regexp.MustCompile(`UYUNI.*_IMAGE=(.*)`)
 	matches := imageFinder.FindStringSubmatch(string(out))
 	if len(matches) < 2 {
-		log.Warn().Msgf(L("no UYUNI_IMAGE defined in %s systemd service"), service)
+		log.Warn().Msgf(L("no UYUNI.*_IMAGE defined in %s systemd service"), service)
 		return ""
 	}
 	return matches[1]
-}
-
-// DeleteImage deletes a podman image based on its name.
-// If dryRun is set to true, nothing will be done, only messages logged to explain what would happen.
-func DeleteImage(name string, dryRun bool) error {
-	exists := imageExists(name)
-	if exists {
-		if dryRun {
-			log.Info().Msgf(L("Would run %s"), "podman image rm "+name)
-		} else {
-			log.Info().Msgf(L("Run %s"), "podman image rm "+name)
-			err := utils.RunCmd("podman", "image", "rm", name)
-			if err != nil {
-				log.Error().Err(err).Msgf(L("Failed to remove image %s"), name)
-			}
-		}
-	}
-	return nil
 }
 
 func imageExists(volume string) bool {
