@@ -13,7 +13,7 @@ const postUpgradeScriptTemplate = `#!/bin/bash
 {{ if .CobblerHost }}
 sed 's/cobbler\.host.*/cobbler\.host = {{ .CobblerHost }}/' -i /etc/rhn/rhn.conf;
 grep uyuni_authentication_endpoint /etc/cobbler/settings.d/zz-uyuni.settings
-if [ $? -eq 1 ]; then
+if grep -q uyuni_authentication_endpoint /etc/cobbler/settings.d/zz-uyuni.settings; then
 	echo 'uyuni_authentication_endpoint: "http://localhost"' >> /etc/cobbler/settings.d/zz-uyuni.settings
 else
 	sed 's/uyuni_authentication_endpoint.*/uyuni_authentication_endpoint: http:\/\/localhost/' \
@@ -21,8 +21,7 @@ else
 fi
 {{ end }}
 
-grep pam_auth_service /etc/rhn/rhn.conf
-if [ $? -eq 1 ]; then
+if grep -q pam_auth_service /etc/rhn/rhn.conf; then
 	echo 'pam_auth_service = susemanager' >> /etc/rhn/rhn.conf
 else
 	sed 's/pam_auth_service.*/pam_auth_service = susemanager/' -i /etc/rhn/rhn.conf;
