@@ -243,8 +243,10 @@ func ImportVolume(name string, volumePath string, skipVerify bool, dryRun bool) 
 	if err := utils.RunCmd(importCommand[0], importCommand[1:]...); err != nil {
 		return utils.Errorf(err, L("Failed to import volume %s"), name)
 	}
-	if err := utils.RunCmd(restoreconCommand[0], restoreconCommand[1:]...); err != nil {
-		log.Warn().Err(err).Msgf(L("Unable to restore selinux context for %s, manual action is required"), targetPath)
+	if utils.IsInstalled("restorecon") {
+		if err := utils.RunCmd(restoreconCommand[0], restoreconCommand[1:]...); err != nil {
+			log.Warn().Err(err).Msgf(L("Unable to restore selinux context for %s, manual action is required"), targetPath)
+		}
 	}
 	return nil
 }
