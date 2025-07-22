@@ -328,8 +328,6 @@ func Inspect(
 	return inspectResult, err
 }
 
-var newRunner = utils.NewRunner
-
 func containerInspect[T any](
 	image string, authFile string, pullPolicy string, inspector templates.InspectTemplateData,
 ) (*T, error) {
