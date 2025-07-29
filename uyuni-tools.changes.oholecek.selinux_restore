@@ -1,0 +1,1 @@
+- Check for restorecon presence before calling (bsc#1246925)
