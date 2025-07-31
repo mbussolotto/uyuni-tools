@@ -205,6 +205,11 @@ func ComputeImage(
 	imageFlags types.ImageFlags,
 	appendToName ...string,
 ) (string, error) {
+	if imageFlags.SkipComputation {
+		log.Debug().Msgf("Skipping image recomputation for %s", imageFlags.Name)
+		return imageFlags.Name, nil
+	}
+
 	if !strings.Contains(DefaultRegistry, registry) {
 		log.Info().Msgf(L("Registry %[1]s would be used instead of namespace %[2]s"), registry, DefaultRegistry)
 	}
@@ -244,7 +249,7 @@ func ComputeImage(
 
 // ComputePTF returns a PTF or Test image from registry.suse.com.
 func ComputePTF(user string, ptfID string, fullImage string, suffix string) (string, error) {
-	prefix := fmt.Sprintf("registry.suse.com/a/%s/%s/", user, ptfID)
+	prefix := fmt.Sprintf("registry.suse.com/a/%s/%s/", strings.ToLower(user), ptfID)
 	submatches := prodVersionArchRegex.FindStringSubmatch(fullImage)
 	if submatches == nil || len(submatches) > 1 {
 		return "", fmt.Errorf(L("invalid image name: %s"), fullImage)
