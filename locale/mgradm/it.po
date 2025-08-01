@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 09:44+0200\n"
+"POT-Creation-Date: 2025-08-01 16:18+0200\n"
 "PO-Revision-Date: 2024-05-16 09:23+0000\n"
 "Last-Translator: Marina Latini <marina.latini@suse.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm/it/>\n"
@@ -153,38 +153,38 @@ msgstr "mancata creazione della directory temporanea: %s"
 msgid "Backing up container volumes"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:173
+#: mgradm/cmd/backup/create/create.go:181
 msgid "Backing up container images"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:178
+#: mgradm/cmd/backup/create/create.go:186
 #, javascript-format
 msgid "Not backing up image %s"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:186
+#: mgradm/cmd/backup/create/create.go:194
 msgid "Systemd services and configuration was not backed up"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:187
+#: mgradm/cmd/backup/create/create.go:195
 #, fuzzy
 msgid "Backing up Systemd services"
 msgstr "impossibile abilitare il servizio: %s"
 
-#: mgradm/cmd/backup/create/create.go:204
+#: mgradm/cmd/backup/create/create.go:212
 msgid "Podman configuration was not backed up"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:205
+#: mgradm/cmd/backup/create/create.go:213
 msgid "Backing up podman configuration"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:227
+#: mgradm/cmd/backup/create/create.go:235
 #, javascript-format
 msgid "output directory %s already exists and is not empty"
 msgstr ""
 
-#: mgradm/cmd/backup/create/create.go:237
+#: mgradm/cmd/backup/create/create.go:245
 msgid "server is not initialized."
 msgstr ""
 
@@ -233,12 +233,12 @@ msgstr ""
 msgid "Unable to encode secrets backup"
 msgstr ""
 
-#: mgradm/cmd/backup/create/systemd_utils.go:25
+#: mgradm/cmd/backup/create/systemd_utils.go:26
 #, javascript-format
 msgid "Would backup %s"
 msgstr ""
 
-#: mgradm/cmd/backup/create/systemd_utils.go:31
+#: mgradm/cmd/backup/create/systemd_utils.go:32
 #, fuzzy
 #| msgid "failed to create temporary directory: %s"
 msgid "failed to create Systemd backup tarball: %w"
@@ -399,38 +399,44 @@ msgstr ""
 msgid "Unable to validate systemd backup file"
 msgstr "impossibile abilitare il servizio: %s"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:40
+#: mgradm/cmd/backup/restore/systemd_utils.go:41
 #, javascript-format
 msgid "Would restore %s"
 msgstr ""
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:48
+#: mgradm/cmd/backup/restore/systemd_utils.go:49
 #, fuzzy, javascript-format
 #| msgid "failed to create temporary directory: %s"
 msgid "Unable to create directory %s"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:58
+#: mgradm/cmd/backup/restore/systemd_utils.go:59
 #, javascript-format
 msgid "Unknown filetype of %s"
 msgstr ""
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:63
+#: mgradm/cmd/backup/restore/systemd_utils.go:64
 #, fuzzy, javascript-format
 msgid "Unable to restore file details for %s"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:73
+#: mgradm/cmd/backup/restore/systemd_utils.go:74
+#, fuzzy, javascript-format
+#| msgid "failed to create temporary directory: %s"
+msgid "Unable to create directories for %s"
+msgstr "mancata creazione della directory temporanea: %s"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:78
 #, fuzzy, javascript-format
 msgid "Unable to create %s"
 msgstr "mancata creazione della directory temporanea: %s"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:77
+#: mgradm/cmd/backup/restore/systemd_utils.go:82
 #, javascript-format
 msgid "Unable to restore content of %s"
 msgstr ""
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:96
+#: mgradm/cmd/backup/restore/systemd_utils.go:101
 #, fuzzy
 msgid "Would generate default systemd services"
 msgstr "impossibile abilitare il servizio: %s"
@@ -488,91 +494,91 @@ msgstr ""
 msgid "configuration file path"
 msgstr ""
 
-#: mgradm/cmd/distro/cp.go:31
+#: mgradm/cmd/distro/cp.go:38
 #, javascript-format
 msgid "Unable to unmount ISO image, leaving %s intact"
 msgstr "Impossibile smontare l'immagine ISO, %s è inalterata"
 
-#: mgradm/cmd/distro/cp.go:47
+#: mgradm/cmd/distro/cp.go:54
 #, fuzzy
 msgid "unable to login and register the distribution. Manual distro registration is required"
 msgstr "Impossibile effettuare il login e registrare la distribuzione. È richiesta la registrazione manuale della distribuzione: %s"
 
-#: mgradm/cmd/distro/cp.go:59
+#: mgradm/cmd/distro/cp.go:66
 #, fuzzy
 msgid "unable to register the distribution. Manual distro registration is required"
 msgstr "impossibile registrare la distribuzione. È richiesta la registrazione manuale della distribuzione: %s"
 
-#: mgradm/cmd/distro/cp.go:61
+#: mgradm/cmd/distro/cp.go:68
 #, javascript-format
 msgid "Distribution %s successfully registered"
 msgstr "Distribuzione %s registrata con successo"
 
-#: mgradm/cmd/distro/cp.go:69 mgradm/cmd/support/sql/sql.go:34
+#: mgradm/cmd/distro/cp.go:76 mgradm/cmd/support/sql/sql.go:34
 #, javascript-format
 msgid "source %s does not exists"
 msgstr "la risorsa %s non esiste"
 
-#: mgradm/cmd/distro/cp.go:88
+#: mgradm/cmd/distro/cp.go:95
 #, javascript-format
 msgid "unable to mount ISO image: %s"
 msgstr "impossibile montare l'immagine ISO: %s"
 
-#: mgradm/cmd/distro/cp.go:96
+#: mgradm/cmd/distro/cp.go:105
 msgid "Missing TreeLabel. Please specify distribution name"
 msgstr ""
 
-#: mgradm/cmd/distro/cp.go:105
+#: mgradm/cmd/distro/cp.go:114
 #, fuzzy, javascript-format
 msgid "distribution with same name already exists: %s"
 msgstr "la distribuzione esiste già: %s"
 
-#: mgradm/cmd/distro/cp.go:109
+#: mgradm/cmd/distro/cp.go:118
 #, javascript-format
 msgid "cannot create %s path in container"
 msgstr "impossibile creare il percorso %s nel container"
 
-#: mgradm/cmd/distro/cp.go:112
+#: mgradm/cmd/distro/cp.go:121
 #, javascript-format
 msgid "Copying distribution %s"
 msgstr "Copia della distribuzione %s"
 
-#: mgradm/cmd/distro/cp.go:114 mgradm/shared/podman/podman.go:134
+#: mgradm/cmd/distro/cp.go:123 mgradm/shared/podman/podman.go:134
 #: mgradm/shared/podman/podman.go:137 mgradm/shared/podman/podman.go:140
 #: mgradm/shared/podman/podman.go:148
 #, javascript-format
 msgid "cannot copy %s"
 msgstr "impossibile copiare %s"
 
-#: mgradm/cmd/distro/cp.go:116
+#: mgradm/cmd/distro/cp.go:125
 #, javascript-format
 msgid "Distribution has been copied into %s"
 msgstr "La distribuzione è stata copiata in %s"
 
-#: mgradm/cmd/distro/cp.go:173
+#: mgradm/cmd/distro/cp.go:186
 #, fuzzy, javascript-format
 msgid "Auto-detected distribution %s"
 msgstr "Copia della distribuzione %s\n"
 
-#: mgradm/cmd/distro/cp.go:184
+#: mgradm/cmd/distro/cp.go:197
 #, fuzzy
 msgid "Continue by registering autoinstallation distribution"
 msgstr "Strumenti di autoinstallazione delle distribuzioni"
 
-#: mgradm/cmd/distro/detect.go:96
+#: mgradm/cmd/distro/detect.go:113
 msgid "distribution not found in product map. Please update productmap or provide channel label"
 msgstr ""
 
-#: mgradm/cmd/distro/detect.go:111
+#: mgradm/cmd/distro/detect.go:128
 msgid "unable to read distribution treeinfo. Please provide distribution details and/or channel label"
 msgstr ""
 
-#: mgradm/cmd/distro/detect.go:150
+#: mgradm/cmd/distro/detect.go:167
 #, javascript-format
 msgid "distribution treeinfo %s does not exists. Please provide distribution details and/or channel label"
 msgstr ""
 
-#: mgradm/cmd/distro/distro.go:32
+#: mgradm/cmd/distro/distro.go:40
 msgid ""
 "Auto installation distribution product mapping.\n"
 "\n"
@@ -591,7 +597,7 @@ msgid ""
 "      <distribution architecture>:\n"
 "        ChannelLabel: <channel label>\n"
 "        InstallType: <one of rhel_7|rhel_8|rhel_9|sles12generic|sles15generic|generic_rpm>\n"
-"        TreeName: <custom distribution name>\n"
+"        TreeLabel: <custom distribution name>\n"
 "\n"
 "Where\n"
 "* <distribution name> is the name of the distribution, by default taken from '.treeinfo' file from the media.\n"
@@ -603,26 +609,26 @@ msgid ""
 "* ChannelLabel is the channel label from Uyuni server and which is to be used for this distribution;\n"
 "  can be overridden by command line flag.\n"
 "* InstallType is used when installer is known (for autoyast or kickstart) or use 'generic_rpm'.\n"
-"* TreeName is how the distribution will be presented in the Uyuni server UI. If not set <distribution name> is used.\n"
+"* TreeLabel is how the distribution will be presented in the Uyuni server UI. If not set <distribution name> is used.\n"
 "\n"
 "Build-in product map:\n"
 "\n"
-"{{ .DefaultProductMap }}\n"
+"{{ .DefaultProductMapRender }}\n"
 msgstr ""
 
-#: mgradm/cmd/distro/distro.go:75
+#: mgradm/cmd/distro/distro.go:112
 msgid "Distributions management"
 msgstr "Gestione delle distribuzioni"
 
-#: mgradm/cmd/distro/distro.go:76
+#: mgradm/cmd/distro/distro.go:113
 msgid "Tools for autoinstallation distributions management"
 msgstr "Strumenti di autoinstallazione delle distribuzioni"
 
-#: mgradm/cmd/distro/distro.go:82
+#: mgradm/cmd/distro/distro.go:119
 msgid "Copy distribution files from iso to the container"
 msgstr ""
 
-#: mgradm/cmd/distro/distro.go:83
+#: mgradm/cmd/distro/distro.go:120
 msgid ""
 "Takes a path to source iso file or directory with mounted iso and copies it into the container.\n"
 "\n"
@@ -635,15 +641,15 @@ msgid ""
 "Note: API details are required for auto registration."
 msgstr ""
 
-#: mgradm/cmd/distro/distro.go:97
+#: mgradm/cmd/distro/distro.go:134
 msgid "Set parent channel for the distribution."
 msgstr ""
 
-#: mgradm/cmd/distro/distro.go:101
-msgid "Help on using custom distribution product map"
+#: mgradm/cmd/distro/distro.go:138
+msgid "Show distribution product map"
 msgstr ""
 
-#: mgradm/cmd/distro/distro.go:113
+#: mgradm/cmd/distro/distro.go:150
 #, fuzzy
 msgid "failed to compute config help command"
 msgstr "impossibile determinare l'URL dell'immagine: %s"
