@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 09:44+0200\n"
+"POT-Creation-Date: 2025-08-01 16:18+0200\n"
 "PO-Revision-Date: 2025-06-17 08:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ko/>\n"
@@ -149,37 +149,37 @@ msgstr "대상 출력 디렉토리를 만들지 못함: %w"
 msgid "Backing up container volumes"
 msgstr "컨테이너 볼륨 백업 중"
 
-#: mgradm/cmd/backup/create/create.go:173
+#: mgradm/cmd/backup/create/create.go:181
 msgid "Backing up container images"
 msgstr "컨테이너 이미지 백업 중"
 
-#: mgradm/cmd/backup/create/create.go:178
+#: mgradm/cmd/backup/create/create.go:186
 #, javascript-format
 msgid "Not backing up image %s"
 msgstr "이미지 %s 백업 안 함"
 
-#: mgradm/cmd/backup/create/create.go:186
+#: mgradm/cmd/backup/create/create.go:194
 msgid "Systemd services and configuration was not backed up"
 msgstr "Systemd 서비스 및 구성이 백업되지 않음"
 
-#: mgradm/cmd/backup/create/create.go:187
+#: mgradm/cmd/backup/create/create.go:195
 msgid "Backing up Systemd services"
 msgstr "Systemd 서비스를 백업하는 중"
 
-#: mgradm/cmd/backup/create/create.go:204
+#: mgradm/cmd/backup/create/create.go:212
 msgid "Podman configuration was not backed up"
 msgstr "Podman 구성이 백업되지 않음"
 
-#: mgradm/cmd/backup/create/create.go:205
+#: mgradm/cmd/backup/create/create.go:213
 msgid "Backing up podman configuration"
 msgstr "podman 구성을 백업하는 중"
 
-#: mgradm/cmd/backup/create/create.go:227
+#: mgradm/cmd/backup/create/create.go:235
 #, javascript-format
 msgid "output directory %s already exists and is not empty"
 msgstr "출력 디렉토리 %s이(가) 이미 있으며 비어 있지 않음"
 
-#: mgradm/cmd/backup/create/create.go:237
+#: mgradm/cmd/backup/create/create.go:245
 msgid "server is not initialized."
 msgstr "서버가 초기화되지 않습니다."
 
@@ -223,12 +223,12 @@ msgstr "podman 시크릿을 디코딩할 수 없음"
 msgid "Unable to encode secrets backup"
 msgstr "시크릿 백업을 인코딩할 수 없음"
 
-#: mgradm/cmd/backup/create/systemd_utils.go:25
+#: mgradm/cmd/backup/create/systemd_utils.go:26
 #, javascript-format
 msgid "Would backup %s"
 msgstr "%s 백업"
 
-#: mgradm/cmd/backup/create/systemd_utils.go:31
+#: mgradm/cmd/backup/create/systemd_utils.go:32
 msgid "failed to create Systemd backup tarball: %w"
 msgstr "Systemd 백업 tarball을 만들지 못함: %w"
 
@@ -382,37 +382,43 @@ msgstr "systemd 백업을 백업 위치에서 찾을 수 없어 기본값을 생
 msgid "Unable to validate systemd backup file"
 msgstr "systemd 백업 파일의 유효성을 검증할 수 없음"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:40
+#: mgradm/cmd/backup/restore/systemd_utils.go:41
 #, javascript-format
 msgid "Would restore %s"
 msgstr "%s 복원"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:48
+#: mgradm/cmd/backup/restore/systemd_utils.go:49
 #, javascript-format
 msgid "Unable to create directory %s"
 msgstr "디렉토리 %s을(를) 만들 수 없음"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:58
+#: mgradm/cmd/backup/restore/systemd_utils.go:59
 #, javascript-format
 msgid "Unknown filetype of %s"
 msgstr "알 수 없는 %s 파일 유형"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:63
+#: mgradm/cmd/backup/restore/systemd_utils.go:64
 #, javascript-format
 msgid "Unable to restore file details for %s"
 msgstr "%s의 파일 세부 사항을 복원할 수 없음"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:73
+#: mgradm/cmd/backup/restore/systemd_utils.go:74
+#, fuzzy, javascript-format
+#| msgid "Unable to create directory %s"
+msgid "Unable to create directories for %s"
+msgstr "디렉토리 %s을(를) 만들 수 없음"
+
+#: mgradm/cmd/backup/restore/systemd_utils.go:78
 #, javascript-format
 msgid "Unable to create %s"
 msgstr "%s을(를) 만들 수 없음"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:77
+#: mgradm/cmd/backup/restore/systemd_utils.go:82
 #, javascript-format
 msgid "Unable to restore content of %s"
 msgstr "%s의 콘텐츠를 복원할 수 없음"
 
-#: mgradm/cmd/backup/restore/systemd_utils.go:96
+#: mgradm/cmd/backup/restore/systemd_utils.go:101
 msgid "Would generate default systemd services"
 msgstr "기본 systemd 서비스 생성"
 
@@ -468,88 +474,124 @@ msgstr "실행 중 명령: %s"
 msgid "configuration file path"
 msgstr "구성 파일 경로"
 
-#: mgradm/cmd/distro/cp.go:31
+#: mgradm/cmd/distro/cp.go:38
 #, javascript-format
 msgid "Unable to unmount ISO image, leaving %s intact"
 msgstr "ISO 이미지를 마운트 해제할 수 없어 %s이(가) 그대로 유지됩니다."
 
-#: mgradm/cmd/distro/cp.go:47
+#: mgradm/cmd/distro/cp.go:54
 msgid "unable to login and register the distribution. Manual distro registration is required"
 msgstr "로그인하여 배포를 등록할 수 없습니다. 배포를 수동으로 등록해야 함"
 
-#: mgradm/cmd/distro/cp.go:59
+#: mgradm/cmd/distro/cp.go:66
 msgid "unable to register the distribution. Manual distro registration is required"
 msgstr "배포를 등록할 수 없습니다. 배포를 수동으로 등록해야 함"
 
-#: mgradm/cmd/distro/cp.go:61
+#: mgradm/cmd/distro/cp.go:68
 #, javascript-format
 msgid "Distribution %s successfully registered"
 msgstr "%s 배포가 등록되었습니다."
 
-#: mgradm/cmd/distro/cp.go:69 mgradm/cmd/support/sql/sql.go:34
+#: mgradm/cmd/distro/cp.go:76 mgradm/cmd/support/sql/sql.go:34
 #, javascript-format
 msgid "source %s does not exists"
 msgstr "%s 소스가 없습니다."
 
-#: mgradm/cmd/distro/cp.go:88
+#: mgradm/cmd/distro/cp.go:95
 #, javascript-format
 msgid "unable to mount ISO image: %s"
 msgstr "ISO 이미지를 마운트할 수 없음: %s"
 
-#: mgradm/cmd/distro/cp.go:96
+#: mgradm/cmd/distro/cp.go:105
 msgid "Missing TreeLabel. Please specify distribution name"
 msgstr "TreeLabel이 누락되었습니다. 배포 이름을 지정하십시오."
 
-#: mgradm/cmd/distro/cp.go:105
+#: mgradm/cmd/distro/cp.go:114
 #, javascript-format
 msgid "distribution with same name already exists: %s"
 msgstr "이름이 동일한 배포가 이미 있음: %s"
 
-#: mgradm/cmd/distro/cp.go:109
+#: mgradm/cmd/distro/cp.go:118
 #, javascript-format
 msgid "cannot create %s path in container"
 msgstr "컨테이너에 %s 경로를 만들 수 없음"
 
-#: mgradm/cmd/distro/cp.go:112
+#: mgradm/cmd/distro/cp.go:121
 #, javascript-format
 msgid "Copying distribution %s"
 msgstr "%s 배포 복사 중"
 
-#: mgradm/cmd/distro/cp.go:114 mgradm/shared/podman/podman.go:134
+#: mgradm/cmd/distro/cp.go:123 mgradm/shared/podman/podman.go:134
 #: mgradm/shared/podman/podman.go:137 mgradm/shared/podman/podman.go:140
 #: mgradm/shared/podman/podman.go:148
 #, javascript-format
 msgid "cannot copy %s"
 msgstr "%s을(를) 복사할 수 없음"
 
-#: mgradm/cmd/distro/cp.go:116
+#: mgradm/cmd/distro/cp.go:125
 #, javascript-format
 msgid "Distribution has been copied into %s"
 msgstr "배포가 %s에 복사되었습니다."
 
-#: mgradm/cmd/distro/cp.go:173
+#: mgradm/cmd/distro/cp.go:186
 #, javascript-format
 msgid "Auto-detected distribution %s"
 msgstr "자동으로 감지된 배포 %s"
 
-#: mgradm/cmd/distro/cp.go:184
+#: mgradm/cmd/distro/cp.go:197
 msgid "Continue by registering autoinstallation distribution"
 msgstr "자동 설치 배포를 등록하여 계속 진행"
 
-#: mgradm/cmd/distro/detect.go:96
+#: mgradm/cmd/distro/detect.go:113
 msgid "distribution not found in product map. Please update productmap or provide channel label"
 msgstr "제품 맵에서 배포를 찾을 수 없습니다. 제품 맵을 업데이트하거나 채널 레이블을 제공하십시오."
 
-#: mgradm/cmd/distro/detect.go:111
+#: mgradm/cmd/distro/detect.go:128
 msgid "unable to read distribution treeinfo. Please provide distribution details and/or channel label"
 msgstr "배포 트리 정보를 읽을 수 없습니다. 배포 세부 정보 및/또는 채널 레이블을 입력하십시오."
 
-#: mgradm/cmd/distro/detect.go:150
+#: mgradm/cmd/distro/detect.go:167
 #, javascript-format
 msgid "distribution treeinfo %s does not exists. Please provide distribution details and/or channel label"
 msgstr "배포 트리 정보 %s이(가) 없습니다. 배포 세부 정보 및/또는 채널 레이블을 입력하십시오."
 
-#: mgradm/cmd/distro/distro.go:32
+#: mgradm/cmd/distro/distro.go:40
+#, fuzzy
+#| msgid ""
+#| "Auto installation distribution product mapping.\n"
+#| "\n"
+#| "For distribution to be registered by the server it is important to map distribution to the correct software channel.\n"
+#| "\n"
+#| "Software channels can be named differently without any corellation to distribution name;\n"
+#| "it is then needed to allow custom distribution name to software channel mapping.\n"
+#| "\n"
+#| "One way to set software channel is by flag --channel to the distribution copy command.\n"
+#| "\n"
+#| "For frequent usage it is possible to write custom product mapping to the mgradm configuration file as follows:\n"
+#| "\n"
+#| "ProductMap:\n"
+#| "  <distribution name>:\n"
+#| "    <distribution version>:\n"
+#| "      <distribution architecture>:\n"
+#| "        ChannelLabel: <channel label>\n"
+#| "        InstallType: <one of rhel_7|rhel_8|rhel_9|sles12generic|sles15generic|generic_rpm>\n"
+#| "        TreeName: <custom distribution name>\n"
+#| "\n"
+#| "Where\n"
+#| "* <distribution name> is the name of the distribution, by default taken from '.treeinfo' file from the media.\n"
+#| "  If '.treeinfo' is not found or available, command line option is required and used.\n"
+#| "* <distribution version> is the version of the distribution, by default taken from '.treeinfo' file from the media.\n"
+#| "  If'.treeinfo' is not found, command line option is required and used.\n"
+#| "* <distribution architecture> is distribution architecture, by default taken from '.treeinfo' file from the media.\n"
+#| "  If '.treeinfo' is not found, command line option is required and used.\n"
+#| "* ChannelLabel is the channel label from Uyuni server and which is to be used for this distribution;\n"
+#| "  can be overridden by command line flag.\n"
+#| "* InstallType is used when installer is known (for autoyast or kickstart) or use 'generic_rpm'.\n"
+#| "* TreeName is how the distribution will be presented in the Uyuni server UI. If not set <distribution name> is used.\n"
+#| "\n"
+#| "Build-in product map:\n"
+#| "\n"
+#| "{{ .DefaultProductMap }}\n"
 msgid ""
 "Auto installation distribution product mapping.\n"
 "\n"
@@ -568,7 +610,7 @@ msgid ""
 "      <distribution architecture>:\n"
 "        ChannelLabel: <channel label>\n"
 "        InstallType: <one of rhel_7|rhel_8|rhel_9|sles12generic|sles15generic|generic_rpm>\n"
-"        TreeName: <custom distribution name>\n"
+"        TreeLabel: <custom distribution name>\n"
 "\n"
 "Where\n"
 "* <distribution name> is the name of the distribution, by default taken from '.treeinfo' file from the media.\n"
@@ -580,11 +622,11 @@ msgid ""
 "* ChannelLabel is the channel label from Uyuni server and which is to be used for this distribution;\n"
 "  can be overridden by command line flag.\n"
 "* InstallType is used when installer is known (for autoyast or kickstart) or use 'generic_rpm'.\n"
-"* TreeName is how the distribution will be presented in the Uyuni server UI. If not set <distribution name> is used.\n"
+"* TreeLabel is how the distribution will be presented in the Uyuni server UI. If not set <distribution name> is used.\n"
 "\n"
 "Build-in product map:\n"
 "\n"
-"{{ .DefaultProductMap }}\n"
+"{{ .DefaultProductMapRender }}\n"
 msgstr ""
 "자동 설치 배포 제품 매핑.\n"
 "\n"
@@ -621,19 +663,19 @@ msgstr ""
 "\n"
 "{{ .DefaultProductMap }}\n"
 
-#: mgradm/cmd/distro/distro.go:75
+#: mgradm/cmd/distro/distro.go:112
 msgid "Distributions management"
 msgstr "배포 관리"
 
-#: mgradm/cmd/distro/distro.go:76
+#: mgradm/cmd/distro/distro.go:113
 msgid "Tools for autoinstallation distributions management"
 msgstr "자동 설치 배포 관리를 위한 도구"
 
-#: mgradm/cmd/distro/distro.go:82
+#: mgradm/cmd/distro/distro.go:119
 msgid "Copy distribution files from iso to the container"
 msgstr "ISO에서 컨테이너로 배포 파일 복사"
 
-#: mgradm/cmd/distro/distro.go:83
+#: mgradm/cmd/distro/distro.go:120
 msgid ""
 "Takes a path to source iso file or directory with mounted iso and copies it into the container.\n"
 "\n"
@@ -655,15 +697,17 @@ msgstr ""
 "\n"
 "참고: 자동 등록을 위해서는 API 세부 정보가 필요합니다."
 
-#: mgradm/cmd/distro/distro.go:97
+#: mgradm/cmd/distro/distro.go:134
 msgid "Set parent channel for the distribution."
 msgstr "배포의 상위 채널을 설정합니다."
 
-#: mgradm/cmd/distro/distro.go:101
-msgid "Help on using custom distribution product map"
+#: mgradm/cmd/distro/distro.go:138
+#, fuzzy
+#| msgid "Help on using custom distribution product map"
+msgid "Show distribution product map"
 msgstr "사용자 정의 배포 제품 맵 사용에 대한 도움말"
 
-#: mgradm/cmd/distro/distro.go:113
+#: mgradm/cmd/distro/distro.go:150
 msgid "failed to compute config help command"
 msgstr "구성 도움말 명령을 계산하지 못함"
 
