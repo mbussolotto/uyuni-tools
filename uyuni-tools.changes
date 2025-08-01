@@ -1,4 +1,30 @@
 -------------------------------------------------------------------
+Tue Jul 22 15:46:35 CEST 2025 - marina.latini@suse.com
+
+- version 0.1.35-0
+  * Restore SELinux contexts for restored backup volumes
+    (bsc#1244127)
+
+-------------------------------------------------------------------
+Mon Jul 21 17:41:55 CEST 2025 - marina.latini@suse.com
+
+- version 0.1.34-0
+  * Fix mgradm backup create handling of images and systemd files
+    (bsc#1246738)
+
+-------------------------------------------------------------------
+Fri Jul 18 12:41:42 CEST 2025 - michael.calmer@suse.com
+
+- version 0.1.33-0
+  * Restore volumes using tar instead of podman import (bsc#1244127)
+
+-------------------------------------------------------------------
+Fri Jul 18 09:32:42 CEST 2025 - michael.calmer@suse.com
+
+- version 0.1.32-0
+  * Fix version compare by backport from main (bsc#1246662)
+
+-------------------------------------------------------------------
 Tue Jul 01 11:32:03 CEST 2025 - rosuna@suse.com
 
 - version 0.1.31-0

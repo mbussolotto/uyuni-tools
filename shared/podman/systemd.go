@@ -31,6 +31,12 @@ const HubXmlrpcService = "uyuni-hub-xmlrpc"
 // ProxyService is the name of the systemd service for the proxy.
 const ProxyService = "uyuni-proxy-pod"
 
+// FragmentPath is a systemd property containing the path of the service file.
+const FragmentPath = "FragmentPath"
+
+// DropInPaths is a systemd property containing the paths of the service configuration file separated by a space.
+const DropInPaths = "DropInPaths"
+
 // HasService returns if a systemd service is installed.
 // name is the name of the service without the '.service' part.
 func HasService(name string) bool {
@@ -57,6 +63,18 @@ func DisableService(name string) error {
 // GetServicePath return the path for a given service.
 func GetServicePath(name string) string {
 	return path.Join(servicesPath, name+".service")
+}
+
+func GetServiceProperty(service string, property string) (string, error) {
+	serviceName := service
+	if strings.HasSuffix(service, "@") {
+		serviceName = service + "0"
+	}
+	out, err := newRunner("systemctl", "show", "-p", property, serviceName).Exec()
+	if err != nil {
+		return "", utils.Errorf(err, L("Failed to get the %[1]s property from %[2]s service"), property, service)
+	}
+	return strings.TrimPrefix(strings.TrimSpace(string(out)), property+"="), nil
 }
 
 // GetServiceConfFolder return the conf folder for systemd services.

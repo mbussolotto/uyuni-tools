@@ -129,31 +129,13 @@ func GetServiceImage(service string) string {
 		return ""
 	}
 
-	imageFinder := regexp.MustCompile(`UYUNI_IMAGE=(.*)`)
+	imageFinder := regexp.MustCompile(`UYUNI.*_IMAGE=(.*)`)
 	matches := imageFinder.FindStringSubmatch(string(out))
 	if len(matches) < 2 {
-		log.Warn().Msgf(L("no UYUNI_IMAGE defined in %s systemd service"), service)
+		log.Warn().Msgf(L("no UYUNI.*_IMAGE defined in %s systemd service"), service)
 		return ""
 	}
 	return matches[1]
-}
-
-// DeleteImage deletes a podman image based on its name.
-// If dryRun is set to true, nothing will be done, only messages logged to explain what would happen.
-func DeleteImage(name string, dryRun bool) error {
-	exists := imageExists(name)
-	if exists {
-		if dryRun {
-			log.Info().Msgf(L("Would run %s"), "podman image rm "+name)
-		} else {
-			log.Info().Msgf(L("Run %s"), "podman image rm "+name)
-			err := utils.RunCmd("podman", "image", "rm", name)
-			if err != nil {
-				log.Error().Err(err).Msgf(L("Failed to remove image %s"), name)
-			}
-		}
-	}
-	return nil
 }
 
 func imageExists(volume string) bool {
@@ -240,7 +222,9 @@ func ImportVolume(name string, volumePath string, skipVerify bool, dryRun bool) 
 		log.Debug().Msg("cannot get base volume path")
 		return err
 	}
-	importCommand := []string{"tar", "xf", volumePath, "-C", path.Join(basePath, name, "_data")}
+	targetPath := path.Join(basePath, name, "_data")
+	importCommand := []string{"tar", "xf", volumePath, "-C", targetPath}
+	restoreconCommand := []string{"restorecon", "-rF", targetPath}
 
 	if dryRun {
 		log.Info().Msgf(L("Would run %s"), strings.Join(importCommand, " "))
@@ -258,6 +242,11 @@ func ImportVolume(name string, volumePath string, skipVerify bool, dryRun bool) 
 	log.Info().Msgf(L("Run %s"), strings.Join(importCommand, " "))
 	if err := utils.RunCmd(importCommand[0], importCommand[1:]...); err != nil {
 		return utils.Errorf(err, L("Failed to import volume %s"), name)
+	}
+	if utils.IsInstalled("restorecon") {
+		if err := utils.RunCmd(restoreconCommand[0], restoreconCommand[1:]...); err != nil {
+			log.Warn().Err(err).Msgf(L("Unable to restore selinux context for %s, manual action is required"), targetPath)
+		}
 	}
 	return nil
 }
@@ -345,8 +334,6 @@ func Inspect(
 
 	return inspectResult, err
 }
-
-var newRunner = utils.NewRunner
 
 func containerInspect[T any](
 	image string, authFile string, pullPolicy string, inspector templates.InspectTemplateData,

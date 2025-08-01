@@ -124,6 +124,18 @@ while IFS="," read -r target path ; do
   fi
 done < distros
 
+echo "Migrating auto-installation snippets..."
+$SSH {{ .SourceFqdn }} "find /var/lib/cobbler/snippets/spacewalk/* -type d" > snippets_dirs
+while read -r snippets_dir ; do
+  if $SSH -n {{ .SourceFqdn }} test -e $snippets_dir; then
+    echo "Copying autoinstallation snippets from $snippets_dir..."
+    mkdir -p "$snippets_dir"
+    rsync --delete -e "$SSH" --rsync-path='sudo rsync' -avz "{{ .SourceFqdn }}:$snippets_dir" "$snippets_dir";
+  else
+    echo "Skipping autoinstallation snippets from $snippets_dir.."
+  fi
+done < snippets_dirs
+
 if $SSH {{ .SourceFqdn }} test -e /etc/tomcat/conf.d; then
   echo "Copying tomcat configuration.."
   mkdir -p /etc/tomcat/conf.d
@@ -154,7 +166,7 @@ sed 's/report_db_host = {{ .SourceFqdn }}/report_db_host = localhost/' -i /etc/r
 if ! grep -q '^java.hostname *=' /etc/rhn/rhn.conf; then
     sed 's/server\.jabber_server/java\.hostname/' -i /etc/rhn/rhn.conf;
 fi
-sed 's/client_use_localhost: false/client_use_localhost: true/' -i /etc/cobbler/settings.yaml;
+echo 'client_use_localhost: true' >> /etc/cobbler/settings.d/zz-uyuni.settings;
 
 echo "Altering configuration for container environment..."
 sed 's/address=[^:]*:/address=*:/' -i /etc/rhn/taskomatic.conf;
