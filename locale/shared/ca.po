@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-01 16:18+0200\n"
-"PO-Revision-Date: 2025-07-11 11:59+0000\n"
+"PO-Revision-Date: 2025-08-02 09:46+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ca/>\n"
 "Language: ca\n"
@@ -787,10 +787,8 @@ msgid "failed to disable %s systemd service"
 msgstr "no s'ha pogut inhabilitar el servei systemd %s"
 
 #: shared/podman/systemd.go:75
-#, fuzzy
-#| msgid "failed to get the %s pod logs"
 msgid "Failed to get the %[1]s property from %[2]s service"
-msgstr "No s'han pogut obtenir els registres del pod %s"
+msgstr "Ha fallat obtenir la propietat de %[1]s des del servei %[2]s"
 
 #: shared/podman/systemd.go:111
 #, javascript-format
@@ -953,10 +951,9 @@ msgid "failed to get %s systemd service definition"
 msgstr "no s'ha pogut obtenir la definició del servei systemd de %s"
 
 #: shared/podman/utils.go:135
-#, fuzzy, javascript-format
-#| msgid "no UYUNI_IMAGE defined in %s systemd service"
+#, javascript-format
 msgid "no UYUNI.*_IMAGE defined in %s systemd service"
-msgstr "no s'ha definit UYUNIIMAGE al servei systemd %s"
+msgstr "no hi ha UYUNI.*_IMAGE definit al servei de systemd %s"
 
 #: shared/podman/utils.go:182
 #, javascript-format
@@ -990,7 +987,7 @@ msgstr "No s'ha pogut importar el volum %s"
 #: shared/podman/utils.go:248
 #, javascript-format
 msgid "Unable to restore selinux context for %s, manual action is required"
-msgstr ""
+msgstr "No es pot restaurar el context de selinux per a %s, cal una acció manual."
 
 #: shared/podman/utils.go:324
 msgid "failed to login to registry.suse.com"
@@ -1424,10 +1421,8 @@ msgid "Failed to write checksum of the file %[1]s to the %[2]s"
 msgstr "No s'ha pogut escriure la suma de verificació del fitxer %[1]s a %[2]s"
 
 #: shared/utils/utils.go:455
-#, fuzzy
-#| msgid "Failed to calculate checksum of the file %s"
 msgid "Failed to read checksum of the file %[1]s"
-msgstr "No s'ha pogut calcular la suma de verificació del fitxer %s"
+msgstr "No s'ha pogut llegir la suma de verificació del fitxer %[1]s"
 
 #: shared/utils/utils.go:459
 #, javascript-format
