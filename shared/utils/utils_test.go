@@ -210,13 +210,13 @@ func TestComputePTF(t *testing.T) {
 			name:      "success 5.0 container and custom registry",
 			registry:  "mysccregistry.com",
 			fullImage: defaultRegistry50 + "/proxy-helm:latest",
-			expected:  "registry.suse.com/a/150158/27977/suse/manager/5.0/x86_64/proxy-helm:latest-ptf-27977",
+			expected:  "mysccregistry.com/a/150158/27977/suse/manager/5.0/x86_64/proxy-helm:latest-ptf-27977",
 		},
 		{
 			name:      "success 5.0 rpm container and custom registry",
 			registry:  "mysccregistry.com",
 			fullImage: "localhost/suse/manager/5.0/x86_64/proxy-helm:latest",
-			expected:  "registry.suse.com/a/150158/27977/suse/manager/5.0/x86_64/proxy-helm:latest-ptf-27977",
+			expected:  "mysccregistry.com/a/150158/27977/suse/manager/5.0/x86_64/proxy-helm:latest-ptf-27977",
 		},
 
 		// Failure cases
@@ -243,7 +243,7 @@ func TestComputePTF(t *testing.T) {
 				suffix = tt.suffix
 			}
 
-			actual, err := ComputePTF(user, ptfID, tt.fullImage, suffix)
+			actual, err := ComputePTF(tt.registry, user, ptfID, tt.fullImage, suffix)
 			if err != nil {
 				if tt.expectedErrorMessage == "" {
 					t.Errorf("Unexpected error while executing ComputePTF('%s', '%s', '%s', '%s', '%s'): %s",
