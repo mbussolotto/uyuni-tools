@@ -293,11 +293,11 @@ func Upgrade(_ *types.GlobalFlags, flags *PodmanProxyFlags, _ *cobra.Command, _ 
 		return err
 	}
 
-	return startPod()
+	return StartPod()
 }
 
 // Start the proxy services.
-func startPod() error {
+func StartPod() error {
 	ret := podman.IsServiceRunning(podman.ProxyService)
 	if ret {
 		return podman.RestartService(podman.ProxyService)

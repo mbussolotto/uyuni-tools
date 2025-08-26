@@ -50,6 +50,7 @@ var getServiceImage = podman_shared.GetServiceImage
 var hasRemoteImage = podman_shared.HasRemoteImage
 
 func (flags *podmanPTFFlags) checkParameters() error {
+	sccRegistry := "registry.suse.com"
 	if flags.TestID != "" && flags.PTFId != "" {
 		return errors.New(L("ptf and test flags cannot be set simultaneously "))
 	}
@@ -74,7 +75,7 @@ func (flags *podmanPTFFlags) checkParameters() error {
 
 	var err error
 
-	flags.Image.Name, err = utils.ComputePTF(flags.CustomerID, projectID, serverImage, suffix)
+	flags.Image.Name, err = utils.ComputePTF(sccRegistry, flags.CustomerID, projectID, serverImage, suffix)
 	if err != nil {
 		return err
 	}
@@ -82,7 +83,7 @@ func (flags *podmanPTFFlags) checkParameters() error {
 
 	if cocoImage := getServiceImage(podman_shared.ServerAttestationService + "@"); cocoImage != "" {
 		// If no coco image was found then skip it during the upgrade.
-		cocoImage, err = utils.ComputePTF(flags.CustomerID, projectID, cocoImage, suffix)
+		cocoImage, err = utils.ComputePTF(sccRegistry, flags.CustomerID, projectID, cocoImage, suffix)
 		if err != nil {
 			return err
 		}
@@ -94,7 +95,7 @@ func (flags *podmanPTFFlags) checkParameters() error {
 
 	if hubImage := getServiceImage(podman_shared.HubXmlrpcService); hubImage != "" {
 		// If no hub xmlrpc api image was found then skip it during the upgrade.
-		hubImage, err = utils.ComputePTF(flags.CustomerID, projectID, hubImage, suffix)
+		hubImage, err = utils.ComputePTF(sccRegistry, flags.CustomerID, projectID, hubImage, suffix)
 		if err != nil {
 			return err
 		}
