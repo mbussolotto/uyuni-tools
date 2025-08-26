@@ -25,15 +25,15 @@ const (
 
 // CreateDBSecrets creates the podman secrets for the database credentials.
 func CreateDBSecrets(user string, password string) error {
-	if err := createSecret(DBUserSecret, user); err != nil {
+	if err := CreateSecret(DBUserSecret, user); err != nil {
 		return err
 	}
-	return createSecret(DBPassSecret, password)
+	return CreateSecret(DBPassSecret, password)
 }
 
 // createSecret creates a podman secret.
-func createSecret(name string, value string) error {
-	if hasSecret(name) {
+func CreateSecret(name string, value string) error {
+	if HasSecret(name) {
 		return nil
 	}
 
@@ -56,13 +56,13 @@ func createSecret(name string, value string) error {
 	return nil
 }
 
-func hasSecret(name string) bool {
+func HasSecret(name string) bool {
 	return utils.RunCmd("podman", "secret", "exists", name) == nil
 }
 
 // DeleteSecret removes a podman secret.
 func DeleteSecret(name string, dryRun bool) {
-	if !hasSecret(name) {
+	if !HasSecret(name) {
 		return
 	}
 
