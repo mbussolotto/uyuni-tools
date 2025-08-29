@@ -198,6 +198,15 @@ func RemoveRegistryFromImage(imagePath string) string {
 	return strings.Join(parts, "/")
 }
 
+// SplitRegistryHostAndPath splits a registry string into domain and path.
+func splitRegistryHostAndPath(registry string) (domain string, path string) {
+	idx := strings.Index(registry, "/")
+	if idx == -1 {
+		return registry, ""
+	}
+	return registry[:idx], registry[idx+1:]
+}
+
 // ComputeImage assembles the container image from its name and tag.
 func ComputeImage(
 	registry string,
@@ -243,14 +252,20 @@ func ComputeImage(
 }
 
 // ComputePTF returns a PTF or Test image from registry.suse.com.
-func ComputePTF(user string, ptfID string, fullImage string, suffix string) (string, error) {
-	prefix := fmt.Sprintf("registry.suse.com/a/%s/%s/", user, ptfID)
+func ComputePTF(registry string, user string, ptfID string, fullImage string, suffix string) (string, error) {
 	submatches := prodVersionArchRegex.FindStringSubmatch(fullImage)
-	if submatches == nil || len(submatches) > 1 {
+	if submatches == nil || len(submatches) != 1 {
 		return "", fmt.Errorf(L("invalid image name: %s"), fullImage)
 	}
+	imagePath := submatches[0]
+
+	registryHost, registryPath := splitRegistryHostAndPath(registry)
+	if registryPath != "" && !strings.HasPrefix(imagePath, registryPath) {
+		return "", fmt.Errorf(L("image path '%[1]s' does not start with registry path '%[2]s'"), imagePath, registryPath)
+	}
+
 	tag := fmt.Sprintf("latest-%s-%s", suffix, ptfID)
-	return prefix + submatches[0] + tag, nil
+	return fmt.Sprintf("%s/a/%s/%s/%s%s", registryHost, strings.ToLower(user), ptfID, imagePath, tag), nil
 }
 
 // GetLocalTimezone returns the timezone set on the current machine.
