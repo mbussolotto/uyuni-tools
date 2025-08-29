@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 16:18+0200\n"
+"POT-Creation-Date: 2025-08-26 16:21+0200\n"
 "PO-Revision-Date: 2025-06-12 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/zh_CN/>\n"
@@ -1532,33 +1532,33 @@ msgstr ""
 "\n"
 "注意：目前不支持在远程 podman 上安装！\n"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:54
+#: mgradm/cmd/support/ptf/podman/utils.go:55
 msgid "ptf and test flags cannot be set simultaneously "
 msgstr "不能同时设置 ptf 和 test 标志 "
 
-#: mgradm/cmd/support/ptf/podman/utils.go:57
+#: mgradm/cmd/support/ptf/podman/utils.go:58
 msgid "ptf and test flags cannot be empty simultaneously "
 msgstr "ptf 和 test 标志不能同时为空 "
 
-#: mgradm/cmd/support/ptf/podman/utils.go:60
+#: mgradm/cmd/support/ptf/podman/utils.go:61
 msgid "user flag cannot be empty"
 msgstr "user 标志不能为空"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:72
+#: mgradm/cmd/support/ptf/podman/utils.go:73
 msgid "failed to find server image"
 msgstr "找不到服务器映像"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:81
+#: mgradm/cmd/support/ptf/podman/utils.go:82
 #, javascript-format
 msgid "The computed image is %s"
 msgstr "计算出的映像为 %s"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:91
+#: mgradm/cmd/support/ptf/podman/utils.go:92
 #, javascript-format
 msgid "The computed confidential computing image is %s"
 msgstr "计算出的机密计算映像为 %s"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:103
+#: mgradm/cmd/support/ptf/podman/utils.go:104
 #, javascript-format
 msgid "The computed hub XML-RPC API image is %s"
 msgstr "计算出的 Hub XML-RPC API 映像为 %s"

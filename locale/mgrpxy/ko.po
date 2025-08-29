@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 16:18+0200\n"
+"POT-Creation-Date: 2025-08-26 16:21+0200\n"
 "PO-Revision-Date: 2025-06-17 08:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/ko/>\n"
@@ -144,16 +144,24 @@ msgstr ""
 "\n"
 "참고: 현재 원격 podman에 설치하는 기능은 지원되지 않습니다.\n"
 
-#: mgrpxy/cmd/install/podman/utils.go:36 mgrpxy/shared/podman/podman.go:230
+#: mgrpxy/cmd/install/podman/utils.go:37
+#: mgrpxy/cmd/support/ptf/podman/utils.go:28 mgrpxy/shared/podman/podman.go:244
 msgid "install podman before running this command"
 msgstr "이 명령을 실행하기 전 podman 설치"
 
-#: mgrpxy/cmd/install/podman/utils.go:41
+#: mgrpxy/cmd/install/podman/utils.go:42
 #, javascript-format
 msgid "failed to extract proxy config from %s file"
 msgstr "%s 파일에서 프록시 구성을 추출하지 못함"
 
-#: mgrpxy/cmd/install/podman/utils.go:51 mgrpxy/shared/podman/podman.go:243
+#: mgrpxy/cmd/install/podman/utils.go:55 mgrpxy/shared/podman/podman.go:260
+#, fuzzy
+#| msgid "cannot generate systemd conf user configuration file"
+msgid "Unable to fetch up to date systemid, using one from the provided configuration file"
+msgstr "systemd conf 사용자 구성 파일을 생성할 수 없음"
+
+#: mgrpxy/cmd/install/podman/utils.go:61
+#: mgrpxy/cmd/support/ptf/podman/utils.go:45 mgrpxy/shared/podman/podman.go:266
 msgid "failed to login to registry.suse.com"
 msgstr "registry.suse.com에 로그인하지 못했습니다."
 
@@ -309,42 +317,43 @@ msgstr ""
 "\n"
 "참고: 현재 원격 podman에 설치하는 기능은 지원되지 않습니다!\n"
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:34
+#: mgrpxy/cmd/support/ptf/podman/utils.go:52 mgrpxy/shared/podman/podman.go:272
+msgid "cannot find httpd image: it will no be upgraded"
+msgstr "httpd 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:57 mgrpxy/shared/podman/podman.go:276
+msgid "cannot find salt-broker image: it will no be upgraded"
+msgstr "salt-broker 이미지를 찾을 수 없음 : 업그레이드되지 않습니다."
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:62 mgrpxy/shared/podman/podman.go:280
+msgid "cannot find squid image: it will no be upgraded"
+msgstr "squid 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:67 mgrpxy/shared/podman/podman.go:284
+msgid "cannot find ssh image: it will no be upgraded"
+msgstr "ssh 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:72 mgrpxy/shared/podman/podman.go:288
+msgid "cannot find tftpd image: it will no be upgraded"
+msgstr "tftpd 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:87
 msgid "ptf and test flags cannot be set simultaneously "
 msgstr "ptf와 테스트 플래그를 동시에 설정할 수 없음 "
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:37
+#: mgrpxy/cmd/support/ptf/podman/utils.go:90
 msgid "ptf and test flags cannot be empty simultaneously "
 msgstr "ptf와 테스트 플래그를 동시에 비워둘 수없음 "
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:40
+#: mgrpxy/cmd/support/ptf/podman/utils.go:93
 msgid "user flag cannot be empty"
 msgstr "사용자 플래그를 비워둘 수 없습니다."
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:56
-#, javascript-format
-msgid "The httpd ptf image computed is: %s"
-msgstr "계산된 httpd ptf 이미지: %s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:66
-#, javascript-format
-msgid "The ssh ptf image computed is: %s"
+#: mgrpxy/cmd/support/ptf/podman/utils.go:124
+#, fuzzy
+#| msgid "The ssh ptf image computed is: %s"
+msgid "The %[1]s ptf image computed is: %[2]s"
 msgstr "계산된 ssh ptf 이미지: %s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:76
-#, javascript-format
-msgid "The tftpd ptf image computed is: %s"
-msgstr "계산된 tftpd ptf 이미지: %s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:86
-#, javascript-format
-msgid "The salt-broker ptf image computed is: %s"
-msgstr "계산된 salt-broker ptf 이미지: %s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:96
-#, javascript-format
-msgid "The squid ptf image computed is: %s"
-msgstr "계산된 squid ptf 이미지: %s"
 
 #: mgrpxy/cmd/support/ptf/ptf.go:20
 msgid "Install a PTF"
@@ -370,37 +379,37 @@ msgstr "설치 제거된 항목이 없습니다. 실제로 설치를 제거하�
 msgid "Volumes have not been touched. Depending on the storage class used, they may not have been removed"
 msgstr "볼륨과 관련한 작업은 수행되지 않았습니다. 사용된 스토리지 클래스에 따라 제거되지 않았을 수 있습니다."
 
-#: mgrpxy/cmd/uninstall/podman.go:65
+#: mgrpxy/cmd/uninstall/podman.go:66
 #, javascript-format
 msgid "cannot delete volume %s"
 msgstr "%s 볼륨을 삭제할 수 없음"
 
-#: mgrpxy/cmd/uninstall/podman.go:68
+#: mgrpxy/cmd/uninstall/podman.go:69
 msgid "All volumes removed"
 msgstr "모든 볼륨 제거됨"
 
-#: mgrpxy/cmd/uninstall/podman.go:71
+#: mgrpxy/cmd/uninstall/podman.go:72
 msgid "Failed to delete /etc/uyuni/proxy folder"
 msgstr "/etc/uyuni/proxy 폴더 삭제 실패"
 
-#: mgrpxy/cmd/uninstall/podman.go:73
+#: mgrpxy/cmd/uninstall/podman.go:74
 msgid "/etc/uyuni/proxy folder removed"
 msgstr "/etc/uyuni/proxy 폴더 제거됨"
 
-#: mgrpxy/cmd/uninstall/podman.go:81
+#: mgrpxy/cmd/uninstall/podman.go:82
 #, javascript-format
 msgid "cannot delete image %s"
 msgstr "%s 이미지를 삭제할 수 없음"
 
-#: mgrpxy/cmd/uninstall/podman.go:85
+#: mgrpxy/cmd/uninstall/podman.go:86
 msgid "All images have been removed"
 msgstr "모든 이미지가 제거됨"
 
-#: mgrpxy/cmd/uninstall/podman.go:94
+#: mgrpxy/cmd/uninstall/podman.go:96
 msgid "Nothing has been uninstalled, run with --force and --purge-volumes to actually uninstall and clear data"
 msgstr "설치 제거된 항목이 없습니다. 실제로 설치를 제거하고 데이터를 정리하려면 --force 및 --purge-volumes를 실행하십시오."
 
-#: mgrpxy/cmd/uninstall/podman.go:97
+#: mgrpxy/cmd/uninstall/podman.go:99
 msgid "Data have been kept, use podman volume commands to clear the volumes"
 msgstr "데이터가 보관된 경우, podman volume 명령을 사용하여 볼륨을 지우십시오."
 
@@ -491,59 +500,47 @@ msgstr "%s 파일에 쓰지 못함"
 msgid "failed to scale replicas to 1"
 msgstr "복제본을 1로 배율 조정하지 못함"
 
-#: mgrpxy/shared/podman/podman.go:38
+#: mgrpxy/shared/podman/podman.go:48
 msgid "cannot setup network"
 msgstr "네트워크를 설정할 수 없음"
 
-#: mgrpxy/shared/podman/podman.go:43
+#: mgrpxy/shared/podman/podman.go:53
 msgid "Generating systemd services"
 msgstr "systemd 서비스 생성"
 
-#: mgrpxy/shared/podman/podman.go:144
+#: mgrpxy/shared/podman/podman.go:158
 #, javascript-format
 msgid "failed to generate systemd file '%s'"
 msgstr "systemd 파일 '%s' 생성 실패"
 
-#: mgrpxy/shared/podman/podman.go:150
+#: mgrpxy/shared/podman/podman.go:164
 msgid "cannot generate systemd conf file"
 msgstr "systemd conf 파일을 생성할 수 없음"
 
-#: mgrpxy/shared/podman/podman.go:156
+#: mgrpxy/shared/podman/podman.go:170
 msgid "cannot generate systemd conf user configuration file"
 msgstr "systemd conf 사용자 구성 파일을 생성할 수 없음"
 
-#: mgrpxy/shared/podman/podman.go:186
+#: mgrpxy/shared/podman/podman.go:200
 #, javascript-format
 msgid "Setting up proxy with configuration %s"
 msgstr "구성 %s(으)로 프록시 설정"
 
-#: mgrpxy/shared/podman/podman.go:205
+#: mgrpxy/shared/podman/podman.go:219
 msgid "/etc/uyuni/proxy directory has no read and write permissions for all users. Check your umask settings."
 msgstr "/etc/uyuni/proxy 디렉토리에는 모든 사용자에 대한 읽기 및 쓰기 권한이 없습니다. umask 설정을 확인하십시오."
 
-#: mgrpxy/shared/podman/podman.go:221
+#: mgrpxy/shared/podman/podman.go:235
 msgid "/etc/uyuni/proxy/config.yaml has no read permissions for all users. Check your umask settings."
 msgstr "/etc/uyuni/proxy/config.yaml에는 모든 사용자에 대한 읽기 권한이 없습니다. umask 설정을 확인하십시오."
 
-#: mgrpxy/shared/podman/podman.go:249
-msgid "cannot find httpd image: it will no be upgraded"
-msgstr "httpd 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
+#: mgrpxy/shared/podman/podman.go:357
+msgid "Not a system id event"
+msgstr ""
 
-#: mgrpxy/shared/podman/podman.go:253
-msgid "cannot find salt-broker image: it will no be upgraded"
-msgstr "salt-broker 이미지를 찾을 수 없음 : 업그레이드되지 않습니다."
-
-#: mgrpxy/shared/podman/podman.go:257
-msgid "cannot find squid image: it will no be upgraded"
-msgstr "squid 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
-
-#: mgrpxy/shared/podman/podman.go:261
-msgid "cannot find ssh image: it will no be upgraded"
-msgstr "ssh 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
-
-#: mgrpxy/shared/podman/podman.go:265
-msgid "cannot find tftpd image: it will no be upgraded"
-msgstr "tftpd 이미지를 찾을 수 없음: 업그레이드되지 않습니다."
+#: mgrpxy/shared/podman/podman.go:366
+msgid "System id not found in returned event"
+msgstr ""
 
 #: mgrpxy/shared/utils/cmd.go:17
 #, javascript-format
@@ -596,6 +593,22 @@ msgstr "%s 컨테이너용 이미지"
 #, javascript-format
 msgid "Tag for %s container, overrides the global value if set"
 msgstr "%s 컨테이너에 대한 태그, 설정된 경우 전역 값 재정의"
+
+#, javascript-format
+#~ msgid "The httpd ptf image computed is: %s"
+#~ msgstr "계산된 httpd ptf 이미지: %s"
+
+#, javascript-format
+#~ msgid "The tftpd ptf image computed is: %s"
+#~ msgstr "계산된 tftpd ptf 이미지: %s"
+
+#, javascript-format
+#~ msgid "The salt-broker ptf image computed is: %s"
+#~ msgstr "계산된 salt-broker ptf 이미지: %s"
+
+#, javascript-format
+#~ msgid "The squid ptf image computed is: %s"
+#~ msgstr "계산된 squid ptf 이미지: %s"
 
 #~ msgid "application log level"
 #~ msgstr "애플리케이션 로그 수준"
