@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 16:18+0200\n"
+"POT-Creation-Date: 2025-08-26 16:21+0200\n"
 "PO-Revision-Date: 2024-05-16 09:23+0000\n"
 "Last-Translator: Marina Latini <marina.latini@suse.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm/it/>\n"
@@ -1470,34 +1470,34 @@ msgid ""
 "NOTE: for now installing on a remote podman is not supported!\n"
 msgstr ""
 
-#: mgradm/cmd/support/ptf/podman/utils.go:54
+#: mgradm/cmd/support/ptf/podman/utils.go:55
 msgid "ptf and test flags cannot be set simultaneously "
 msgstr ""
 
-#: mgradm/cmd/support/ptf/podman/utils.go:57
+#: mgradm/cmd/support/ptf/podman/utils.go:58
 msgid "ptf and test flags cannot be empty simultaneously "
 msgstr ""
 
-#: mgradm/cmd/support/ptf/podman/utils.go:60
+#: mgradm/cmd/support/ptf/podman/utils.go:61
 msgid "user flag cannot be empty"
 msgstr ""
 
-#: mgradm/cmd/support/ptf/podman/utils.go:72
+#: mgradm/cmd/support/ptf/podman/utils.go:73
 #, fuzzy
 msgid "failed to find server image"
 msgstr "mancata identificazione dell'immagine: %s"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:81
+#: mgradm/cmd/support/ptf/podman/utils.go:82
 #, fuzzy, javascript-format
 msgid "The computed image is %s"
 msgstr "impossibile determinare l'URL dell'immagine: %s"
 
-#: mgradm/cmd/support/ptf/podman/utils.go:91
+#: mgradm/cmd/support/ptf/podman/utils.go:92
 #, javascript-format
 msgid "The computed confidential computing image is %s"
 msgstr ""
 
-#: mgradm/cmd/support/ptf/podman/utils.go:103
+#: mgradm/cmd/support/ptf/podman/utils.go:104
 #, javascript-format
 msgid "The computed hub XML-RPC API image is %s"
 msgstr ""

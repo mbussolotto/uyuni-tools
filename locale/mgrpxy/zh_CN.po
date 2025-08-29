@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 16:18+0200\n"
+"POT-Creation-Date: 2025-08-26 16:21+0200\n"
 "PO-Revision-Date: 2025-06-12 08:59+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgrpxy-5-0/zh_CN/>\n"
@@ -144,16 +144,24 @@ msgstr ""
 "\n"
 "注意：目前不支持在远程 podman 上安装！\n"
 
-#: mgrpxy/cmd/install/podman/utils.go:36 mgrpxy/shared/podman/podman.go:230
+#: mgrpxy/cmd/install/podman/utils.go:37
+#: mgrpxy/cmd/support/ptf/podman/utils.go:28 mgrpxy/shared/podman/podman.go:244
 msgid "install podman before running this command"
 msgstr "在运行此命令前安装 podman"
 
-#: mgrpxy/cmd/install/podman/utils.go:41
+#: mgrpxy/cmd/install/podman/utils.go:42
 #, javascript-format
 msgid "failed to extract proxy config from %s file"
 msgstr "无法从 %s 文件中提取代理配置"
 
-#: mgrpxy/cmd/install/podman/utils.go:51 mgrpxy/shared/podman/podman.go:243
+#: mgrpxy/cmd/install/podman/utils.go:55 mgrpxy/shared/podman/podman.go:260
+#, fuzzy
+#| msgid "cannot generate systemd conf user configuration file"
+msgid "Unable to fetch up to date systemid, using one from the provided configuration file"
+msgstr "无法生成 systemd conf 用户配置文件"
+
+#: mgrpxy/cmd/install/podman/utils.go:61
+#: mgrpxy/cmd/support/ptf/podman/utils.go:45 mgrpxy/shared/podman/podman.go:266
 msgid "failed to login to registry.suse.com"
 msgstr "无法登录 registry.suse.com"
 
@@ -308,42 +316,43 @@ msgstr ""
 "\n"
 "注意：目前不支持在远程 podman 上安装！\n"
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:34
+#: mgrpxy/cmd/support/ptf/podman/utils.go:52 mgrpxy/shared/podman/podman.go:272
+msgid "cannot find httpd image: it will no be upgraded"
+msgstr "找不到 httpd 映像：将不升级该映像"
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:57 mgrpxy/shared/podman/podman.go:276
+msgid "cannot find salt-broker image: it will no be upgraded"
+msgstr "找不到 salt-broker 映像：将不升级该映像"
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:62 mgrpxy/shared/podman/podman.go:280
+msgid "cannot find squid image: it will no be upgraded"
+msgstr "找不到 squid 映像：将不升级该映像"
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:67 mgrpxy/shared/podman/podman.go:284
+msgid "cannot find ssh image: it will no be upgraded"
+msgstr "找不到 ssh 映像：将不升级该映像"
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:72 mgrpxy/shared/podman/podman.go:288
+msgid "cannot find tftpd image: it will no be upgraded"
+msgstr "找不到 tftpd 映像：将不升级该映像"
+
+#: mgrpxy/cmd/support/ptf/podman/utils.go:87
 msgid "ptf and test flags cannot be set simultaneously "
 msgstr "不能同时设置 ptf 和 test 标志 "
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:37
+#: mgrpxy/cmd/support/ptf/podman/utils.go:90
 msgid "ptf and test flags cannot be empty simultaneously "
 msgstr "ptf 和 test 标志不能同时为空 "
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:40
+#: mgrpxy/cmd/support/ptf/podman/utils.go:93
 msgid "user flag cannot be empty"
 msgstr "user 标志不能为空"
 
-#: mgrpxy/cmd/support/ptf/podman/utils.go:56
-#, javascript-format
-msgid "The httpd ptf image computed is: %s"
-msgstr "计算出的 httpd ptf 映像为：%s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:66
-#, javascript-format
-msgid "The ssh ptf image computed is: %s"
+#: mgrpxy/cmd/support/ptf/podman/utils.go:124
+#, fuzzy
+#| msgid "The ssh ptf image computed is: %s"
+msgid "The %[1]s ptf image computed is: %[2]s"
 msgstr "计算出的 ssh ptf 映像为：%s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:76
-#, javascript-format
-msgid "The tftpd ptf image computed is: %s"
-msgstr "计算出的 tftpd ptf 映像为：%s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:86
-#, javascript-format
-msgid "The salt-broker ptf image computed is: %s"
-msgstr "计算出的 salt-broker ptf 映像为：%s"
-
-#: mgrpxy/cmd/support/ptf/podman/utils.go:96
-#, javascript-format
-msgid "The squid ptf image computed is: %s"
-msgstr "计算出的 squid ptf 映像为：%s"
 
 #: mgrpxy/cmd/support/ptf/ptf.go:20
 msgid "Install a PTF"
@@ -369,37 +378,37 @@ msgstr "尚未卸装任何内容，带 --force 选项运行可真正执行卸装
 msgid "Volumes have not been touched. Depending on the storage class used, they may not have been removed"
 msgstr "未更改任何卷。根据所用的存储类别，它们可能尚未去除"
 
-#: mgrpxy/cmd/uninstall/podman.go:65
+#: mgrpxy/cmd/uninstall/podman.go:66
 #, javascript-format
 msgid "cannot delete volume %s"
 msgstr "无法删除卷 %s"
 
-#: mgrpxy/cmd/uninstall/podman.go:68
+#: mgrpxy/cmd/uninstall/podman.go:69
 msgid "All volumes removed"
 msgstr "所有卷均已去除"
 
-#: mgrpxy/cmd/uninstall/podman.go:71
+#: mgrpxy/cmd/uninstall/podman.go:72
 msgid "Failed to delete /etc/uyuni/proxy folder"
 msgstr "无法删除 /etc/uyuni/proxy 文件夹"
 
-#: mgrpxy/cmd/uninstall/podman.go:73
+#: mgrpxy/cmd/uninstall/podman.go:74
 msgid "/etc/uyuni/proxy folder removed"
 msgstr "已去除 /etc/uyuni/proxy 文件夹"
 
-#: mgrpxy/cmd/uninstall/podman.go:81
+#: mgrpxy/cmd/uninstall/podman.go:82
 #, javascript-format
 msgid "cannot delete image %s"
 msgstr "无法删除映像 %s"
 
-#: mgrpxy/cmd/uninstall/podman.go:85
+#: mgrpxy/cmd/uninstall/podman.go:86
 msgid "All images have been removed"
 msgstr "所有映像均已去除"
 
-#: mgrpxy/cmd/uninstall/podman.go:94
+#: mgrpxy/cmd/uninstall/podman.go:96
 msgid "Nothing has been uninstalled, run with --force and --purge-volumes to actually uninstall and clear data"
 msgstr "尚未卸装任何内容，带 --force 和 --purge-volumes 选项运行可真正卸装并清除数据"
 
-#: mgrpxy/cmd/uninstall/podman.go:97
+#: mgrpxy/cmd/uninstall/podman.go:99
 msgid "Data have been kept, use podman volume commands to clear the volumes"
 msgstr "数据已保留，使用 podman 卷命令可清除卷"
 
@@ -490,59 +499,47 @@ msgstr "无法在文件 %s 中写入数据"
 msgid "failed to scale replicas to 1"
 msgstr "无法将复本数扩大到 1"
 
-#: mgrpxy/shared/podman/podman.go:38
+#: mgrpxy/shared/podman/podman.go:48
 msgid "cannot setup network"
 msgstr "无法设置网络"
 
-#: mgrpxy/shared/podman/podman.go:43
+#: mgrpxy/shared/podman/podman.go:53
 msgid "Generating systemd services"
 msgstr "正在生成 systemd 服务"
 
-#: mgrpxy/shared/podman/podman.go:144
+#: mgrpxy/shared/podman/podman.go:158
 #, javascript-format
 msgid "failed to generate systemd file '%s'"
 msgstr "无法生成 systemd 文件 '%s'"
 
-#: mgrpxy/shared/podman/podman.go:150
+#: mgrpxy/shared/podman/podman.go:164
 msgid "cannot generate systemd conf file"
 msgstr "无法生成 systemd 配置文件"
 
-#: mgrpxy/shared/podman/podman.go:156
+#: mgrpxy/shared/podman/podman.go:170
 msgid "cannot generate systemd conf user configuration file"
 msgstr "无法生成 systemd conf 用户配置文件"
 
-#: mgrpxy/shared/podman/podman.go:186
+#: mgrpxy/shared/podman/podman.go:200
 #, javascript-format
 msgid "Setting up proxy with configuration %s"
 msgstr "正在使用配置 %s 设置代理"
 
-#: mgrpxy/shared/podman/podman.go:205
+#: mgrpxy/shared/podman/podman.go:219
 msgid "/etc/uyuni/proxy directory has no read and write permissions for all users. Check your umask settings."
 msgstr "并非所有用户都具有 /etc/uyuni/proxy 目录的读写权限。请检查您的 umask 设置。"
 
-#: mgrpxy/shared/podman/podman.go:221
+#: mgrpxy/shared/podman/podman.go:235
 msgid "/etc/uyuni/proxy/config.yaml has no read permissions for all users. Check your umask settings."
 msgstr "并非所有用户都具有 /etc/uyuni/proxy/config.yaml 的读写权限。请检查您的 umask 设置。"
 
-#: mgrpxy/shared/podman/podman.go:249
-msgid "cannot find httpd image: it will no be upgraded"
-msgstr "找不到 httpd 映像：将不升级该映像"
+#: mgrpxy/shared/podman/podman.go:357
+msgid "Not a system id event"
+msgstr ""
 
-#: mgrpxy/shared/podman/podman.go:253
-msgid "cannot find salt-broker image: it will no be upgraded"
-msgstr "找不到 salt-broker 映像：将不升级该映像"
-
-#: mgrpxy/shared/podman/podman.go:257
-msgid "cannot find squid image: it will no be upgraded"
-msgstr "找不到 squid 映像：将不升级该映像"
-
-#: mgrpxy/shared/podman/podman.go:261
-msgid "cannot find ssh image: it will no be upgraded"
-msgstr "找不到 ssh 映像：将不升级该映像"
-
-#: mgrpxy/shared/podman/podman.go:265
-msgid "cannot find tftpd image: it will no be upgraded"
-msgstr "找不到 tftpd 映像：将不升级该映像"
+#: mgrpxy/shared/podman/podman.go:366
+msgid "System id not found in returned event"
+msgstr ""
 
 #: mgrpxy/shared/utils/cmd.go:17
 #, javascript-format
@@ -595,6 +592,22 @@ msgstr "%s 容器的映像"
 #, javascript-format
 msgid "Tag for %s container, overrides the global value if set"
 msgstr "%s 容器的标记，如果设置，将会覆盖全局值"
+
+#, javascript-format
+#~ msgid "The httpd ptf image computed is: %s"
+#~ msgstr "计算出的 httpd ptf 映像为：%s"
+
+#, javascript-format
+#~ msgid "The tftpd ptf image computed is: %s"
+#~ msgstr "计算出的 tftpd ptf 映像为：%s"
+
+#, javascript-format
+#~ msgid "The salt-broker ptf image computed is: %s"
+#~ msgstr "计算出的 salt-broker ptf 映像为：%s"
+
+#, javascript-format
+#~ msgid "The squid ptf image computed is: %s"
+#~ msgstr "计算出的 squid ptf 映像为：%s"
 
 #~ msgid "application log level"
 #~ msgstr "应用程序日志级别"

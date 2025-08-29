@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 16:18+0200\n"
+"POT-Creation-Date: 2025-08-26 16:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -543,11 +543,11 @@ msgstr ""
 msgid "cannot serialize pod definition override"
 msgstr ""
 
-#: shared/podman/hostinspector.go:50
+#: shared/podman/hostinspector.go:54
 msgid "failed to run inspect script in host system"
 msgstr ""
 
-#: shared/podman/hostinspector.go:55
+#: shared/podman/hostinspector.go:59
 msgid "cannot inspect host data"
 msgstr ""
 
@@ -1289,72 +1289,76 @@ msgstr ""
 msgid "A value is required"
 msgstr ""
 
-#: shared/utils/utils.go:209
+#: shared/utils/utils.go:218
 msgid "Registry %[1]s would be used instead of namespace %[2]s"
 msgstr ""
 
-#: shared/utils/utils.go:224 shared/utils/utils.go:250
+#: shared/utils/utils.go:233 shared/utils/utils.go:258
 #, javascript-format
 msgid "invalid image name: %s"
 msgstr ""
 
-#: shared/utils/utils.go:228
+#: shared/utils/utils.go:237
 #, javascript-format
 msgid "tag missing on %s"
 msgstr ""
 
-#: shared/utils/utils.go:236 shared/utils/utils.go:241
+#: shared/utils/utils.go:245 shared/utils/utils.go:250
 #, javascript-format
 msgid "Computed image name is %s"
 msgstr ""
 
-#: shared/utils/utils.go:260
+#: shared/utils/utils.go:264
+msgid "image path '%[1]s' does not start with registry path '%[2]s'"
+msgstr ""
+
+#: shared/utils/utils.go:275
 #, javascript-format
 msgid "Failed to run %s"
 msgstr ""
 
-#: shared/utils/utils.go:269
+#: shared/utils/utils.go:284
 msgid "Failed to read random data"
 msgstr ""
 
-#: shared/utils/utils.go:290
+#: shared/utils/utils.go:305
 #, javascript-format
 msgid "error downloading from %s"
 msgstr ""
 
-#: shared/utils/utils.go:296
+#: shared/utils/utils.go:311
 #, javascript-format
 msgid "bad status: %s"
 msgstr ""
 
-#: shared/utils/utils.go:398
+#: shared/utils/utils.go:413
 msgid "failed to compute server FQDN"
 msgstr ""
 
-#: shared/utils/utils.go:412
+#: shared/utils/utils.go:427
 #, javascript-format
 msgid "%s is not a valid FQDN"
 msgstr ""
 
-#: shared/utils/utils.go:416
+#: shared/utils/utils.go:431
 #, javascript-format
 msgid "cannot resolve %s"
 msgstr ""
 
-#: shared/utils/utils.go:433 shared/utils/utils.go:448
+#: shared/utils/utils.go:448 shared/utils/utils.go:463
 #, javascript-format
 msgid "Failed to calculate checksum of the file %s"
 msgstr ""
 
-#: shared/utils/utils.go:438
+#: shared/utils/utils.go:453
 msgid "Failed to write checksum of the file %[1]s to the %[2]s"
 msgstr ""
 
-#: shared/utils/utils.go:455
+#: shared/utils/utils.go:470
 msgid "Failed to read checksum of the file %[1]s"
 msgstr ""
 
-#: shared/utils/utils.go:459
+#: shared/utils/utils.go:474
 #, javascript-format
 msgid "Checksum of %s does not match"
 msgstr ""
