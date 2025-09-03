@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-26 16:21+0200\n"
-"PO-Revision-Date: 2025-08-02 09:46+0000\n"
+"PO-Revision-Date: 2025-09-03 10:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 5.13\n"
 
 #: shared/api/api.go:29
 msgid "FQDN of the server to connect to"
@@ -1380,7 +1380,7 @@ msgstr "El nom de la imatge calculada és %s"
 
 #: shared/utils/utils.go:264
 msgid "image path '%[1]s' does not start with registry path '%[2]s'"
-msgstr ""
+msgstr "El camí de la imatge %[1]s no comença amb la ruta del registre %[2]s"
 
 #: shared/utils/utils.go:275
 #, javascript-format
