@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-26 16:21+0200\n"
-"PO-Revision-Date: 2025-08-02 09:46+0000\n"
+"PO-Revision-Date: 2025-09-04 10:59+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 5.13\n"
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
@@ -1090,11 +1090,11 @@ msgstr "Banderes de certificat SSL"
 
 #: mgradm/cmd/install/shared/flags.go:183
 msgid "Intermediate CA certificate path"
-msgstr "Camí intermedi del certificat de la CA"
+msgstr "Camí intermedi del certificat de CA"
 
 #: mgradm/cmd/install/shared/flags.go:184
 msgid "Root CA certificate path"
-msgstr "Camí del certificat CA arrel"
+msgstr "Camí del certificat CA d'arrel"
 
 #: mgradm/cmd/install/shared/flags.go:185
 msgid "Server certificate path"
