@@ -20,21 +20,15 @@ ExecStart=/bin/sh -c '/usr/bin/podman run \
         --hostname uyuni-server.mgr.internal \
         --rm --cap-add NET_RAW --tmpfs /run -v cgroup:/sys/fs/cgroup:rw \
         -p 80:80 \
-        -p [::]:80:80 \
         -p 8003:8003 \
-        -p [::]:8003:8003 \
-        -p 4505:4505 \
-        -p [::]:4505:4505`: true,
+        -p 4505:4505`: true,
 		`[Service]
 ExecStart=/bin/sh -c '/usr/bin/podman run \
         --name uyuni-server \
         --hostname uyuni-server.mgr.internal \
         --rm --cap-add NET_RAW --tmpfs /run -v cgroup:/sys/fs/cgroup:rw \
         -p 80:80 \
-        -p [::]:80:80 \
-        -p [::]:8003:8003 \
-        -p 4505:4505 \
-        -p [::]:4505:4505`: false,
+        -p 4505:4505`: false,
 	}
 
 	for definition, expected := range data {
@@ -51,8 +45,7 @@ ExecStart=/bin/sh -c '/usr/bin/podman run \
         --hostname uyuni-server.mgr.internal \
         --rm --cap-add NET_RAW --tmpfs /run -v cgroup:/sys/fs/cgroup:rw \
         -p 80:80 \
-        -p 4505:4505 \
-        -p [::]:4505:4505`: "",
+        -p 4505:4505`: "",
 		`[Service]
 ExecStart=/bin/sh -c '/usr/bin/podman run \
         --name uyuni-server \
@@ -60,16 +53,14 @@ ExecStart=/bin/sh -c '/usr/bin/podman run \
         --rm --cap-add NET_RAW --tmpfs /run -v cgroup:/sys/fs/cgroup:rw \
 		-v   /path/to/mirror:/mirror \
         -p 80:80 \
-        -p 4505:4505 \
-        -p [::]:4505:4505`: "/path/to/mirror",
+        -p 4505:4505`: "/path/to/mirror",
 		`[Service]
 ExecStart=/bin/sh -c '/usr/bin/podman run \
         --name uyuni-server \
         --hostname uyuni-server.mgr.internal \
 		--rm --cap-add NET_RAW -v /path/to/mirror:/mirror --tmpfs /run -v cgroup:/sys/fs/cgroup:rw \
         -p 80:80 \
-        -p 4505:4505 \
-        -p [::]:4505:4505`: "/path/to/mirror",
+        -p 4505:4505`: "/path/to/mirror",
 	}
 
 	for definition, expected := range data {
