@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-26 16:21+0200\n"
-"PO-Revision-Date: 2025-09-03 16:59+0000\n"
+"PO-Revision-Date: 2025-09-09 17:59+0000\n"
 "Last-Translator: David D <dadu042@mailo.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-0/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1\n"
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
@@ -1169,7 +1169,7 @@ msgstr ""
 
 #: mgradm/cmd/install/shared/shared.go:68
 msgid "unable to prepare API client"
-msgstr ""
+msgstr "impossible de préparer le client API"
 
 #: mgradm/cmd/install/shared/shared.go:72
 msgid "Server organization already exists, reusing"

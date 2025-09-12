@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-26 16:21+0200\n"
-"PO-Revision-Date: 2025-08-25 09:59+0000\n"
+"PO-Revision-Date: 2025-09-09 17:59+0000\n"
 "Last-Translator: David D <dadu042@mailo.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared-5-0/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1\n"
 
 #: shared/api/api.go:29
 msgid "FQDN of the server to connect to"
@@ -36,11 +36,11 @@ msgstr ""
 
 #: shared/api/api.go:33
 msgid "If set, server certificate will not be checked for validity"
-msgstr ""
+msgstr "Si défini, le certificat du serveur ne sera pas vérifié pour la validité"
 
 #: shared/api/api.go:74
 msgid "401: unauthorized"
-msgstr ""
+msgstr "401 : non autorisé"
 
 #: shared/api/api.go:88
 #, javascript-format
@@ -56,34 +56,32 @@ msgid "Cached session is expired."
 msgstr "La session en cache a expiré."
 
 #: shared/api/api.go:154 shared/api/credentials.go:70
-#, fuzzy
 msgid "Failed to remove stored credentials!"
-msgstr "Impossible de supprimer le fichier %s"
+msgstr "Échec de la suppression des informations d’identification stockées !"
 
 #: shared/api/api.go:172
 msgid "Unable to create login data"
-msgstr ""
+msgstr "Échec de création des données de connexion"
 
 #: shared/api/api.go:202
 msgid "auth cookie not found in login response"
-msgstr ""
+msgstr "cookie d’auth non trouvé dans la réponse de connexion"
 
 #: shared/api/api.go:217
-#, fuzzy
 msgid "failed to logout from the server"
-msgstr "impossible de se connecter au serveur: %s"
+msgstr "impossible de se déconnecter du serveur"
 
 #: shared/api/api.go:238
 msgid "Unable to convert data to JSON"
-msgstr ""
+msgstr "Impossible de convertir données en JSON"
 
 #: shared/api/credentials.go:21
 msgid "not logged in, session cookie is missing"
-msgstr ""
+msgstr "non connecté, le cookie de session est manquant"
 
 #: shared/api/credentials.go:34
 msgid "unable to create credentials json"
-msgstr ""
+msgstr "impossible de créer des identifiants Json"
 
 #: shared/api/credentials.go:39
 #, fuzzy, javascript-format
@@ -92,32 +90,32 @@ msgstr "impossible d'écrire l'archive tar.gz vers %s: %s"
 
 #: shared/api/credentials.go:53
 msgid "API server URL"
-msgstr ""
+msgstr "URL du serveur API"
 
 #: shared/api/credentials.go:54
 msgid "API server user"
-msgstr ""
+msgstr "Utilisateur du serveur API"
 
 #: shared/api/credentials.go:55
 msgid "API server password"
-msgstr ""
+msgstr "Mot de passe du serveur API"
 
 #: shared/api/credentials.go:58
 msgid "No credentials provided"
-msgstr ""
+msgstr "Pas d’informations d’identification fournies"
 
 #: shared/api/credentials.go:68
 msgid "Cannot load stored credentials"
-msgstr ""
+msgstr "Impossible de charger les informations d’identification stockées"
 
 #: shared/api/credentials.go:83
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "unable to read credentials file %s"
-msgstr "Impossible de lire le fichier %s"
+msgstr "impossible de lire le fichier d’informations d’identification %s"
 
 #: shared/api/credentials.go:88
 msgid "unable to decode credentials file"
-msgstr ""
+msgstr "impossible de décoder le fichier d’informations d’identification"
 
 #: shared/api/credentials.go:92
 msgid "no credentials loaded"
@@ -125,30 +123,27 @@ msgstr ""
 
 #: shared/api/credentials.go:101
 msgid "specified api server does not match with stored credentials"
-msgstr ""
+msgstr "le serveur d'API spécifié ne correspond pas aux informations d’identification stockées"
 
 #: shared/api/org/createFirst.go:22
 msgid "unable to prepare API client"
-msgstr ""
+msgstr "impossible de préparer le client API"
 
 #: shared/api/org/createFirst.go:36
-#, fuzzy
 msgid "failed to create first user and organization"
-msgstr "impossible de créer les premiers utilisateur et organisation: %s"
+msgstr "impossible de créer premier utilisateur et organisation"
 
 #: shared/api/org/getDetails.go:24
-#, fuzzy
 msgid "failed to connect to the server"
-msgstr "impossible de se connecter au serveur: %s"
+msgstr "impossible de se connecter au serveur"
 
 #: shared/api/org/getDetails.go:28
-#, fuzzy
 msgid "failed to get organization details"
-msgstr "erreur d'analyse du fichier de configuration %s: %s"
+msgstr "échoué à obtenir les détails de l’organisation"
 
 #: shared/completion/completion.go:20 shared/completion/completion.go:21
 msgid "Generate shell completion script"
-msgstr ""
+msgstr "Générer un script de complétion du Shell"
 
 #: shared/completion/completion.go:30 shared/completion/completion.go:34
 #: shared/completion/completion.go:38
@@ -176,7 +171,7 @@ msgstr ""
 
 #: shared/connection.go:150
 msgid "coundn't find app name"
-msgstr ""
+msgstr "ne trouve pas le nom de l’application"
 
 #: shared/connection.go:157
 #, fuzzy
@@ -196,26 +191,25 @@ msgstr "erreur d'analyse de l'état du déploiement: %s"
 #: shared/connection.go:191
 #, javascript-format
 msgid "container %s is not running on podman"
-msgstr ""
+msgstr "container %s ne fonctionne pas sur Podman"
 
 #: shared/connection.go:200
 #, javascript-format
 msgid "container labeled %s is not running on kubectl"
-msgstr ""
+msgstr "conteneur étiqueté %s ne fonctionne pas sur Kubectl"
 
 #: shared/connection.go:215
 #, javascript-format
 msgid "%s command not executed:"
-msgstr ""
+msgstr "commande %s non exécutée :"
 
 #: shared/connection.go:227
-#, fuzzy
 msgid "failed to retrieve namespace "
-msgstr "Impossible de supprimer le fichier %s"
+msgstr "échec à récupérer l’espace de noms "
 
 #: shared/connection.go:267
 msgid "container didn't start within 10s."
-msgstr ""
+msgstr "container n’a pas démarré en moins de 10s."
 
 #: shared/connection.go:304
 msgid "server didn't start within 60s. Check for the service status"
@@ -224,7 +218,7 @@ msgstr ""
 #: shared/connection.go:344 shared/connection.go:386
 #, javascript-format
 msgid "unknown container kind: %s"
-msgstr ""
+msgstr "type de conteneur inconnu : %s"
 
 #: shared/connection.go:397
 msgid "Copying the SSL CA certificate to the host"
@@ -232,7 +226,7 @@ msgstr ""
 
 #: shared/connection.go:413
 msgid "Updating host trusted certificates"
-msgstr ""
+msgstr "Mise à jour des certificats approuvés par l’hôte"
 
 #: shared/connection.go:455 shared/connection.go:476
 msgid "failed to determine suitable backend"
@@ -305,7 +299,7 @@ msgstr ""
 #: shared/kubernetes/helm.go:79
 #, javascript-format
 msgid "Uninstalling %s"
-msgstr ""
+msgstr "Désinstallation %s"
 
 #: shared/kubernetes/helm.go:81
 #, fuzzy, javascript-format
@@ -322,7 +316,7 @@ msgstr "Erreur lors de l'écriture de la configuration Traefik pour K3s"
 
 #: shared/kubernetes/k3s.go:34
 msgid "Waiting for Traefik to be reloaded"
-msgstr ""
+msgstr "En attente que Traefik soit rechargé"
 
 #: shared/kubernetes/k3s.go:56
 #, javascript-format
@@ -358,7 +352,7 @@ msgstr ""
 #: shared/kubernetes/kubernetes.go:96
 #, javascript-format
 msgid "cannot stop %s"
-msgstr ""
+msgstr "ne peut pas stopper %s"
 
 #: shared/kubernetes/kubernetes.go:136
 #, fuzzy
