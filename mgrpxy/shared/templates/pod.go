@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 SUSE LLC
+// SPDX-FileCopyrightText: 2025 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -30,9 +30,6 @@ Before=uyuni-proxy-tftpd.service
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
-{{- if .HTTPProxyFile }}
-EnvironmentFile={{ .HTTPProxyFile }}
-{{- end }}
 Restart=on-failure
 ExecStartPre=/bin/rm -f %t/uyuni-proxy-pod.pid %t/uyuni-proxy-pod.pod-id
 
