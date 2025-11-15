@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-27 10:31+0100\n"
-"PO-Revision-Date: 2025-06-16 14:59+0000\n"
+"PO-Revision-Date: 2025-11-15 03:04+0000\n"
 "Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
-"Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm/ja/>\n"
+"Language-Team: Japanese <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-mgradm-5-1/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #: mgradm/cmd/backup/backup.go:28
 msgid "Create backup"
@@ -403,8 +403,7 @@ msgid "Unable to restore file details for %s"
 msgstr "%s のファイルの詳細を復元できません"
 
 #: mgradm/cmd/backup/restore/systemd_utils.go:74
-#, fuzzy, javascript-format
-#| msgid "Unable to create directory %s"
+#, javascript-format
 msgid "Unable to create directories for %s"
 msgstr "ディレクトリ %s を作成できません"
 
@@ -549,42 +548,6 @@ msgid "distribution treeinfo %s does not exists. Please provide distribution det
 msgstr "ディストリビューションツリー情報 %s が存在しません。ディストリビューションの詳細および/またはチャンネルラベルを提供してください"
 
 #: mgradm/cmd/distro/distro.go:40
-#, fuzzy
-#| msgid ""
-#| "Auto installation distribution product mapping.\n"
-#| "\n"
-#| "For distribution to be registered by the server it is important to map distribution to the correct software channel.\n"
-#| "\n"
-#| "Software channels can be named differently without any corellation to distribution name;\n"
-#| "it is then needed to allow custom distribution name to software channel mapping.\n"
-#| "\n"
-#| "One way to set software channel is by flag --channel to the distribution copy command.\n"
-#| "\n"
-#| "For frequent usage it is possible to write custom product mapping to the mgradm configuration file as follows:\n"
-#| "\n"
-#| "ProductMap:\n"
-#| "  <distribution name>:\n"
-#| "    <distribution version>:\n"
-#| "      <distribution architecture>:\n"
-#| "        ChannelLabel: <channel label>\n"
-#| "        InstallType: <one of rhel_7|rhel_8|rhel_9|sles12generic|sles15generic|generic_rpm>\n"
-#| "        TreeName: <custom distribution name>\n"
-#| "\n"
-#| "Where\n"
-#| "* <distribution name> is the name of the distribution, by default taken from '.treeinfo' file from the media.\n"
-#| "  If '.treeinfo' is not found or available, command line option is required and used.\n"
-#| "* <distribution version> is the version of the distribution, by default taken from '.treeinfo' file from the media.\n"
-#| "  If'.treeinfo' is not found, command line option is required and used.\n"
-#| "* <distribution architecture> is distribution architecture, by default taken from '.treeinfo' file from the media.\n"
-#| "  If '.treeinfo' is not found, command line option is required and used.\n"
-#| "* ChannelLabel is the channel label from Uyuni server and which is to be used for this distribution;\n"
-#| "  can be overridden by command line flag.\n"
-#| "* InstallType is used when installer is known (for autoyast or kickstart) or use 'generic_rpm'.\n"
-#| "* TreeName is how the distribution will be presented in the Uyuni server UI. If not set <distribution name> is used.\n"
-#| "\n"
-#| "Build-in product map:\n"
-#| "\n"
-#| "{{ .DefaultProductMap }}\n"
 msgid ""
 "Auto installation distribution product mapping.\n"
 "\n"
@@ -638,7 +601,7 @@ msgstr ""
 "      <ディストリビューションアーキテクチャ>:\n"
 "        ChannelLabel: <チャンネルラベル>\n"
 "        InstallType: <rhel_7|rhel_8|rhel_9|sles12generic|sles15generic|generic_rpmのいずれか>\n"
-"        TreeName: <カスタムディストリビューション名>\n"
+"        TreeLabel: <カスタムディストリビューション名>\n"
 "\n"
 "ここで\n"
 "* <ディストリビューション名> はディストリビューションの名前で、デフォルトではメディアの「.treeinfo」ファイルから取得されます。\n"
@@ -650,11 +613,11 @@ msgstr ""
 "* ChannelLabelはUyuniサーバからのチャンネルラベルで、このディストリビューションに使用され、\n"
 "  コマンドラインフラグで上書きできません。\n"
 "* InstallType は、インストーラが既知の場合 (autoyastやキックスタートの場合)、または「generic_rpm」を使用する場合に使用します。\n"
-"* TreeName は、UyuniサーバのUIでディストリビューションの表示方法を指定します。設定されていない場合は <ディストリビューション名> が使用されます。\n"
+"* TreeLabelは、UyuniサーバのUIでディストリビューションの表示方法を指定します。設定されていない場合は <ディストリビューション名> が使用されます。\n"
 "\n"
 "ビルトイン製品マップ:\n"
 "\n"
-"{{ .DefaultProductMap }}\n"
+"{{ .DefaultProductMapRender }}\n"
 
 #: mgradm/cmd/distro/distro.go:112
 msgid "Distributions management"
@@ -695,10 +658,8 @@ msgid "Set parent channel for the distribution."
 msgstr "ディストリビューションの親チャンネルを設定します。"
 
 #: mgradm/cmd/distro/distro.go:138
-#, fuzzy
-#| msgid "Help on using custom distribution product map"
 msgid "Show distribution product map"
-msgstr "カスタムディストリビューション製品マップの使用に関するヘルプ"
+msgstr "ディストリビューション製品マップを表示する"
 
 #: mgradm/cmd/distro/distro.go:150
 msgid "failed to compute config help command"
@@ -884,10 +845,9 @@ msgid "failed to find the image of the currently running db container"
 msgstr "現在実行中のdbコンテナのイメージが見つかりませんでした"
 
 #: mgradm/cmd/inspect/podman.go:83
-#, fuzzy, javascript-format
-#| msgid "failed to download %s"
+#, javascript-format
 msgid "failed to login to %s"
-msgstr "%s のダウンロードに失敗しました"
+msgstr "%s へのログインに失敗しました"
 
 #: mgradm/cmd/install/install.go:20 mgradm/cmd/install/install.go:21
 msgid "Install a new server"
@@ -1216,8 +1176,6 @@ msgstr ""
 "メモ: リモートpodmanへの移行はまだサポートされていません。\n"
 
 #: mgradm/cmd/migrate/shared/flags.go:15
-#, fuzzy
-#| msgid "Prepare the mgration - copy the data without stopping the source server."
 msgid "Prepare the migration - copy the data without stopping the source server."
 msgstr "移行の準備 - ソースサーバを停止せずにデータをコピーします。"
 
