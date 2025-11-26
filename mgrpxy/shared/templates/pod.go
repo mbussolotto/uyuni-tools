@@ -38,13 +38,11 @@ ExecStartPre=/bin/sh -c '/usr/bin/podman pod create --infra-conmon-pidfile %t/uy
 		--network {{ .Network }} \
         {{- range .Ports }}
         -p {{ .Exposed }}:{{ .Port }}{{ if .Protocol }}/{{ .Protocol }}{{ end }} \
-        {{- if $.IPV6Enabled }}
-	-p [::]:{{ .Exposed }}:{{ .Port }}{{if .Protocol}}/{{ .Protocol }}{{end}} \
-        {{- end }}
         {{- end }}
 		--replace ${PODMAN_EXTRA_ARGS}'
 
 ExecStart=/usr/bin/podman pod start --pod-id-file %t/uyuni-proxy-pod.pod-id
+
 ExecStop=/usr/bin/podman pod stop --ignore --pod-id-file %t/uyuni-proxy-pod.pod-id -t 10
 ExecStopPost=/usr/bin/podman pod rm --ignore -f --pod-id-file %t/uyuni-proxy-pod.pod-id
 
