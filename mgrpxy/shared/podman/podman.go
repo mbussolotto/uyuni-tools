@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 SUSE LLC
+// SPDX-FileCopyrightText: 2026 SUSE LLC
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -34,6 +34,11 @@ const (
 	defaultApacheConf     = "/etc/uyuni/proxy/apache.conf"
 	defaultSquidConf      = "/etc/uyuni/proxy/squid.conf"
 	defaultSSHConf        = "/etc/uyuni/proxy/ssh.conf"
+	ServiceHTTPd          = "uyuni-proxy-httpd"
+	ServiceSSH            = "uyuni-proxy-ssh"
+	ServiceSquid          = "uyuni-proxy-squid"
+	ServiceSaltBroker     = "uyuni-proxy-salt-broker"
+	ServiceTFTFd          = "uyuni-proxy-tftpd"
 )
 
 var contextRunner = shared_utils.NewRunnerWithContext
