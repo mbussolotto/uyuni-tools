@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-27 10:31+0100\n"
+"POT-Creation-Date: 2026-01-09 11:44+0100\n"
 "PO-Revision-Date: 2025-06-17 08:59+0000\n"
 "Last-Translator: Seeun Lee <selee@e4net.net>\n"
 "Language-Team: Korean <https://l10n.opensuse.org/projects/uyuni/uyuni-tools-shared/ko/>\n"
@@ -292,8 +292,8 @@ msgstr "%[2]s 네임스페이스에서 helm 차트 %[1]s을(를) 설치하지 �
 msgid "namespace is required"
 msgstr "네임스페이스는 필수입니다."
 
-#: shared/kubernetes/helm.go:77 shared/podman/images.go:346
-#: shared/podman/images.go:369 shared/podman/images.go:389
+#: shared/kubernetes/helm.go:77 shared/podman/images.go:373
+#: shared/podman/images.go:394 shared/podman/images.go:414
 #: shared/podman/network.go:108 shared/podman/secret.go:130
 #: shared/podman/systemd.go:248 shared/podman/systemd.go:326
 #: shared/podman/systemd.go:327 shared/podman/utils.go:188
@@ -625,128 +625,138 @@ msgstr "호스트 시스템에서 검사 스크립트를 실행할 수 없음"
 msgid "cannot inspect host data"
 msgstr "호스트 데이터를 검사할 수 없음"
 
-#: shared/podman/images.go:33
+#: shared/podman/images.go:37
+#, javascript-format
+msgid "Cannot prepare image %s because registry is missing"
+msgstr ""
+
+#: shared/podman/images.go:40
+#, javascript-format
+msgid "Cannot prepare image %s because tag is missing"
+msgstr ""
+
+#: shared/podman/images.go:44
 #, javascript-format
 msgid "Ensure image %s is available"
 msgstr "%s 이미지를 사용할 수 있는지 확인"
 
-#: shared/podman/images.go:47
+#: shared/podman/images.go:58
 msgid "Pull Policy is always. Presence of RPM image will be checked and pulled from registry if not present"
 msgstr "끌어오기 정책이 항상으로 지정되어 있습니다. RPM 이미지가 있는지 확인하여 이미지가 없는 경우 레지스트리에서 끌어옵니다."
 
-#: shared/podman/images.go:57
-#, javascript-format
-msgid "Cannot use RPM image for %s"
-msgstr "%s에 RPM 이미지를 사용할 수 없음"
-
-#: shared/podman/images.go:59
-msgid "Using the %[1]s image loaded from the RPM instead of its online version %[2]s"
-msgstr "온라인 버전 %[2]s 대신 RPM에서 로드한 %[1]s 이미지 사용"
-
-#: shared/podman/images.go:64
-#, javascript-format
-msgid "Cannot find RPM image for %s"
-msgstr "%s에 대한 RPM 이미지를 찾을 수 없습니다."
-
-#: shared/podman/images.go:76
+#: shared/podman/images.go:75
 #, javascript-format
 msgid "image %s is missing and cannot be fetched"
 msgstr "%s 이미지가 누락되어 가져올 수 없습니다."
 
-#: shared/podman/images.go:86
+#: shared/podman/images.go:82
+#, javascript-format
+msgid "Cannot find RPM image for %s"
+msgstr "%s에 대한 RPM 이미지를 찾을 수 없습니다."
+
+#: shared/podman/images.go:90
+#, javascript-format
+msgid "Cannot use RPM image for %s"
+msgstr "%s에 RPM 이미지를 사용할 수 없음"
+
+#: shared/podman/images.go:94
+msgid "Using the %[1]s image loaded from the RPM instead of its online version %[2]s"
+msgstr "온라인 버전 %[2]s 대신 RPM에서 로드한 %[1]s 이미지 사용"
+
+#: shared/podman/images.go:106
 msgid "failed to determine image"
 msgstr "이미지를 확인하지 못함"
 
-#: shared/podman/images.go:94
+#: shared/podman/images.go:114
 msgid "failed to find the image of the currently running server container"
 msgstr "현재 실행 중인 서버 컨테이너의 이미지를 찾지 못함"
 
-#: shared/podman/images.go:105
+#: shared/podman/images.go:125
 msgid "failed to determine pgsql image"
 msgstr "pgsql 이미지를 확인하지 못함"
 
-#: shared/podman/images.go:113
+#: shared/podman/images.go:133
 msgid "failed to find the image of the currently running db container"
 msgstr "현재 실행 중인 db 컨테이너의 이미지를 찾지 못함"
 
-#: shared/podman/images.go:138
+#: shared/podman/images.go:158
 #, javascript-format
 msgid "Cannot correctly parse image name '%s', local image cannot be used"
 msgstr "이미지 이름 '%s'을(를) 올바르게 파싱할 수 없습니다. 로컬 이미지를 사용할 수 없습니다."
 
-#: shared/podman/images.go:156
+#: shared/podman/images.go:176
 msgid "cannot unmarshal image RPM metadata"
 msgstr "이미지 RPM 메타데이터를 마샬링 해제할 수 없음"
 
-#: shared/podman/images.go:175
+#: shared/podman/images.go:195
 #, javascript-format
 msgid "skipping loading image from RPM as %s doesn't exist"
 msgstr "%s이(가) 존재하지 않으므로 RPM에서 이미지 로드 건너뛰기"
 
-#: shared/podman/images.go:205
+#: shared/podman/images.go:225
 #, javascript-format
 msgid "Cannot unmarshal metadata file %s"
 msgstr "%s 메타데이터 파일을 마샬링 해제할 수 없음"
 
-#: shared/podman/images.go:227
+#: shared/podman/images.go:247
 #, javascript-format
 msgid "error parsing: %s"
 msgstr "구문 분석 중 오류 발생: %s"
 
-#: shared/podman/images.go:235 shared/podman/images.go:249
-#: shared/podman/images.go:264
+#: shared/podman/images.go:255 shared/podman/images.go:269
+#: shared/podman/images.go:284
 #, javascript-format
 msgid "failed to check if image %s has already been pulled"
 msgstr "%s 이미지를 이미 끌어왔는지 확인하지 못했습니다."
 
-#: shared/podman/images.go:271
+#: shared/podman/images.go:291
 #, javascript-format
 msgid "%s should contains just lower case character, otherwise podman pull would fails"
 msgstr "%s에는 소문자만 포함되어야 하며, 그렇지 않으면 podman pull이 실패하게 됩니다."
 
-#: shared/podman/images.go:273
+#: shared/podman/images.go:293
 #, javascript-format
 msgid "Running podman pull %s"
 msgstr "실행 중 podman 끌어오기 %s"
 
-#: shared/podman/images.go:285
+#: shared/podman/images.go:305
 #, javascript-format
 msgid "Running podman image search --list-tags %s --format={{.Tag}}"
 msgstr "실행 중 podman 이미지 검색 --list-tags %s --format={{.Tag}}"
 
-#: shared/podman/images.go:299
+#: shared/podman/images.go:319
 #, javascript-format
 msgid "cannot find any tag for image %s"
 msgstr "%s 이미지에 대한 태그를 찾을 수 없음"
 
-#: shared/podman/images.go:313
+#: shared/podman/images.go:333
 #, javascript-format
 msgid "Running podman ps --filter=name=%s --format={{ .Image }}"
 msgstr "실행 중 podman ps --filter=name=%s --format={{ .Image }}"
 
-#: shared/podman/images.go:319
+#: shared/podman/images.go:339
 #, javascript-format
 msgid "cannot find any running image for container %s"
 msgstr "%s 컨테이너에 대한 실행 이미지를 찾을 수 없음"
 
-#: shared/podman/images.go:348 shared/podman/images.go:371
-#: shared/podman/images.go:391 shared/podman/utils.go:190
+#: shared/podman/images.go:375 shared/podman/images.go:396
+#: shared/podman/images.go:416 shared/podman/utils.go:190
 #: shared/podman/utils.go:224 shared/podman/utils.go:261
 #, javascript-format
 msgid "Run %s"
 msgstr "%s 실행"
 
-#: shared/podman/images.go:351
+#: shared/podman/images.go:378
 #, javascript-format
 msgid "Failed to remove image %s"
 msgstr "%s 이미지를 제거하지 못함"
 
-#: shared/podman/images.go:374
+#: shared/podman/images.go:399
 #, javascript-format
 msgid "Failed to export image %s"
 msgstr "%s 이미지를 내보내지 못함"
 
-#: shared/podman/images.go:394
+#: shared/podman/images.go:419
 #, javascript-format
 msgid "Failed to restore image %s"
 msgstr "%s 이미지를 복원하지 못함"
@@ -1223,7 +1233,11 @@ msgid "Failed to read certificate file %s"
 msgstr "인증서 파일 %s을(를) 읽지 못했습니다."
 
 #: shared/ssl/ssl.go:154
-msgid "Failed to extract data from certificate"
+#, fuzzy, javascript-format
+#| msgid "Failed to extract data from certificate"
+msgid ""
+"Failed to extract data from certificate:\n"
+"%s"
 msgstr "인증서에서 데이터를 추출하지 못했습니다."
 
 #: shared/ssl/ssl.go:175
@@ -1237,64 +1251,63 @@ msgid "Failed to parse end date: %s\n"
 msgstr "종료 날짜를 구문 분석하지 못함: %s\n"
 
 #: shared/ssl/ssl.go:228
-msgid "No CA found"
-msgstr "CA 없음"
+#, fuzzy
+#| msgid "SSL certificate state"
+msgid "no CA certificate found in the files"
+msgstr "SSL 인증서 시/도"
 
-#: shared/ssl/ssl.go:236
-msgid "No CA found for server certificate"
-msgstr "서버 인증서에 대한 CA를 찾을 수 없습니다."
+#: shared/ssl/ssl.go:237 shared/ssl/ssl.go:250
+msgid ""
+"please check the CA chain, including intermediate CA certificates provided.\n"
+"The chain is missing the CA with subject %[1]s (hash: %[2]s)"
+msgstr ""
 
-#: shared/ssl/ssl.go:245
-#, javascript-format
-msgid "Missing CA with subject hash %s"
-msgstr "제목 해시 %s에 CA가 누락됨"
-
-#: shared/ssl/ssl.go:272
+#: shared/ssl/ssl.go:280
 msgid "server certificate is required"
 msgstr "서버 인증서 필수"
 
-#: shared/ssl/ssl.go:275 shared/ssl/ssl.go:340
+#: shared/ssl/ssl.go:283 shared/ssl/ssl.go:348
 msgid "server key is required"
 msgstr "서버 키 필수"
 
-#: shared/ssl/ssl.go:290
+#: shared/ssl/ssl.go:298
 #, javascript-format
 msgid "%s file is not accessible"
 msgstr "%s 파일에 액세스할 수 없음"
 
-#: shared/ssl/ssl.go:299
+#: shared/ssl/ssl.go:307
 msgid "Source server SSL CA private key password"
 msgstr "소스 서버 SSL CA 개인 키 암호"
 
-#: shared/ssl/ssl.go:305
+#: shared/ssl/ssl.go:313
 msgid "Failed to open openssl rsa process input stream"
 msgstr "openssl rsa 프로세스 입력 스트림을 열지 못함"
 
-#: shared/ssl/ssl.go:308
+#: shared/ssl/ssl.go:316
 msgid "Failed to write openssl key content to input stream"
 msgstr "입력 스트림에 openssl 키 내용 쓰기 실패"
 
-#: shared/ssl/ssl.go:314
+#: shared/ssl/ssl.go:322
 msgid "Failed to convert CA private key to RSA"
 msgstr "CA 개인 키를 RSA로 변환하지 못했습니다."
 
-#: shared/ssl/ssl.go:324
+#: shared/ssl/ssl.go:332
 msgid "Failed to open openssl x509 process input stream"
 msgstr "openssl x509 프로세스 입력 스트림을 열지 못함"
 
-#: shared/ssl/ssl.go:327
+#: shared/ssl/ssl.go:335
 msgid "Failed to write SSL certificate to input stream"
 msgstr "SSL 인증서를 입력 스트림에 쓰기 실패"
 
-#: shared/ssl/ssl.go:331
+#: shared/ssl/ssl.go:339
 msgid "failed to strip text part from CA certificate"
 msgstr "CA 인증서에서 텍스트 부분 스트리핑 실패"
 
-#: shared/ssl/ssl.go:346
+#: shared/ssl/ssl.go:354
 msgid "Invalid SSL key, it is probably encrypted"
 msgstr "유효하지 않은 SSL 키, 암호화되었을 수 있습니다."
 
-#: shared/ssl/ssl.go:365
+#: shared/ssl/ssl.go:373
 #, fuzzy, javascript-format
 #| msgid "failed to write in %s"
 msgid "failed to validate hostname %s"
@@ -1599,7 +1612,18 @@ msgstr "구성을 읽을 수 없음"
 msgid "failed to unmarshal the inspected data"
 msgstr "검사 데이터의 마샬링 취소 실패"
 
-#: shared/utils/logUtils.go:97
+#: shared/utils/logUtils.go:69
+#, fuzzy
+#| msgid "failed to get the %s pod logs"
+msgid "failed to decode message to log"
+msgstr "%s 포드 로그를 가져오지 못함"
+
+#: shared/utils/logUtils.go:77
+#, fuzzy
+msgid "failed to encode log event"
+msgstr "%s 서비스 비활성화 실패"
+
+#: shared/utils/logUtils.go:108
 msgid "Couldn't open %[1]s file for writing, writing log to %[2]s"
 msgstr "%[1]s 파일을 쓰기용으로 열 수 없음, %[2]s에 로그 기록 중"
 
@@ -1703,69 +1727,69 @@ msgstr "%s에 태그 누락"
 msgid "Computed image name is %s"
 msgstr "계산된 이미지 이름: %s"
 
-#: shared/utils/utils.go:254
+#: shared/utils/utils.go:266
 msgid "image path '%[1]s' does not start with registry path '%[2]s'"
 msgstr ""
 
-#: shared/utils/utils.go:265
+#: shared/utils/utils.go:276
 #, javascript-format
 msgid "Failed to run %s"
 msgstr "%s 실행 실패"
 
-#: shared/utils/utils.go:274
+#: shared/utils/utils.go:285
 msgid "Failed to read random data"
 msgstr "임의 데이터 읽기 실패"
 
-#: shared/utils/utils.go:295
+#: shared/utils/utils.go:306
 #, javascript-format
 msgid "error downloading from %s"
 msgstr "%s에서 다운로드하지 못함"
 
-#: shared/utils/utils.go:301
+#: shared/utils/utils.go:312
 #, javascript-format
 msgid "bad status: %s"
 msgstr "잘못된 상태: %s"
 
-#: shared/utils/utils.go:414
+#: shared/utils/utils.go:425
 msgid "failed to compute server FQDN"
 msgstr "서버 FQDN 계산 실패"
 
-#: shared/utils/utils.go:428
+#: shared/utils/utils.go:439
 #, javascript-format
 msgid "%s is not a valid FQDN"
 msgstr "%s은(는) 유효한 FQDN이 아닙니다."
 
-#: shared/utils/utils.go:432
+#: shared/utils/utils.go:443
 #, javascript-format
 msgid "cannot resolve %s"
 msgstr "%s 해결 불가"
 
-#: shared/utils/utils.go:463
+#: shared/utils/utils.go:474
 #, javascript-format
 msgid "error creating file %s"
 msgstr "%s 파일 생성 오류"
 
-#: shared/utils/utils.go:468
+#: shared/utils/utils.go:479
 #, javascript-format
 msgid "error writing file %s"
 msgstr "%s 파일 쓰기 오류"
 
-#: shared/utils/utils.go:480 shared/utils/utils.go:495
+#: shared/utils/utils.go:491 shared/utils/utils.go:506
 #, javascript-format
 msgid "Failed to calculate checksum of the file %s"
 msgstr "파일 %s의 체크섬을 계산하지 못함"
 
-#: shared/utils/utils.go:485
+#: shared/utils/utils.go:496
 msgid "Failed to write checksum of the file %[1]s to the %[2]s"
 msgstr "%[1] 파일의 체크섬을 %[2]에 쓰지 못함"
 
-#: shared/utils/utils.go:502
+#: shared/utils/utils.go:513
 #, fuzzy
 #| msgid "Failed to calculate checksum of the file %s"
 msgid "Failed to read checksum of the file %[1]s"
 msgstr "파일 %s의 체크섬을 계산하지 못함"
 
-#: shared/utils/utils.go:506
+#: shared/utils/utils.go:517
 #, javascript-format
 msgid "Checksum of %s does not match"
 msgstr "%s의 체크섬이 일치하지 않음"
@@ -1793,6 +1817,16 @@ msgstr "Saline"
 #: shared/utils/uyuniservices.go:46
 msgid "Database"
 msgstr "데이터베이스"
+
+#~ msgid "No CA found"
+#~ msgstr "CA 없음"
+
+#~ msgid "No CA found for server certificate"
+#~ msgstr "서버 인증서에 대한 CA를 찾을 수 없습니다."
+
+#, javascript-format
+#~ msgid "Missing CA with subject hash %s"
+#~ msgstr "제목 해시 %s에 CA가 누락됨"
 
 #~ msgid "failed to unmarshall configuration"
 #~ msgstr "구성을 마샬링 해제하지 못했습니다."
@@ -1843,10 +1877,6 @@ msgstr "데이터베이스"
 #, fuzzy, javascript-format
 #~ msgid "failed to write %s secret definition file"
 #~ msgstr "%s 파일 쓰기 실패"
-
-#, fuzzy, javascript-format
-#~ msgid "failed to define %s secret"
-#~ msgstr "%s 서비스 비활성화 실패"
 
 #~ msgid "failed to pull image"
 #~ msgstr "이미지 끌어오기 실패"
