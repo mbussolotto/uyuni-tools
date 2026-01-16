@@ -63,13 +63,13 @@ func GetSetupJob(
 
 	template := getServerPodTemplate(image, pullPolicy, flags.TZ, pullSecret)
 
-	script, err := adm_utils.GenerateSetupScript(flags, true)
-	if err != nil {
-		return nil, err
-	}
+	//script, err := adm_utils.GenerateSetupScript(flags, true)
+	//if err != nil {
+	//	return nil, err
+	//}
 
 	template.Spec.Containers[0].Name = "setup"
-	template.Spec.Containers[0].Command = []string{"sh", "-c", script}
+	//template.Spec.Containers[0].Command = []string{"sh", "-c", script}
 	template.Spec.RestartPolicy = core.RestartPolicyNever
 
 	optional := false
