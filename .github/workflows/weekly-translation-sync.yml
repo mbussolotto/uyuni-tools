@@ -1,0 +1,198 @@
+# SPDX-FileCopyrightText: 2024 SUSE LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Weekly Translation Sync
+
+on:
+  schedule:
+    - cron: '0 8 * * 5'
+  workflow_dispatch:
+
+jobs:
+  sync-translations:
+    runs-on: ubuntu-latest
+    permissions:
+      # All write operations (push to upstream repo, create PRs) use the GH_TOKEN PAT secret,
+      # not GITHUB_TOKEN, so contents:read is appropriate here.
+      contents: read
+
+    steps:
+      - name: Lock Weblate
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Token ${{ secrets.WEBLATE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"lock": true}' \
+            https://l10n.opensuse.org/api/components/uyuni/uyuni-tools/lock/
+
+      - name: Commit pending Weblate translations
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Token ${{ secrets.WEBLATE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"operation": "commit"}' \
+            https://l10n.opensuse.org/api/components/uyuni/uyuni-tools/repository/
+
+      - name: Push pending Weblate translations
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Token ${{ secrets.WEBLATE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"operation": "push"}' \
+            https://l10n.opensuse.org/api/components/uyuni/uyuni-tools/repository/
+
+      - name: Install required tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y gettext
+
+      - name: Clone upstream uyuni-project/uyuni-tools
+        run: |
+          git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/uyuni-project/uyuni-tools.git upstream
+          cd upstream
+          git checkout weblate-main
+
+      - name: Clone Weblate git repository
+        run: |
+          git clone https://l10n.opensuse.org/git/uyuni/uyuni-tools/ weblate-repo
+          cd weblate-repo
+          git checkout weblate-main
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge main into weblate-main
+        id: merge
+        working-directory: upstream
+        run: |
+          git fetch origin main
+          if ! git merge origin/main --no-edit; then
+            echo "merge_had_conflicts=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "merge_had_conflicts=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Resolve .po conflicts automatically
+        working-directory: upstream
+        run: |
+          CONFLICT_FILES=$(git diff --name-only --diff-filter=U)
+          if [ -z "$CONFLICT_FILES" ]; then
+            echo "No conflicts to resolve."
+            exit 0
+          fi
+
+          NON_PO_CONFLICTS=""
+          for TR in $CONFLICT_FILES; do
+            case "$TR" in
+            *.po)
+              LNG=$(basename "$TR")
+              LNG="${LNG%.po}"
+              TR_DIR=$(dirname "$TR")
+              TRT=""
+              for POT in "${TR_DIR}"/*.pot; do
+                TRT="$POT"
+              done
+              if [ -z "$TRT" ]; then
+                echo "ERROR: No .pot file found in ${TR_DIR} for ${TR}"
+                exit 1
+              fi
+              # Weblate version takes precedence
+              msgcat --use-first "../weblate-repo/${TR}" "$TR" -o "${TR}.merge"
+              msgmerge --previous --lang="${LNG}" "${TR}.merge" "$TRT" -o "$TR"
+              rm "${TR}.merge"
+              git add "$TR"
+              ;;
+            *)
+              NON_PO_CONFLICTS="${NON_PO_CONFLICTS} ${TR}"
+              ;;
+            esac
+          done
+
+          if [ -n "$NON_PO_CONFLICTS" ]; then
+            echo "ERROR: Non-.po conflicts detected that require manual resolution:"
+            for f in $NON_PO_CONFLICTS; do
+              echo "  $f"
+            done
+            exit 1
+          fi
+
+          # Commit the resolved conflicts if any
+          if ! git diff --cached --quiet; then
+            git commit -m "Resolve .po translation merge conflicts"
+          fi
+
+      - name: Run extract_strings
+        working-directory: upstream
+        run: |
+          chmod +x ./extract_strings
+          ./extract_strings
+
+      - name: Push changes to weblate-main
+        working-directory: upstream
+        run: |
+          COMMITS_TO_PUSH=$(git rev-list origin/weblate-main..HEAD --count)
+          if [ "$COMMITS_TO_PUSH" -eq 0 ]; then
+            echo "No commits to push."
+          else
+            git push origin weblate-main
+          fi
+
+      - name: Create PR against main
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          EXISTING_PR=$(gh pr list \
+            --repo uyuni-project/uyuni-tools \
+            --head weblate-main \
+            --base main \
+            --json number \
+            --jq '.[0]?.number // empty' 2>/dev/null || echo "")
+
+          if [ -n "$EXISTING_PR" ]; then
+            echo "PR #${EXISTING_PR} already exists for weblate-main -> main, skipping creation."
+          else
+            PR_BODY='## What does this PR change?
+
+          Translation updates
+
+          ## Changelogs
+
+          Make sure the changelogs entries you are adding are compliant with https://github.com/uyuni-project/uyuni/wiki/Contributing#changelogs and https://github.com/uyuni-project/uyuni/wiki/Contributing#uyuni-projectuyuni-repository
+
+          If you don'"'"'t need a changelog check, please mark this checkbox:
+
+          - [X] No changelog needed
+
+          If you uncheck the checkbox after the PR is created, you will need to re-run `changelog_test` (see below)
+
+          # Before you merge
+
+          Check [How to branch and merge properly](https://github.com/uyuni-project/uyuni/wiki/How-to-branch-and-merge-properly)!'
+
+            PR_NUMBER=$(gh pr create \
+              --repo uyuni-project/uyuni-tools \
+              --head weblate-main \
+              --base main \
+              --title "Translation updates" \
+              --body "$PR_BODY" \
+              --json number \
+              --jq '.number')
+
+            echo "PR #${PR_NUMBER} created."
+
+            gh pr edit "$PR_NUMBER" \
+              --repo uyuni-project/uyuni-tools \
+              --add-reviewer mbussolotto
+          fi
+
+      - name: Unlock Weblate
+        if: always()
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Token ${{ secrets.WEBLATE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"lock": false}' \
+            https://l10n.opensuse.org/api/components/uyuni/uyuni-tools/lock/
